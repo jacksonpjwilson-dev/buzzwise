@@ -18,26 +18,50 @@ server.listen(0, async () => {
       ok(!seen(H, g0.word) && Object.values(P).every(s => !seen(s, g0.word)), 'no word sent to anyone before Start');
       ok((await call(P[g0.giver], 'player:judge', { correct: true })).error, 'giver cannot act before Start');
       await call(H, 'host:go'); await wait(40);
-      const w = room.turn.word, giver = room.turn.giver, guesser = room.turn.guesser;
-      ok(P[giver].state.word === w && P[giver].state.role === 'giver', 'clue-giver phone gets the word');
-      ok(!seen(H, w) && !seen(P[guesser], w) && Object.entries(P).filter(([n]) => n !== giver).every(([, s]) => !seen(s, w)), 'word never reaches the shared screen, guesser or others');
-      await call(P[giver], 'player:clue'); await call(P[giver], 'player:clue'); await wait(30);
-      ok(H.state.turn.value === 8, 'value drops per clue: 10 → 9 → 8');
-      ok((await call(P[guesser], 'player:judge', { correct: true })).error, 'guesser cannot mark Correct');
-      await call(P[giver], 'player:judge', { correct: true }); await wait(30);
-      const ti = room.teams.findIndex(t => t.members.includes(giver));
-      ok(room.teams[ti].score === 8 && room.players[giver].score === 8 && room.players[guesser].score === 8, 'Correct scores 8 for both teammates');
-      ok(H.state.phase === 'getready', 'Get ready before the next word');
-      await call(H, 'host:go'); await wait(20); ok(room.turn.team !== ti, 'turn passes to the other team');
-      await call(P[room.turn.giver], 'player:judge', { correct: false }); await wait(20); await call(H, 'host:go'); await wait(20);
-      ok(room.turn.team === ti && room.turn.giver === guesser && room.turn.guesser === giver, 'roles swap on the team\'s next word');
+      const T = () => room.turn, w = T().word, [gA, gB] = T().givers, [qA, qB] = T().guessers, A = T().starter, B = 1 - A;
+      ok(gA !== gB && P[gA].state.word === w && P[gB].state.word === w && P[gA].state.role === 'giver' && P[gB].state.role === 'giver', 'BOTH teams\' clue-givers get the same word at the same time');
+      const notYet = () => !seen(H, w) && !seen(P[qA], w) && !seen(P[qB], w);
+      ok(notYet(), 'the shared screen and both guessers never get the word');
+      ok(H.state.turn.team === A && H.state.turn.value === 10 && H.state.main.clues === 0, 'shared screen: starting team, worth 10, 0 clues');
+      const act = () => P[T().givers[T().team]], idle = () => P[T().givers[1 - T().team]];
+      ok(P[T().givers[A]].state.myTurn === true && P[T().givers[B]].state.myTurn === false, 'active giver vs waiting giver phones');
+      ok((await call(idle(), 'player:clue')).error && (await call(idle(), 'player:judge', { correct: true })).error, 'the waiting team\'s giver cannot act');
+      ok((await call(P[T().guessers[A]], 'player:judge', { correct: true })).error, 'guessers cannot mark Correct');
+      await call(act(), 'player:clue'); await wait(20);
+      ok(H.state.main.clues === 1 && H.state.turn.value === 10 && H.state.main.given, 'clue 1 is worth 10');
+      ok((await call(act(), 'player:clue')).error, 'only one clue per turn');
+      await call(act(), 'player:judge', { correct: false }); await wait(20);
+      ok(T().team === B && H.state.turn.team === B && H.state.turn.value === 9, 'wrong -> other team\'s turn, now worth 9');
+      await call(act(), 'player:clue'); await call(act(), 'player:judge', { correct: false }); await wait(20);
+      ok(T().team === A && H.state.turn.value === 8 && H.state.main.clues === 2, 'turns alternate A → B → A; value 10 → 9 → 8 across both teams');
+      ok(notYet(), 'still hidden from the shared screen and guessers mid-word');
+      await call(act(), 'player:clue'); await call(act(), 'player:judge', { correct: true }); await wait(30);
+      ok(room.teams[A].score === 8 && room.teams[B].score === 0 && room.players[T().givers[A]].score === 8, 'first correct team wins the current value (8); other team gets nothing');
+      ok(H.state.phase === 'reveal' && H.state.main.word === w && P[qA].state.word === w && P[qB].state.word === w, 'after it is solved the word is revealed on the shared screen and to everyone');
+      await call(H, 'host:next'); await wait(20); ok(H.state.phase === 'getready' && !seen(H, room.turn.word), 'Get ready before the next word; next word hidden');
+      await call(H, 'host:go'); await wait(20);
+      ok(T().starter === B && T().team === B, 'the other team starts the next word');
+      ok(T().givers[A] === qA && T().guessers[A] === gA && T().givers[B] === qB, 'giver / guesser roles rotate within each team');
+      for (let i = 0; i < 10; i++) { await call(act(), 'player:clue'); await call(act(), 'player:judge', { correct: false }); } await wait(20);
+      ok(room.phase === 'reveal' && room.teams[A].score === 8 && room.teams[B].score === 0 && room.last.points === 0, 'value hits 0 after 10 clues: nobody scores, word revealed');
       ok((await call(H, 'host:judge', { correct: true })).error, 'player-host screen cannot judge');
-      while (room.phase === 'turn' || room.phase === 'getready') { if (room.getReady) await call(H, 'host:go'); else await call(P[room.turn.giver], 'player:judge', { correct: false }); }
-      ok(room.phase === 'lightningReady' && !P[room.turn.giver].state.word, 'lightning round: ready, word not sent until the clock starts');
+      await call(H, 'host:next');
+      while (room.phase === 'turn' || room.phase === 'getready' || room.phase === 'reveal') { if (room.getReady) await call(H, 'host:go'); else if (room.phase === 'reveal') await call(H, 'host:next'); else await call(H, 'host:skip'); }
+      await wait(40); ok(room.phase === 'lightningReady' && !P[room.turn.giver].state.word, 'lightning round: ready, word not sent until the clock starts');
       await call(H, 'host:lightningGo'); await wait(20); const lw = room.turn.word; ok(P[room.turn.giver].state.word === lw && !seen(H, lw), 'lightning word only on giver phone');
       const lt = room.turn.team, before = room.teams[lt].score; await call(P[room.turn.giver], 'player:judge', { correct: true }); await call(P[room.turn.giver], 'player:judge', { correct: true }); await wait(20);
       ok(room.teams[lt].score === before + 20 && room.turn.got === 2, 'lightning: +10 per correct word');
       await wait(450); ok(room.phase === 'gameOver', 'lightning clock ends the game');
+      [H, ...Object.values(P)].forEach(s => s.disconnect()); }
+    { const H = mk('/pw'), P = {}; const { code } = await call(H, 'host:create');
+      await call(H, 'host:mode', { mode: 'dedicated' });
+      for (const n of ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']) { P[n] = mk('/pw'); await call(P[n], 'player:join', { code, name: n, pid: n }); }
+      await call(H, 'host:start'); await call(H, 'host:go'); await wait(30); const room = pw.rooms[code], t = room.turn, order = [];
+      ok(t.givers.length === 3 && t.givers.every(g => P[g].state.word === t.word) && t.guessers.every(q => !seen(P[q], t.word)), '3 teams: all three givers get the word, no guesser does');
+      for (let i = 0; i < 4; i++) { order.push(room.turn.team); await call(P[room.turn.giver], 'player:judge', { correct: false }); }
+      await wait(30); ok(order.join() === '0,1,2,0' && H.state.turn.value === 6, 'round-robin turns across 3 teams (0 → 1 → 2 → 0), value 6 after 4 clues');
+      await call(H, 'host:clue'); await call(H, 'host:judge', { correct: true }); await wait(20);
+      ok(room.teams[1].score === 6 && room.phase === 'reveal', 'dedicated referee: Gave clue + Correct scores the active team');
       [H, ...Object.values(P)].forEach(s => s.disconnect()); }
     // ---------------- CARDS AGAINST EVERYONE ----------------
     console.log('Cards Against Everyone');

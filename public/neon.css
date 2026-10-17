@@ -131,3 +131,12 @@ body.neon{background-color:#07020f;background-image:radial-gradient(1200px 700px
 /* phone header: keep the game name on one line */
 .neon.r-play .bar .logo{font-size:clamp(14px,4.2vw,22px);line-height:1.1;min-width:0;flex:1 1 auto}.neon .logo .mark{flex:none}
 .neon.r-play .bar{gap:10px}.neon.r-play .bar>div{flex:none}
+/* Password head-to-head */
+.neon .pw-turn{text-align:center;font-family:var(--disp);font-size:clamp(26px,3.4vw,48px);color:#fff;text-shadow:0 0 8px #fff,0 0 24px var(--ac);margin-top:8px}
+.neon .pw-teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px}
+.neon .pw-team{background:#1d0b3d;border:2px solid #ffffff1a;border-radius:14px;padding:12px 14px;display:grid;gap:4px;text-align:center}
+.neon .pw-team b{font-size:18px}.neon .pw-team span{color:var(--muted);font-size:14px}
+.neon .pw-team.on{border-color:var(--ac);box-shadow:0 0 24px color-mix(in srgb,var(--ac) 60%,transparent)}
+.neon .pw-team.won{border-color:#2bff88;box-shadow:0 0 24px #2bff8877}
+.neon .pw-reveal{font-size:clamp(48px,7vw,96px);animation:pop .5s ease}
+@media (min-width:1600px){.neon.r-host .pw-value{font-size:110px}}
