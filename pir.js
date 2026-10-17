@@ -1,6 +1,6 @@
 // Buzzwise: The Price Is Right mode (socket.io namespace /pir)
 // Prices are NEVER sent to any client until revealed, so the host can play too.
-const fs = require('fs'), path = require('path');
+const fs = require('fs'), path = require('path'); const GR = require('./lib/getready');
 const EXACT_BONUS = 500, SHOWCASE_RANGE = 250;
 const CLOCK_SECS = () => +(process.env.PIR_CLOCK_SECS || 30);
 const SHOWDOWN_WHEEL = [100, 15, 80, 35, 60, 20, 40, 75, 55, 95, 50, 85, 30, 65, 10, 45, 70, 25, 90, 5];
@@ -52,6 +52,7 @@ module.exports = function attachPIR(io, makeCode) {
     if (f && !f.revealed) f.items.forEach(it => out.push({ name: it.name, price: it.price }));
     return out; };
   const broadcast = room => {
+    if (room.getReady) return nsp.to(room.code).emit('state', GR.view(room, plist(room).map(p => ({ name: p.name, score: money(p.winnings || 0) })).sort((a, b) => 0)));
     const v = view(room); v.hostMode = room.hostMode || 'player';
     if (room.hostMode === 'dedicated' && room.hostSocket) { nsp.to(room.code).except(room.hostSocket).emit('state', v); nsp.to(room.hostSocket).emit('state', { ...v, hostSecrets: secrets(room) }); }
     else nsp.to(room.code).emit('state', v);
@@ -63,7 +64,7 @@ module.exports = function attachPIR(io, makeCode) {
     const pool = (fresh.length >= 2 ? fresh : Object.values(room.players)).slice(0, 4);
     room.row = { item: take(room, p => p.price >= 15), contestants: pool.map(p => p.id), bids: {}, revealed: false, winner: null, exact: false, mode: room.bidMode, turnIdx: 0 };
     room.game = null; room.phase = 'row';
-    room.message = `Come on down! ${pool.map(p => p.name).join(', ')} — bid on the ${room.row.item.name}.`;
+    room.message = `Come on down! ${pool.map(p => p.name).join(', ')} — bid on the ${room.row.item.name}.`; GR.gate(room, "Contestants' Row", [`Come on down: ${pool.map(p => p.name).join(', ')}`]);
   }
   function rowBid(room, pid, amount) {
     const r = room.row; if (!r || room.phase !== 'row' || r.revealed) return { error: 'Bidding is closed' };
@@ -96,7 +97,7 @@ module.exports = function attachPIR(io, makeCode) {
     if (type === 'cliff') { g.items = [0, 1, 2].map(() => take(room, p => p.price >= 2 && p.price <= 45)); g.idx = 0; g.steps = 0; g.message = 'Guess each price. Every dollar off is a step up the mountain — over 25 steps and he falls!'; }
     if (type === 'clock') { g.items = [0, 1].map(() => take(room, p => p.price >= 20 && p.price <= 500)); g.idx = 0; g.endsAt = null; g.message = `Guess the price of each item in ${CLOCK_SECS()} seconds. We'll say higher or lower!`; }
     if (type === 'plinko') { g.items = [0, 1, 2, 3].map(() => { const it = take(room, p => p.price >= 3 && p.price <= 80); let f; do { f = Math.round(it.price * (Math.random() < .5 ? 0.6 + Math.random() * 0.25 : 1.2 + Math.random() * 0.4)); } while (f === Math.round(it.price)); const opts = [Math.round(it.price), f]; if (Math.random() < .5) opts.reverse(); it.options = opts; return it; }); g.idx = 0; g.chips = 1; g.drops = []; g.total = 0; g.message = 'Pick the real price of each item to earn Plinko chips (you start with 1).'; }
-    room.game = g; room.phase = 'game'; room.message = `${room.players[pid].name} is playing ${GAME_NAMES[type]}! Prize: ${g.prize.name}.`; return { ok: true };
+    room.game = g; room.phase = 'game'; room.message = `${room.players[pid].name} is playing ${GAME_NAMES[type]}! Prize: ${g.prize.name}.`; GR.gate(room, GAME_NAMES[type], [`${room.players[pid].name} is playing`]); return { ok: true };
   }
   function finishGame(room, won, extra) {
     const g = room.game; g.over = true; g.won = won; clearTimeout(room.clockTimer); const p = room.players[g.player];
@@ -141,7 +142,7 @@ module.exports = function attachPIR(io, makeCode) {
   function startShowdown(room, ids) {
     const top = (ids && ids.length ? ids : plist(room).sort((a, b) => b.winnings - a.winnings).slice(0, 3).map(p => p.id)).filter(id => room.players[id]);
     room.showdown = { spinners: top, idx: 0, totals: {}, spins: {}, last: null, done: false, winner: null, rotation: 0, spin: null, spinoff: false };
-    room.phase = 'showdown'; room.message = `Showcase Showdown! Closest to $1.00 without going over. ${room.players[top[0]].name} spins first.`;
+    room.phase = 'showdown'; room.message = `Showcase Showdown! Closest to $1.00 without going over. ${room.players[top[0]].name} spins first.`; GR.gate(room, 'Showcase Showdown', [top.map(id => room.players[id].name).join(' · '), `${room.players[top[0]].name} spins first`]);
   }
   function spin(room, pid) {
     const s = room.showdown; if (!s || s.done || s.spinners[s.idx] !== pid) return { error: 'Not your spin' };
@@ -171,7 +172,7 @@ module.exports = function attachPIR(io, makeCode) {
     ids = ids.slice(0, 2); if (ids.length < 2) return { error: 'Need 2 players for the Showcase' };
     const items = [0, 1, 2, 3].map((_, i) => take(room, p => i === 0 ? p.price >= 200 : p.price >= 25));
     room.final = { players: ids, items, total: Math.round(items.reduce((a, b) => a + b.price, 0)), bids: {}, revealed: false, winner: null, both: false };
-    room.phase = 'final'; room.message = `The Final Showcase! ${ids.map(id => room.players[id].name).join(' vs ')} — bid secretly on this package.`; return { ok: true };
+    room.phase = 'final'; room.message = `The Final Showcase! ${ids.map(id => room.players[id].name).join(' vs ')} — bid secretly on this package.`; GR.gate(room, 'The Final Showcase', [ids.map(id => room.players[id].name).join(' vs ')]); return { ok: true };
   }
   function finalBid(room, pid, amount) {
     const f = room.final; if (!f || f.revealed || !f.players.includes(pid)) return { error: 'Not your showcase' };
@@ -188,6 +189,8 @@ module.exports = function attachPIR(io, makeCode) {
   }
 
   nsp.on('connection', socket => {
+  GR.guard(socket, ev => ev.startsWith('host:') ? rooms[socket.data.hostCode] : rooms[socket.data.code]);
+
     const fail = m => socket.emit('errorMsg', m);
     const hostRoom = () => { const r = rooms[socket.data.hostCode]; return r && r.hostSocket === socket.id ? r : null; };
     const done = (room, res, cb) => { if (res && res.error) fail(res.error); cb && cb(res || {}); broadcast(room); };
@@ -200,6 +203,7 @@ module.exports = function attachPIR(io, makeCode) {
       rooms[c] = { code: c, hostKey: Math.random().toString(36).slice(2), hostSocket: socket.id, players: {}, phase: 'lobby', bidMode: 'secret', usedP: new Set(), row: null, game: null, showdown: null, final: null, message: 'Players: join on your phones!', created: Date.now() };
       socket.data.hostCode = c; socket.join(c); cb && cb({ code: c, hostKey: rooms[c].hostKey }); broadcast(rooms[c]);
     });
+    socket.on('host:go', (_, cb) => { const room = hostRoom(); const went = !!(room && GR.go(room)); if (went) broadcast(room); if (typeof cb === 'function') cb(went ? { ok: true } : { error: 'Nothing to start' }); });
     socket.on('host:bidMode', ({ mode }) => { const room = hostRoom(); if (room) { room.bidMode = mode === 'sequential' ? 'sequential' : 'secret'; broadcast(room); } });
     socket.on('host:row', (_, cb) => { const room = hostRoom(); if (!room) return; if (Object.keys(room.players).length < 2) return done(room, { error: 'Need at least 2 players' }, cb); startRow(room); done(room, { ok: true }, cb); });
     socket.on('host:rebid', () => { const room = hostRoom(); const r = room && room.row; if (!r || !r.overbid) return; Object.assign(r, { bids: {}, revealed: false, overbid: false, turnIdx: 0 }); room.message = 'Bid again — everyone overbid last time!'; broadcast(room); });

@@ -1,4 +1,5 @@
 // Wheel of Fortune flow test (in-process server, forced spin results)
+require('./autogo');
 process.env.WOF_SPIN_MS = '30'; process.env.WOF_REVEAL_MS = '40'; process.env.WOF_BONUS_SECS = '1';
 const { server, wof } = require('../server.js');
 const { io } = require('socket.io-client');

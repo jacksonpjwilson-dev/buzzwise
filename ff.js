@@ -1,5 +1,6 @@
 // Buzzwise: Family Feud mode (socket.io namespace /ff)
 // The host only CONTROLS the game: unrevealed survey answers are never sent to any client.
+const GR = require('./lib/getready');
 const fs = require('fs'), path = require('path');
 const STRIKES = 3, WIN_SCORE = 300, FM_TARGET = 200;
 const T = () => ({ fm1: +(process.env.FF_FM1 || 20), fm2: +(process.env.FF_FM2 || 25) });
@@ -58,7 +59,7 @@ module.exports = function attachFF(io, makeCode) {
       code: room.code, phase: room.phase, teams: room.teams, maxRounds: room.maxRounds, message: room.message,
       players: Object.values(room.players).map(p => ({ id: p.id, name: p.name, team: p.team, connected: p.connected, isHost: !!p.isHost })),
       round: r && {
-        num: r.num, mult: r.mult, question: r.survey.q, pot: r.pot, strikes: r.strikes, control: r.control, faceoff: r.faceoff, buzzed: r.buzzed,
+        num: r.num, mult: r.mult, question: r.fullyRead || room.phase !== 'faceoff' ? r.survey.q : null, reading: !!r.reading, readSeq: r.readSeq || 0, fullyRead: !!r.fullyRead, pot: r.pot, strikes: r.strikes, control: r.control, faceoff: r.faceoff, buzzed: r.buzzed,
         faceoffAnswers: r.faceoffAnswers, foEndsAt: room.phase === 'faceoff' && r.buzzed ? r.foEndsAt : null, now: Date.now(), firstBuzz: r.firstBuzz || null, canOverride: !!r.lastMiss, winner: r.winner,
         board: r.survey.answers.map((a, i) => r.revealed.has(i) ? { n: i + 1, text: a.text, points: a.points } : { n: i + 1 }), // unrevealed = number only
       },
@@ -71,15 +72,25 @@ module.exports = function attachFF(io, makeCode) {
     };
   }
   const broadcast = room => {
+    if (room.getReady) return nsp.to(room.code).emit('state', GR.view(room, room.teams.map(t => ({ name: t.name, score: t.score }))));
     const v = view(room); v.hostMode = room.hostMode || 'player';
-    if (room.hostMode === 'dedicated' && room.hostSocket) { // dedicated (non-playing) host also sees the full survey board
-      nsp.to(room.code).except(room.hostSocket).emit('state', v);
-      const hv = { ...v };
+    if (!room.hostSocket) return nsp.to(room.code).emit('state', v);
+    nsp.to(room.code).except(room.hostSocket).emit('state', v);
+    const hv = { ...v };
+    // the shared screen gets the question text ONLY to speak it (not displayed until one full reading)
+    if (room.round && room.round.reading) hv.speak = room.round.survey.q;
+    if (room.hostMode === 'dedicated') { // dedicated (non-playing) host also sees the full survey board
       if (room.round) hv.hostAnswers = room.round.survey.answers.map((a, i) => ({ n: i + 1, text: a.text, points: a.points, revealed: room.round.revealed.has(i) }));
       if (room.fm) hv.hostFm = room.fm.qs.map(s => s.answers.slice(0, 3).map(a => `${a.text} (${a.points})`).join(', '));
-      nsp.to(room.hostSocket).emit('state', hv);
-    } else nsp.to(room.code).emit('state', v);
+    }
+    nsp.to(room.hostSocket).emit('state', hv);
   };
+  // Face-off read-aloud (same rules as Jeopardy player-host): buzzers open during the reading, a buzz cuts it off,
+  // the question shows only after one full uninterrupted reading, and a pass to the opponent is NOT re-read.
+  const READ_MS = q => +(process.env.FF_READ_MS || Math.min(15000, 2000 + String(q).split(/\s+/).length * 450));
+  function startReading(room) { const r = room.round; clearTimeout(r.readTimer); r.reading = true; r.readSeq = (r.readSeq || 0) + 1; const seq = r.readSeq;
+    r.readTimer = setTimeout(() => { if (room.round === r && r.reading && r.readSeq === seq) { finishReading(room); broadcast(room); } }, READ_MS(r.survey.q)); }
+  function finishReading(room) { const r = room.round; clearTimeout(r.readTimer); r.reading = false; r.fullyRead = true; }
   function strike(room, n) { nsp.to(room.code).emit('strike', { count: n }); }
 
   function newRound(room) {
@@ -87,7 +98,7 @@ module.exports = function attachFF(io, makeCode) {
     room.foIdx = room.foIdx.map((v, t) => (v + 1) % Math.max(1, members(room, t).length));
     const fo = [0, 1].map(t => { const m = members(room, t); return m.length ? m[room.foIdx[t] % m.length].id : null; });
     room.round = { num, mult: mult(num), survey: pick(room), revealed: new Set(), pot: 0, strikes: 0, control: null, faceoff: fo, buzzed: null, faceoffAnswers: [], lastMiss: null, winner: null, stealTeam: null };
-    room.phase = 'faceoff'; room.message = `Round ${num}${room.round.mult > 1 ? ` (${room.round.mult === 2 ? 'Double' : 'Triple'} points!)` : ''}: Face-off! ${fo.map(id => id && room.players[id].name).filter(Boolean).join(' vs ')} — buzz in!`;
+    room.phase = 'faceoff'; GR.gate(room, `Round ${num}${room.round.mult > 1 ? ` · ${room.round.mult === 2 ? 'Double' : 'Triple'} points` : ''}`, [`Face-off: ${fo.map(id => id && `${room.players[id].name} (${room.teams[room.players[id].team].name})`).filter(Boolean).join(' vs ')}`, 'Hands on buzzers. The question is read when the host presses Start.'], () => startReading(room)); room.message = `Round ${num}${room.round.mult > 1 ? ` (${room.round.mult === 2 ? 'Double' : 'Triple'} points!)` : ''}: Face-off! ${fo.map(id => id && room.players[id].name).filter(Boolean).join(' vs ')} — buzz in!`;
   }
   function reveal(room, i) { const r = room.round; if (r.revealed.has(i)) return 0; r.revealed.add(i); r.pot += r.survey.answers[i].points; nsp.to(room.code).emit('ding', { n: i + 1 }); return r.survey.answers[i].points; }
   function endRound(room, team, why) {
@@ -147,6 +158,7 @@ module.exports = function attachFF(io, makeCode) {
     r.foTimer = setTimeout(() => { if (room.round === r && room.phase === 'faceoff' && r.buzzed) { guess(room, TIMEOUT, r.buzzed); broadcast(room); } }, FO_MS()); }
   function faceoffBuzz(room, pid) { // server judges by arrival order: first buzz wins, the other is locked out
     const r = room.round; if (!r || room.phase !== 'faceoff' || r.buzzed || !r.faceoff.includes(pid) || r.faceoffAnswers.some(x => x.pid === pid)) return { error: 'Locked out' };
+    if (r.reading) { r.reading = false; clearTimeout(r.readTimer); } // a buzz cuts the reading off
     r.buzzed = pid; r.firstBuzz = r.firstBuzz || pid; room.message = `${room.players[pid].name} buzzed first!`; nsp.to(room.code).emit('buzz', { pid, name: room.players[pid].name }); armFaceoff(room); return { ok: true };
   }
   function setControl(room, team, msg) {
@@ -200,6 +212,8 @@ module.exports = function attachFF(io, makeCode) {
   }
 
   nsp.on('connection', socket => {
+  GR.guard(socket, ev => ev.startsWith('host:') ? rooms[socket.data.hostCode] : rooms[socket.data.code]);
+
     const fail = m => socket.emit('errorMsg', m);
     const hostRoom = () => { const r = rooms[socket.data.hostCode]; return r && r.hostSocket === socket.id ? r : null; };
     const done = (room, res, cb) => { if (res && res.error) fail(res.error); cb && cb(res || {}); broadcast(room); };
@@ -234,12 +248,15 @@ module.exports = function attachFF(io, makeCode) {
       if (!p) p = room.players[pid] = { id: pid, name, team: +team, isHost: true }; p.name = name; p.team = +team; p.socketId = socket.id; p.connected = true;
       done(room, { ok: true, pid }, cb); });
     socket.on('host:leaveTeam', () => { const room = hostRoom(); if (!room || room.phase !== 'lobby') return; delete room.players['host-' + room.code]; broadcast(room); });
+    socket.on('host:go', (_, cb) => { const room = hostRoom(); const went = !!(room && GR.go(room)); if (went) broadcast(room); if (typeof cb === 'function') cb(went ? { ok: true } : { error: 'Nothing to start' }); });
+    socket.on('host:readDone', ({ seq } = {}) => { const room = hostRoom(); const r = room && room.round; if (!r || !r.reading || (seq && seq !== r.readSeq)) return; finishReading(room); broadcast(room); });
+    socket.on('host:reread', () => { const room = hostRoom(); const r = room && room.round; if (!r || room.phase !== 'faceoff' || r.fullyRead || r.buzzed) return; startReading(room); broadcast(room); });
     socket.on('host:guess', ({ text }, cb) => { const room = hostRoom(); if (!room) return; done(room, guess(room, text, null), cb); });
     socket.on('host:override', (_, cb) => { const room = hostRoom(); if (!room) return; done(room, override(room), cb); });
     socket.on('host:buzzFor', ({ pid } = {}, cb) => { const room = hostRoom(); if (!room) return; const res = faceoffBuzz(room, pid); cb && cb(res); broadcast(room); });
     socket.on('host:playPass', ({ choice }) => { const room = hostRoom(); if (room) playPass(room, choice); });
     socket.on('host:adjust', ({ team, delta }) => { const room = hostRoom(); if (!room || !room.teams[team]) return; room.teams[team].score += Math.round(+delta || 0); broadcast(room); });
-    socket.on('host:skipRound', () => { const room = hostRoom(); if (!room || !room.round) return; clearTimeout(room.round.foTimer); room.round.survey.answers.forEach((_, i) => room.round.revealed.add(i)); room.phase = 'roundEnd'; room.message = 'Round skipped.'; broadcast(room); });
+    socket.on('host:skipRound', () => { const room = hostRoom(); if (!room || !room.round) return; clearTimeout(room.round.foTimer); clearTimeout(room.round.readTimer); room.round.reading = false; room.round.survey.answers.forEach((_, i) => room.round.revealed.add(i)); room.phase = 'roundEnd'; room.message = 'Round skipped.'; broadcast(room); });
     socket.on('host:fastMoney', ({ p1, p2 } = {}) => { const room = hostRoom(); if (!room) return;
       const t = room.gameWinner !== undefined ? room.gameWinner : (room.teams[0].score >= room.teams[1].score ? 0 : 1); const m = members(room, t);
       const a = room.players[p1] ? p1 : m[0] && m[0].id, b = room.players[p2] ? p2 : (m[1] || m[0] || {}).id;

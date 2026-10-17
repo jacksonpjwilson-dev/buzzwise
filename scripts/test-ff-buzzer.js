@@ -1,4 +1,6 @@
 // Family Feud face-off buzzer: first buzz wins by arrival, other locked out, rotation, timeout, control flow, both host modes.
+require('./autogo');
+process.env.FF_READ_MS = '1';
 process.env.FF_FACEOFF_MS = '300';
 const { server, ff } = require('../server.js');
 const { io } = require('socket.io-client');

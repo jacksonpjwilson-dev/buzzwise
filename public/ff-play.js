@@ -13,7 +13,7 @@ function joinForm(err) {
 function join(code, name, t) { socket.emit('player:join', { code, name, pid, team: t }, r => { if (r.error) { if (BWJ.isStale(r.error) && saved && saved.code === String(code).trim().toUpperCase()) { localStorage.removeItem('bw-ff-join'); saved = null; } joined = false; return joinForm(r.error); } joined = true; saved = { code: r.code, name, team: t }; localStorage.setItem('bw-ff-join', JSON.stringify(saved)); }); }
 let joined = false; // auto-rejoin only on a reconnect or when the URL carries this saved game's code
 socket.on('connect', () => saved && (joined || (qcode && qcode.toUpperCase() === saved.code)) ? join(saved.code, saved.name, saved.team) : joinForm());
-socket.on('state', s => { S = s; render(); }); socket.on('errorMsg', toast);
+socket.on('state', s => { if (GR(s, false)) return; S = s; render(); }); socket.on('errorMsg', toast);
 socket.on('strike', e => { showX(e.count); navigator.vibrate && navigator.vibrate(300); }); socket.on('ding', ding);
 socket.on('dup', () => toast('Duplicate answer — try again!'));
 function ffBuzz() { navigator.vibrate && navigator.vibrate(60); socket.emit('player:buzz', {}, r => r && r.error && toast(r.error)); }
@@ -21,7 +21,7 @@ const send = (e, d, cb) => socket.emit(e, d || {}, cb || (r => r && r.error && t
 function answerForm(ev, label) { return `<form id="af" style="display:grid;gap:8px;margin-top:10px"><input id="ai" placeholder="${label}" autocomplete="off"><button class="btn btn-gold">${ev === 'fm' ? 'Submit' : 'Survey says!'}</button>${ev === 'fm' ? `<button type="button" class="btn btn-ghost" onclick="send('player:fmAnswer',{pass:true})">Pass</button>` : ''}</form>`; }
 function render() {
   const meP = S.players.find(p => p.id === pid); if (!meP) return;
-  const ae = document.activeElement; const key = JSON.stringify([S.phase, S.round && [S.round.buzzed, S.round.control, S.round.num, S.round.faceoffAnswers.length], S.fm && [S.fm.stage, S.fm.qIndex, S.fm.dup]]);
+  const ae = document.activeElement; const key = JSON.stringify([S.phase, S.round && [S.round.buzzed, S.round.control, S.round.num, S.round.faceoffAnswers.length, S.round.fullyRead], S.fm && [S.fm.stage, S.fm.qIndex, S.fm.dup]]);
   if (ae && ae.tagName === 'INPUT' && key === render.key) { headerAndBoard(meP); return; } render.key = key;
   const r = S.round, T = S.teams; let h = `<div id="hb"></div>`;
   if (S.phase === 'lobby') h += `<p class="big" style="font-size:22px">You're on ${esc(T[meP.team].name)}!</p><div class="teampick"><button class="btn btn-red ${meP.team === 0 ? 'on' : ''}" onclick="send('player:team',{team:0})">${esc(T[0].name)}</button><button class="btn ${meP.team === 1 ? 'on' : ''}" style="background:#2563eb" onclick="send('player:team',{team:1})">${esc(T[1].name)}</button></div><p class="status">Waiting for the host to start.</p>`;
@@ -48,7 +48,7 @@ function render() {
 function headerAndBoard(meP) {
   const r = S.round, T = S.teams;
   $('me').innerHTML = `<b>${esc(meP.name)}</b><span class="tag" style="background:${meP.team ? '#2563eb55' : '#dc262655'}">${esc(T[meP.team].name)}</span>`;
-  if ($('hb')) $('hb').innerHTML = r && !['fm', 'fmDone'].includes(S.phase) ? `<p style="text-align:center;font-weight:800;margin:4px 0 10px">${esc(r.question)}</p>${ffBoard(r)}<div class="strikes">${S.phase !== 'faceoff' ? '<span>✕</span>'.repeat(r.strikes) : ''}</div>` : '';
+  if ($('hb')) $('hb').innerHTML = r && !['fm', 'fmDone'].includes(S.phase) ? `<p style="text-align:center;font-weight:800;margin:4px 0 10px">${r.question ? esc(r.question) : '🔊 Listen to the question…'}</p>${ffBoard(r)}<div class="strikes">${S.phase !== 'faceoff' ? '<span>✕</span>'.repeat(r.strikes) : ''}</div>` : '';
   if ($('hb') && r) $('hb').insertAdjacentHTML('beforeend', `<p class="status">${esc(S.message)}</p>`);
   if ($('scores')) $('scores').innerHTML = [0, 1].map(i => `<div class="score-row ${meP.team === i ? 'ctrl' : ''}"><span class="n">${esc(T[i].name)}</span><span class="s">${T[i].score}</span></div>`).join('') + (r ? `<p class="muted" style="text-align:center;margin:6px 0 0">Round ${r.num}${r.mult > 1 ? ' ×' + r.mult : ''} · pot ${r.pot}</p>` : '');
 }

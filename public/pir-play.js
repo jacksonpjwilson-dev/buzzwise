@@ -11,7 +11,7 @@ function joinForm(err) {
 function join(code, name) { socket.emit('player:join', { code, name, pid }, r => { if (r.error) { if (BWJ.isStale(r.error) && saved && saved.code === String(code).trim().toUpperCase()) { localStorage.removeItem('bw-pir-join'); saved = null; } joined = false; return joinForm(r.error); } joined = true; saved = { code: r.code, name }; localStorage.setItem('bw-pir-join', JSON.stringify(saved)); }); }
 let joined = false; // auto-rejoin only on a reconnect or when the URL carries this saved game's code
 socket.on('connect', () => saved && (joined || (qcode && qcode.toUpperCase() === saved.code)) ? join(saved.code, saved.name) : joinForm());
-socket.on('state', s => { S = s; render(); }); socket.on('errorMsg', toast);
+socket.on('state', s => { if (GR(s, false)) return; S = s; render(); }); socket.on('errorMsg', toast);
 const send = (e, d) => socket.emit(e, d || {}, r => r && r.error && toast(r.error));
 const numForm = (ev, label, extra = '') => `<form id="nf" data-ev="${ev}" style="display:grid;gap:8px;margin-top:10px"><input id="ni" type="number" inputmode="numeric" min="0" placeholder="${label}" autocomplete="off"><button class="btn btn-gold">Lock it in</button>${extra}</form>`;
 function render() {

@@ -12,7 +12,7 @@ function joinForm(err) {
 function join(code, name) { socket.emit('player:join', { code, name, pid }, r => { if (r.error) { if (BWJ.isStale(r.error) && saved && saved.code === String(code).trim().toUpperCase()) { localStorage.removeItem('bw-wof-join'); saved = null; } joined = false; return joinForm(r.error); } joined = true; saved = { code: r.code, name }; localStorage.setItem('bw-wof-join', JSON.stringify(saved)); }); }
 let joined = false; // auto-rejoin only on a reconnect or when the URL carries this saved game's code
 socket.on('connect', () => saved && (joined || (qcode && qcode.toUpperCase() === saved.code)) ? join(saved.code, saved.name) : joinForm());
-socket.on('state', s => { S = s; render(); }); socket.on('errorMsg', toast);
+socket.on('state', s => { if (GR(s, false)) return; S = s; render(); }); socket.on('errorMsg', toast);
 const send = (e, d) => socket.emit(e, d || {});
 function solvePrompt() { const g = prompt('Solve the puzzle:'); if (g) send('player:solve', { guess: g }); }
 function render() {

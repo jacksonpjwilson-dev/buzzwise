@@ -1,4 +1,5 @@
 // End-to-end flow test: host + 2 players via socket.io-client against an in-process server.
+require('./autogo');
 const { server, rooms } = require('../server.js');
 const { io } = require('socket.io-client');
 let pass = 0, failN = 0;

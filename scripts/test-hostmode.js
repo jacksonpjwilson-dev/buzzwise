@@ -1,4 +1,6 @@
 // Host-toggle tests: Jeopardy player-host flow (answer never leaks before Correct, wrong reopens buzzers,
+require('./autogo');
+process.env.FF_READ_MS = process.env.FF_READ_MS || '1';
 // timeout reveals), dedicated-host secrets for FF/PIR/WoF, and Family Feud synonym/typo judging.
 process.env.JP_READ_MS = '300'; process.env.JP_BUZZ_MS = '600';
 const { server, rooms } = require('../server.js');

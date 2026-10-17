@@ -1,4 +1,6 @@
 // Family Feud flow test: answers never leak before reveal; matching, strikes, steal, override, Fast Money.
+require('./autogo');
+process.env.FF_READ_MS = process.env.FF_READ_MS || '1';
 process.env.FF_FM1 = '2'; process.env.FF_FM2 = '2';
 const { server, ff } = require('../server.js');
 const { io } = require('socket.io-client');
@@ -71,7 +73,7 @@ server.listen(0, async () => {
     host.emit('host:skipRound'); await wait(30); host.emit('host:startRound'); await wait(40); ok(host.state.round.mult === 3, 'round 4 is triple');
     // leak audit (before Fast Money)
     let leaks = 0;
-    for (const { x } of all) { if (!x.round) continue; const sv = SURV.find(s => s.q === x.round.question);
+    for (const { x } of all) { if (!x.round || !x.round.question) continue; const sv = SURV.find(s => s.q === x.round.question);
       x.round.board.forEach((b, i) => { if (!b.text) { const t = sv.answers[i].text; const raw = JSON.stringify(x); if (raw.includes(`"${t}"`) || b.points !== undefined) leaks++; } }); }
     ok(all.length > 60 && leaks === 0, `no unrevealed answer in any of ${all.length} messages to host or players`);
     // Fast Money

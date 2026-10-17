@@ -1,3 +1,4 @@
+const GR = require('./lib/getready');
 // Buzzwise: Wheel of Fortune mode (socket.io namespace /wof)
 const fs = require('fs'), path = require('path');
 
@@ -54,6 +55,7 @@ module.exports = function attachWof(io, makeCode) {
     return v;
   }
   function broadcast(room) {
+    if (room.getReady) { const g = GR.view(room, plist(room).map(p => ({ name: p.name, score: '$' + p.total }))); if (room.hostSocket) nsp.to(room.hostSocket).emit('state', g); for (const p of Object.values(room.players)) if (p.socketId) nsp.to(p.socketId).emit('state', g); return; }
     if (room.hostSocket) nsp.to(room.hostSocket).emit('state', view(room, true));
     for (const p of Object.values(room.players)) if (p.socketId) nsp.to(p.socketId).emit('state', view(room, false));
   }
@@ -68,12 +70,12 @@ module.exports = function attachWof(io, makeCode) {
     room.buzzed = null; room.lockedOut = new Set(); room.spin = null; room.spinValue = null; room.freePlay = false; room.bonus = null;
     for (const p of Object.values(room.players)) p.bank = 0;
     if (type === 'tossup') {
-      room.phase = 'tossup'; room.awaiting = 'buzz'; room.message = 'Toss-Up! Buzz in when you know it.'; startReveal(room);
+      room.phase = 'tossup'; room.awaiting = 'buzz'; room.message = 'Toss-Up! Buzz in when you know it.'; GR.gate(room, 'Toss-Up!', ['Everyone: buzz in as soon as you know it', 'Worth $1,000'], () => startReveal(room));
     } else {
       room.phase = 'round'; room.roundNum++; room.awaiting = 'spin';
       if (room.nextStarter && room.order.includes(room.nextStarter)) room.turn = room.order.indexOf(room.nextStarter);
       else room.turn = (room.roundNum - 1) % room.order.length;
-      room.nextStarter = null; room.message = `Round ${room.roundNum}: ${room.players[active(room)].name} spins first.`;
+      room.nextStarter = null; room.message = `Round ${room.roundNum}: ${room.players[active(room)].name} spins first.`; GR.gate(room, `Round ${room.roundNum}`, [`${room.players[active(room)].name} spins first`]);
     }
   }
   function startReveal(room) {
@@ -109,6 +111,8 @@ module.exports = function attachWof(io, makeCode) {
   };
 
   nsp.on('connection', socket => {
+  GR.guard(socket, ev => ev.startsWith('host:') ? rooms[socket.data.hostCode] : rooms[socket.data.code]);
+
     const fail = m => socket.emit('errorMsg', m);
     const hostRoom = () => { const r = rooms[socket.data.hostCode]; return r && r.hostSocket === socket.id ? r : null; };
 
@@ -125,6 +129,7 @@ module.exports = function attachWof(io, makeCode) {
     socket.on('host:mode', ({ mode } = {}) => { const room = hostRoom(); if (!room) return fail('Not hosting');
       if (room.puzzle && !room.solved) return fail('Change host mode between puzzles');
       room.hostMode = mode === 'player' ? 'player' : 'dedicated'; broadcast(room); });
+    socket.on('host:go', (_, cb) => { const room = hostRoom(); const went = !!(room && GR.go(room)); if (went) broadcast(room); if (typeof cb === 'function') cb(went ? { ok: true } : { error: 'Nothing to start' }); });
     socket.on('host:next', ({ type } = {}) => { // type: 'round' | 'tossup' | 'bonus'
       const room = hostRoom(); if (!room) return fail('Not hosting');
       if (room.order.length < 1) return fail('Need at least one player');
@@ -132,7 +137,7 @@ module.exports = function attachWof(io, makeCode) {
         clearTimers(room);
         const leader = plist(room).sort((a, b) => b.total - a.total)[0];
         room.puzzle = pickPuzzle(room); room.revealed = new Set('RSTLNE'); room.used = new Set('RSTLNE'); room.solved = false; room.lastGuess = null;
-        room.phase = 'bonus'; room.awaiting = 'bonusPicks'; room.bonus = { player: leader.id, picks: null, endsAt: null, result: null };
+        room.phase = 'bonus'; room.awaiting = 'bonusPicks'; room.bonus = { player: leader.id, picks: null, endsAt: null, result: null }; GR.gate(room, 'Bonus Round!', [`${leader.name} plays for $25,000`]);
         room.message = `Bonus Round for ${leader.name}! R S T L N E are free. Pick 3 consonants and 1 vowel.`;
       } else { room.revealedIdx = new Set(); startPuzzle(room, type === 'tossup' ? 'tossup' : 'round'); }
       broadcast(room);

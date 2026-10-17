@@ -1,0 +1,533 @@
+# Cards Against Everyone · Family deck (kid-safe). All card text is original to Buzzwise.
+[prompts]
+Mom says I can't go to the park because of ____.
+The new playground ride is called ____.
+What did the teacher find in her desk drawer? ____.
+The secret ingredient in Grandpa's pancakes is ____.
+My superhero power is ____.
+The worst thing to bring to show-and-tell: ____.
+What's under my bed? ____.
+The class pet escaped and is now living inside ____.
+Today's lunch special: ____.
+I got sent to the principal's office for ____.
+The tooth fairy left me ____ instead of a coin.
+Why is the dog barking? ____.
+The next big summer camp activity is ____.
+My robot butler's only job is ____.
+What made the bus driver laugh so hard? ____.
+The best way to get out of doing chores: ____.
+Scientists have finally discovered ____ on the moon.
+My diary's biggest secret is ____.
+The newest video game is all about ____.
+What's that smell coming from the kitchen? ____.
+The museum's newest exhibit: ____.
+The magician pulled ____ out of his hat.
+Grandma's favourite hobby is ____.
+The weather forecast calls for a chance of ____.
+I'm not scared of monsters. I'm scared of ____.
+The winner of the science fair built ____.
+What's in the mystery box? ____.
+The king of the jungle is actually ____.
+My invention will change the world: ____.
+The family vacation was ruined by ____.
+At the sleepover we stayed up all night doing ____.
+Why was the cat wearing a tiny hat? ____.
+The worst birthday present ever: ____.
+My dog's secret job at night is ____.
+The pirate's treasure chest was full of ____.
+Our new school mascot is ____.
+The talent show winner did ____.
+Before bed, I always check for ____.
+My little brother's favourite food is ____.
+The scariest ride at the fair: ____.
+What does the snowman dream about? ____.
+The dragon's only weakness is ____.
+Dad's new hobby is ____, and nobody is happy about it.
+My teacher's superpower is ____.
+The most exciting thing about summer is ____.
+The aliens came to Earth looking for ____.
+The new rule at recess: no more ____.
+I traded my lunch for ____.
+The best thing about being a grown-up: ____.
+I found ____ in the couch cushions.
+The fortune cookie said: "Beware of ____."
+My imaginary friend is mostly ____.
+The longest line at the zoo was for ____.
+What's the wizard's favourite snack? ____.
+At the bottom of the swimming pool, I found ____.
+The new holiday everyone celebrates: ____ Day.
+The haunted house was only scary because of ____.
+The class field trip went straight to ____.
+I would trade my sister for ____.
+The world record I want to break: ____.
+____ and ____: the best team in history.
+The recipe for a perfect day: ____ plus ____.
+I combined ____ with ____ and invented a new sport.
+My dream treehouse has ____ and ____.
+The new ice cream flavour is ____ mixed with ____.
+In the fairy tale, the princess fights ____ using only ____.
+The pet store now sells ____ and ____.
+My backpack contains ____ and, for some reason, ____.
+First, ____. Then, ____. Best day ever!
+The superhero team: Captain ____ and the Amazing ____.
+Breaking news: ____ was spotted at the library!
+Breaking news: ____ was spotted at the zoo!
+Breaking news: ____ was spotted at the dentist!
+Breaking news: ____ was spotted at the aquarium!
+Breaking news: ____ was spotted at the grocery store!
+Breaking news: ____ was spotted at the bowling alley!
+Breaking news: ____ was spotted at the airport!
+Breaking news: ____ was spotted at the swimming pool!
+Breaking news: ____ was spotted at Grandma's house!
+Breaking news: ____ was spotted at the North Pole!
+Breaking news: ____ was spotted at the bakery!
+Breaking news: ____ was spotted at the farm!
+Breaking news: ____ was spotted at the toy store!
+Breaking news: ____ was spotted at outer space!
+Breaking news: ____ was spotted at the hockey rink!
+My aunt's secret talent is ____.
+My uncle's secret talent is ____.
+My grandpa's secret talent is ____.
+My neighbour's secret talent is ____.
+My babysitter's secret talent is ____.
+My dentist's secret talent is ____.
+My crossing guard's secret talent is ____.
+My swim coach's secret talent is ____.
+My piano teacher's secret talent is ____.
+My goldfish's secret talent is ____.
+What ruined the class picture? ____.
+What ruined Grandma's birthday? ____.
+What ruined the spelling bee? ____.
+What ruined the school concert? ____.
+What ruined the family road trip? ____.
+What ruined the soccer final? ____.
+What ruined picture day? ____.
+What ruined the first day of school? ____.
+What ruined the bake sale? ____.
+What ruined the snow day? ____.
+What ruined the camping trip? ____.
+What ruined the science fair? ____.
+What ruined Thanksgiving dinner? ____.
+What ruined the hockey game? ____.
+What ruined the swimming lesson? ____.
+What ruined the dance recital? ____.
+What ruined the pyjama party? ____.
+What ruined sports day? ____.
+What ruined the library visit? ____.
+What ruined the dentist visit? ____.
+What ruined the movie night? ____.
+What ruined the fire drill? ____.
+What ruined the art class? ____.
+What ruined the class trip? ____.
+What ruined the hockey practice? ____.
+[answers]
+a sneezing giraffe
+burping the alphabet
+my sister's stinky socks
+a pickle with feelings
+too many marshmallows
+a robot that only says "beep"
+invisible spaghetti
+the world's smallest horse
+glitter. So much glitter.
+a dinosaur in a tutu
+a sandwich that talks back
+a very polite raccoon
+jelly beans that taste like broccoli
+Grandma's dance moves
+a sock puppet army
+bubble wrap
+the floor is lava
+a squeaky shoe
+a melted crayon
+a cat wearing sunglasses
+a goat who loves yoga
+a homework-eating dog
+mud pies
+a trampoline on the roof
+an endless supply of pudding
+a hamster on a skateboard
+a confused penguin
+an extremely loud whistle
+a burp that lasted an hour
+a dragon with hiccups
+a talking toaster
+a llama in a party hat
+banana peels everywhere
+a pillow fort the size of a house
+a unicorn with allergies
+the tickle monster
+spaghetti hair
+a rubber chicken
+a spoonful of mustard
+a pirate with a fear of water
+socks with sandals
+a nap that lasted three days
+an octopus juggling
+a whoopee cushion
+a box of angry kittens
+a tiny tap-dancing frog
+a cupcake volcano
+a broken umbrella
+the loudest snore in history
+a parrot that tells secrets
+a polar bear in a sauna
+a worm named Gary
+pancakes stacked to the ceiling
+a sloth on roller skates
+cheese. Just a lot of cheese.
+a moustache made of milk
+a dancing grandpa
+a zombie that just wants a hug
+a bubble bath for a hippo
+a superhero with no powers
+a dog that can drive
+grape juice on the white carpet
+a wizard who forgot his spells
+a cardboard spaceship
+the biggest pumpkin in the world
+a backwards day
+a mermaid with a cold
+a slime explosion
+ninja grandparents
+a snowman in July
+an alarm clock that sings opera
+a skunk in the classroom
+the last cookie
+a bouncy castle
+a frog prince who won't stop croaking
+the world's longest noodle
+a bowl of cold peas
+an elephant hiding behind a tree
+a squirrel stealing my sandwich
+a silly walk
+a shark who's a vegetarian
+the lost sock dimension
+a kazoo solo
+a magic carpet with a flat tyre
+a moose at the door
+a talking pumpkin
+an extra-long recess
+thirty-seven rubber ducks
+a chocolate fountain
+a time-travelling turtle
+a dog in a raincoat
+a pie in the face
+a karaoke-singing cow
+a giant hairball
+the class hamster's revenge
+a pair of googly eyes
+a burrito the size of a car
+a bicycle built for twelve
+a monkey wearing pyjamas
+a really grumpy cloud
+the cafeteria mystery meat
+a ghost who's afraid of the dark
+an accidental haircut
+a skateboarding grandma
+a box of mismatched mittens
+a whale singing in the bathtub
+popcorn on the ceiling
+a talking bowl of soup
+a hedgehog balloon artist
+a dancing broccoli
+a seagull stealing fries
+a dragon who loves knitting
+a slippery banana
+a spaceship made of pancakes
+the spelling bee champion
+a lion with a bad haircut
+a giant rubber band ball
+a sneeze that blew the roof off
+a goldfish with a jetpack
+a bucket of worms
+a mystery smell
+the entire marching band
+a stuffed animal army
+a T. rex trying to clap
+a puppy pile
+the lost-and-found box
+an upside-down birthday cake
+a never-ending staircase
+a very fancy hamster
+the noisiest bagpipes
+a cloud shaped like my teacher
+a pet rock named Steve
+a tornado of leaves
+a dinosaur egg
+a wobbly tooth
+a lemonade stand empire
+fifty pounds of jelly
+a wizard's sock drawer
+a flying saucer full of cows
+a sock that smells like cheese
+a two-headed snowman
+a beaver building a mall
+a singing lunchbox
+a giant snowman
+a karate-chopping sock
+a wobbly walrus
+a bossy octopus
+a polka-dot penguin
+a haunted toaster
+a burping unicorn
+a time-travelling sock
+a fluffy grandpa
+a sleepy pancake
+a sparkly marshmallow
+a wobbly pancake
+a shy pancake
+a singing toaster
+a karate-chopping bathtub
+a time-travelling cupcake
+a sleepy banana
+a wobbly jellyfish
+a shy marshmallow
+a squeaky robot
+a tiny grandpa
+a super-fast unicorn
+a giant pancake
+a very confused school bus
+an invisible jellyfish
+a rainbow grandpa
+a sticky cupcake
+a sleepy teapot
+an invisible marshmallow
+a super-fast toaster
+a super-fast alligator
+a polka-dot snowman
+a sparkly jellyfish
+a burping grandpa
+a dancing pancake
+a shy jellyfish
+a sleepy school bus
+a rainbow walrus
+a sticky pirate
+a glow-in-the-dark snowman
+a haunted lunchbox
+a squeaky snowman
+a glow-in-the-dark octopus
+a rainbow pirate
+a wobbly toaster
+a dancing toaster
+a slightly damp cactus
+a burping sock
+a polka-dot marshmallow
+a sticky hamster
+a burping bathtub
+a super-fast pancake
+a rainbow toaster
+a sleepy toaster
+a polka-dot toaster
+a slightly damp pirate
+a super-fast cupcake
+a singing pirate
+a dancing dinosaur
+a burping broccoli
+a very confused penguin
+a slightly damp koala
+a slightly damp alligator
+a shy robot
+a slightly damp snowman
+a wobbly school bus
+a bossy lunchbox
+a bossy penguin
+a karate-chopping school bus
+an invisible penguin
+a dancing penguin
+a singing jellyfish
+a squeaky sock
+a slightly damp broccoli
+an extremely polite walrus
+a shy alligator
+a fluffy banana
+a very confused pirate
+a tiny hamster
+a giant school bus
+a karate-chopping octopus
+a dancing walrus
+a squeaky octopus
+a grumpy unicorn
+a karate-chopping pirate
+a burping school bus
+a polka-dot cupcake
+a karate-chopping alligator
+a super-fast lunchbox
+a time-travelling alligator
+a wobbly koala
+a singing grandpa
+a polka-dot sock
+a polka-dot alligator
+a shy octopus
+a sticky grandpa
+a sleepy dinosaur
+an invisible snowman
+a sparkly walrus
+a wobbly alligator
+a wobbly dinosaur
+a burping octopus
+an invisible pirate
+a squeaky hamster
+a very confused dinosaur
+a singing alligator
+a sparkly banana
+a rainbow sock
+a fluffy octopus
+a bossy koala
+a time-travelling marshmallow
+a burping pirate
+a sticky walrus
+a sparkly penguin
+a slightly damp penguin
+a slightly damp hamster
+a rainbow hamster
+a sleepy jellyfish
+a slightly damp unicorn
+a haunted robot
+a sparkly unicorn
+a slightly damp cupcake
+a glow-in-the-dark toaster
+a sleepy unicorn
+a glow-in-the-dark cupcake
+a polka-dot octopus
+an invisible toaster
+a time-travelling grandpa
+a squeaky bathtub
+a bossy robot
+a very confused walrus
+a sticky cactus
+a dancing hamster
+a sleepy koala
+a sticky teapot
+a dancing banana
+a burping marshmallow
+a time-travelling jellyfish
+a dancing marshmallow
+a grumpy bathtub
+a bossy pirate
+an extremely polite lunchbox
+a dancing teapot
+a fluffy unicorn
+a slightly damp teapot
+a sleepy alligator
+a super-fast snowman
+a burping dinosaur
+an invisible grandpa
+a dancing koala
+an invisible banana
+a burping banana
+a glow-in-the-dark sock
+a squeaky unicorn
+a bossy jellyfish
+a sparkly teapot
+a dancing octopus
+a polka-dot hamster
+a wobbly cupcake
+a grumpy school bus
+a bossy banana
+a fluffy teapot
+a haunted grandpa
+a grumpy teapot
+a sparkly pancake
+a fluffy dinosaur
+a polka-dot walrus
+a polka-dot school bus
+a super-fast octopus
+a burping robot
+a giant cactus
+a giant marshmallow
+a bossy cactus
+a haunted penguin
+a tiny koala
+a fluffy cactus
+a rainbow unicorn
+a sleepy robot
+a very confused pancake
+a rainbow pancake
+a haunted alligator
+a wobbly unicorn
+a polka-dot dinosaur
+a tiny walrus
+a giant hamster
+a tiny pancake
+a wobbly snowman
+a tiny octopus
+a singing unicorn
+a singing bathtub
+a grumpy walrus
+a wobbly sock
+a haunted teapot
+a tiny lunchbox
+a tiny dinosaur
+a sleepy lunchbox
+a singing cupcake
+an extremely polite toaster
+a slightly damp banana
+a time-travelling pancake
+a very confused grandpa
+an extremely polite sock
+a haunted school bus
+a dancing school bus
+a dancing snowman
+a slightly damp lunchbox
+a sparkly snowman
+a wobbly teapot
+a shy penguin
+a very confused robot
+a very confused marshmallow
+a sticky koala
+a very confused bathtub
+a sticky bathtub
+a tiny cactus
+a fluffy koala
+a sleepy bathtub
+a giant unicorn
+a fluffy penguin
+a very confused toaster
+a fluffy cupcake
+an extremely polite dinosaur
+a sparkly octopus
+a glow-in-the-dark marshmallow
+a bossy walrus
+a burping lunchbox
+a time-travelling bathtub
+a time-travelling dinosaur
+an extremely polite pirate
+a squeaky walrus
+a sticky lunchbox
+a polka-dot cactus
+a polka-dot bathtub
+a karate-chopping marshmallow
+a bossy teapot
+a haunted koala
+a sticky broccoli
+a karate-chopping cupcake
+an invisible unicorn
+a tiny toaster
+a time-travelling walrus
+a super-fast jellyfish
+a rainbow alligator
+an invisible broccoli
+a rainbow lunchbox
+a super-fast grandpa
+an extremely polite cupcake
+a tiny pirate
+a sleepy cupcake
+a very confused banana
+a glow-in-the-dark walrus
+a slightly damp grandpa
+a bossy alligator
+a squeaky broccoli
+a karate-chopping jellyfish
+a sleepy grandpa
+an invisible cupcake
+a very confused hamster
+an invisible sock
+a sparkly robot
+a grumpy robot
+a wobbly bathtub
+a rainbow broccoli
+a very confused unicorn
+a wobbly pirate
+a shy hamster
+a grumpy alligator

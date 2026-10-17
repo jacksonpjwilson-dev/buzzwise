@@ -24,7 +24,7 @@ function join(code, name) {
   });
 }
 socket.on('connect', () => { if (saved && (joined || (qcode && qcode.toUpperCase() === saved.code))) join(saved.code, saved.name); else joinForm(); });
-socket.on('state', s => { S = s; render(); });
+socket.on('state', s => { if (GR(s, false)) return; S = s; render(); });
 socket.on('kicked', () => { localStorage.removeItem('bw-join'); saved = null; joined = false; joinForm('You were removed by the host.'); });
 let lastBuzz = 0;
 function buzz() { if (Date.now() - lastBuzz < 150) return; lastBuzz = Date.now(); navigator.vibrate && navigator.vibrate(60); socket.emit('player:buzz'); }

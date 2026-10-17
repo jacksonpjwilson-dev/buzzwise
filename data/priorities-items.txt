@@ -1,0 +1,509 @@
+# Priorities: one item per line
+pizza
+sleep
+money
+my phone
+the beach
+coffee
+chocolate
+tacos
+sushi
+burgers
+ice cream
+pancakes
+bacon
+french fries
+cheese
+fresh bread
+a hot shower
+clean sheets
+a good nap
+sleeping in
+breakfast in bed
+a long bath
+air conditioning
+central heating
+Wi-Fi
+my laptop
+headphones
+streaming services
+video games
+board games
+social media
+group chats
+texting back fast
+a full phone battery
+a phone charger
+my car
+public transit
+a bike
+walking everywhere
+a window seat
+road trips
+air travel
+passports full of stamps
+a week off work
+weekends
+Friday nights
+Sunday mornings
+holidays
+my birthday
+gifts
+surprise parties
+a big wedding
+eloping
+kids
+pets
+dogs
+cats
+my family
+my best friend
+making new friends
+date night
+romance
+being single
+a big house
+a tiny apartment in the city
+a backyard
+a pool
+a hot tub
+a garden
+houseplants
+a clean kitchen
+a tidy bedroom
+doing laundry right away
+a dishwasher
+a good mattress
+fluffy pillows
+a weighted blanket
+cozy socks
+comfy sweatpants
+fashion
+sneakers
+designer bags
+jewelry
+a fresh haircut
+skincare
+makeup
+the gym
+running
+yoga
+team sports
+watching sports
+my favourite team
+live concerts
+music festivals
+my playlist
+podcasts
+audiobooks
+reading books
+movies
+the cinema
+binge-watching TV
+reality TV
+documentaries
+comedy shows
+stand-up comedy
+art museums
+history
+science
+learning new things
+a college degree
+a good job
+a big salary
+job security
+working from home
+a short commute
+a nice boss
+fun coworkers
+a corner office
+retiring early
+saving money
+spending money
+investing
+paying off debt
+a nice watch
+a fancy car
+an electric car
+the environment
+recycling
+volunteering
+charity
+politics
+voting
+religion
+spirituality
+meditation
+therapy
+mental health
+physical health
+eating vegetables
+fast food
+home cooking
+eating out
+brunch
+dessert
+snacks at midnight
+spicy food
+fruit
+salad
+soda
+water
+tea
+energy drinks
+wine
+beer
+cocktails
+a quiet night in
+a wild night out
+dancing
+karaoke
+camping
+hiking
+the mountains
+the city
+the countryside
+snow days
+summer
+winter
+spring
+autumn leaves
+sunsets
+sunrises
+stargazing
+rainy days
+thunderstorms
+the ocean
+lakes
+swimming
+fishing
+boating
+skiing
+snowboarding
+surfing
+theme parks
+roller coasters
+water parks
+zoos
+aquariums
+camping in a cabin
+luxury hotels
+hostels
+cruises
+all-inclusive resorts
+travelling solo
+travelling with friends
+family vacations
+staycations
+being on time
+being early
+sleeping eight hours
+staying up late
+waking up early
+honesty
+loyalty
+kindness
+humour
+intelligence
+good looks
+confidence
+ambition
+patience
+creativity
+being organized
+spontaneity
+routines
+adventure
+safety
+privacy
+fame
+power
+respect
+popularity
+having a lot of friends
+having a few close friends
+alone time
+personal space
+hugs
+compliments
+winning arguments
+being right
+saying sorry
+forgiveness
+gossip
+secrets
+surprises
+planning ahead
+to-do lists
+calendars
+an empty inbox
+a clean desktop
+fast internet
+the newest phone
+smart home gadgets
+robots that clean
+self-driving cars
+space travel
+time travel
+superpowers
+flying
+invisibility
+reading minds
+teleportation
+living forever
+a personal chef
+a personal trainer
+a housekeeper
+a butler
+a chauffeur
+a private jet
+a yacht
+an island
+a castle
+a treehouse
+a secret room
+a home theatre
+a gaming room
+a library at home
+a walk-in closet
+a big TV
+a record player
+vinyl records
+old photos
+family recipes
+grandma's cooking
+holiday traditions
+fireworks
+parades
+fairs
+farmers markets
+shopping malls
+online shopping
+free shipping
+coupons
+sales
+thrift stores
+antiques
+collecting things
+Lego
+puzzles
+crosswords
+sudoku
+trivia nights
+game shows
+card games
+chess
+poker
+bowling
+mini golf
+golf
+tennis
+basketball
+soccer
+football
+hockey
+baseball
+the Olympics
+the World Cup
+the Super Bowl
+award shows
+celebrity news
+memes
+cat videos
+funny videos
+viral dances
+selfies
+photo albums
+handwritten letters
+phone calls
+video calls
+voice messages
+emojis
+inside jokes
+nicknames
+a signature dish
+a signature scent
+perfume
+candles
+a fireplace
+hot chocolate
+pumpkin spice
+cinnamon rolls
+donuts
+cupcakes
+birthday cake
+cookies fresh from the oven
+popcorn
+nachos
+hot dogs
+barbecue
+steak
+fried chicken
+pasta
+lasagna
+ramen
+dumplings
+curry
+burritos
+poutine
+maple syrup
+peanut butter
+avocado toast
+smoothies
+fresh orange juice
+cereal
+waffles
+eggs Benedict
+a full English breakfast
+gas station snacks
+road trip snacks
+airport lounges
+first class
+extra legroom
+the aisle seat
+noise-cancelling headphones
+a good umbrella
+sunscreen
+sunglasses
+a nice tan
+staying pale
+tattoos
+piercings
+a beard
+long hair
+being tall
+being strong
+being fast
+being flexible
+good posture
+clear skin
+white teeth
+a great smile
+fresh breath
+smelling nice
+a clean car
+a full gas tank
+parking close to the door
+no traffic
+green lights all the way
+a quiet neighbourhood
+nice neighbours
+living near family
+living near the beach
+living downtown
+a view from my window
+natural light
+high ceilings
+a big kitchen island
+a fancy coffee machine
+a stand mixer
+an air fryer
+a slow cooker
+a grill
+a fire pit
+outdoor movie nights
+pool parties
+sleepovers
+game nights
+dinner parties
+potlucks
+picnics
+lemonade stands
+garage sales
+road trip playlists
+singing in the shower
+dancing in the kitchen
+talking to my pets
+naming my plants
+my morning routine
+my skincare routine
+my bedtime routine
+a gratitude journal
+goal setting
+new year's resolutions
+New Year's Eve
+Halloween
+Thanksgiving dinner
+Christmas morning
+Valentine's Day
+Canada Day
+the Fourth of July
+long weekends
+snow forts
+snowball fights
+building sandcastles
+collecting seashells
+jumping in leaf piles
+splashing in puddles
+fresh-cut grass
+the smell of rain
+new car smell
+new book smell
+the sound of waves
+birds singing
+a crackling campfire
+complete silence
+background noise
+white noise machines
+a fan running at night
+sleeping with the window open
+a dark room
+a nightlight
+a big breakfast
+skipping breakfast
+intermittent fasting
+cheat days
+counting steps
+smartwatches
+fitness trackers
+protein shakes
+vitamins
+naps at work
+long lunches
+free office snacks
+casual Fridays
+team outings
+office parties
+promotions
+a fancy job title
+a four-day work week
+unlimited vacation
+pensions
+health insurance
+dental plans
+a good doctor
+a good dentist
+a good mechanic
+a good hairdresser
+a reliable plumber
+a lawyer friend
+a doctor friend
+a friend with a truck
+a friend with a cottage
+a friend with a pool
+a snow day off school
+a good night out dancing
+breakfast for dinner
+leftover pizza
+a fully stocked fridge
+a secret snack stash
+a long hot summer
+a white Christmas
+a perfect cup of tea
+a great pair of jeans
+a lucky charm
+my childhood teddy bear
+my high school yearbook
+my first car
+a vintage jacket
+a bucket list
+a gap year
+learning a new language
+playing an instrument
+painting
+photography
+writing a book
+gardening on weekends
+baking bread
+knitting
+woodworking

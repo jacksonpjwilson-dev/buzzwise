@@ -1,4 +1,6 @@
 // Version label, /api/exists, Feud live lobby list, and "no auto-rejoin" rules on every /play page.
+require('./autogo');
+process.env.FF_READ_MS = process.env.FF_READ_MS || '1';
 const fs = require('fs'), path = require('path');
 const { server, rooms, ff, VERSION } = require('../server.js');
 const { io } = require('socket.io-client');

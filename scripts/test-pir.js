@@ -1,4 +1,5 @@
 // The Price Is Right flow test: prices never sent before reveal; row, 5 pricing games, showdown, final showcase.
+require('./autogo');
 process.env.PIR_CLOCK_SECS = '2';
 const { server, pir } = require('../server.js');
 const { io } = require('socket.io-client');

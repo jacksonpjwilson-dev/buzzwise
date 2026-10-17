@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 const { Server } = require('socket.io');
+const GR = require('./lib/getready');
 
 const BOARDS = require('./data/questions.json');
 const PORT = process.env.PORT || 3000;
@@ -27,10 +28,11 @@ app.get('/ff', (req, res) => res.sendFile(path.join(__dirname, 'public', 'ff-hos
 app.get('/ff/play', (req, res) => res.sendFile(path.join(__dirname, 'public', 'ff-play.html')));
 app.get('/pir', (req, res) => res.sendFile(path.join(__dirname, 'public', 'pir-host.html')));
 app.get('/pir/play', (req, res) => res.sendFile(path.join(__dirname, 'public', 'pir-play.html')));
+for (const g of ['pw', 'cae', 'pri']) { app.get('/' + g, (req, res) => res.sendFile(path.join(__dirname, 'public', g + '-host.html'))); app.get(`/${g}/play`, (req, res) => res.sendFile(path.join(__dirname, 'public', g + '-play.html'))); }
 app.get('/wof/play', (req, res) => res.sendFile(path.join(__dirname, 'public', 'wof-play.html')));
 
 app.get('/api/exists', (req, res) => { // lets /play pages drop stale saved sessions
-  const code = String(req.query.code || '').trim().toUpperCase(), g = { jp: rooms, ff: ff.rooms, wof: wof.rooms, pir: pir.rooms }[req.query.game];
+  const code = String(req.query.code || '').trim().toUpperCase(), g = { jp: rooms, ff: ff.rooms, wof: wof.rooms, pir: pir.rooms, pw: pw.rooms, cae: cae.rooms, pri: pri.rooms }[req.query.game];
   res.json({ exists: !!(g && g[code]) });
 });
 const server = http.createServer(app);
@@ -41,6 +43,9 @@ const codeMaker = exists => { const L = 'ABCDEFGHJKLMNPQRSTUVWXYZ'; let c;
 const wof = require('./wof')(io, codeMaker);
 const ff = require('./ff')(io, codeMaker);
 const pir = require('./pir')(io, codeMaker);
+const pw = require('./pw')(io, codeMaker);
+const cae = require('./cae')(io, codeMaker);
+const pri = require('./pri')(io, codeMaker);
 
 function makeCode() {
   const L = 'ABCDEFGHJKLMNPQRSTUVWXYZ'; let c;
@@ -96,6 +101,8 @@ function playerView(room, pid) {
   };
 }
 function broadcast(room) {
+  if (room.getReady) { const v = GR.view(room, Object.values(room.players).map(p => ({ name: p.name, score: p.score })).sort((a, b) => b.score - a.score));
+    if (room.hostSocket) io.to(room.hostSocket).emit('state', v); for (const p of Object.values(room.players)) if (p.socketId) io.to(p.socketId).emit('state', v); return; }
   if (room.hostSocket) io.to(room.hostSocket).emit('state', hostView(room));
   for (const p of Object.values(room.players)) if (p.socketId) io.to(p.socketId).emit('state', playerView(room, p.id));
 }
@@ -144,6 +151,8 @@ function closeClue(room) {
 }
 
 io.on('connection', socket => {
+  GR.guard(socket, ev => ev.startsWith('host:') ? rooms[socket.data.hostCode] : rooms[socket.data.code]);
+
   const fail = msg => socket.emit('errorMsg', msg);
   const hostRoom = () => { const r = rooms[socket.data.hostCode]; return r && r.hostSocket === socket.id ? r : null; };
 
@@ -176,7 +185,8 @@ io.on('connection', socket => {
     const room = hostRoom(); if (!room) return fail('Not hosting a room');
     if (!room.board) return fail('Pick a board first');
     if (!Object.keys(room.players).length) return fail('Wait for at least one player');
-    room.round = 0; room.phase = 'board'; room.dd = pickDD(1); room.used = new Set(); broadcast(room);
+    room.round = 0; room.phase = 'board'; room.dd = pickDD(1); room.used = new Set();
+    GR.gate(room, `Jeopardy! · ${room.board.name}`, ['Round 1 is about to begin', room.players[room.controller] ? `${room.players[room.controller].name} picks first` : 'Host picks the first clue']); broadcast(room);
   });
   socket.on('host:reveal', (_, cb) => { // player-host mode: the host (a contestant) sends the answer ONLY to the buzzed player's phone
     const room = hostRoom(); const cur = room && room.current;
@@ -228,11 +238,13 @@ io.on('connection', socket => {
     if (room.hostMode === 'player' && !room.current.revealed) revealAll(room, 'nobody'); else closeClue(room);
     broadcast(room);
   });
+  socket.on('host:go', (_, cb) => { const room = hostRoom(); const went = !!(room && GR.go(room)); if (went) broadcast(room); if (typeof cb === 'function') cb(went ? { ok: true } : { error: 'Nothing to start' }); });
   socket.on('host:nextRound', () => {
     const room = hostRoom(); if (!room) return;
     if (room.current) return fail('Close the open clue first');
     if (room.round === 0) { room.round = 1; room.phase = 'board'; room.dd = pickDD(2);
       const sorted = Object.values(room.players).sort((a, b) => a.score - b.score); room.controller = sorted[0] ? sorted[0].id : null; // lowest score picks first
+      GR.gate(room, 'Double Jeopardy!', ['Values are doubled', sorted[0] ? `${sorted[0].name} (lowest score) picks first` : '']);
     } else if (room.round === 1) { room.round = 'final'; room.phase = 'final'; room.final = { stage: 'wager', wagers: {}, answers: {}, judged: {} }; }
     broadcast(room);
   });
@@ -330,4 +342,4 @@ if (require.main === module) {
     console.log(`  Friends elsewhere: run  npx --yes cloudflared tunnel --url http://localhost:${PORT}\n`);
   });
 }
-module.exports = { server, rooms, wof, ff, pir, VERSION };
+module.exports = { server, rooms, wof, ff, pir, pw, cae, pri, VERSION };

@@ -1,7 +1,7 @@
 const socket = io('/pir'); let S = null; let host = JSON.parse(sessionStorage.getItem('bw-pir-host') || 'null');
 const $ = id => document.getElementById(id); const emit = (e, d) => socket.emit(e, d || {});
 socket.on('connect', () => socket.emit('host:create', host || {}, r => { host = r; sessionStorage.setItem('bw-pir-host', JSON.stringify(r)); }));
-socket.on('state', s => { S = s; render(); }); socket.on('errorMsg', toast);
+socket.on('state', s => { if (GR(s, true)) return; S = s; render(); }); socket.on('errorMsg', toast);
 function render() {
   $('barinfo').innerHTML = `<span class="muted">Join at <b>${location.host}/pir/play</b></span><span class="code-chip">${S.code}</span>`;
   $('stage').innerHTML = stageHTML(S); $('msg').textContent = S.message; $('foot').innerHTML = FOOT;

@@ -2,7 +2,7 @@ const socket = io('/wof'); let S = null, wheelDrawn = false, lastSpinAt = 0, tim
 let host = JSON.parse(sessionStorage.getItem('bw-wof-host') || 'null');
 const $ = id => document.getElementById(id); const emit = (e, d) => socket.emit(e, d || {});
 socket.on('connect', () => socket.emit('host:create', host || {}, r => { host = r; sessionStorage.setItem('bw-wof-host', JSON.stringify(r)); }));
-socket.on('errorMsg', toast); socket.on('state', s => { S = s; render(); });
+socket.on('errorMsg', toast); socket.on('state', s => { if (GR(s, true)) return; S = s; render(); });
 const nm = id => (S.players.find(p => p.id === id) || {}).name || '';
 function render() {
   if (!wheelDrawn) { $('wheel').innerHTML = wheelSVG(S.wheel); wheelDrawn = true; $('wheelRot').style.transform = `rotate(${S.rotation}deg)`; }
