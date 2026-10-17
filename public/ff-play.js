@@ -16,19 +16,22 @@ socket.on('connect', () => saved && (joined || (qcode && qcode.toUpperCase() ===
 socket.on('state', s => { S = s; render(); }); socket.on('errorMsg', toast);
 socket.on('strike', e => { showX(e.count); navigator.vibrate && navigator.vibrate(300); }); socket.on('ding', ding);
 socket.on('dup', () => toast('Duplicate answer — try again!'));
+function ffBuzz() { navigator.vibrate && navigator.vibrate(60); socket.emit('player:buzz', {}, r => r && r.error && toast(r.error)); }
 const send = (e, d, cb) => socket.emit(e, d || {}, cb || (r => r && r.error && toast(r.error)));
 function answerForm(ev, label) { return `<form id="af" style="display:grid;gap:8px;margin-top:10px"><input id="ai" placeholder="${label}" autocomplete="off"><button class="btn btn-gold">${ev === 'fm' ? 'Submit' : 'Survey says!'}</button>${ev === 'fm' ? `<button type="button" class="btn btn-ghost" onclick="send('player:fmAnswer',{pass:true})">Pass</button>` : ''}</form>`; }
 function render() {
   const meP = S.players.find(p => p.id === pid); if (!meP) return;
-  const ae = document.activeElement; const key = JSON.stringify([S.phase, S.round && [S.round.buzzed, S.round.control, S.round.num], S.fm && [S.fm.stage, S.fm.qIndex, S.fm.dup]]);
+  const ae = document.activeElement; const key = JSON.stringify([S.phase, S.round && [S.round.buzzed, S.round.control, S.round.num, S.round.faceoffAnswers.length], S.fm && [S.fm.stage, S.fm.qIndex, S.fm.dup]]);
   if (ae && ae.tagName === 'INPUT' && key === render.key) { headerAndBoard(meP); return; } render.key = key;
   const r = S.round, T = S.teams; let h = `<div id="hb"></div>`;
   if (S.phase === 'lobby') h += `<p class="big" style="font-size:22px">You're on ${esc(T[meP.team].name)}!</p><div class="teampick"><button class="btn btn-red ${meP.team === 0 ? 'on' : ''}" onclick="send('player:team',{team:0})">${esc(T[0].name)}</button><button class="btn ${meP.team === 1 ? 'on' : ''}" style="background:#2563eb" onclick="send('player:team',{team:1})">${esc(T[1].name)}</button></div><p class="status">Waiting for the host to start.</p>`;
   else if (S.phase === 'faceoff') {
-    const inFO = r.faceoff.includes(pid), answered = r.faceoffAnswers.some(x => x.pid === pid);
-    if (r.buzzed === pid) h += `<p class="big" style="font-size:22px">You buzzed! Say it out loud or type it:</p>` + answerForm('g', 'Your answer');
-    else if (inFO && !answered && !r.buzzed) h += `<button class="buzzer bz-live" onclick="send('player:buzz')">BUZZ</button>`;
-    else h += `<p class="status">Face-off: ${r.faceoff.map(id => esc((S.players.find(p => p.id === id) || {}).name || '—')).join(' vs ')}</p>`;
+    const inFO = r.faceoff.includes(pid), answered = r.faceoffAnswers.some(x => x.pid === pid), fn = id => esc((S.players.find(p => p.id === id) || {}).name || '—');
+    const vs = `<p class="big" style="font-size:24px;text-align:center">Face-off: ${r.faceoff.map(fn).join(' vs ')}</p>`;
+    if (r.buzzed === pid) h += `<p class="big" style="font-size:22px">${r.firstBuzz === pid ? 'You buzzed first!' : 'Your chance!'} Say it out loud or type it:</p><div class="timer" id="foT"></div>` + answerForm('g', 'Your answer');
+    else if (inFO && !answered && !r.buzzed) h += vs + `<button class="buzzer bz-live" id="ffbuzz" onclick="ffBuzz()">BUZZ</button>`;
+    else if (inFO && r.buzzed) h += vs + `<button class="buzzer bz-wait" disabled>🔒</button><p class="status">${fn(r.buzzed)} ${r.firstBuzz === r.buzzed ? 'buzzed first. You may get a chance if they miss.' : 'is answering.'}</p>`;
+    else h += vs + `<p class="status">${r.buzzed ? `🔔 ${fn(r.buzzed)} is answering…` : 'Waiting for a buzz…'}</p>`;
   } else if (S.phase === 'playpass') h += meP.team === r.control ? `<p class="big" style="font-size:22px">Your team won the face-off!</p><div class="wactions" style="grid-template-columns:1fr 1fr"><button class="btn btn-gold" onclick="send('player:playPass',{choice:'play'})">Play</button><button class="btn btn-ghost" onclick="send('player:playPass',{choice:'pass'})">Pass</button></div>` : `<p class="status">${esc(T[r.control].name)} are deciding: play or pass…</p>`;
   else if (S.phase === 'play') h += meP.team === r.control ? `<p class="big" style="font-size:20px">Your team is playing!</p>` + answerForm('g', 'Type your answer') : `<p class="status">Huddle up — if they strike out, you get one steal!</p>`;
   else if (S.phase === 'steal') h += meP.team !== r.control ? `<p class="big" style="font-size:20px">STEAL! One answer for your team:</p>` + answerForm('g', 'Your steal answer') : `<p class="status">The other team is trying to steal…</p>`;
@@ -40,6 +43,7 @@ function render() {
   if ($('af')) $('af').onsubmit = e => { e.preventDefault(); const t = $('ai').value.trim(); if (!t) return; send(S.phase === 'fm' ? 'player:fmAnswer' : 'player:guess', { text: t }); $('ai').value = ''; };
   headerAndBoard(meP);
   if (S.fm && S.fm.endsAt) countdown(S.fm.endsAt, S.fm.now, 'fmT');
+  if (r && r.foEndsAt && $('foT')) countdown(r.foEndsAt, r.now, 'foT');
 }
 function headerAndBoard(meP) {
   const r = S.round, T = S.teams;

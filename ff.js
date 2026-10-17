@@ -59,7 +59,7 @@ module.exports = function attachFF(io, makeCode) {
       players: Object.values(room.players).map(p => ({ id: p.id, name: p.name, team: p.team, connected: p.connected, isHost: !!p.isHost })),
       round: r && {
         num: r.num, mult: r.mult, question: r.survey.q, pot: r.pot, strikes: r.strikes, control: r.control, faceoff: r.faceoff, buzzed: r.buzzed,
-        faceoffAnswers: r.faceoffAnswers, canOverride: !!r.lastMiss, winner: r.winner,
+        faceoffAnswers: r.faceoffAnswers, foEndsAt: room.phase === 'faceoff' && r.buzzed ? r.foEndsAt : null, now: Date.now(), firstBuzz: r.firstBuzz || null, canOverride: !!r.lastMiss, winner: r.winner,
         board: r.survey.answers.map((a, i) => r.revealed.has(i) ? { n: i + 1, text: a.text, points: a.points } : { n: i + 1 }), // unrevealed = number only
       },
       fm: f && {
@@ -106,7 +106,9 @@ module.exports = function attachFF(io, makeCode) {
     const ans = r.survey.answers;
     if (room.phase === 'faceoff') {
       if (!r.buzzed) return { error: 'Nobody has buzzed' };
-      const who = r.buzzed, team = room.players[who].team, i = match(text, ans, r.revealed);
+      clearTimeout(r.foTimer); const timedOut = text === TIMEOUT;
+      const who = r.buzzed, team = room.players[who].team, i = timedOut ? -1 : match(text, ans, r.revealed);
+      if (timedOut) text = "(time's up)";
       r.faceoffAnswers.push({ pid: who, team, guess: String(text).slice(0, 60), rank: i });
       if (i >= 0) reveal(room, i); else { r.lastMiss = { text, phase: 'faceoff' }; strike(room, 1); }
       const first = r.faceoffAnswers[0], second = r.faceoffAnswers[1];
@@ -114,10 +116,10 @@ module.exports = function attachFF(io, makeCode) {
       if (!second) { // other face-off player gets a shot
         r.buzzed = r.faceoff.find(id => id && id !== who) || null;
         if (!r.buzzed) return i >= 0 ? setControl(room, team, '') : (r.faceoffAnswers = [], room.message = 'No match. Buzz again!', {});
-        room.message = i >= 0 ? `#${i + 1} on the board! ${room.players[r.buzzed].name}, can you beat it?` : `Not on the board. ${room.players[r.buzzed].name}, your turn!`; return { hit: i >= 0, index: i };
+        room.message = i >= 0 ? `#${i + 1} on the board! ${room.players[r.buzzed].name}, can you beat it?` : `${timedOut ? "Time's up!" : 'Not on the board.'} ${room.players[r.buzzed].name}, your turn!`; armFaceoff(room); return { hit: i >= 0, index: i };
       }
       const a = first.rank < 0 ? 99 : first.rank, b = second.rank < 0 ? 99 : second.rank;
-      if (a === 99 && b === 99) { r.faceoffAnswers = []; r.buzzed = null; room.message = 'Neither answer is on the board. Buzz again!'; return { hit: false }; }
+      if (a === 99 && b === 99) { r.faceoffAnswers = []; r.buzzed = null; r.firstBuzz = null; room.message = 'Neither answer is on the board. Buzz again!'; return { hit: false }; }
       return setControl(room, a <= b ? first.team : second.team, '');
     }
     if (room.phase === 'play') {
@@ -139,8 +141,16 @@ module.exports = function attachFF(io, makeCode) {
     }
     return { error: 'No question is open' };
   }
+  // Face-off answer clock: a buzzed player who doesn't answer in time counts as a miss and play passes to the opponent.
+  const TIMEOUT = '\u0000timeout', FO_MS = () => +(process.env.FF_FACEOFF_MS || 20000);
+  function armFaceoff(room) { const r = room.round; clearTimeout(r.foTimer); if (!r.buzzed) return; r.foEndsAt = Date.now() + FO_MS();
+    r.foTimer = setTimeout(() => { if (room.round === r && room.phase === 'faceoff' && r.buzzed) { guess(room, TIMEOUT, r.buzzed); broadcast(room); } }, FO_MS()); }
+  function faceoffBuzz(room, pid) { // server judges by arrival order: first buzz wins, the other is locked out
+    const r = room.round; if (!r || room.phase !== 'faceoff' || r.buzzed || !r.faceoff.includes(pid) || r.faceoffAnswers.some(x => x.pid === pid)) return { error: 'Locked out' };
+    r.buzzed = pid; r.firstBuzz = r.firstBuzz || pid; room.message = `${room.players[pid].name} buzzed first!`; nsp.to(room.code).emit('buzz', { pid, name: room.players[pid].name }); armFaceoff(room); return { ok: true };
+  }
   function setControl(room, team, msg) {
-    const r = room.round; r.control = team; r.buzzed = null; room.phase = 'playpass';
+    const r = room.round; clearTimeout(r.foTimer); r.control = team; r.buzzed = null; room.phase = 'playpass';
     room.message = `${msg} ${room.teams[team].name} win the face-off: play or pass?`.trim(); return { hit: true };
   }
   function override(room) { // host confirmed "this should have counted": reveal best near-miss
@@ -226,10 +236,10 @@ module.exports = function attachFF(io, makeCode) {
     socket.on('host:leaveTeam', () => { const room = hostRoom(); if (!room || room.phase !== 'lobby') return; delete room.players['host-' + room.code]; broadcast(room); });
     socket.on('host:guess', ({ text }, cb) => { const room = hostRoom(); if (!room) return; done(room, guess(room, text, null), cb); });
     socket.on('host:override', (_, cb) => { const room = hostRoom(); if (!room) return; done(room, override(room), cb); });
-    socket.on('host:buzzFor', ({ pid }) => { const room = hostRoom(); const r = room && room.round; if (!r || room.phase !== 'faceoff' || r.buzzed || !r.faceoff.includes(pid)) return; r.buzzed = pid; room.message = `${room.players[pid].name} buzzed first!`; broadcast(room); });
+    socket.on('host:buzzFor', ({ pid } = {}, cb) => { const room = hostRoom(); if (!room) return; const res = faceoffBuzz(room, pid); cb && cb(res); broadcast(room); });
     socket.on('host:playPass', ({ choice }) => { const room = hostRoom(); if (room) playPass(room, choice); });
     socket.on('host:adjust', ({ team, delta }) => { const room = hostRoom(); if (!room || !room.teams[team]) return; room.teams[team].score += Math.round(+delta || 0); broadcast(room); });
-    socket.on('host:skipRound', () => { const room = hostRoom(); if (!room || !room.round) return; room.round.survey.answers.forEach((_, i) => room.round.revealed.add(i)); room.phase = 'roundEnd'; room.message = 'Round skipped.'; broadcast(room); });
+    socket.on('host:skipRound', () => { const room = hostRoom(); if (!room || !room.round) return; clearTimeout(room.round.foTimer); room.round.survey.answers.forEach((_, i) => room.round.revealed.add(i)); room.phase = 'roundEnd'; room.message = 'Round skipped.'; broadcast(room); });
     socket.on('host:fastMoney', ({ p1, p2 } = {}) => { const room = hostRoom(); if (!room) return;
       const t = room.gameWinner !== undefined ? room.gameWinner : (room.teams[0].score >= room.teams[1].score ? 0 : 1); const m = members(room, t);
       const a = room.players[p1] ? p1 : m[0] && m[0].id, b = room.players[p2] ? p2 : (m[1] || m[0] || {}).id;
@@ -237,7 +247,7 @@ module.exports = function attachFF(io, makeCode) {
     socket.on('host:fmGo', () => { const room = hostRoom(); const f = room && room.fm; if (!f || !['ready1', 'ready2'].includes(f.stage)) return; fmBeginTurn(room); broadcast(room); });
     socket.on('host:fmAnswer', ({ text, pass }, cb) => { const room = hostRoom(); if (!room || !room.fm) return; done(room, fmAnswer(room, text, pass), cb); });
     socket.on('host:fmStop', () => { const room = hostRoom(); if (room && room.fm) fmEndTurn(room); });
-    socket.on('host:newGame', () => { const room = hostRoom(); if (!room) return; clearTimeout(room.fmTimer); room.teams.forEach(t => t.score = 0); Object.assign(room, { phase: 'lobby', round: null, fm: null, gameWinner: undefined, message: 'New game! Pick teams.' }); broadcast(room); });
+    socket.on('host:newGame', () => { const room = hostRoom(); if (!room) return; clearTimeout(room.fmTimer); if (room.round) clearTimeout(room.round.foTimer); room.teams.forEach(t => t.score = 0); Object.assign(room, { phase: 'lobby', round: null, fm: null, gameWinner: undefined, message: 'New game! Pick teams.' }); broadcast(room); });
 
     function playPass(room, choice) {
       const r = room.round; if (room.phase !== 'playpass') return;
@@ -260,9 +270,7 @@ module.exports = function attachFF(io, makeCode) {
     });
     const me = () => { const r = rooms[socket.data.code]; return r && r.players[socket.data.pid] ? r : null; };
     socket.on('player:team', ({ team }) => { const room = me(); if (room && room.phase === 'lobby' && [0, 1].includes(+team)) { room.players[socket.data.pid].team = +team; broadcast(room); } });
-    socket.on('player:buzz', () => { const room = me(); const r = room && room.round; const pid = socket.data.pid;
-      if (!r || room.phase !== 'faceoff' || r.buzzed || !r.faceoff.includes(pid) || r.faceoffAnswers.some(x => x.pid === pid)) return;
-      r.buzzed = pid; room.message = `${room.players[pid].name} buzzed first!`; nsp.to(room.code).emit('buzz', { pid }); broadcast(room); });
+    socket.on('player:buzz', (_, cb) => { const room = me(); if (!room) return; const res = faceoffBuzz(room, socket.data.pid); if (typeof cb === 'function') cb(res); if (res.ok) broadcast(room); });
     socket.on('player:guess', ({ text }, cb) => { const room = me(); if (!room) return; const r = room.round, pid = socket.data.pid;
       if (room.phase === 'faceoff' && (!r || r.buzzed !== pid)) return cb && cb({ error: 'Buzz in first' });
       done(room, guess(room, text, pid), cb); });

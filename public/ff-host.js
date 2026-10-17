@@ -14,6 +14,10 @@ function render() {
   let st = `<div class="ff-teams">${team(0)}<div class="ff-pot"><div class="muted" style="font-size:12px">${r ? `ROUND ${r.num}${r.mult > 1 ? ' · ×' + r.mult : ''}` : 'POT'}</div><div class="sc">${r ? r.pot : 0}</div></div>${team(1)}</div>`;
   if (S.phase === 'fm' || S.phase === 'fmDone') st += fmBoard();
   else st += `<div class="ff-q">${r ? esc(r.question) : 'Survey says… get ready!'}</div>${ffBoard(r)}<div class="strikes">${r && S.phase !== 'faceoff' ? '<span>✕</span>'.repeat(r.strikes) : ''}</div>`;
+  if (S.phase === 'faceoff' && r) { const fn = id => id ? esc(nm(id)) : '—';
+    st += `<div class="card" id="foBanner" style="text-align:center;margin:10px 0;padding:14px"><div class="muted" style="font-size:13px;letter-spacing:.15em">FACE-OFF</div>
+      <div style="font-size:30px;font-weight:900">${r.faceoff.map(id => `<span style="${r.buzzed === id ? 'color:var(--gold)' : r.buzzed ? 'opacity:.45' : ''}">${fn(id)}</span>`).join(' <span class="muted">vs</span> ')}</div>
+      ${r.buzzed ? `<div class="gold" style="font-size:22px;font-weight:800;margin-top:6px">🔔 ${fn(r.buzzed)} ${r.firstBuzz === r.buzzed ? 'buzzed first!' : 'gets a chance!'}</div><div class="timer" id="foT"></div>` : '<div class="muted" style="margin-top:6px">Hands on buzzers…</div>'}</div>`; }
   st += `<p class="wmsg">${esc(S.message)}</p>`;
   $('stage').innerHTML = st;
   // ---- controls (host never sees hidden answers) ----
@@ -45,6 +49,7 @@ function render() {
   $('side').innerHTML = c;
   if (keep) { const e = $(keep.id); if (e) { e.value = keep.v; e.focus(); } }
   if (S.fm && S.fm.endsAt) countdown(S.fm.endsAt, S.fm.now, 'fmT');
+  if (r && r.foEndsAt && $('foT')) countdown(r.foEndsAt, r.now, 'foT');
 }
 function fmBoard() { const f = S.fm; if (!f) return '';
   const cell = e => !e ? '<div class="cell2"></div><div class="pts"></div>' : e.submitted ? '<div class="cell2">✓ answered</div><div class="pts">?</div>' : `<div class="cell2">${esc(e.guess || '—')}${e.answer && e.answer.toLowerCase() !== (e.guess || '').toLowerCase() ? ` <span class="muted" style="font-size:12px">(${esc(e.answer)})</span>` : ''}</div><div class="pts">${e.points}</div>`;
