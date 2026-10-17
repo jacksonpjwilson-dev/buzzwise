@@ -4753,5 +4753,3175 @@
   "name": "Tournament of Champions",
   "difficulty": "expert",
   "tagline": "The final boss of trivia"
+ },
+ {
+  "id": "mixed-bag",
+  "rounds": [
+   [
+    {
+     "name": "Capital Gains",
+     "clues": [
+      {
+       "q": "What is the capital of Vietnam?",
+       "a": "Hanoi"
+      },
+      {
+       "q": "What is the capital of Kenya?",
+       "a": "Nairobi"
+      },
+      {
+       "q": "Which city on the Danube is the capital of Hungary?",
+       "a": "Budapest"
+      },
+      {
+       "q": "What is the capital of Chile?",
+       "a": "Santiago"
+      },
+      {
+       "q": "Which Bolivian city, at about 3,600 m, is the highest seat of government in the world?",
+       "a": "La Paz"
+      }
+     ]
+    },
+    {
+     "name": "Body Shop",
+     "clues": [
+      {
+       "q": "What is the smallest bone in the human body, found in the middle ear?",
+       "a": "Stapes (stirrup)"
+      },
+      {
+       "q": "How many chambers does the human heart have?",
+       "a": "Four chambers"
+      },
+      {
+       "q": "What is the common name for the patella?",
+       "a": "Kneecap"
+      },
+      {
+       "q": "Which organ produces insulin?",
+       "a": "Pancreas"
+      },
+      {
+       "q": "In which part of the body is the femur, the longest bone?",
+       "a": "Thigh (upper leg)"
+      }
+     ]
+    },
+    {
+     "name": "Sitcom Central",
+     "clues": [
+      {
+       "q": "On \"Friends,\" what is the name of the coffee shop where the gang hangs out?",
+       "a": "Central Perk"
+      },
+      {
+       "q": "In \"Parks and Recreation,\" Leslie Knope works for the parks department of which Indiana town?",
+       "a": "Pawnee"
+      },
+      {
+       "q": "\"Frasier\" was a spin-off of which sitcom set in a Boston bar?",
+       "a": "Cheers"
+      },
+      {
+       "q": "In \"Seinfeld,\" what is the name of Jerry's nemesis, the mailman?",
+       "a": "Newman"
+      },
+      {
+       "q": "In \"How I Met Your Mother,\" what is the name of the bar beneath the gang's apartment?",
+       "a": "MacLaren's Pub"
+      }
+     ]
+    },
+    {
+     "name": "Fruit Salad",
+     "clues": [
+      {
+       "q": "Which spiky Southeast Asian fruit is so smelly it's banned on many trains?",
+       "a": "Durian"
+      },
+      {
+       "q": "Before 1959, kiwifruit was marketed as the Chinese what?",
+       "a": "Gooseberry"
+      },
+      {
+       "q": "Which fruit is the main ingredient in a classic French tarte Tatin?",
+       "a": "Apples"
+      },
+      {
+       "q": "Grapefruit is a natural cross between a sweet orange and which large citrus?",
+       "a": "Pomelo"
+      },
+      {
+       "q": "Which dark berry is used to make the French liqueur crème de cassis?",
+       "a": "Blackcurrant"
+      }
+     ]
+    },
+    {
+     "name": "Sports Shorts",
+     "clues": [
+      {
+       "q": "How many holes are played in a standard round of golf?",
+       "a": "Eighteen holes"
+      },
+      {
+       "q": "In tennis, what is a score of zero called?",
+       "a": "Love"
+      },
+      {
+       "q": "How many points is a touchdown worth before the extra point?",
+       "a": "Six points"
+      },
+      {
+       "q": "The Ryder Cup is contested between Europe and the USA in which sport?",
+       "a": "Golf"
+      },
+      {
+       "q": "In which sport do teams compete for the Stanley Cup?",
+       "a": "Ice hockey"
+      }
+     ]
+    },
+    {
+     "name": "Word Play",
+     "clues": [
+      {
+       "q": "What term describes words spelled the same with different meanings, like \"bat\" the animal and \"bat\" the club?",
+       "a": "Homonym"
+      },
+      {
+       "q": "What do you call a word formed by rearranging another's letters, like \"listen\" and \"silent\"?",
+       "a": "Anagram"
+      },
+      {
+       "q": "What device repeats initial consonant sounds, as in \"Peter Piper picked a peck\"?",
+       "a": "Alliteration"
+      },
+      {
+       "q": "What figure of speech is \"the wind whispered through the trees\"?",
+       "a": "Personification"
+      },
+      {
+       "q": "What is the term for a phrase like \"jumbo shrimp\" that puts contradictory words together?",
+       "a": "Oxymoron"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "name": "Before & After",
+     "clues": [
+      {
+       "q": "\"Top Gun\" star + the system that keeps your car at a set speed",
+       "a": "Tom Cruise control"
+      },
+      {
+       "q": "Ice-cream dessert with a banana + having two very different identities",
+       "a": "Banana split personality"
+      },
+      {
+       "q": "Rowan Atkinson's bumbling TV character + a fussy, penny-pinching accountant",
+       "a": "Mr. Bean counter"
+      },
+      {
+       "q": "Apple's smartphone + a street-corner spot for making calls",
+       "a": "iPhone booth"
+      },
+      {
+       "q": "British takeaway of fried fish + Disney's chipmunk duo",
+       "a": "Fish and Chip 'n' Dale"
+      }
+     ]
+    },
+    {
+     "name": "Rhyme Time",
+     "clues": [
+      {
+       "q": "A plump feline",
+       "a": "Fat cat"
+      },
+      {
+       "q": "A happy father",
+       "a": "Glad dad"
+      },
+      {
+       "q": "A humorous rabbit",
+       "a": "Funny bunny"
+      },
+      {
+       "q": "A crimson place to sleep",
+       "a": "Red bed"
+      },
+      {
+       "q": "What a goldfish hopes for when it blows out its candles",
+       "a": "Fish wish"
+      }
+     ]
+    },
+    {
+     "name": "Planet Earth",
+     "clues": [
+      {
+       "q": "What is the longest river in South America?",
+       "a": "Amazon River"
+      },
+      {
+       "q": "Which is the largest hot desert in the world?",
+       "a": "Sahara Desert"
+      },
+      {
+       "q": "Mount Kilimanjaro is the highest peak in which African country?",
+       "a": "Tanzania"
+      },
+      {
+       "q": "Which ocean lies between Africa and Australia?",
+       "a": "Indian Ocean"
+      },
+      {
+       "q": "What is the deepest known point in the Earth's oceans, in the Mariana Trench?",
+       "a": "Challenger Deep"
+      }
+     ]
+    },
+    {
+     "name": "Rock Legends",
+     "clues": [
+      {
+       "q": "Which band released \"Hotel California\" in 1976?",
+       "a": "Eagles"
+      },
+      {
+       "q": "What was Freddie Mercury's band?",
+       "a": "Queen"
+      },
+      {
+       "q": "Which guitarist set his guitar on fire at the 1967 Monterey Pop Festival?",
+       "a": "Jimi Hendrix"
+      },
+      {
+       "q": "\"Stairway to Heaven\" was recorded by which band?",
+       "a": "Led Zeppelin"
+      },
+      {
+       "q": "Which Irish band's lead singer is known as Bono?",
+       "a": "U2"
+      }
+     ]
+    },
+    {
+     "name": "Lab Coats",
+     "clues": [
+      {
+       "q": "What is the chemical symbol for silver?",
+       "a": "Ag"
+      },
+      {
+       "q": "Which gas makes up about 21% of Earth's atmosphere?",
+       "a": "Oxygen"
+      },
+      {
+       "q": "On the pH scale, what number is neutral?",
+       "a": "Seven"
+      },
+      {
+       "q": "Who set out the three laws of motion in his 1687 \"Principia\"?",
+       "a": "Isaac Newton"
+      },
+      {
+       "q": "What is the chemical symbol for sodium?",
+       "a": "Na"
+      }
+     ]
+    },
+    {
+     "name": "Hidden History",
+     "clues": [
+      {
+       "q": "Which ship sank on its maiden voyage in April 1912?",
+       "a": "RMS Titanic"
+      },
+      {
+       "q": "In what year did World War I begin?",
+       "a": "1914"
+      },
+      {
+       "q": "Which French emperor was first exiled to the island of Elba in 1814?",
+       "a": "Napoleon Bonaparte"
+      },
+      {
+       "q": "Which Roman city was buried by the eruption of Mount Vesuvius in AD 79?",
+       "a": "Pompeii"
+      },
+      {
+       "q": "Which leader founded the Mongol Empire in 1206?",
+       "a": "Genghis Khan"
+      }
+     ]
+    }
+   ]
+  ],
+  "final": {
+   "category": "Inventions",
+   "clue": "Invented in 1974 by a Hungarian architecture professor, this puzzle has about 43 quintillion possible positions.",
+   "answer": "Rubik's Cube"
+  },
+  "name": "Mixed Bag",
+  "difficulty": "medium",
+  "tagline": "A little bit of everything"
+ },
+ {
+  "id": "grab-bag",
+  "rounds": [
+   [
+    {
+     "name": "Around the World",
+     "clues": [
+      {
+       "q": "Which country is home to the ancient rock-cut temples of Abu Simbel?",
+       "a": "Egypt"
+      },
+      {
+       "q": "Which South American country's name means \"little Venice\"?",
+       "a": "Venezuela"
+      },
+      {
+       "q": "Which European country is shaped like a boot?",
+       "a": "Italy"
+      },
+      {
+       "q": "The Atacama Desert is mostly in which country?",
+       "a": "Chile"
+      },
+      {
+       "q": "Which country has more natural lakes than the rest of the world combined?",
+       "a": "Canada"
+      }
+     ]
+    },
+    {
+     "name": "Animal Facts",
+     "clues": [
+      {
+       "q": "What is a group of owls called?",
+       "a": "A parliament"
+      },
+      {
+       "q": "Which animal is known as the \"ship of the desert\"?",
+       "a": "Camel"
+      },
+      {
+       "q": "How many hearts does an octopus have?",
+       "a": "Three hearts"
+      },
+      {
+       "q": "What is the fastest bird in a dive?",
+       "a": "Peregrine falcon"
+      },
+      {
+       "q": "What kind of animal is a Komodo dragon?",
+       "a": "Lizard"
+      }
+     ]
+    },
+    {
+     "name": "Silver Screen",
+     "clues": [
+      {
+       "q": "In which 1980 film does Darth Vader reveal he is Luke's father?",
+       "a": "The Empire Strikes Back"
+      },
+      {
+       "q": "Who directed \"Titanic\" and \"Avatar\"?",
+       "a": "James Cameron"
+      },
+      {
+       "q": "What is the name of the lion cub hero of \"The Lion King\"?",
+       "a": "Simba"
+      },
+      {
+       "q": "Which film won the first Academy Award for Best Animated Feature in 2002?",
+       "a": "Shrek"
+      },
+      {
+       "q": "In \"The Matrix,\" which color pill does Neo take?",
+       "a": "Red pill"
+      }
+     ]
+    },
+    {
+     "name": "Kitchen Table",
+     "clues": [
+      {
+       "q": "What is the main ingredient of guacamole?",
+       "a": "Avocado"
+      },
+      {
+       "q": "Which Italian cheese is traditionally used on a Margherita pizza?",
+       "a": "Mozzarella"
+      },
+      {
+       "q": "What spice gives curry its yellow color?",
+       "a": "Turmeric"
+      },
+      {
+       "q": "Sushi rice is seasoned with sugar, salt and what liquid?",
+       "a": "Rice vinegar"
+      },
+      {
+       "q": "What is the Japanese name for thinly sliced raw fish served without rice?",
+       "a": "Sashimi"
+      }
+     ]
+    },
+    {
+     "name": "Game On",
+     "clues": [
+      {
+       "q": "How many squares are on a chessboard?",
+       "a": "Sixty-four"
+      },
+      {
+       "q": "In Monopoly, what color are the cheapest properties, Mediterranean and Baltic Avenues?",
+       "a": "Brown (purple in older sets)"
+      },
+      {
+       "q": "How many dots are on a standard six-sided die in total?",
+       "a": "Twenty-one"
+      },
+      {
+       "q": "Which word game uses 100 lettered tiles in the standard English set?",
+       "a": "Scrabble"
+      },
+      {
+       "q": "In chess, which piece can only move diagonally?",
+       "a": "Bishop"
+      }
+     ]
+    },
+    {
+     "name": "Spell It Out",
+     "clues": [
+      {
+       "q": "What does \"NASA\" stand for?",
+       "a": "National Aeronautics and Space Administration"
+      },
+      {
+       "q": "What does the \"www\" in a web address stand for?",
+       "a": "World Wide Web"
+      },
+      {
+       "q": "What does \"SCUBA\" stand for?",
+       "a": "Self-Contained Underwater Breathing Apparatus"
+      },
+      {
+       "q": "What does \"laser\" stand for?",
+       "a": "Light Amplification by Stimulated Emission of Radiation"
+      },
+      {
+       "q": "In texting, what does \"IIRC\" mean?",
+       "a": "If I recall correctly"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "name": "Pop Divas",
+     "clues": [
+      {
+       "q": "Which singer's fans are known as \"Swifties\"?",
+       "a": "Taylor Swift"
+      },
+      {
+       "q": "Which singer released the album \"Lemonade\" in 2016?",
+       "a": "Beyoncé"
+      },
+      {
+       "q": "Whose hits include \"Rolling in the Deep\" and \"Hello\"?",
+       "a": "Adele"
+      },
+      {
+       "q": "Which singer was born Stefani Germanotta?",
+       "a": "Lady Gaga"
+      },
+      {
+       "q": "Whose 1984 album \"Like a Virgin\" made her a superstar?",
+       "a": "Madonna"
+      }
+     ]
+    },
+    {
+     "name": "Space Race",
+     "clues": [
+      {
+       "q": "Which planet is known as the Red Planet?",
+       "a": "Mars"
+      },
+      {
+       "q": "What is the name of the larger of Mars's two moons?",
+       "a": "Phobos"
+      },
+      {
+       "q": "Who was the second person to walk on the Moon?",
+       "a": "Buzz Aldrin"
+      },
+      {
+       "q": "Which former ninth planet was reclassified as a dwarf planet in 2006?",
+       "a": "Pluto"
+      },
+      {
+       "q": "What was the name of the first reusable US space shuttle to reach orbit, in 1981?",
+       "a": "Columbia"
+      }
+     ]
+    },
+    {
+     "name": "Founding Fathers & Mothers",
+     "clues": [
+      {
+       "q": "Who is on the US $100 bill?",
+       "a": "Benjamin Franklin"
+      },
+      {
+       "q": "Which US president is on the $20 bill?",
+       "a": "Andrew Jackson"
+      },
+      {
+       "q": "Who sewed the first American flag, according to legend?",
+       "a": "Betsy Ross"
+      },
+      {
+       "q": "Which future president was the principal author of the Bill of Rights?",
+       "a": "James Madison"
+      },
+      {
+       "q": "Which founding father was killed in a duel with Aaron Burr in 1804?",
+       "a": "Alexander Hamilton"
+      }
+     ]
+    },
+    {
+     "name": "Sporting Chance",
+     "clues": [
+      {
+       "q": "How long is a marathon, to the nearest mile?",
+       "a": "26 miles"
+      },
+      {
+       "q": "In which country did the martial art taekwondo originate?",
+       "a": "South Korea"
+      },
+      {
+       "q": "In bowling, what is it called when you knock down all ten pins with your first ball?",
+       "a": "Strike"
+      },
+      {
+       "q": "Which tennis tournament is played on grass in southwest London?",
+       "a": "Wimbledon"
+      },
+      {
+       "q": "How many players are on a rugby union team on the field?",
+       "a": "Fifteen players"
+      }
+     ]
+    },
+    {
+     "name": "Words, Words, Words",
+     "clues": [
+      {
+       "q": "What is a baby swan called?",
+       "a": "Cygnet"
+      },
+      {
+       "q": "What is a female fox called?",
+       "a": "Vixen"
+      },
+      {
+       "q": "What is the opposite of \"nocturnal\"?",
+       "a": "Diurnal"
+      },
+      {
+       "q": "What is a \"hendecagon\"?",
+       "a": "An eleven-sided polygon"
+      },
+      {
+       "q": "What does the prefix \"hemi-\" mean?",
+       "a": "Half"
+      }
+     ]
+    },
+    {
+     "name": "Name the Decade",
+     "clues": [
+      {
+       "q": "Disco, bell-bottoms and the first \"Star Wars\" film",
+       "a": "1970s"
+      },
+      {
+       "q": "The Great Depression begins with a stock market crash",
+       "a": "1920s (1929)"
+      },
+      {
+       "q": "Grunge music, the Spice Girls and the launch of the World Wide Web",
+       "a": "1990s"
+      },
+      {
+       "q": "The Beatles appear on \"The Ed Sullivan Show\" and man walks on the Moon",
+       "a": "1960s"
+      },
+      {
+       "q": "The first iPhone and the first Harry Potter film",
+       "a": "2000s"
+      }
+     ]
+    }
+   ]
+  ],
+  "final": {
+   "category": "US States",
+   "clue": "It is the only US state made up entirely of islands.",
+   "answer": "Hawaii"
+  },
+  "name": "Grab Bag",
+  "difficulty": "medium",
+  "tagline": "Reach in and see what you get"
+ },
+ {
+  "id": "potluck",
+  "rounds": [
+   [
+    {
+     "name": "On the Map",
+     "clues": [
+      {
+       "q": "Which strait separates Europe from Asia at Istanbul?",
+       "a": "Bosphorus"
+      },
+      {
+       "q": "Which US state has the longest coastline?",
+       "a": "Alaska"
+      },
+      {
+       "q": "Mount Fuji stands on which of Japan's main islands?",
+       "a": "Honshu"
+      },
+      {
+       "q": "Which landlocked European country has four national languages?",
+       "a": "Switzerland"
+      },
+      {
+       "q": "Which river forms much of the border between the US states of Texas and Oklahoma?",
+       "a": "Red River"
+      }
+     ]
+    },
+    {
+     "name": "Feathered Friends",
+     "clues": [
+      {
+       "q": "What is the national bird of the United States?",
+       "a": "Bald eagle"
+      },
+      {
+       "q": "What is the largest living bird in the world?",
+       "a": "Ostrich"
+      },
+      {
+       "q": "Which flightless bird is a national symbol of New Zealand?",
+       "a": "Kiwi"
+      },
+      {
+       "q": "Which colorful bird is the national bird of India?",
+       "a": "Peacock (Indian peafowl)"
+      },
+      {
+       "q": "Which bird, a symbol of wisdom, can rotate its head about 270 degrees?",
+       "a": "Owl"
+      }
+     ]
+    },
+    {
+     "name": "TV Land",
+     "clues": [
+      {
+       "q": "In which New Mexico city is \"Breaking Bad\" set?",
+       "a": "Albuquerque"
+      },
+      {
+       "q": "Which reality show uses the phrase \"The tribe has spoken\"?",
+       "a": "Survivor"
+      },
+      {
+       "q": "What is the name of Homer Simpson's local bar?",
+       "a": "Moe's Tavern"
+      },
+      {
+       "q": "Which TV detective, played by Peter Falk, always had \"just one more thing\"?",
+       "a": "Columbo"
+      },
+      {
+       "q": "What is the surname of the aristocratic family in \"Downton Abbey\"?",
+       "a": "Crawley"
+      }
+     ]
+    },
+    {
+     "name": "Sweet Tooth",
+     "clues": [
+      {
+       "q": "Which coffee-soaked Italian dessert's name means \"pick me up\"?",
+       "a": "Tiramisu"
+      },
+      {
+       "q": "What nut is used to make marzipan?",
+       "a": "Almond"
+      },
+      {
+       "q": "Baklava is made with layers of which thin pastry?",
+       "a": "Phyllo (filo)"
+      },
+      {
+       "q": "What is the main flavoring of a crème brûlée?",
+       "a": "Vanilla bean"
+      },
+      {
+       "q": "Which Viennese chocolate cake with apricot jam is named after Franz Sacher?",
+       "a": "Sachertorte"
+      }
+     ]
+    },
+    {
+     "name": "Olympic Rings",
+     "clues": [
+      {
+       "q": "How many rings are on the Olympic flag?",
+       "a": "Five rings"
+      },
+      {
+       "q": "Which city hosted the 2012 Summer Olympics?",
+       "a": "London"
+      },
+      {
+       "q": "In which country were the ancient Olympic Games held?",
+       "a": "Greece"
+      },
+      {
+       "q": "Which swimmer has won the most Olympic gold medals ever?",
+       "a": "Michael Phelps"
+      },
+      {
+       "q": "Which city hosted the first modern Olympic Games in 1896?",
+       "a": "Athens"
+      }
+     ]
+    },
+    {
+     "name": "Grammar Police",
+     "clues": [
+      {
+       "q": "What part of speech describes a noun, like \"blue\" or \"tall\"?",
+       "a": "Adjective"
+      },
+      {
+       "q": "What punctuation mark is used in contractions like \"don't\"?",
+       "a": "Apostrophe"
+      },
+      {
+       "q": "What do you call a word that means the opposite of another?",
+       "a": "Antonym"
+      },
+      {
+       "q": "In the sentence \"She sings beautifully,\" what part of speech is \"beautifully\"?",
+       "a": "Adverb"
+      },
+      {
+       "q": "What is the name for the punctuation mark \";\"?",
+       "a": "Semicolon"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "name": "Before & After",
+     "clues": [
+      {
+       "q": "Classic property-trading board game + the British comedy troupe behind \"Flying Circus\"",
+       "a": "Monopoly Python"
+      },
+      {
+       "q": "\"Gold Digger\" rapper + the musical about the Jets and the Sharks",
+       "a": "Kanye West Side Story"
+      },
+      {
+       "q": "Beyoncé's former girl group + something very easy to do",
+       "a": "Destiny's Child's play"
+      },
+      {
+       "q": "\"Men in Black\" star + a famous American gun maker",
+       "a": "Will Smith & Wesson"
+      },
+      {
+       "q": "Ill-fated 1970 lunar mission + a 2004 Jennifer Garner comedy",
+       "a": "Apollo 13 Going on 30"
+      }
+     ]
+    },
+    {
+     "name": "Tunes",
+     "clues": [
+      {
+       "q": "Which Manchester band had a 1995 hit with \"Wonderwall\"?",
+       "a": "Oasis"
+      },
+      {
+       "q": "Who sang \"Purple Rain\"?",
+       "a": "Prince"
+      },
+      {
+       "q": "Which Swedish group won Eurovision in 1974 with \"Waterloo\"?",
+       "a": "ABBA"
+      },
+      {
+       "q": "\"Rocket Man\" is a hit by which singer?",
+       "a": "Elton John"
+      },
+      {
+       "q": "Which rapper released \"The Marshall Mathers LP\" in 2000?",
+       "a": "Eminem"
+      }
+     ]
+    },
+    {
+     "name": "Ancient World",
+     "clues": [
+      {
+       "q": "Which Greek city-state was famous for its fierce warrior culture?",
+       "a": "Sparta"
+      },
+      {
+       "q": "Who was the Greek god of war?",
+       "a": "Ares"
+      },
+      {
+       "q": "What language did the ancient Romans speak?",
+       "a": "Latin"
+      },
+      {
+       "q": "Which civilization built the pyramid of El Castillo at Chichén Itzá?",
+       "a": "Maya"
+      },
+      {
+       "q": "What writing material did ancient Egyptians make from a river reed?",
+       "a": "Papyrus"
+      }
+     ]
+    },
+    {
+     "name": "Money Talks",
+     "clues": [
+      {
+       "q": "What is the currency of Japan?",
+       "a": "Yen"
+      },
+      {
+       "q": "What is the currency of the United Kingdom?",
+       "a": "Pound sterling"
+      },
+      {
+       "q": "Mahatma Gandhi appears on the banknotes of which country?",
+       "a": "India"
+      },
+      {
+       "q": "In finance, what does \"IPO\" stand for?",
+       "a": "Initial public offering"
+      },
+      {
+       "q": "Which stock market index tracks 30 large US companies and is named after two journalists?",
+       "a": "Dow Jones Industrial Average"
+      }
+     ]
+    },
+    {
+     "name": "Movie Night",
+     "clues": [
+      {
+       "q": "Which Disney film features the song \"Let It Go\"?",
+       "a": "Frozen"
+      },
+      {
+       "q": "Who played Captain Jack Sparrow in \"Pirates of the Caribbean\"?",
+       "a": "Johnny Depp"
+      },
+      {
+       "q": "Which 1972 film opens with the line \"I believe in America\"?",
+       "a": "The Godfather"
+      },
+      {
+       "q": "Which Pixar film follows a rat who dreams of being a chef in Paris?",
+       "a": "Ratatouille"
+      },
+      {
+       "q": "Which 1994 film is set largely in a Maine prison and stars Tim Robbins and Morgan Freeman?",
+       "a": "The Shawshank Redemption"
+      }
+     ]
+    },
+    {
+     "name": "Lab Partners",
+     "clues": [
+      {
+       "q": "What is H2O more commonly called?",
+       "a": "Water"
+      },
+      {
+       "q": "Which subatomic particle has no electric charge?",
+       "a": "Neutron"
+      },
+      {
+       "q": "What force opposes motion between two surfaces that touch?",
+       "a": "Friction"
+      },
+      {
+       "q": "Which blood cells carry oxygen around the body?",
+       "a": "Red blood cells"
+      },
+      {
+       "q": "What is the boiling point of water at sea level in degrees Fahrenheit?",
+       "a": "212 °F"
+      }
+     ]
+    }
+   ]
+  ],
+  "final": {
+   "category": "Literature",
+   "clue": "This author of \"The Old Man and the Sea\" won the Nobel Prize in Literature in 1954.",
+   "answer": "Ernest Hemingway"
+  },
+  "name": "Potluck",
+  "difficulty": "medium",
+  "tagline": "Everybody brought a dish"
+ },
+ {
+  "id": "odds-and-ends",
+  "rounds": [
+   [
+    {
+     "name": "Island Hopping",
+     "clues": [
+      {
+       "q": "On which Indonesian island is the city of Denpasar?",
+       "a": "Bali"
+      },
+      {
+       "q": "Which Mediterranean island was Napoleon's birthplace?",
+       "a": "Corsica"
+      },
+      {
+       "q": "Which Greek island is famous for the white-and-blue clifftop village of Oia?",
+       "a": "Santorini"
+      },
+      {
+       "q": "Which island country lies just off the southern tip of India?",
+       "a": "Sri Lanka"
+      },
+      {
+       "q": "On which Caribbean island did reggae music originate?",
+       "a": "Jamaica"
+      }
+     ]
+    },
+    {
+     "name": "Bugs & Critters",
+     "clues": [
+      {
+       "q": "How many legs does an insect have?",
+       "a": "Six legs"
+      },
+      {
+       "q": "What is a baby frog called?",
+       "a": "Tadpole"
+      },
+      {
+       "q": "What do caterpillars turn into?",
+       "a": "Butterflies (or moths)"
+      },
+      {
+       "q": "Which arachnid has a venomous stinger at the end of its tail?",
+       "a": "Scorpion"
+      },
+      {
+       "q": "Which is the only continent with no native ants?",
+       "a": "Antarctica"
+      }
+     ]
+    },
+    {
+     "name": "Toon Town",
+     "clues": [
+      {
+       "q": "What is the name of SpongeBob's pet snail?",
+       "a": "Gary"
+      },
+      {
+       "q": "Which cartoon family lives in the town of Bedrock?",
+       "a": "The Flintstones"
+      },
+      {
+       "q": "What is the name of the Looney Tunes skunk with a French accent?",
+       "a": "Pepé Le Pew"
+      },
+      {
+       "q": "Which Great Dane solves mysteries with Shaggy and the gang?",
+       "a": "Scooby-Doo"
+      },
+      {
+       "q": "The Teenage Mutant Ninja Turtles are named after artists from which period?",
+       "a": "Renaissance"
+      }
+     ]
+    },
+    {
+     "name": "Breakfast Club",
+     "clues": [
+      {
+       "q": "Tony the Tiger is the mascot of which Kellogg's cereal?",
+       "a": "Frosted Flakes (Frosties)"
+      },
+      {
+       "q": "Shakshuka is eggs poached in a spiced sauce of which fruit?",
+       "a": "Tomatoes"
+      },
+      {
+       "q": "What are thin French pancakes called?",
+       "a": "Crêpes"
+      },
+      {
+       "q": "Traditional marmalade is made from which bitter fruit?",
+       "a": "Seville oranges"
+      },
+      {
+       "q": "Which pancake topping is made by boiling down tree sap?",
+       "a": "Maple syrup"
+      }
+     ]
+    },
+    {
+     "name": "Measure Up",
+     "clues": [
+      {
+       "q": "How many centimeters are in a meter?",
+       "a": "100"
+      },
+      {
+       "q": "How many feet are in a mile?",
+       "a": "5,280"
+      },
+      {
+       "q": "How many ounces are in a pound?",
+       "a": "Sixteen ounces"
+      },
+      {
+       "q": "How many degrees are in a full circle?",
+       "a": "360"
+      },
+      {
+       "q": "What is the SI unit of electric current?",
+       "a": "Ampere"
+      }
+     ]
+    },
+    {
+     "name": "Famous Firsts",
+     "clues": [
+      {
+       "q": "Who was the first American to orbit the Earth, in 1962?",
+       "a": "John Glenn"
+      },
+      {
+       "q": "In 1893, which country became the first to give all women the vote in national elections?",
+       "a": "New Zealand"
+      },
+      {
+       "q": "What was Disney's first full-length animated feature, released in 1937?",
+       "a": "Snow White and the Seven Dwarfs"
+      },
+      {
+       "q": "Who was the first woman to travel into space, in 1963?",
+       "a": "Valentina Tereshkova"
+      },
+      {
+       "q": "What was the first feature film made entirely with computer animation, in 1995?",
+       "a": "Toy Story"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "name": "Before & After",
+     "clues": [
+      {
+       "q": "Lucille Ball sitcom + a Beatles song with a famous set of initials",
+       "a": "I Love Lucy in the Sky with Diamonds"
+      },
+      {
+       "q": "Spider-Man's alter ego + the company that made Monopoly",
+       "a": "Peter Parker Brothers"
+      },
+      {
+       "q": "Clint Eastwood's .44 Magnum-toting cop + the boy wizard",
+       "a": "Dirty Harry Potter"
+      },
+      {
+       "q": "The King of Pop + his family's Motown group",
+       "a": "Michael Jackson 5"
+      },
+      {
+       "q": "Scotland's legendary lake creature + a big-wheeled vehicle that crushes cars",
+       "a": "Loch Ness Monster truck"
+      }
+     ]
+    },
+    {
+     "name": "Figure of Speech",
+     "clues": [
+      {
+       "q": "To \"spill the beans\" means to do what?",
+       "a": "Reveal a secret"
+      },
+      {
+       "q": "If something costs \"an arm and a leg,\" it is what?",
+       "a": "Very expensive"
+      },
+      {
+       "q": "To be \"under the weather\" means to feel what?",
+       "a": "Slightly ill"
+      },
+      {
+       "q": "What are you wishing a performer when you say \"break a leg\"?",
+       "a": "Good luck"
+      },
+      {
+       "q": "What does it mean to \"bite the bullet\"?",
+       "a": "Face something unpleasant bravely"
+      }
+     ]
+    },
+    {
+     "name": "Hit Parade",
+     "clues": [
+      {
+       "q": "Mick Jagger and Keith Richards are founding members of which band?",
+       "a": "The Rolling Stones"
+      },
+      {
+       "q": "Who had a 1987 hit with \"Never Gonna Give You Up\"?",
+       "a": "Rick Astley"
+      },
+      {
+       "q": "Which country star wrote and sang \"Jolene\"?",
+       "a": "Dolly Parton"
+      },
+      {
+       "q": "Which Canadian singer had 2015 hits \"Sorry\" and \"Love Yourself\"?",
+       "a": "Justin Bieber"
+      },
+      {
+       "q": "Which New Jersey band sang \"Livin' on a Prayer\"?",
+       "a": "Bon Jovi"
+      }
+     ]
+    },
+    {
+     "name": "Crowned Heads",
+     "clues": [
+      {
+       "q": "Which English king sealed the Magna Carta in 1215?",
+       "a": "King John"
+      },
+      {
+       "q": "Who was Britain's longest-reigning monarch before Elizabeth II?",
+       "a": "Queen Victoria"
+      },
+      {
+       "q": "Which French king was executed by guillotine in 1793?",
+       "a": "Louis XVI"
+      },
+      {
+       "q": "Which Russian tsar founded St. Petersburg in 1703?",
+       "a": "Peter the Great"
+      },
+      {
+       "q": "Which Spanish monarchs sponsored Columbus's 1492 voyage?",
+       "a": "Ferdinand and Isabella"
+      }
+     ]
+    },
+    {
+     "name": "Tech Talk",
+     "clues": [
+      {
+       "q": "Which company makes the Galaxy line of smartphones?",
+       "a": "Samsung"
+      },
+      {
+       "q": "What does \"USB\" stand for?",
+       "a": "Universal Serial Bus"
+      },
+      {
+       "q": "Who co-founded Microsoft with Paul Allen?",
+       "a": "Bill Gates"
+      },
+      {
+       "q": "What does \"GPS\" stand for?",
+       "a": "Global Positioning System"
+      },
+      {
+       "q": "Which 1993 web browser from the University of Illinois helped popularize the internet?",
+       "a": "Mosaic"
+      }
+     ]
+    },
+    {
+     "name": "Game Room",
+     "clues": [
+      {
+       "q": "What is the name of Mario's green dinosaur companion?",
+       "a": "Yoshi"
+      },
+      {
+       "q": "In which board game do players try to sink each other's fleets on a grid?",
+       "a": "Battleship"
+      },
+      {
+       "q": "Which block-building video game features Steve and the Endermen?",
+       "a": "Minecraft"
+      },
+      {
+       "q": "In the board game Clue, which suspect is a military officer?",
+       "a": "Colonel Mustard"
+      },
+      {
+       "q": "Which pink Nintendo hero inhales enemies to copy their powers?",
+       "a": "Kirby"
+      }
+     ]
+    }
+   ]
+  ],
+  "final": {
+   "category": "Natural Wonders",
+   "clue": "The world's largest coral reef system, it stretches over 2,000 km off the coast of Queensland.",
+   "answer": "Great Barrier Reef"
+  },
+  "name": "Odds & Ends",
+  "difficulty": "medium",
+  "tagline": "The trivia junk drawer"
+ },
+ {
+  "id": "brain-food",
+  "rounds": [
+   [
+    {
+     "name": "Flags & Banners",
+     "clues": [
+      {
+       "q": "Which Himalayan kingdom has a white dragon on its flag?",
+       "a": "Bhutan"
+      },
+      {
+       "q": "How many stars are on the flag of the United States?",
+       "a": "Fifty"
+      },
+      {
+       "q": "The \"Union Jack\" is the flag of which country?",
+       "a": "United Kingdom"
+      },
+      {
+       "q": "Which country's flag has vertical stripes of green, white and orange?",
+       "a": "Ireland"
+      },
+      {
+       "q": "What shape is the national flag of Switzerland?",
+       "a": "Square"
+      }
+     ]
+    },
+    {
+     "name": "Dog Days",
+     "clues": [
+      {
+       "q": "What is the smallest dog breed in the world?",
+       "a": "Chihuahua"
+      },
+      {
+       "q": "What breed of dog was Lassie?",
+       "a": "Rough Collie"
+      },
+      {
+       "q": "Which dog breed is known for its blue-black tongue?",
+       "a": "Chow Chow"
+      },
+      {
+       "q": "Which spotted breed is famous as a firehouse mascot?",
+       "a": "Dalmatian"
+      },
+      {
+       "q": "Which long-bodied breed was originally bred to hunt badgers?",
+       "a": "Dachshund"
+      }
+     ]
+    },
+    {
+     "name": "Quote, Unquote",
+     "clues": [
+      {
+       "q": "\"May the Force be with you\" comes from which film franchise?",
+       "a": "Star Wars"
+      },
+      {
+       "q": "Arnold Schwarzenegger first said \"I'll be back\" in which 1984 film?",
+       "a": "The Terminator"
+      },
+      {
+       "q": "\"Houston, we have a problem\" is a line from which 1995 film?",
+       "a": "Apollo 13"
+      },
+      {
+       "q": "The Joker asks \"Why so serious?\" in which 2008 film?",
+       "a": "The Dark Knight"
+      },
+      {
+       "q": "\"Say hello to my little friend!\" is from which 1983 film?",
+       "a": "Scarface"
+      }
+     ]
+    },
+    {
+     "name": "Pasta La Vista",
+     "clues": [
+      {
+       "q": "Which pasta's name means \"little worms\" in Italian?",
+       "a": "Vermicelli"
+      },
+      {
+       "q": "Which bow-tie-shaped pasta is named after butterflies?",
+       "a": "Farfalle"
+      },
+      {
+       "q": "Which sauce is made from basil, pine nuts, garlic, Parmesan and olive oil?",
+       "a": "Pesto"
+      },
+      {
+       "q": "Which Roman pasta dish combines eggs, pecorino, guanciale and black pepper?",
+       "a": "Carbonara"
+      },
+      {
+       "q": "What does \"al dente\" literally mean?",
+       "a": "To the tooth"
+      }
+     ]
+    },
+    {
+     "name": "Hoops & Pucks",
+     "clues": [
+      {
+       "q": "How many players does each basketball team have on the court?",
+       "a": "Five players"
+      },
+      {
+       "q": "Which basketball star is nicknamed \"King James\"?",
+       "a": "LeBron James"
+      },
+      {
+       "q": "What is the rubber disc used in ice hockey called?",
+       "a": "Puck"
+      },
+      {
+       "q": "What is it called when a player scores three goals in one game?",
+       "a": "Hat trick"
+      },
+      {
+       "q": "Which NBA team plays its home games at TD Garden?",
+       "a": "Boston Celtics"
+      }
+     ]
+    },
+    {
+     "name": "Elementary",
+     "clues": [
+      {
+       "q": "Which element has the chemical symbol Pb?",
+       "a": "Lead"
+      },
+      {
+       "q": "Which element, atomic number 6, is the basis of all known life?",
+       "a": "Carbon"
+      },
+      {
+       "q": "Which element has the chemical symbol Sn?",
+       "a": "Tin"
+      },
+      {
+       "q": "Which reddish metal with the symbol Cu is widely used in electrical wiring?",
+       "a": "Copper"
+      },
+      {
+       "q": "Which yellow-green halogen gas is used to disinfect swimming pools?",
+       "a": "Chlorine"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "name": "Before & After",
+     "clues": [
+      {
+       "q": "2014 David Fincher thriller + the troops that sell Thin Mints",
+       "a": "Gone Girl Scouts"
+      },
+      {
+       "q": "TV show where entrepreneurs pitch investors + a sleeveless shirt",
+       "a": "Shark Tank top"
+      },
+      {
+       "q": "Grunge band behind \"Jeremy\" + an informal get-together of musicians",
+       "a": "Pearl Jam session"
+      },
+      {
+       "q": "Hasbro's toy spud + a dandruff shampoo",
+       "a": "Mr. Potato Head & Shoulders"
+      },
+      {
+       "q": "Sesame Street's tall yellow resident + a 2018 Sandra Bullock horror film",
+       "a": "Big Bird Box"
+      }
+     ]
+    },
+    {
+     "name": "Lost in Translation",
+     "clues": [
+      {
+       "q": "What does the German word \"Gesundheit,\" said after a sneeze, literally mean?",
+       "a": "Health"
+      },
+      {
+       "q": "What does the French phrase \"déjà vu\" literally mean?",
+       "a": "Already seen"
+      },
+      {
+       "q": "What does the Spanish word \"hola\" mean?",
+       "a": "Hello"
+      },
+      {
+       "q": "What does the Japanese word \"tsunami\" literally mean?",
+       "a": "Harbor wave"
+      },
+      {
+       "q": "Which German word meaning \"children's garden\" names an early school year?",
+       "a": "Kindergarten"
+      }
+     ]
+    },
+    {
+     "name": "Pop Culture Grab",
+     "clues": [
+      {
+       "q": "What is the name of the fictional African nation in \"Black Panther\"?",
+       "a": "Wakanda"
+      },
+      {
+       "q": "Which famous reality TV family includes Kim, Khloé and Kourtney?",
+       "a": "The Kardashians"
+      },
+      {
+       "q": "Which school of witchcraft and wizardry does Harry Potter attend?",
+       "a": "Hogwarts"
+      },
+      {
+       "q": "Which 2021 South Korean Netflix series features deadly versions of children's games?",
+       "a": "Squid Game"
+      },
+      {
+       "q": "What is the name of Barbie's longtime boyfriend?",
+       "a": "Ken"
+      }
+     ]
+    },
+    {
+     "name": "Stateside",
+     "clues": [
+      {
+       "q": "What is the capital of California?",
+       "a": "Sacramento"
+      },
+      {
+       "q": "Which state is nicknamed the \"Sunshine State\"?",
+       "a": "Florida"
+      },
+      {
+       "q": "In which state is the Grand Canyon?",
+       "a": "Arizona"
+      },
+      {
+       "q": "What is the capital of Texas?",
+       "a": "Austin"
+      },
+      {
+       "q": "Boise is the capital of which state?",
+       "a": "Idaho"
+      }
+     ]
+    },
+    {
+     "name": "Art Attack",
+     "clues": [
+      {
+       "q": "Which Mexican artist is famous for self-portraits featuring her unibrow?",
+       "a": "Frida Kahlo"
+      },
+      {
+       "q": "In which Paris museum does the \"Mona Lisa\" hang?",
+       "a": "The Louvre"
+      },
+      {
+       "q": "Which French Impressionist painted a famous series of water lilies?",
+       "a": "Claude Monet"
+      },
+      {
+       "q": "Which American abstract painter was famous for his drip paintings?",
+       "a": "Jackson Pollock"
+      },
+      {
+       "q": "Michelangelo painted the ceiling of which Vatican chapel?",
+       "a": "Sistine Chapel"
+      }
+     ]
+    },
+    {
+     "name": "Body of Water",
+     "clues": [
+      {
+       "q": "Which very salty lake lies between Israel and Jordan?",
+       "a": "Dead Sea"
+      },
+      {
+       "q": "Which is the largest of North America's Great Lakes?",
+       "a": "Lake Superior"
+      },
+      {
+       "q": "Which canal links the Atlantic and Pacific oceans through Central America?",
+       "a": "Panama Canal"
+      },
+      {
+       "q": "Into which sea does the Nile River flow?",
+       "a": "Mediterranean Sea"
+      },
+      {
+       "q": "What is the world's largest inland body of water by area?",
+       "a": "Caspian Sea"
+      }
+     ]
+    }
+   ]
+  ],
+  "final": {
+   "category": "Food History",
+   "clue": "This 18th-century English nobleman lent his title to a lunch staple he supposedly ate at the card table.",
+   "answer": "Earl of Sandwich"
+  },
+  "name": "Brain Food",
+  "difficulty": "medium",
+  "tagline": "Snack-sized facts for hungry minds"
+ },
+ {
+  "id": "trivia-buffet",
+  "rounds": [
+   [
+    {
+     "name": "Mountain High",
+     "clues": [
+      {
+       "q": "In which mountain range is Mont Blanc?",
+       "a": "Alps"
+      },
+      {
+       "q": "Which mountain range is traditionally seen as the border between Europe and Asia in Russia?",
+       "a": "Ural Mountains"
+      },
+      {
+       "q": "The Great Smoky Mountains are part of which eastern US range?",
+       "a": "Appalachian Mountains"
+      },
+      {
+       "q": "What is the highest mountain in Japan?",
+       "a": "Mount Fuji"
+      },
+      {
+       "q": "Which Washington State volcano erupted catastrophically in May 1980?",
+       "a": "Mount St. Helens"
+      }
+     ]
+    },
+    {
+     "name": "Under the Sea",
+     "clues": [
+      {
+       "q": "What is a baby shark called?",
+       "a": "Pup"
+      },
+      {
+       "q": "Which fish is famous for swimming upstream to spawn?",
+       "a": "Salmon"
+      },
+      {
+       "q": "Clownfish shelter among the stinging tentacles of which animal?",
+       "a": "Sea anemone"
+      },
+      {
+       "q": "Which gentle marine mammal is nicknamed the \"sea cow\"?",
+       "a": "Manatee"
+      },
+      {
+       "q": "What is the largest species of sea turtle?",
+       "a": "Leatherback"
+      }
+     ]
+    },
+    {
+     "name": "'80s Flashback",
+     "clues": [
+      {
+       "q": "Which 1985 film features a time-traveling DeLorean?",
+       "a": "Back to the Future"
+      },
+      {
+       "q": "Which music channel launched in 1981 by playing \"Video Killed the Radio Star\"?",
+       "a": "MTV"
+      },
+      {
+       "q": "Which Norwegian band had a 1985 hit with \"Take On Me\"?",
+       "a": "a-ha"
+      },
+      {
+       "q": "Which 1982 Spielberg film is about a stranded alien who wants to \"phone home\"?",
+       "a": "E.T. the Extra-Terrestrial"
+      },
+      {
+       "q": "Which space shuttle broke apart shortly after launch in January 1986?",
+       "a": "Challenger"
+      }
+     ]
+    },
+    {
+     "name": "Spice Rack",
+     "clues": [
+      {
+       "q": "Which spice comes from the dried inner bark of a tree?",
+       "a": "Cinnamon"
+      },
+      {
+       "q": "Paprika is made from dried, ground what?",
+       "a": "Peppers"
+      },
+      {
+       "q": "Which seed is ground to make tahini?",
+       "a": "Sesame"
+      },
+      {
+       "q": "In the US, the leaves of the coriander plant are usually called what?",
+       "a": "Cilantro"
+      },
+      {
+       "q": "Which spice is made from dried flower buds and often studs a holiday ham?",
+       "a": "Cloves"
+      }
+     ]
+    },
+    {
+     "name": "Gridiron & Diamond",
+     "clues": [
+      {
+       "q": "What is the NFL's championship game called?",
+       "a": "Super Bowl"
+      },
+      {
+       "q": "What is a home run with the bases loaded called?",
+       "a": "Grand slam"
+      },
+      {
+       "q": "Which quarterback won a record seven Super Bowls?",
+       "a": "Tom Brady"
+      },
+      {
+       "q": "How many feet apart are the bases in Major League Baseball?",
+       "a": "90 feet"
+      },
+      {
+       "q": "Which team won the 2016 World Series, ending a 108-year championship drought?",
+       "a": "Chicago Cubs"
+      }
+     ]
+    },
+    {
+     "name": "Say What?",
+     "clues": [
+      {
+       "q": "What is the fear of heights called?",
+       "a": "Acrophobia"
+      },
+      {
+       "q": "What does \"verbose\" mean?",
+       "a": "Using more words than needed"
+      },
+      {
+       "q": "What is a sleepwalker also called?",
+       "a": "Somnambulist"
+      },
+      {
+       "q": "What does \"ubiquitous\" mean?",
+       "a": "Found everywhere"
+      },
+      {
+       "q": "What do you call a word that blends two others, like \"brunch\" or \"smog\"?",
+       "a": "Portmanteau"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "name": "Before & After",
+     "clues": [
+      {
+       "q": "\"Fast & Furious\" star + a heavy-truck motor",
+       "a": "Vin Diesel engine"
+      },
+      {
+       "q": "The Beatles' lonely-hearts bandleader + a self-defense aerosol",
+       "a": "Sgt. Pepper spray"
+      },
+      {
+       "q": "Spielberg's dinosaur blockbuster + an employee who patrols Yellowstone",
+       "a": "Jurassic Park ranger"
+      },
+      {
+       "q": "San Francisco's famous span + the diarist played by Renée Zellweger",
+       "a": "Golden Gate Bridget Jones"
+      },
+      {
+       "q": "McDonald's signature burger + a TV secret agent who fixes anything with a paperclip",
+       "a": "Big MacGyver"
+      }
+     ]
+    },
+    {
+     "name": "Novel Ideas",
+     "clues": [
+      {
+       "q": "Who wrote \"To Kill a Mockingbird\"?",
+       "a": "Harper Lee"
+      },
+      {
+       "q": "Who wrote \"The Hobbit\"?",
+       "a": "J. R. R. Tolkien"
+      },
+      {
+       "q": "Which Mary Shelley novel features a scientist who builds a creature?",
+       "a": "Frankenstein"
+      },
+      {
+       "q": "In which Charles Dickens story is Ebenezer Scrooge visited by three spirits?",
+       "a": "A Christmas Carol"
+      },
+      {
+       "q": "Which Ray Bradbury novel is named for the temperature at which paper supposedly burns?",
+       "a": "Fahrenheit 451"
+      }
+     ]
+    },
+    {
+     "name": "Landmark Decisions",
+     "clues": [
+      {
+       "q": "In which city is the Kremlin?",
+       "a": "Moscow"
+      },
+      {
+       "q": "In which country is the temple complex of Angkor Wat?",
+       "a": "Cambodia"
+      },
+      {
+       "q": "In which Canadian city is the CN Tower?",
+       "a": "Toronto"
+      },
+      {
+       "q": "In which Indian city is the Golden Temple, holiest site of Sikhism?",
+       "a": "Amritsar"
+      },
+      {
+       "q": "In which US city is the Space Needle?",
+       "a": "Seattle"
+      }
+     ]
+    },
+    {
+     "name": "Hit Factory",
+     "clues": [
+      {
+       "q": "Which British band released the album \"OK Computer\" in 1997?",
+       "a": "Radiohead"
+      },
+      {
+       "q": "Who sang on Mark Ronson's 2014 hit \"Uptown Funk\"?",
+       "a": "Bruno Mars"
+      },
+      {
+       "q": "Justin Timberlake rose to fame in which boy band?",
+       "a": "NSYNC"
+      },
+      {
+       "q": "Whose 1982 album \"Thriller\" is the best-selling album of all time?",
+       "a": "Michael Jackson"
+      },
+      {
+       "q": "Which Barbadian singer had a 2007 hit with \"Umbrella\"?",
+       "a": "Rihanna"
+      }
+     ]
+    },
+    {
+     "name": "Numbers Game",
+     "clues": [
+      {
+       "q": "What is the square root of 144?",
+       "a": "Twelve"
+      },
+      {
+       "q": "How many zeros are in one million?",
+       "a": "Six"
+      },
+      {
+       "q": "What is the Roman numeral for 50?",
+       "a": "L"
+      },
+      {
+       "q": "How many years are in a millennium?",
+       "a": "1,000"
+      },
+      {
+       "q": "What is 15% of 200?",
+       "a": "30"
+      }
+     ]
+    },
+    {
+     "name": "Science Potpourri",
+     "clues": [
+      {
+       "q": "What is the scientific study of earthquakes called?",
+       "a": "Seismology"
+      },
+      {
+       "q": "How many bones are in the adult human body?",
+       "a": "206"
+      },
+      {
+       "q": "What does DNA stand for?",
+       "a": "Deoxyribonucleic acid"
+      },
+      {
+       "q": "Through which tiny leaf pores do plants exchange gases?",
+       "a": "Stomata"
+      },
+      {
+       "q": "Which blood vessels carry blood back toward the heart?",
+       "a": "Veins"
+      }
+     ]
+    }
+   ]
+  ],
+  "final": {
+   "category": "Geography",
+   "clue": "Bounded by ocean currents rather than land, it is the only sea on Earth with no coastline.",
+   "answer": "Sargasso Sea"
+  },
+  "name": "Trivia Buffet",
+  "difficulty": "medium",
+  "tagline": "All-you-can-eat general knowledge"
+ },
+ {
+  "id": "hodgepodge",
+  "rounds": [
+   [
+    {
+     "name": "European Vacation",
+     "clues": [
+      {
+       "q": "Amsterdam is the capital of which country?",
+       "a": "Netherlands"
+      },
+      {
+       "q": "The River Liffey flows through which European capital?",
+       "a": "Dublin"
+      },
+      {
+       "q": "What is the capital of Portugal?",
+       "a": "Lisbon"
+      },
+      {
+       "q": "What is the capital of the Czech Republic?",
+       "a": "Prague"
+      },
+      {
+       "q": "What is the world's northernmost capital of a sovereign nation?",
+       "a": "Reykjavik"
+      }
+     ]
+    },
+    {
+     "name": "Wild Kingdom",
+     "clues": [
+      {
+       "q": "Which eucalyptus-eating marsupial sleeps up to 20 hours a day?",
+       "a": "Koala"
+      },
+      {
+       "q": "Which wading bird gets its pink color from the shrimp and algae it eats?",
+       "a": "Flamingo"
+      },
+      {
+       "q": "Which slow-moving rainforest mammal spends most of its life hanging upside down?",
+       "a": "Sloth"
+      },
+      {
+       "q": "Which Arctic whale has a long spiral tusk?",
+       "a": "Narwhal"
+      },
+      {
+       "q": "Which Mexican salamander can regrow its limbs and stays in larval form for life?",
+       "a": "Axolotl"
+      }
+     ]
+    },
+    {
+     "name": "Cartoon Network",
+     "clues": [
+      {
+       "q": "What is the name of SpongeBob's starfish best friend?",
+       "a": "Patrick Star"
+      },
+      {
+       "q": "Which Simpsons character is known for saying \"Eat my shorts\"?",
+       "a": "Bart Simpson"
+      },
+      {
+       "q": "In what prehistoric town do the Flintstones live?",
+       "a": "Bedrock"
+      },
+      {
+       "q": "Which speedy bird does Wile E. Coyote endlessly chase?",
+       "a": "Road Runner"
+      },
+      {
+       "q": "Which Pixar film features Carl Fredricksen's balloon-lifted house?",
+       "a": "Up"
+      }
+     ]
+    },
+    {
+     "name": "Cheese Board",
+     "clues": [
+      {
+       "q": "Which English cheese is named after a village in Somerset?",
+       "a": "Cheddar"
+      },
+      {
+       "q": "Which soft, white-rinded French cheese shares its name with a region east of Paris?",
+       "a": "Brie"
+      },
+      {
+       "q": "Which Swiss cheese is famous for its large holes?",
+       "a": "Emmental"
+      },
+      {
+       "q": "Which French blue cheese must be aged in caves near Roquefort-sur-Soulzon?",
+       "a": "Roquefort"
+      },
+      {
+       "q": "Which Italian hard cheese is nicknamed the \"King of Cheeses\"?",
+       "a": "Parmigiano-Reggiano"
+      }
+     ]
+    },
+    {
+     "name": "Court & Course",
+     "clues": [
+      {
+       "q": "In tennis, what is a serve the receiver can't even touch called?",
+       "a": "Ace"
+      },
+      {
+       "q": "In golf, what is a score of one under par on a hole called?",
+       "a": "Birdie"
+      },
+      {
+       "q": "Which tennis Grand Slam tournament is played on clay?",
+       "a": "French Open"
+      },
+      {
+       "q": "What is Tiger Woods' real first name?",
+       "a": "Eldrick"
+      },
+      {
+       "q": "Which Swiss player won a record eight Wimbledon men's singles titles?",
+       "a": "Roger Federer"
+      }
+     ]
+    },
+    {
+     "name": "Initial Reactions",
+     "clues": [
+      {
+       "q": "What does ASAP stand for?",
+       "a": "As soon as possible"
+      },
+      {
+       "q": "On websites, what does FAQ stand for?",
+       "a": "Frequently asked questions"
+      },
+      {
+       "q": "At the ATM, what does PIN stand for?",
+       "a": "Personal identification number"
+      },
+      {
+       "q": "RSVP abbreviates which French phrase?",
+       "a": "Répondez s'il vous plaît"
+      },
+      {
+       "q": "What does GIF stand for?",
+       "a": "Graphics Interchange Format"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "name": "Before & After",
+     "clues": [
+      {
+       "q": "Hogwarts' most famous student + a home-furnishings retailer",
+       "a": "Harry Pottery Barn"
+      },
+      {
+       "q": "Captain of the USS Enterprise + the star of \"Spartacus\"",
+       "a": "James T. Kirk Douglas"
+      },
+      {
+       "q": "Sandwich spread made from legumes + a monarch, for one",
+       "a": "Peanut butterfly"
+      },
+      {
+       "q": "\"Toy Story\"'s pull-string cowboy + the director of \"Annie Hall\"",
+       "a": "Sheriff Woody Allen"
+      },
+      {
+       "q": "Site of a 1941 surprise attack + a spotted marine mammal",
+       "a": "Pearl Harbor seal"
+      }
+     ]
+    },
+    {
+     "name": "Bright Ideas",
+     "clues": [
+      {
+       "q": "Which industrialist introduced the moving assembly line for the Model T in 1913?",
+       "a": "Henry Ford"
+      },
+      {
+       "q": "Which American painter-turned-inventor co-developed a telegraph code of dots and dashes?",
+       "a": "Samuel Morse"
+      },
+      {
+       "q": "Which Frenchman, blinded as a child, created a raised-dot reading system?",
+       "a": "Louis Braille"
+      },
+      {
+       "q": "Which Scottish engineer improved the steam engine and lends his name to a unit of power?",
+       "a": "James Watt"
+      },
+      {
+       "q": "Which Serbian-American inventor developed the AC induction motor?",
+       "a": "Nikola Tesla"
+      }
+     ]
+    },
+    {
+     "name": "Must-See TV",
+     "clues": [
+      {
+       "q": "Which mockumentary follows the Dunder Mifflin Scranton branch?",
+       "a": "The Office"
+      },
+      {
+       "q": "Which Apple TV+ comedy has an American football coach managing AFC Richmond?",
+       "a": "Ted Lasso"
+      },
+      {
+       "q": "Which Netflix drama chronicles the reign of Queen Elizabeth II?",
+       "a": "The Crown"
+      },
+      {
+       "q": "Which HBO drama follows New Jersey mob boss Tony and his therapy sessions?",
+       "a": "The Sopranos"
+      },
+      {
+       "q": "In which drama do Walter White and Jesse Pinkman cook meth?",
+       "a": "Breaking Bad"
+      }
+     ]
+    },
+    {
+     "name": "Myth Busters",
+     "clues": [
+      {
+       "q": "Who is the king of the Greek gods?",
+       "a": "Zeus"
+      },
+      {
+       "q": "Which Norse god wields the hammer Mjölnir?",
+       "a": "Thor"
+      },
+      {
+       "q": "Which Greek god rules the underworld?",
+       "a": "Hades"
+      },
+      {
+       "q": "Who is the shape-shifting trickster god of Norse mythology?",
+       "a": "Loki"
+      },
+      {
+       "q": "Which Greek hero had to complete twelve labors?",
+       "a": "Heracles"
+      }
+     ]
+    },
+    {
+     "name": "Rhyme Time",
+     "clues": [
+      {
+       "q": "An overweight rodent",
+       "a": "Fat rat"
+      },
+      {
+       "q": "A soaked aircraft",
+       "a": "Wet jet"
+      },
+      {
+       "q": "A carpet for an insect",
+       "a": "Bug rug"
+      },
+      {
+       "q": "A noisy throng",
+       "a": "Loud crowd"
+      },
+      {
+       "q": "A rabbit's fur",
+       "a": "Hare hair"
+      }
+     ]
+    },
+    {
+     "name": "Chemistry Set",
+     "clues": [
+      {
+       "q": "What is the chemical name for table salt?",
+       "a": "Sodium chloride"
+      },
+      {
+       "q": "What is the chemical symbol for potassium?",
+       "a": "K"
+      },
+      {
+       "q": "Which gas is commonly called \"laughing gas\"?",
+       "a": "Nitrous oxide"
+      },
+      {
+       "q": "What is the most abundant metal in Earth's crust?",
+       "a": "Aluminum"
+      },
+      {
+       "q": "Which radioactive element is named after the seventh planet?",
+       "a": "Uranium"
+      }
+     ]
+    }
+   ]
+  ],
+  "final": {
+   "category": "Famous Ships",
+   "clue": "Fletcher Christian led a famous 1789 mutiny aboard this Royal Navy ship.",
+   "answer": "HMS Bounty"
+  },
+  "name": "Hodgepodge",
+  "difficulty": "medium",
+  "tagline": "A little bit of everything"
+ },
+ {
+  "id": "wild-card",
+  "rounds": [
+   [
+    {
+     "name": "Capital Idea",
+     "clues": [
+      {
+       "q": "What is the capital of Argentina?",
+       "a": "Buenos Aires"
+      },
+      {
+       "q": "What is the capital of Thailand?",
+       "a": "Bangkok"
+      },
+      {
+       "q": "What is the capital of the Philippines?",
+       "a": "Manila"
+      },
+      {
+       "q": "What is the capital of Colombia?",
+       "a": "Bogotá"
+      },
+      {
+       "q": "What is the capital of Jordan?",
+       "a": "Amman"
+      }
+     ]
+    },
+    {
+     "name": "Dino-Mite",
+     "clues": [
+      {
+       "q": "Which fast, feathered predator was made famous by \"Jurassic Park\"?",
+       "a": "Velociraptor"
+      },
+      {
+       "q": "What is the scientific study of fossils called?",
+       "a": "Paleontology"
+      },
+      {
+       "q": "Flying reptiles such as Pteranodon weren't dinosaurs; what group were they?",
+       "a": "Pterosaurs"
+      },
+      {
+       "q": "T. rex lived during which geological period?",
+       "a": "Cretaceous"
+      },
+      {
+       "q": "Birds are descended from which group of two-legged, mostly meat-eating dinosaurs?",
+       "a": "Theropods"
+      }
+     ]
+    },
+    {
+     "name": "Animation Station",
+     "clues": [
+      {
+       "q": "Which Disney film features the song \"Hakuna Matata\"?",
+       "a": "The Lion King"
+      },
+      {
+       "q": "In which Pixar film does a clownfish dad search the ocean for his son?",
+       "a": "Finding Nemo"
+      },
+      {
+       "q": "Which DreamWorks film stars a panda named Po?",
+       "a": "Kung Fu Panda"
+      },
+      {
+       "q": "Which Pixar film takes place inside the mind of a girl named Riley?",
+       "a": "Inside Out"
+      },
+      {
+       "q": "Which Studio Ghibli film follows a girl working in a bathhouse for spirits?",
+       "a": "Spirited Away"
+      }
+     ]
+    },
+    {
+     "name": "Drive-Thru",
+     "clues": [
+      {
+       "q": "Which pizza chain's logo looks like a game tile?",
+       "a": "Domino's"
+      },
+      {
+       "q": "Which sandwich chain was originally called Pete's Super Submarines?",
+       "a": "Subway"
+      },
+      {
+       "q": "Which chain was founded in Wichita, Kansas, in 1958 and is famous for pan pizza?",
+       "a": "Pizza Hut"
+      },
+      {
+       "q": "Which West Coast burger chain offers burgers \"Animal Style\" on its not-so-secret menu?",
+       "a": "In-N-Out Burger"
+      },
+      {
+       "q": "Which coffee-and-doughnut chain was founded by a hockey player in Hamilton, Ontario, in 1964?",
+       "a": "Tim Hortons"
+      }
+     ]
+    },
+    {
+     "name": "The Beautiful Game",
+     "clues": [
+      {
+       "q": "In soccer, what color card means a player is sent off?",
+       "a": "Red card"
+      },
+      {
+       "q": "Which Argentine captain led his country to the 2022 World Cup title?",
+       "a": "Lionel Messi"
+      },
+      {
+       "q": "Which English club plays its home games at Old Trafford?",
+       "a": "Manchester United"
+      },
+      {
+       "q": "Which Spanish club is nicknamed \"Los Blancos\"?",
+       "a": "Real Madrid"
+      },
+      {
+       "q": "What is the top division of English men's soccer called?",
+       "a": "Premier League"
+      }
+     ]
+    },
+    {
+     "name": "Word Nerds",
+     "clues": [
+      {
+       "q": "What do you call a word that means the same as another word?",
+       "a": "Synonym"
+      },
+      {
+       "q": "What is a shortened form of a word, like \"Dr.\" or \"St.\"?",
+       "a": "Abbreviation"
+      },
+      {
+       "q": "What figure of speech compares two things using \"like\" or \"as\"?",
+       "a": "Simile"
+      },
+      {
+       "q": "What is a word that sounds the same as another but differs in meaning, like \"pair\" and \"pear\"?",
+       "a": "Homophone"
+      },
+      {
+       "q": "What is the comic misuse of a similar-sounding word, as in \"the pineapple of politeness\"?",
+       "a": "Malapropism"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "name": "Before & After",
+     "clues": [
+      {
+       "q": "Disney's flagship rodent + a spring-loaded pest catcher",
+       "a": "Mickey Mousetrap"
+      },
+      {
+       "q": "\"Fight Club\" star + a muscular dog breed",
+       "a": "Brad Pitt bull"
+      },
+      {
+       "q": "Mick Jagger's band + a prehistoric era of tools",
+       "a": "Rolling Stone Age"
+      },
+      {
+       "q": "The 16th president + a classic toy building set",
+       "a": "Abraham Lincoln Logs"
+      },
+      {
+       "q": "Tony Stark's armored alter ego + a musical about Don Quixote",
+       "a": "Iron Man of La Mancha"
+      }
+     ]
+    },
+    {
+     "name": "Fashion Week",
+     "clues": [
+      {
+       "q": "Which German sportswear brand is known for its three stripes?",
+       "a": "Adidas"
+      },
+      {
+       "q": "Which French designer popularized the \"little black dress\" in the 1920s?",
+       "a": "Coco Chanel"
+      },
+      {
+       "q": "Which Italian luxury house uses an interlocking double-G logo?",
+       "a": "Gucci"
+      },
+      {
+       "q": "Which British brand is famous for its trench coats and tan check pattern?",
+       "a": "Burberry"
+      },
+      {
+       "q": "Which Nevada tailor partnered with Levi Strauss to patent riveted jeans in 1873?",
+       "a": "Jacob Davis"
+      }
+     ]
+    },
+    {
+     "name": "Hail to the Chief",
+     "clues": [
+      {
+       "q": "Which five-star general who oversaw D-Day later became the 34th US president?",
+       "a": "Dwight D. Eisenhower"
+      },
+      {
+       "q": "Who is the only US president to resign from office?",
+       "a": "Richard Nixon"
+      },
+      {
+       "q": "Who was the first president to live in the White House?",
+       "a": "John Adams"
+      },
+      {
+       "q": "Who was the first US president to be impeached?",
+       "a": "Andrew Johnson"
+      },
+      {
+       "q": "Who was the first president to serve two non-consecutive terms?",
+       "a": "Grover Cleveland"
+      }
+     ]
+    },
+    {
+     "name": "Gem Dandy",
+     "clues": [
+      {
+       "q": "Which green gem is the birthstone for May?",
+       "a": "Emerald"
+      },
+      {
+       "q": "Natural pearls are most famously produced by which shellfish?",
+       "a": "Oysters"
+      },
+      {
+       "q": "Which purple gem is a variety of quartz?",
+       "a": "Amethyst"
+      },
+      {
+       "q": "What property of minerals does the Mohs scale measure?",
+       "a": "Hardness"
+      },
+      {
+       "q": "Rubies and sapphires are both varieties of which mineral?",
+       "a": "Corundum"
+      }
+     ]
+    },
+    {
+     "name": "Map Quest",
+     "clues": [
+      {
+       "q": "Which body of water separates England from France?",
+       "a": "English Channel"
+      },
+      {
+       "q": "By what English name was Australia's Uluru long known?",
+       "a": "Ayers Rock"
+      },
+      {
+       "q": "The historic city of Timbuktu is in which African country?",
+       "a": "Mali"
+      },
+      {
+       "q": "Which African country was formerly known as Southern Rhodesia?",
+       "a": "Zimbabwe"
+      },
+      {
+       "q": "K2, the world's second-highest peak, is in which mountain range?",
+       "a": "Karakoram"
+      }
+     ]
+    },
+    {
+     "name": "Level Up",
+     "clues": [
+      {
+       "q": "What is the name of Sega's speedy blue hedgehog?",
+       "a": "Sonic"
+      },
+      {
+       "q": "Which electric-mouse Pokémon is the franchise's mascot?",
+       "a": "Pikachu"
+      },
+      {
+       "q": "In \"The Legend of Zelda\" games, what is the hero's name?",
+       "a": "Link"
+      },
+      {
+       "q": "Which battle royale game rewards the last player standing with a \"Victory Royale\"?",
+       "a": "Fortnite"
+      },
+      {
+       "q": "Which Nintendo console, released in 2017, can be docked to a TV or played handheld?",
+       "a": "Nintendo Switch"
+      }
+     ]
+    }
+   ]
+  ],
+  "final": {
+   "category": "Sports History",
+   "clue": "In 1954 this British medical student became the first person to run a mile in under four minutes.",
+   "answer": "Roger Bannister"
+  },
+  "name": "Wild Card",
+  "difficulty": "medium",
+  "tagline": "Expect the unexpected"
+ },
+ {
+  "id": "smorgasbord",
+  "rounds": [
+   [
+    {
+     "name": "Coast to Coast",
+     "clues": [
+      {
+       "q": "Which US city is home to the Liberty Bell?",
+       "a": "Philadelphia"
+      },
+      {
+       "q": "Which Michigan city is nicknamed the \"Motor City\"?",
+       "a": "Detroit"
+      },
+      {
+       "q": "Which Tennessee city is known as \"Music City\"?",
+       "a": "Nashville"
+      },
+      {
+       "q": "Which city is home to the Gateway Arch?",
+       "a": "St. Louis"
+      },
+      {
+       "q": "Which city hosts the Kentucky Derby?",
+       "a": "Louisville"
+      }
+     ]
+    },
+    {
+     "name": "Creature Features",
+     "clues": [
+      {
+       "q": "Which rodent is famous for building dams?",
+       "a": "Beaver"
+      },
+      {
+       "q": "What is a female deer called?",
+       "a": "Doe"
+      },
+      {
+       "q": "What is a male honeybee called?",
+       "a": "Drone"
+      },
+      {
+       "q": "Besides the platypus, which spiny mammal lays eggs?",
+       "a": "Echidna"
+      },
+      {
+       "q": "Which mythical creature is Scotland's national animal?",
+       "a": "Unicorn"
+      }
+     ]
+    },
+    {
+     "name": "Super Friends",
+     "clues": [
+      {
+       "q": "What is Batman's secret identity?",
+       "a": "Bruce Wayne"
+      },
+      {
+       "q": "Which superhero was born on the planet Krypton?",
+       "a": "Superman"
+      },
+      {
+       "q": "Which Avenger is the super-soldier Steve Rogers?",
+       "a": "Captain America"
+      },
+      {
+       "q": "Which Amazon princess hails from the island of Themyscira?",
+       "a": "Wonder Woman"
+      },
+      {
+       "q": "Which fictional metal coats Wolverine's skeleton?",
+       "a": "Adamantium"
+      }
+     ]
+    },
+    {
+     "name": "Bread Basket",
+     "clues": [
+      {
+       "q": "Which ring-shaped bread is boiled before it is baked?",
+       "a": "Bagel"
+      },
+      {
+       "q": "Which Middle Eastern flatbread can be split open to form a pocket?",
+       "a": "Pita"
+      },
+      {
+       "q": "Which braided bread is traditionally eaten on the Jewish Sabbath?",
+       "a": "Challah"
+      },
+      {
+       "q": "Which dimpled Italian flatbread is often topped with olive oil and rosemary?",
+       "a": "Focaccia"
+      },
+      {
+       "q": "Sourdough is leavened with a fermented flour-and-water mixture called a what?",
+       "a": "Starter"
+      }
+     ]
+    },
+    {
+     "name": "Track & Field",
+     "clues": [
+      {
+       "q": "In which race do teammates pass a baton?",
+       "a": "Relay"
+      },
+      {
+       "q": "In which event do athletes clear a high bar using a long flexible pole?",
+       "a": "Pole vault"
+      },
+      {
+       "q": "Which American won four gold medals at the 1936 Berlin Olympics?",
+       "a": "Jesse Owens"
+      },
+      {
+       "q": "Which field event involves spinning and throwing a heavy ball on a wire?",
+       "a": "Hammer throw"
+      },
+      {
+       "q": "Which American sprinter, \"Flo-Jo,\" has held the women's 100m world record since 1988?",
+       "a": "Florence Griffith Joyner"
+      }
+     ]
+    },
+    {
+     "name": "Logo Motion",
+     "clues": [
+      {
+       "q": "Which tech company's logo is a piece of fruit with a bite taken out?",
+       "a": "Apple"
+      },
+      {
+       "q": "Which tech giant's logo is four colored squares?",
+       "a": "Microsoft"
+      },
+      {
+       "q": "Which social network's logo was a little blue bird until 2023?",
+       "a": "Twitter"
+      },
+      {
+       "q": "Which German carmaker's blue-and-white roundel logo is often said to depict a propeller?",
+       "a": "BMW"
+      },
+      {
+       "q": "Which tire company's mascot is Bibendum, a man made of tires?",
+       "a": "Michelin"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "name": "Before & After",
+     "clues": [
+      {
+       "q": "\"School of Rock\" star + Wakanda's superhero king",
+       "a": "Jack Black Panther"
+      },
+      {
+       "q": "Peter Pan's pirate nemesis + a classic reading program",
+       "a": "Captain Hooked on Phonics"
+      },
+      {
+       "q": "Hotel-heiress socialite + a South Carolina resort island",
+       "a": "Paris Hilton Head Island"
+      },
+      {
+       "q": "\"Footloose\" actor + a meaty, cheesy sandwich",
+       "a": "Kevin Bacon cheeseburger"
+      },
+      {
+       "q": "\"Fresh Prince\" star + Washington's famous museum complex",
+       "a": "Will Smithsonian Institution"
+      }
+     ]
+    },
+    {
+     "name": "Classical Gas",
+     "clues": [
+      {
+       "q": "Which Austrian \"Waltz King\" composed \"The Blue Danube\"?",
+       "a": "Johann Strauss II"
+      },
+      {
+       "q": "Which Polish composer is famous for his piano nocturnes and études?",
+       "a": "Frédéric Chopin"
+      },
+      {
+       "q": "Which Russian composed \"Flight of the Bumblebee\"?",
+       "a": "Nikolai Rimsky-Korsakov"
+      },
+      {
+       "q": "Which English composer wrote the orchestral suite \"The Planets\"?",
+       "a": "Gustav Holst"
+      },
+      {
+       "q": "Which French composer wrote \"Boléro\"?",
+       "a": "Maurice Ravel"
+      }
+     ]
+    },
+    {
+     "name": "Show Me the Money",
+     "clues": [
+      {
+       "q": "Which currency is used in both Germany and France?",
+       "a": "Euro"
+      },
+      {
+       "q": "What is the currency of Russia?",
+       "a": "Ruble"
+      },
+      {
+       "q": "What is the currency of Brazil?",
+       "a": "Real"
+      },
+      {
+       "q": "What is the currency of Sweden?",
+       "a": "Krona"
+      },
+      {
+       "q": "What is the currency of South Africa?",
+       "a": "Rand"
+      }
+     ]
+    },
+    {
+     "name": "Weather Report",
+     "clues": [
+      {
+       "q": "What is a violently rotating column of air that touches the ground?",
+       "a": "Tornado"
+      },
+      {
+       "q": "What is a severe snowstorm with strong winds and low visibility called?",
+       "a": "Blizzard"
+      },
+      {
+       "q": "What does an anemometer measure?",
+       "a": "Wind speed"
+      },
+      {
+       "q": "Which wispy, high-altitude clouds are made of ice crystals?",
+       "a": "Cirrus"
+      },
+      {
+       "q": "Which scale rates hurricanes from Category 1 to 5?",
+       "a": "Saffir-Simpson"
+      }
+     ]
+    },
+    {
+     "name": "Women Who Made History",
+     "clues": [
+      {
+       "q": "Which activist refused to give up her bus seat in Montgomery in 1955?",
+       "a": "Rosa Parks"
+      },
+      {
+       "q": "Which nurse became known as \"the Lady with the Lamp\"?",
+       "a": "Florence Nightingale"
+      },
+      {
+       "q": "Who escaped slavery and led others to freedom on the Underground Railroad?",
+       "a": "Harriet Tubman"
+      },
+      {
+       "q": "Who was the first woman to serve on the US Supreme Court?",
+       "a": "Sandra Day O'Connor"
+      },
+      {
+       "q": "Which Pakistani activist became the youngest Nobel Peace Prize laureate in 2014?",
+       "a": "Malala Yousafzai"
+      }
+     ]
+    },
+    {
+     "name": "Happy Hour",
+     "clues": [
+      {
+       "q": "Which spirit is distilled from the blue agave plant?",
+       "a": "Tequila"
+      },
+      {
+       "q": "Which Cuban cocktail mixes rum, mint, lime, sugar and soda water?",
+       "a": "Mojito"
+      },
+      {
+       "q": "Which cocktail of gin and vermouth is often garnished with an olive?",
+       "a": "Martini"
+      },
+      {
+       "q": "Which cocktail combines equal parts gin, Campari and sweet vermouth?",
+       "a": "Negroni"
+      },
+      {
+       "q": "Which Brazilian national cocktail is made with cachaça, lime and sugar?",
+       "a": "Caipirinha"
+      }
+     ]
+    }
+   ]
+  ],
+  "final": {
+   "category": "Architecture",
+   "clue": "This Catalan architect began work on Barcelona's Sagrada Família in 1883 and devoted his final decades to it.",
+   "answer": "Antoni Gaudí"
+  },
+  "name": "Smorgasbord",
+  "difficulty": "medium",
+  "tagline": "Help yourself to a heaping plate of trivia"
+ },
+ {
+  "id": "random-access",
+  "rounds": [
+   [
+    {
+     "name": "Asian Adventure",
+     "clues": [
+      {
+       "q": "Ho Chi Minh City is the largest city in which country?",
+       "a": "Vietnam"
+      },
+      {
+       "q": "Which city-state sits at the southern tip of the Malay Peninsula?",
+       "a": "Singapore"
+      },
+      {
+       "q": "Kuala Lumpur is the capital of which country?",
+       "a": "Malaysia"
+      },
+      {
+       "q": "What is the capital of Taiwan?",
+       "a": "Taipei"
+      },
+      {
+       "q": "Which Southeast Asian country was formerly known as Burma?",
+       "a": "Myanmar"
+      }
+     ]
+    },
+    {
+     "name": "Fur, Fin & Feather",
+     "clues": [
+      {
+       "q": "Which white bird is a traditional symbol of peace?",
+       "a": "Dove"
+      },
+      {
+       "q": "What is a baby goat called?",
+       "a": "Kid"
+      },
+      {
+       "q": "Which is the largest of the big cats?",
+       "a": "Tiger"
+      },
+      {
+       "q": "Which fish can inflate itself like a spiky balloon?",
+       "a": "Pufferfish"
+      },
+      {
+       "q": "What is the largest living species of penguin?",
+       "a": "Emperor penguin"
+      }
+     ]
+    },
+    {
+     "name": "Box Office",
+     "clues": [
+      {
+       "q": "Which 2023 film starred Margot Robbie as a doll from Mattel?",
+       "a": "Barbie"
+      },
+      {
+       "q": "Which actress played Hermione Granger in the Harry Potter films?",
+       "a": "Emma Watson"
+      },
+      {
+       "q": "Which actor played Tony Stark in the Marvel Cinematic Universe?",
+       "a": "Robert Downey Jr."
+      },
+      {
+       "q": "Agent Ethan Hunt leads which action film franchise?",
+       "a": "Mission: Impossible"
+      },
+      {
+       "q": "Who directed \"Inception,\" \"Interstellar\" and \"Oppenheimer\"?",
+       "a": "Christopher Nolan"
+      }
+     ]
+    },
+    {
+     "name": "Veggie Tales",
+     "clues": [
+      {
+       "q": "Which leafy green gives Popeye his strength?",
+       "a": "Spinach"
+      },
+      {
+       "q": "Pickles are usually made from which vegetable?",
+       "a": "Cucumbers"
+      },
+      {
+       "q": "Which orange root vegetable is said to help your night vision?",
+       "a": "Carrot"
+      },
+      {
+       "q": "Which root vegetable gives borscht its deep red color?",
+       "a": "Beets"
+      },
+      {
+       "q": "Which roasted vegetable is the main ingredient in baba ganoush?",
+       "a": "Eggplant"
+      }
+     ]
+    },
+    {
+     "name": "Fight Night",
+     "clues": [
+      {
+       "q": "Which Japanese sport has huge wrestlers trying to push each other out of a ring?",
+       "a": "Sumo"
+      },
+      {
+       "q": "Which martial art's name means \"empty hand\" in Japanese?",
+       "a": "Karate"
+      },
+      {
+       "q": "Which boxer was nicknamed \"Iron Mike\"?",
+       "a": "Mike Tyson"
+      },
+      {
+       "q": "What color belt marks expert rank in many martial arts?",
+       "a": "Black belt"
+      },
+      {
+       "q": "What does UFC stand for?",
+       "a": "Ultimate Fighting Championship"
+      }
+     ]
+    },
+    {
+     "name": "Language Lab",
+     "clues": [
+      {
+       "q": "What is the official language of Austria?",
+       "a": "German"
+      },
+      {
+       "q": "Which alphabet is used to write Russian?",
+       "a": "Cyrillic"
+      },
+      {
+       "q": "Which invented language is spoken by a warrior race in \"Star Trek\"?",
+       "a": "Klingon"
+      },
+      {
+       "q": "Which language is written in the Hangul alphabet?",
+       "a": "Korean"
+      },
+      {
+       "q": "Who created the international language Esperanto in 1887?",
+       "a": "L. L. Zamenhof"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "name": "Before & After",
+     "clues": [
+      {
+       "q": "Ghost-chomping arcade hero + New York's most densely populated borough",
+       "a": "Pac-Manhattan"
+      },
+      {
+       "q": "Cartoon cat-and-mouse duo + the comic behind a \"show about nothing\"",
+       "a": "Tom and Jerry Seinfeld"
+      },
+      {
+       "q": "\"Sesame Street\"'s dessert devourer + a giant-wheeled stunt vehicle",
+       "a": "Cookie Monster truck"
+      },
+      {
+       "q": "A classic American dessert + a circular graph",
+       "a": "Apple pie chart"
+      },
+      {
+       "q": "\"Rocket Man\" singer + a signature, informally",
+       "a": "Elton John Hancock"
+      }
+     ]
+    },
+    {
+     "name": "Explorers",
+     "clues": [
+      {
+       "q": "Which New Zealander first summited Everest with Tenzing Norgay in 1953?",
+       "a": "Edmund Hillary"
+      },
+      {
+       "q": "Which British captain charted the east coast of Australia in 1770?",
+       "a": "James Cook"
+      },
+      {
+       "q": "Whose ship Endurance was crushed by Antarctic pack ice in 1915?",
+       "a": "Ernest Shackleton"
+      },
+      {
+       "q": "Which Spanish conquistador toppled the Aztec Empire?",
+       "a": "Hernán Cortés"
+      },
+      {
+       "q": "Which Moroccan scholar wrote of his travels across Africa and Asia in the 1300s?",
+       "a": "Ibn Battuta"
+      }
+     ]
+    },
+    {
+     "name": "Big Business",
+     "clues": [
+      {
+       "q": "Which online retailer did Jeff Bezos found in 1994?",
+       "a": "Amazon"
+      },
+      {
+       "q": "Which Danish company makes interlocking plastic toy bricks?",
+       "a": "Lego"
+      },
+      {
+       "q": "Which Swedish retailer sells flat-pack furniture and meatballs?",
+       "a": "IKEA"
+      },
+      {
+       "q": "Which Japanese company created the PlayStation?",
+       "a": "Sony"
+      },
+      {
+       "q": "Which company renamed its parent corporation Meta in 2021?",
+       "a": "Facebook"
+      }
+     ]
+    },
+    {
+     "name": "Broadway Bound",
+     "clues": [
+      {
+       "q": "Which Andrew Lloyd Webber musical features the song \"Memory\"?",
+       "a": "Cats"
+      },
+      {
+       "q": "Which musical tells the untold story of the Wicked Witch of the West, Elphaba?",
+       "a": "Wicked"
+      },
+      {
+       "q": "Which Lin-Manuel Miranda musical tells a Founding Father's story through hip-hop?",
+       "a": "Hamilton"
+      },
+      {
+       "q": "Which long-running musical haunts the Paris Opera House?",
+       "a": "The Phantom of the Opera"
+      },
+      {
+       "q": "In which musical does Jean Valjean break parole and spend years pursued by Javert?",
+       "a": "Les Misérables"
+      }
+     ]
+    },
+    {
+     "name": "Body Language",
+     "clues": [
+      {
+       "q": "What is the colored part of the eye called?",
+       "a": "Iris"
+      },
+      {
+       "q": "Which pair of organs filters the blood to produce urine?",
+       "a": "Kidneys"
+      },
+      {
+       "q": "What is the largest internal organ in the human body?",
+       "a": "Liver"
+      },
+      {
+       "q": "Which butterfly-shaped gland in the neck regulates metabolism?",
+       "a": "Thyroid"
+      },
+      {
+       "q": "Which blood type is known as the universal donor for red cells?",
+       "a": "O negative"
+      }
+     ]
+    },
+    {
+     "name": "Potpourri",
+     "clues": [
+      {
+       "q": "How many cards are in a standard deck, not counting jokers?",
+       "a": "52"
+      },
+      {
+       "q": "Which day of the week is named after the Norse god of thunder?",
+       "a": "Thursday"
+      },
+      {
+       "q": "What is the plural of \"cactus\"?",
+       "a": "Cacti"
+      },
+      {
+       "q": "Which is the only US state named after a president?",
+       "a": "Washington"
+      },
+      {
+       "q": "How many minutes are in a day?",
+       "a": "1,440"
+      }
+     ]
+    }
+   ]
+  ],
+  "final": {
+   "category": "World Wonders",
+   "clue": "Carved into rose-red cliffs by the Nabataeans, this Jordanian city was named one of the New Seven Wonders in 2007.",
+   "answer": "Petra"
+  },
+  "name": "Random Access",
+  "difficulty": "medium",
+  "tagline": "Shuffle mode for your brain"
  }
 ]

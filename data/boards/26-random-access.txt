@@ -1,0 +1,80 @@
+NAME: Random Access
+DIFFICULTY: medium
+TAGLINE: Shuffle mode for your brain
+== R1
+# Asian Adventure
+Ho Chi Minh City is the largest city in which country? | Vietnam
+Which city-state sits at the southern tip of the Malay Peninsula? | Singapore
+Kuala Lumpur is the capital of which country? | Malaysia
+What is the capital of Taiwan? | Taipei
+Which Southeast Asian country was formerly known as Burma? | Myanmar
+# Fur, Fin & Feather
+Which white bird is a traditional symbol of peace? | Dove
+What is a baby goat called? | Kid
+Which is the largest of the big cats? | Tiger
+Which fish can inflate itself like a spiky balloon? | Pufferfish
+What is the largest living species of penguin? | Emperor penguin
+# Box Office
+Which 2023 film starred Margot Robbie as a doll from Mattel? | Barbie
+Which actress played Hermione Granger in the Harry Potter films? | Emma Watson
+Which actor played Tony Stark in the Marvel Cinematic Universe? | Robert Downey Jr.
+Agent Ethan Hunt leads which action film franchise? | Mission: Impossible
+Who directed "Inception," "Interstellar" and "Oppenheimer"? | Christopher Nolan
+# Veggie Tales
+Which leafy green gives Popeye his strength? | Spinach
+Pickles are usually made from which vegetable? | Cucumbers
+Which orange root vegetable is said to help your night vision? | Carrot
+Which root vegetable gives borscht its deep red color? | Beets
+Which roasted vegetable is the main ingredient in baba ganoush? | Eggplant
+# Fight Night
+Which Japanese sport has huge wrestlers trying to push each other out of a ring? | Sumo
+Which martial art's name means "empty hand" in Japanese? | Karate
+Which boxer was nicknamed "Iron Mike"? | Mike Tyson
+What color belt marks expert rank in many martial arts? | Black belt
+What does UFC stand for? | Ultimate Fighting Championship
+# Language Lab
+What is the official language of Austria? | German
+Which alphabet is used to write Russian? | Cyrillic
+Which invented language is spoken by a warrior race in "Star Trek"? | Klingon
+Which language is written in the Hangul alphabet? | Korean
+Who created the international language Esperanto in 1887? | L. L. Zamenhof
+== R2
+# Before & After
+Ghost-chomping arcade hero + New York's most densely populated borough | Pac-Manhattan
+Cartoon cat-and-mouse duo + the comic behind a "show about nothing" | Tom and Jerry Seinfeld
+"Sesame Street"'s dessert devourer + a giant-wheeled stunt vehicle | Cookie Monster truck
+A classic American dessert + a circular graph | Apple pie chart
+"Rocket Man" singer + a signature, informally | Elton John Hancock
+# Explorers
+Which New Zealander first summited Everest with Tenzing Norgay in 1953? | Edmund Hillary
+Which British captain charted the east coast of Australia in 1770? | James Cook
+Whose ship Endurance was crushed by Antarctic pack ice in 1915? | Ernest Shackleton
+Which Spanish conquistador toppled the Aztec Empire? | Hernán Cortés
+Which Moroccan scholar wrote of his travels across Africa and Asia in the 1300s? | Ibn Battuta
+# Big Business
+Which online retailer did Jeff Bezos found in 1994? | Amazon
+Which Danish company makes interlocking plastic toy bricks? | Lego
+Which Swedish retailer sells flat-pack furniture and meatballs? | IKEA
+Which Japanese company created the PlayStation? | Sony
+Which company renamed its parent corporation Meta in 2021? | Facebook
+# Broadway Bound
+Which Andrew Lloyd Webber musical features the song "Memory"? | Cats
+Which musical tells the untold story of the Wicked Witch of the West, Elphaba? | Wicked
+Which Lin-Manuel Miranda musical tells a Founding Father's story through hip-hop? | Hamilton
+Which long-running musical haunts the Paris Opera House? | The Phantom of the Opera
+In which musical does Jean Valjean break parole and spend years pursued by Javert? | Les Misérables
+# Body Language
+What is the colored part of the eye called? | Iris
+Which pair of organs filters the blood to produce urine? | Kidneys
+What is the largest internal organ in the human body? | Liver
+Which butterfly-shaped gland in the neck regulates metabolism? | Thyroid
+Which blood type is known as the universal donor for red cells? | O negative
+# Potpourri
+How many cards are in a standard deck, not counting jokers? | 52
+Which day of the week is named after the Norse god of thunder? | Thursday
+What is the plural of "cactus"? | Cacti
+Which is the only US state named after a president? | Washington
+How many minutes are in a day? | 1,440
+== FINAL
+# World Wonders
+Carved into rose-red cliffs by the Nabataeans, this Jordanian city was named one of the New Seven Wonders in 2007. | Petra

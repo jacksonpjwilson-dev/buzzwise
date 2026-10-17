@@ -1,0 +1,80 @@
+NAME: Smorgasbord
+DIFFICULTY: medium
+TAGLINE: Help yourself to a heaping plate of trivia
+== R1
+# Coast to Coast
+Which US city is home to the Liberty Bell? | Philadelphia
+Which Michigan city is nicknamed the "Motor City"? | Detroit
+Which Tennessee city is known as "Music City"? | Nashville
+Which city is home to the Gateway Arch? | St. Louis
+Which city hosts the Kentucky Derby? | Louisville
+# Creature Features
+Which rodent is famous for building dams? | Beaver
+What is a female deer called? | Doe
+What is a male honeybee called? | Drone
+Besides the platypus, which spiny mammal lays eggs? | Echidna
+Which mythical creature is Scotland's national animal? | Unicorn
+# Super Friends
+What is Batman's secret identity? | Bruce Wayne
+Which superhero was born on the planet Krypton? | Superman
+Which Avenger is the super-soldier Steve Rogers? | Captain America
+Which Amazon princess hails from the island of Themyscira? | Wonder Woman
+Which fictional metal coats Wolverine's skeleton? | Adamantium
+# Bread Basket
+Which ring-shaped bread is boiled before it is baked? | Bagel
+Which Middle Eastern flatbread can be split open to form a pocket? | Pita
+Which braided bread is traditionally eaten on the Jewish Sabbath? | Challah
+Which dimpled Italian flatbread is often topped with olive oil and rosemary? | Focaccia
+Sourdough is leavened with a fermented flour-and-water mixture called a what? | Starter
+# Track & Field
+In which race do teammates pass a baton? | Relay
+In which event do athletes clear a high bar using a long flexible pole? | Pole vault
+Which American won four gold medals at the 1936 Berlin Olympics? | Jesse Owens
+Which field event involves spinning and throwing a heavy ball on a wire? | Hammer throw
+Which American sprinter, "Flo-Jo," has held the women's 100m world record since 1988? | Florence Griffith Joyner
+# Logo Motion
+Which tech company's logo is a piece of fruit with a bite taken out? | Apple
+Which tech giant's logo is four colored squares? | Microsoft
+Which social network's logo was a little blue bird until 2023? | Twitter
+Which German carmaker's blue-and-white roundel logo is often said to depict a propeller? | BMW
+Which tire company's mascot is Bibendum, a man made of tires? | Michelin
+== R2
+# Before & After
+"School of Rock" star + Wakanda's superhero king | Jack Black Panther
+Peter Pan's pirate nemesis + a classic reading program | Captain Hooked on Phonics
+Hotel-heiress socialite + a South Carolina resort island | Paris Hilton Head Island
+"Footloose" actor + a meaty, cheesy sandwich | Kevin Bacon cheeseburger
+"Fresh Prince" star + Washington's famous museum complex | Will Smithsonian Institution
+# Classical Gas
+Which Austrian "Waltz King" composed "The Blue Danube"? | Johann Strauss II
+Which Polish composer is famous for his piano nocturnes and études? | Frédéric Chopin
+Which Russian composed "Flight of the Bumblebee"? | Nikolai Rimsky-Korsakov
+Which English composer wrote the orchestral suite "The Planets"? | Gustav Holst
+Which French composer wrote "Boléro"? | Maurice Ravel
+# Show Me the Money
+Which currency is used in both Germany and France? | Euro
+What is the currency of Russia? | Ruble
+What is the currency of Brazil? | Real
+What is the currency of Sweden? | Krona
+What is the currency of South Africa? | Rand
+# Weather Report
+What is a violently rotating column of air that touches the ground? | Tornado
+What is a severe snowstorm with strong winds and low visibility called? | Blizzard
+What does an anemometer measure? | Wind speed
+Which wispy, high-altitude clouds are made of ice crystals? | Cirrus
+Which scale rates hurricanes from Category 1 to 5? | Saffir-Simpson
+# Women Who Made History
+Which activist refused to give up her bus seat in Montgomery in 1955? | Rosa Parks
+Which nurse became known as "the Lady with the Lamp"? | Florence Nightingale
+Who escaped slavery and led others to freedom on the Underground Railroad? | Harriet Tubman
+Who was the first woman to serve on the US Supreme Court? | Sandra Day O'Connor
+Which Pakistani activist became the youngest Nobel Peace Prize laureate in 2014? | Malala Yousafzai
+# Happy Hour
+Which spirit is distilled from the blue agave plant? | Tequila
+Which Cuban cocktail mixes rum, mint, lime, sugar and soda water? | Mojito
+Which cocktail of gin and vermouth is often garnished with an olive? | Martini
+Which cocktail combines equal parts gin, Campari and sweet vermouth? | Negroni
+Which Brazilian national cocktail is made with cachaça, lime and sugar? | Caipirinha
+== FINAL
+# Architecture
+This Catalan architect began work on Barcelona's Sagrada Família in 1883 and devoted his final decades to it. | Antoni Gaudí
