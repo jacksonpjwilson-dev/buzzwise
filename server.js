@@ -35,6 +35,10 @@ app.get('/api/exists', (req, res) => { // lets /play pages drop stale saved sess
   const code = String(req.query.code || '').trim().toUpperCase(), g = { jp: rooms, ff: ff.rooms, wof: wof.rooms, pir: pir.rooms, pw: pw.rooms, cae: cae.rooms, pri: pri.rooms }[req.query.game];
   res.json({ exists: !!(g && g[code]) });
 });
+app.get('/api/find', (req, res) => { // home-page "Join with code": which game owns this code?
+  const code = String(req.query.code || '').trim().toUpperCase(), all = { jp: rooms, wof: wof.rooms, ff: ff.rooms, pir: pir.rooms, pw: pw.rooms, cae: cae.rooms, pri: pri.rooms };
+  const game = Object.keys(all).find(k => all[k] && all[k][code]) || null; res.json({ game });
+});
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: true }, pingInterval: 20000, pingTimeout: 25000 }); // works behind HTTPS proxies (Render/Railway/Fly) as wss://
 const rooms = {};
