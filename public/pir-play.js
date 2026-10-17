@@ -3,12 +3,14 @@ let S = null, pid = localStorage.getItem('bw-pid') || Math.random().toString(36)
 let saved = JSON.parse(localStorage.getItem('bw-pir-join') || 'null'); const qcode = new URLSearchParams(location.search).get('code');
 function joinForm(err) {
   $('view').innerHTML = `<h1 style="font-size:36px;margin:10px 0">Come on down!</h1><form id="jf" style="display:grid;gap:12px;margin-top:16px">
-  <input id="code" maxlength="5" placeholder="ROOM CODE" autocomplete="off" style="text-transform:uppercase;letter-spacing:.3em;font-size:26px;text-align:center;font-weight:800" value="${esc(qcode || (saved && saved.code) || '')}">
-  <input id="name" maxlength="14" placeholder="Your name" value="${esc((saved && saved.name) || '')}"><button class="btn btn-gold">Join game</button><p class="status" style="color:var(--red)">${esc(err || '')}</p></form>`;
+  <input id="code" maxlength="5" placeholder="ROOM CODE" autocomplete="off" style="text-transform:uppercase;letter-spacing:.3em;font-size:26px;text-align:center;font-weight:800" value="${esc(qcode || '')}">
+  <input id="name" maxlength="14" placeholder="Your name" value="${esc((saved && saved.name) || '')}"><button class="btn btn-gold">Join game</button>${!qcode ? BWJ.rejoinHtml(saved) : ''}<p class="status" style="color:var(--red)">${esc(err || '')}</p></form>`;
+  if ($('rj')) { $('rj').onclick = () => join(saved.code, saved.name); BWJ.verify('pir', 'bw-pir-join', saved, () => { saved = null; const b = $('rj'); if (b) b.remove(); }); }
   $('jf').onsubmit = e => { e.preventDefault(); join($('code').value, $('name').value); };
 }
-function join(code, name) { socket.emit('player:join', { code, name, pid }, r => { if (r.error) return joinForm(r.error); saved = { code: r.code, name }; localStorage.setItem('bw-pir-join', JSON.stringify(saved)); }); }
-socket.on('connect', () => saved && (!qcode || qcode === saved.code) ? join(saved.code, saved.name) : joinForm());
+function join(code, name) { socket.emit('player:join', { code, name, pid }, r => { if (r.error) { if (BWJ.isStale(r.error) && saved && saved.code === String(code).trim().toUpperCase()) { localStorage.removeItem('bw-pir-join'); saved = null; } joined = false; return joinForm(r.error); } joined = true; saved = { code: r.code, name }; localStorage.setItem('bw-pir-join', JSON.stringify(saved)); }); }
+let joined = false; // auto-rejoin only on a reconnect or when the URL carries this saved game's code
+socket.on('connect', () => saved && (joined || (qcode && qcode.toUpperCase() === saved.code)) ? join(saved.code, saved.name) : joinForm());
 socket.on('state', s => { S = s; render(); }); socket.on('errorMsg', toast);
 const send = (e, d) => socket.emit(e, d || {}, r => r && r.error && toast(r.error));
 const numForm = (ev, label, extra = '') => `<form id="nf" data-ev="${ev}" style="display:grid;gap:8px;margin-top:10px"><input id="ni" type="number" inputmode="numeric" min="0" placeholder="${label}" autocomplete="off"><button class="btn btn-gold">Lock it in</button>${extra}</form>`;

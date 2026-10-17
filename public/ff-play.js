@@ -3,14 +3,16 @@ let S = null, pid = localStorage.getItem('bw-pid') || Math.random().toString(36)
 let saved = JSON.parse(localStorage.getItem('bw-ff-join') || 'null'); const qcode = new URLSearchParams(location.search).get('code'); let team = saved ? saved.team : 0;
 function joinForm(err) {
   $('view').innerHTML = `<h1 style="font-size:38px;margin:10px 0">Join Feud</h1><form id="jf" style="display:grid;gap:12px;margin-top:16px">
-  <input id="code" maxlength="5" placeholder="ROOM CODE" autocomplete="off" style="text-transform:uppercase;letter-spacing:.3em;font-size:26px;text-align:center;font-weight:800" value="${esc(qcode || (saved && saved.code) || '')}">
+  <input id="code" maxlength="5" placeholder="ROOM CODE" autocomplete="off" style="text-transform:uppercase;letter-spacing:.3em;font-size:26px;text-align:center;font-weight:800" value="${esc(qcode || '')}">
   <input id="name" maxlength="14" placeholder="Your name" value="${esc((saved && saved.name) || '')}">
   <div class="teampick"><button type="button" id="tb0" class="btn btn-red ${team === 0 ? 'on' : ''}" onclick="team=0;this.classList.add('on');tb1.classList.remove('on')">Team 1</button><button type="button" id="tb1" class="btn ${team === 1 ? 'on' : ''}" style="background:#2563eb" onclick="team=1;this.classList.add('on');tb0.classList.remove('on')">Team 2</button></div>
-  <button class="btn btn-gold">Join game</button><p class="status" style="color:var(--red)">${esc(err || '')}</p></form>`;
+  <button class="btn btn-gold">Join game</button>${!qcode ? BWJ.rejoinHtml(saved) : ''}<p class="status" style="color:var(--red)">${esc(err || '')}</p></form>`;
+  if ($('rj')) { $('rj').onclick = () => join(saved.code, saved.name, saved.team); BWJ.verify('ff', 'bw-ff-join', saved, () => { saved = null; const b = $('rj'); if (b) b.remove(); }); }
   $('jf').onsubmit = e => { e.preventDefault(); join($('code').value, $('name').value, team); };
 }
-function join(code, name, t) { socket.emit('player:join', { code, name, pid, team: t }, r => { if (r.error) return joinForm(r.error); saved = { code: r.code, name, team: t }; localStorage.setItem('bw-ff-join', JSON.stringify(saved)); }); }
-socket.on('connect', () => saved && (!qcode || qcode === saved.code) ? join(saved.code, saved.name) : joinForm());
+function join(code, name, t) { socket.emit('player:join', { code, name, pid, team: t }, r => { if (r.error) { if (BWJ.isStale(r.error) && saved && saved.code === String(code).trim().toUpperCase()) { localStorage.removeItem('bw-ff-join'); saved = null; } joined = false; return joinForm(r.error); } joined = true; saved = { code: r.code, name, team: t }; localStorage.setItem('bw-ff-join', JSON.stringify(saved)); }); }
+let joined = false; // auto-rejoin only on a reconnect or when the URL carries this saved game's code
+socket.on('connect', () => saved && (joined || (qcode && qcode.toUpperCase() === saved.code)) ? join(saved.code, saved.name, saved.team) : joinForm());
 socket.on('state', s => { S = s; render(); }); socket.on('errorMsg', toast);
 socket.on('strike', e => { showX(e.count); navigator.vibrate && navigator.vibrate(300); }); socket.on('ding', ding);
 socket.on('dup', () => toast('Duplicate answer — try again!'));

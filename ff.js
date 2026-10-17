@@ -272,7 +272,7 @@ module.exports = function attachFF(io, makeCode) {
       const pi = f.stage === 'p1' ? 0 : f.stage === 'p2' ? 1 : -1; if (pi < 0 || f.players[pi] !== socket.data.pid) return cb && cb({ error: 'Not your turn' });
       done(room, fmAnswer(room, text, pass), cb); });
     socket.on('disconnect', () => { const room = rooms[socket.data.code]; const p = room && room.players[socket.data.pid];
-      if (p && p.socketId === socket.id) { p.connected = false; p.socketId = null; broadcast(room); } });
+      if (p && p.socketId === socket.id) { if (room.phase === 'lobby') delete room.players[p.id]; /* left before the game: drop from the lobby list */ else { p.connected = false; p.socketId = null; } broadcast(room); } });
   });
   setInterval(() => { for (const c in rooms) if (Date.now() - rooms[c].created > 12 * 3600e3) { clearTimeout(rooms[c].fmTimer); delete rooms[c]; } }, 3600e3).unref();
   return { rooms, SURVEYS };

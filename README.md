@@ -83,3 +83,8 @@ At the top of each host screen pick:
 - **Final Showcase** – top 2 bid secretly; closest without going over wins, within $250 wins both showcases.
 - The host screen **never shows a price before its reveal**, so the host can play too. The server only includes prices in state after the reveal (verified by `scripts/test-pir.js`).
 - **Product library**: 179 unique products in `data/pir-products.txt`. **All prices are rough made-up US retail estimates, not real or current prices** (also shown as a footnote in the UI). `npm run check:pir` validates count, duplicates and prices.
+
+## Joining, rejoining and version (v1.3.0)
+- Play links (`/play`, `/ff/play`, `/wof/play`, `/pir/play`) always open the enter-code screen. If you were in a game, a small **↩ Rejoin CODE as Name** button appears. It's hidden automatically, and the saved session is forgotten, once that game no longer exists. A link with `?code=XXXXX` rejoins that game directly, and a dropped connection reconnects on its own.
+- Family Feud host lobby lists joined players live, grouped by team (plus any unassigned). Players who leave before the game starts drop off the list.
+- Every page shows a small version label (bottom right), e.g. `v1.3.0 · abc1234`, also served at `/version`. The commit comes from `RENDER_GIT_COMMIT` on Render, otherwise from local git.

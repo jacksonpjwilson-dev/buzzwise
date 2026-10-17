@@ -11,18 +11,19 @@ const qcode = new URLSearchParams(location.search).get('code');
 function joinForm(err) {
   $('view').innerHTML = `<h1 style="font-size:40px;margin:10px 0">Join a game</h1><p class="muted">Enter the code shown on the host's screen.</p>
   <form id="jf" style="display:grid;gap:12px;margin-top:20px">
-  <input id="code" maxlength="5" placeholder="ROOM CODE" autocomplete="off" style="text-transform:uppercase;letter-spacing:.3em;font-size:26px;text-align:center;font-weight:800" value="${esc(qcode || (saved && saved.code) || '')}">
+  <input id="code" maxlength="5" placeholder="ROOM CODE" autocomplete="off" style="text-transform:uppercase;letter-spacing:.3em;font-size:26px;text-align:center;font-weight:800" value="${esc(qcode || '')}">
   <input id="name" maxlength="16" placeholder="Your name" value="${esc((saved && saved.name) || '')}">
-  <button class="btn btn-gold">Join game</button><p class="status" style="color:var(--red)">${esc(err || '')}</p></form>`;
+  <button class="btn btn-gold">Join game</button>${!qcode ? BWJ.rejoinHtml(saved) : ''}<p class="status" style="color:var(--red)">${esc(err || '')}</p></form>`;
+  if ($('rj')) { $('rj').onclick = () => join(saved.code, saved.name); BWJ.verify('jp', 'bw-join', saved, () => { saved = null; const b = $('rj'); if (b) b.remove(); }); }
   $('jf').onsubmit = e => { e.preventDefault(); join($('code').value, $('name').value); };
 }
 function join(code, name) {
   socket.emit('player:join', { code, name, pid }, res => {
-    if (res.error) { joined = false; return joinForm(res.error); }
+    if (res.error) { if (BWJ.isStale(res.error) && saved && saved.code === String(code).trim().toUpperCase()) { localStorage.removeItem('bw-join'); saved = null; } joined = false; return joinForm(res.error); }
     joined = true; saved = { code: res.code, name }; localStorage.setItem('bw-join', JSON.stringify(saved));
   });
 }
-socket.on('connect', () => { if (saved && (!qcode || qcode === saved.code) && (joined || saved)) join(saved.code, saved.name); else joinForm(); });
+socket.on('connect', () => { if (saved && (joined || (qcode && qcode.toUpperCase() === saved.code))) join(saved.code, saved.name); else joinForm(); });
 socket.on('state', s => { S = s; render(); });
 socket.on('kicked', () => { localStorage.removeItem('bw-join'); saved = null; joined = false; joinForm('You were removed by the host.'); });
 let lastBuzz = 0;

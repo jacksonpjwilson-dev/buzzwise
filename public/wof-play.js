@@ -4,12 +4,14 @@ let saved = JSON.parse(localStorage.getItem('bw-wof-join') || 'null'); const qco
 let bonusPick = { c: [], v: null }, timerInt;
 function joinForm(err) {
   $('view').innerHTML = `<h1 style="font-size:38px;margin:10px 0">Join Wheel</h1><p class="muted">Enter the code on the TV.</p><form id="jf" style="display:grid;gap:12px;margin-top:20px">
-  <input id="code" maxlength="5" placeholder="ROOM CODE" autocomplete="off" style="text-transform:uppercase;letter-spacing:.3em;font-size:26px;text-align:center;font-weight:800" value="${esc(qcode || (saved && saved.code) || '')}">
-  <input id="name" maxlength="14" placeholder="Your name" value="${esc((saved && saved.name) || '')}"><button class="btn btn-gold">Join game</button><p class="status" style="color:var(--red)">${esc(err || '')}</p></form>`;
+  <input id="code" maxlength="5" placeholder="ROOM CODE" autocomplete="off" style="text-transform:uppercase;letter-spacing:.3em;font-size:26px;text-align:center;font-weight:800" value="${esc(qcode || '')}">
+  <input id="name" maxlength="14" placeholder="Your name" value="${esc((saved && saved.name) || '')}"><button class="btn btn-gold">Join game</button>${!qcode ? BWJ.rejoinHtml(saved) : ''}<p class="status" style="color:var(--red)">${esc(err || '')}</p></form>`;
+  if ($('rj')) { $('rj').onclick = () => join(saved.code, saved.name); BWJ.verify('wof', 'bw-wof-join', saved, () => { saved = null; const b = $('rj'); if (b) b.remove(); }); }
   $('jf').onsubmit = e => { e.preventDefault(); join($('code').value, $('name').value); };
 }
-function join(code, name) { socket.emit('player:join', { code, name, pid }, r => { if (r.error) return joinForm(r.error); saved = { code: r.code, name }; localStorage.setItem('bw-wof-join', JSON.stringify(saved)); }); }
-socket.on('connect', () => saved && (!qcode || qcode === saved.code) ? join(saved.code, saved.name) : joinForm());
+function join(code, name) { socket.emit('player:join', { code, name, pid }, r => { if (r.error) { if (BWJ.isStale(r.error) && saved && saved.code === String(code).trim().toUpperCase()) { localStorage.removeItem('bw-wof-join'); saved = null; } joined = false; return joinForm(r.error); } joined = true; saved = { code: r.code, name }; localStorage.setItem('bw-wof-join', JSON.stringify(saved)); }); }
+let joined = false; // auto-rejoin only on a reconnect or when the URL carries this saved game's code
+socket.on('connect', () => saved && (joined || (qcode && qcode.toUpperCase() === saved.code)) ? join(saved.code, saved.name) : joinForm());
 socket.on('state', s => { S = s; render(); }); socket.on('errorMsg', toast);
 const send = (e, d) => socket.emit(e, d || {});
 function solvePrompt() { const g = prompt('Solve the puzzle:'); if (g) send('player:solve', { guess: g }); }

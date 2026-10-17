@@ -38,4 +38,4 @@ const v=[200,400,600,800,1000],m=document.getElementById('mini');
 for(const x of v)for(let i=0;i<6;i++)m.innerHTML+=`<div class="${Math.random()<.18?'u':''}">$${x}</div>`;
 fetch('/api/boards').then(r=>r.json()).then(bs=>{document.getElementById('stat').textContent=bs.length+' boards · '+bs.length*61+' never-repeating clues';const d={easy:'Easy',medium:'Medium',hard:'Hard',expert:'Expert'};
 document.getElementById('diffs').innerHTML=Object.keys(d).map(k=>`<div class="diff d-${k}"><span class="tag t-${k}">${d[k]}</span><ul>${bs.filter(b=>b.difficulty===k).map(b=>`<li>${b.name}</li>`).join('')}</ul></div>`).join('')});
-</script></body></html>
+</script><script src="/version.js"></script></body></html>

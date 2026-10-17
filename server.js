@@ -9,6 +9,10 @@ const VALUES = [[200, 400, 600, 800, 1000], [400, 800, 1200, 1600, 2000]];
 const DIFFS = ['easy', 'medium', 'hard', 'expert'];
 
 const app = express();
+const PKG_VERSION = require('./package.json').version;
+const COMMIT = (process.env.RENDER_GIT_COMMIT || (() => { try { return require('child_process').execSync('git rev-parse HEAD', { cwd: __dirname, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim(); } catch { return ''; } })()).slice(0, 7);
+const VERSION = { version: PKG_VERSION, commit: COMMIT || 'dev', label: `v${PKG_VERSION} · ${COMMIT || 'dev'}` };
+app.get('/version', (req, res) => res.json(VERSION));
 app.get('/healthz', (req, res) => res.send('ok'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/api/boards', (req, res) => res.json(BOARDS.map(b => ({
@@ -25,6 +29,10 @@ app.get('/pir', (req, res) => res.sendFile(path.join(__dirname, 'public', 'pir-h
 app.get('/pir/play', (req, res) => res.sendFile(path.join(__dirname, 'public', 'pir-play.html')));
 app.get('/wof/play', (req, res) => res.sendFile(path.join(__dirname, 'public', 'wof-play.html')));
 
+app.get('/api/exists', (req, res) => { // lets /play pages drop stale saved sessions
+  const code = String(req.query.code || '').trim().toUpperCase(), g = { jp: rooms, ff: ff.rooms, wof: wof.rooms, pir: pir.rooms }[req.query.game];
+  res.json({ exists: !!(g && g[code]) });
+});
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: true }, pingInterval: 20000, pingTimeout: 25000 }); // works behind HTTPS proxies (Render/Railway/Fly) as wss://
 const rooms = {};
@@ -322,4 +330,4 @@ if (require.main === module) {
     console.log(`  Friends elsewhere: run  npx --yes cloudflared tunnel --url http://localhost:${PORT}\n`);
   });
 }
-module.exports = { server, rooms, wof, ff, pir };
+module.exports = { server, rooms, wof, ff, pir, VERSION };
