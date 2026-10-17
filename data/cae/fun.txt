@@ -183,7 +183,7 @@ my landlord's "quick visit"
 the snooze button
 leftover lasagna
 a hot dog eating contest
-a lukewarm hot tub
+a hot tub that smells like soup
 the five-second rule
 a toddler with a permanent marker
 getting stuck in a revolving door
@@ -275,259 +275,262 @@ a sad desk salad
 the hangry version of me
 a vacation I can't afford
 hiding from a door-to-door salesman
-a budget bagpiper
-an overpriced mall cop
-a dramatic influencer
-a middle-aged influencer
-an extremely online ventriloquist
-a passive-aggressive influencer
-a lukewarm stand-up comic
-a suspiciously damp sushi roll
-a rogue sushi roll
-a drunk hot dog
-a rogue mattress
-an artisanal magician
-an organic inflatable castle
-a heavily discounted sushi roll
-a vintage golden retriever
-a budget pool noodle
-a suspiciously damp minivan
-an extremely online lawn gnome
-a dramatic bagpiper
-an emotionally unavailable hot dog
-an unlicensed minivan
-a middle-aged lawn gnome
-an extremely online hot dog
-an unlicensed mattress
-an unlicensed chiropractor
-a suspiciously damp pool noodle
-a dramatic crossword
-an overpriced clown
-an unsupervised ventriloquist
-a sleep-deprived minivan
-a haunted smoothie
-a gluten-free magician
-an unsupervised mattress
-a rogue hot tub
-an extremely online life coach
-a vintage inflatable castle
-a vintage minivan
-a rogue chiropractor
-a sleep-deprived psychic
-a dramatic karaoke machine
-a rogue psychic
-a drunk tax return
-a gluten-free clown
-a heavily discounted tax return
-an unlicensed magician
-a drunk life coach
-a vintage stand-up comic
-a middle-aged psychic
-a lukewarm tax return
-a slightly used yoga mat
-an extremely online hot tub
-a middle-aged wedding DJ
-a self-proclaimed minivan
-a vintage magician
-a sweaty ventriloquist
-a drunk psychic
-an extremely online tax return
-a self-proclaimed bagpiper
-an organic influencer
-a certified pre-owned hot dog
-a knock-off ventriloquist
-an emotionally unavailable ventriloquist
-a knock-off golden retriever
-a certified pre-owned clown
-a suspiciously damp mall cop
-a sweaty chiropractor
-a gluten-free psychic
-an extremely online karaoke machine
-an artisanal minivan
-a rogue wedding DJ
-an artisanal hot dog
-a knock-off minivan
-a knock-off lawn gnome
-an emotionally unavailable wedding DJ
-an unlicensed mall cop
-an emotionally unavailable mattress
-a heavily discounted bagpiper
-a certified pre-owned crossword
-a heavily discounted mall cop
-a suspiciously damp hot tub
-an unsupervised tax return
-an emotionally unavailable pool noodle
-a middle-aged hot tub
-an organic golden retriever
-an artisanal wedding DJ
-an unsupervised stand-up comic
-a budget crossword
-a suspiciously damp karaoke machine
-an organic mall cop
-a knock-off sushi roll
-an organic minivan
-a heavily discounted chiropractor
-an unsupervised minivan
-an unsupervised yoga mat
-an artisanal tax return
-a haunted mall cop
-an emotionally unavailable sushi roll
-a self-proclaimed hot tub
-an organic clown
-a vintage karaoke machine
-an organic crossword
-a drunk smoothie
-a haunted tax return
-a certified pre-owned influencer
-an overpriced influencer
-a middle-aged karaoke machine
-a passive-aggressive wedding DJ
-an unsupervised psychic
-a drunk sushi roll
-an artisanal mattress
-a vintage mattress
-a passive-aggressive hot dog
-a rogue tax return
-a dramatic lawn gnome
-an extremely online pool noodle
-a passive-aggressive mall cop
-a certified pre-owned karaoke machine
-an unsupervised inflatable castle
-a self-proclaimed life coach
-an artisanal chiropractor
-a heavily discounted wedding DJ
-a dramatic yoga mat
-a drunk bagpiper
-an extremely online clown
-a dramatic chiropractor
-a certified pre-owned smoothie
-a knock-off inflatable castle
-a gluten-free hot dog
-a sleep-deprived life coach
-a slightly used mall cop
-a budget yoga mat
-a knock-off hot dog
-a self-proclaimed sushi roll
-a drunk ventriloquist
-a self-proclaimed golden retriever
-an unsupervised pool noodle
-a drunk wedding DJ
-a haunted life coach
-a certified pre-owned inflatable castle
-a heavily discounted karaoke machine
-a vintage crossword
-a lukewarm wedding DJ
-a lukewarm life coach
-a gluten-free lawn gnome
-an organic wedding DJ
-an unlicensed hot dog
-a sweaty crossword
-an emotionally unavailable crossword
-an unsupervised karaoke machine
-a certified pre-owned stand-up comic
-a slightly used mattress
-a dramatic smoothie
-a haunted stand-up comic
-a sleep-deprived inflatable castle
-an artisanal stand-up comic
-an extremely online magician
-an organic psychic
-a suspiciously damp wedding DJ
-a certified pre-owned golden retriever
-an artisanal inflatable castle
-a sleep-deprived hot dog
-a drunk inflatable castle
-a heavily discounted ventriloquist
-an artisanal lawn gnome
-a middle-aged bagpiper
-a haunted yoga mat
-a knock-off pool noodle
-a vintage lawn gnome
-an artisanal sushi roll
-a lukewarm yoga mat
-a sleep-deprived smoothie
-a dramatic clown
-an extremely online inflatable castle
-a slightly used inflatable castle
-a sleep-deprived stand-up comic
-a haunted pool noodle
-a haunted mattress
-a gluten-free ventriloquist
-a gluten-free mattress
-an artisanal pool noodle
-an unlicensed hot tub
-a haunted magician
-a sleep-deprived influencer
-a dramatic ventriloquist
-a drunk yoga mat
-a vintage ventriloquist
-an unlicensed inflatable castle
-a dramatic hot dog
-a knock-off bagpiper
-a drunk hot tub
-a rogue mall cop
-a sleep-deprived mall cop
-an extremely online sushi roll
-an organic sushi roll
-a middle-aged inflatable castle
-a heavily discounted hot tub
-a self-proclaimed clown
-a sweaty yoga mat
-a budget ventriloquist
-a knock-off crossword
-a sleep-deprived magician
-a drunk karaoke machine
-a haunted crossword
-a certified pre-owned life coach
-an unlicensed psychic
-an unsupervised golden retriever
-a certified pre-owned minivan
-a suspiciously damp magician
-a lukewarm psychic
-a drunk magician
-a suspiciously damp crossword
-a knock-off smoothie
-an organic hot tub
-a slightly used psychic
-a slightly used crossword
-an emotionally unavailable inflatable castle
-a self-proclaimed inflatable castle
-a sleep-deprived chiropractor
-an unsupervised crossword
-a sweaty psychic
-a sweaty karaoke machine
-an emotionally unavailable life coach
-a slightly used wedding DJ
-an artisanal golden retriever
-a suspiciously damp yoga mat
-an overpriced lawn gnome
-an unlicensed clown
-an unsupervised hot tub
-a lukewarm magician
-an organic karaoke machine
-a certified pre-owned ventriloquist
-a heavily discounted influencer
-a self-proclaimed smoothie
-a heavily discounted yoga mat
-a self-proclaimed mall cop
-a passive-aggressive mattress
-a vintage mall cop
-a sweaty wedding DJ
-an artisanal smoothie
-a slightly used life coach
-a drunk stand-up comic
-an extremely online yoga mat
-an emotionally unavailable yoga mat
-a suspiciously damp ventriloquist
-a gluten-free hot tub
-a rogue pool noodle
-a sweaty mall cop
-an overpriced minivan
-a vintage smoothie
-an unlicensed influencer
-a sleep-deprived golden retriever
-a rogue life coach
-an unsupervised wedding DJ
-a dramatic minivan
-an unlicensed sushi roll
-a heavily discounted crossword
+a group project where I did everything
+my dad explaining the plot of a movie while we watch it
+a seagull stealing my entire sandwich
+a "quick question" that takes forty-five minutes
+the one sock that never comes back from the dryer
+a toddler's birthday party with an open bar for the parents
+a mysterious charge on my credit card from "BIG STEVE'S"
+my neighbour mowing his lawn in a Speedo
+a microwave that beeps until I acknowledge it
+an air fryer that's become my best friend
+a gym membership I've used twice
+a cat knocking a glass off the table while maintaining eye contact
+the guy who claps when the plane lands
+a family reunion where nobody remembers my name
+a 6 a.m. Zoom call from someone in a different time zone
+an aggressively friendly goose
+pretending to laugh at my boss's joke
+a printer that only works when no one needs it
+my mom's 40-paragraph Facebook comment
+a lukewarm cup of coffee I've reheated four times
+accidentally waving at someone who was waving at someone else
+a fake plant that I still somehow killed
+a podcast hosted by two guys named Jake
+my aunt's essential oils pyramid scheme
+the last chicken nugget
+a dramatic exit that got ruined by a pull door
+a raccoon who has figured out the garbage can latch
+a road trip playlist that's just one song on repeat
+a five-dollar footlong that costs eleven dollars
+the cheese guy at the farmer's market who knows my name
+a passive-aggressive sticky note on the office fridge
+a parallel parking job with an audience
+the 47 browser tabs I'm "getting to"
+a wedding where the DJ only plays the Macarena
+an extremely long receipt from CVS
+getting stuck behind a tractor on a one-lane road
+my weird cousin's "business opportunity"
+a sneeze so big I pulled a muscle
+a Roomba that's afraid of the dark
+a smoke alarm chirping at 3 a.m. from somewhere in the house
+the "reply all" button
+my grandpa trying to send a text with his voice
+an autocorrect that changed "meeting" to "mating"
+a free trial I forgot to cancel in 2019
+a pigeon with a limp and an attitude
+the person who unwraps a candy during the quietest moment of the play
+a vacation photo where I'm squinting in every shot
+a dog who thinks he's a lap dog but weighs 140 pounds
+a karaoke rendition of "Bohemian Rhapsody" that went on for eleven minutes
+a mullet I got as a joke and now actually like
+a toddler who just learned the word "why"
+a lawn flamingo with a tragic past
+a cat who only loves the one person allergic to him
+a self-help book I'm too lazy to read
+tripping on nothing in front of my crush
+an overcooked turkey and an undercooked family argument
+a cereal box prize that's been at the bottom since 1997
+a man aggressively eating a banana on the subway
+a waiter who says "no worries" but clearly has worries
+a stain on my shirt shaped like Australia
+the neighbour's dog that barks exclusively at me
+a group text with 46 unread messages about brunch
+a parking lot full of Teslas and one Pontiac Aztek
+a magician at a children's party having a really bad day
+a gender reveal party that revealed the parents' true feelings
+an inflatable dinosaur costume at a funeral
+a very serious debate about whether a hot dog is a sandwich
+a retirement party for a man who still has 20 years to go
+crying at a dog food commercial
+a fridge full of condiments and nothing else
+hiding in my car for ten extra minutes before going inside
+a moth that won't leave the lamp alone
+the dramatic sigh I do before getting off the couch
+a yoga pose called "the Collapsing Uncle"
+my grandma's pocketbook full of sugar packets
+a "five-minute" walk in the rain
+an employee of the month photo that haunts me
+the clicking sound my knees make on the stairs
+a smart fridge that judges my snacking
+my mom saying "we'll see," which means no
+a mysterious puddle in the Walmart cereal aisle
+a squirrel that has declared war on me personally
+a ceiling fan on its highest setting with a single sock on it
+the pressure of choosing a Netflix show for the group
+a man in a business suit riding a tiny scooter
+my uncle's homemade wine, which might be a cleaning product
+a sad birthday cake from a gas station
+falling asleep in the bath and waking up a raisin
+my laptop fan sounding like a jet engine
+a casserole with suspicious ingredients from the church potluck
+the kids' menu, which I order from without shame
+a nap so good I forgot what year it was
+a phone at 1% battery and no charger in sight
+a guy with a megaphone in the town square who seems nice
+a dramatic reading of my own grocery list
+an animatronic Santa that malfunctions every Christmas
+my dentist's elaborate model train set
+a pickup truck with fake testicles on the hitch
+a group of geese who have unionized
+a bouncy castle full of adults
+an influencer filming a dance in the produce aisle
+a high-five that turned into an awkward hand-hold
+my uncle who claims he invented the selfie
+a mailman who has given up
+a swimming pool with a mysterious warm spot
+a moose wandering into a Tim Hortons
+an argument with Siri that I lost
+three hours of IKEA furniture instructions and one leftover screw
+a tiny dog in a designer purse that wants to fight me
+a ferret named Sir Wigglesworth
+a hairdresser who says "trust me"
+the ice cream machine at McDonald's, broken again
+a Christmas sweater with built-in lights and no off switch
+a free sample lady who's given up on hope
+a chicken crossing the road for unclear reasons
+eating an entire pizza and calling it "self-care"
+a coffee order so complicated the barista called a supervisor
+a security guard at the mall chasing a teenager on a Segway
+a pottery class where everything looked vaguely obscene
+a goat in pyjamas
+a kid in the grocery store loudly asking why my face looks like that
+the person who parks across four parking spots
+a beard that's taking up too much space in my life
+a dog wearing sunglasses better than I ever could
+a ghost who just wants to watch TV with me
+my neighbour's inflatable Halloween decorations still up in March
+the dramatic music in my head while I take out the trash
+a "free" cruise that required a four-hour timeshare pitch
+the very loud phone call happening next to me on the bus
+my online shopping cart, which is my vision board
+a seven-layer dip with an eighth, mystery layer
+a rap battle between two grandmas
+a toaster that only burns one side
+the WiFi password written on a tiny chalkboard
+learning to rollerblade at 42
+a lifeguard who can't swim
+a mime stuck in a real box
+a garden gnome that moves when I'm not looking
+the "Are you still watching?" message from Netflix
+competitive birdwatching
+a baby shower game where you guess the poop in the diaper
+a pug having an existential crisis
+a backyard trampoline accident
+a man in a kilt at the Renaissance faire who's way too committed
+the person who brings a whole charcuterie board to the beach
+a cat café where all the cats hate me
+a bridesmaid speech that's really about the bridesmaid
+cold McDonald's fries in the bottom of the bag
+my mom trying to be cool with slang
+the receipt-checker at Costco who saw something in my eyes
+an entire family in matching Disney shirts
+a motivational poster of a kitten hanging on a branch
+a squirrel that's mastered parkour
+a Zumba class led by an 80-year-old named Doris
+a man who peaked in high school football and still talks about it
+leftover Halloween candy in February
+a voicemail from my mom that's just breathing
+a glitter bomb in the mail
+a dramatic gasp at a surprise party for someone who knew
+a very fancy dog birthday party
+an overly flexible yoga instructor showing off
+a frozen pizza that is still frozen in the middle
+a spoon that's been missing for six years
+the mystery Tupperware at the back of the fridge
+a guy who says "it's not rocket science" but he's a rocket scientist
+a houseplant I talk to more than my family
+my morning alarm, which is a duck quacking
+a bean bag chair that swallowed my phone
+a painting of a horse that looks at you wherever you go
+an extremely competitive game of Monopoly that ended a friendship
+a GPS voice that sounds disappointed in me
+a clown who's off-duty and just wants a sandwich
+a dentist who makes jokes while his hand is in my mouth
+an uncle who brings his own folding chair everywhere
+a spa day that was just me in a bath with a sheet mask and a box of wine
+a T-shirt that says "I survived" with no explanation
+a cat in a box that's slightly too small
+the "low fuel" light and forty miles to the next gas station
+the last roll of toilet paper during a crisis
+a leaf blower at 6 a.m. on a Saturday
+an unread book on my nightstand that judges me
+a hamster that escaped in 2018 and is still out there
+a three-legged race at the company picnic that ended in tears
+a chef who yells at his own reflection
+my grandpa's hearing aid whistling during the sermon
+a bad first date at a mini-golf course
+the world's most aggressive hand dryer
+my shower thoughts, which are mostly about sandwiches
+a surprise visit from the in-laws
+a sock puppet with a complex inner life
+being 'that neighbour' with the 400 Christmas lights
+a dad who insists on grilling in the rain
+a guy who wears socks with sandals and is happy about it
+my phone's facial recognition not recognizing me before coffee
+a juice cleanse that lasted until lunch
+a tiny horse in a hotel elevator
+the drive-thru speaker that only speaks static
+the self-checkout asking for "assistance"
+a whale who just wants to be friends
+a crossword puzzle that's lying to me
+two dogs who've fallen in love at the park
+a garage sale where everything is a single shoe
+the last bite of a burrito, which is always just tortilla
+a dramatic finger-snap that didn't snap
+an uncomfortable silence after I said "love you" to the pizza guy
+my reflection in a car window, which betrayed me
+a bowling shirt that's too confident
+a museum guard who has definitely seen me touch the art
+a deflated birthday balloon slowly following me around the house
+a toddler running a lemonade stand like a mob boss
+a carpool karaoke that turned into a therapy session
+a seven-hour layover in Cleveland
+an inspirational quote on a coffee mug that feels personal
+a goldfish with a better social life than me
+an aggressive game of Twister at a family Christmas
+a wasp at a picnic, uninvited and angry
+the dessert I swore I wasn't going to eat
+a cowboy hat at an office meeting
+the snack drawer at work, raided by someone named Todd
+a beekeeper who doesn't like bees
+the sound of Velcro at 2 a.m.
+an emotional support peacock on a Southwest flight
+a lifetime ban from Chuck E. Cheese
+a sweater made from my dog's fur
+a karate class for adults who saw one Bruce Lee movie
+a hiking trip that was mostly snacks
+an inflatable pool shaped like a giant donut
+a tow truck driver who's seen too much
+my neighbour, who waters his lawn in a bathrobe
+a hotel breakfast buffet that's just a sad waffle machine
+my grandma's slow, terrifying driving
+a fortune teller who just said "yikes"
+an alarm clock that I've thrown across the room
+a llama who spits with purpose
+a man with a metal detector who found my keys and kept them
+a bake sale with a cutthroat edge
+the wobbly table at every restaurant I go to
+the guy at the party who wants to explain cryptocurrency
+a sourdough starter I treat like a child
+a hot air balloon ride with my ex
+a weatherman who's just guessing
+a sweater with a turkey on it that gobbles
+a boat named "Wet Dreams" owned by my dentist
+a mall Santa who's clearly hungover
+a bathroom scale that I no longer speak to
+my mom's "special" lasagna, which is mostly cottage cheese
+a stand-up paddleboard and absolutely no balance
+an escape room I'm still in
+a corn maze that broke up three couples
+a cat who has mastered the doorknob
+the dramatic pause before my dad says "back in my day"
+a pizza topped with pineapple and controversy
+a lazy river at a water park that's honestly exhausting
+the moment I realize I've been on mute the whole time
+the moment I realize I have not been on mute the whole time
+a dog who's learned to open the fridge
+my coworker who microwaves fish
+a sunburn in the exact shape of my tank top
+an aquarium octopus who's planning an escape
