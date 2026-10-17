@@ -64,8 +64,7 @@ function render() {
     if (c.buzzed === me) {
       v.innerHTML = c.peeked ? `${head}<p class="status">Only you can see this:</p><div class="big gold" id="myans" style="font-size:26px">${esc(c.answer)}</div>
         <p class="status">Did your spoken answer match?</p><div class="wactions" style="grid-template-columns:1fr 1fr"><button class="btn btn-green" id="sjc">✓ Correct</button><button class="btn btn-red" id="sjw">✗ Wrong</button></div>`
-        : `${head}<p class="big" style="font-size:24px">You buzzed! Say your answer out loud.</p><button class="btn btn-gold" id="rev" style="width:100%;font-size:22px;padding:18px">I answered · Reveal answer</button><p class="status">The answer shows only on your phone.</p>`;
-      if ($('rev')) $('rev').onclick = () => socket.emit('player:reveal', {});
+        : `${head}<p class="big" style="font-size:24px">You buzzed! Say your answer out loud.</p><p class="status">When you're done, the host presses Reveal and the answer will show only on your phone.</p>`;
       if ($('sjc')) $('sjc').onclick = () => socket.emit('player:selfJudge', { correct: true });
       if ($('sjw')) $('sjw').onclick = () => socket.emit('player:selfJudge', { correct: false });
       return;

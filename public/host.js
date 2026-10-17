@@ -15,15 +15,43 @@ function beep() { const a = new AudioContext(), o = a.createOscillator(), g = a.
 const emit = (e, d) => socket.emit(e, d || {});
 // ---- Player-host mode: read the clue aloud (Web Speech API) so nobody wins by reading fastest ----
 let spokenKey = null;
+// ---- Read-aloud voice: pick the most natural available English voice (user choice remembered) ----
+let VOICES = [];
+function voiceScore(v) {
+  let sc = 0; const n = v.name, l = (v.lang || '').replace('_', '-');
+  if (!/^en/i.test(l)) return -1000;
+  if (/natural|neural|premium|enhanced|online/i.test(n)) sc += 100;
+  if (/google us english/i.test(n)) sc += 60;
+  if (/samantha|ava|zoe/i.test(n)) sc += 40;
+  if (/en-CA|en-US/i.test(l)) sc += 20;
+  if (/compact|espeak/i.test(n)) sc -= 50;
+  return sc;
+}
+function loadVoices() {
+  if (!('speechSynthesis' in window)) return;
+  VOICES = speechSynthesis.getVoices().filter(v => /^en/i.test(v.lang || '')).sort((a, b) => voiceScore(b) - voiceScore(a));
+  const sel = document.getElementById('voicesel'); if (sel) sel.outerHTML = voicePicker();
+}
+if ('speechSynthesis' in window) { loadVoices(); speechSynthesis.addEventListener('voiceschanged', loadVoices); }
+function bestVoice() { const saved = localStorage.getItem('bw-voice'); return VOICES.find(v => v.name === saved) || VOICES[0] || null; }
+function utter(text) { const u = new SpeechSynthesisUtterance(text), v = bestVoice(); if (v) { u.voice = v; u.lang = v.lang; } u.rate = 0.95; u.pitch = 1.0; return u; }
+function setVoice(name) { localStorage.setItem('bw-voice', name); }
+function testVoice() { if (!('speechSynthesis' in window)) return alert('This browser has no speech support.'); speechSynthesis.cancel(); speechSynthesis.speak(utter('This is the clue for 400 dollars. Buzz in when I finish reading.')); }
+function voicePicker() {
+  if (!('speechSynthesis' in window)) return '<span id="voicesel" class="muted">No read-aloud support in this browser</span>';
+  const cur = bestVoice();
+  return `<span id="voicesel"><select onchange="setVoice(this.value)" style="max-width:320px">${VOICES.map(v => `<option value="${esc(v.name)}" ${cur && v.name === cur.name ? 'selected' : ''}>${esc(v.name)} (${esc(v.lang)})${voiceScore(v) >= 100 ? ' ★' : ''}</option>`).join('') || '<option>Default voice</option>'}</select></span>`;
+}
+function voiceCard() { return `<div class="card" style="margin:10px 0"><b>🔊 Read-aloud voice</b> <span class="muted">(player-host mode)</span><div class="row" style="margin-top:8px">${voicePicker()}<button class="btn btn-ghost btn-sm" onclick="testVoice()">Test voice</button></div></div>`; }
 function speakClue(c) {
   const key = [S.round, c.c, c.r, c.wager].join('-'); if (spokenKey === key) return; spokenKey = key;
   const done = () => emit('host:readDone');
   if (!('speechSynthesis' in window)) return setTimeout(done, 1500);
   speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(c.speak); u.rate = 0.95; u.onend = done; u.onerror = done;
+  const u = utter(c.speak); u.onend = done; u.onerror = done;
   speechSynthesis.speak(u);
 }
-function repeatClue() { spokenKey = null; if (S.current && S.current.speak) { const u = new SpeechSynthesisUtterance(S.current.speak); speechSynthesis.cancel(); speechSynthesis.speak(u); } }
+function repeatClue() { spokenKey = null; if (S.current && S.current.speak) { speechSynthesis.cancel(); speechSynthesis.speak(utter(S.current.speak)); } }
 
 function scoreboard() {
   const ps = [...S.players].sort((a, b) => b.score - a.score);
@@ -64,13 +92,14 @@ function clueOverlay() {
   } else if (S.hostMode === 'player') {
     if (c.speak && c.reading) speakClue(c);
     const who = c.revealed ? (c.result && c.result.correct ? `<span class="gold">✅ ${esc(name(c.result.pid))} got it!</span>` : c.result && c.result.why === 'timeout' ? "⏰ Time's up!" : 'Nobody got it') :
-      c.reading ? '🔊 Reading the clue aloud… listen!' : c.buzzed ? `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span> — say your answer out loud, then check it on your phone` :
+      c.reading ? '🔊 Reading the clue aloud… listen!' : c.buzzed ? (c.peeked ? `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span> is checking the answer on their phone…` : `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span> — say your answer out loud, then press Reveal`) :
       c.buzzOpen ? 'Buzzers are live!' : 'Nobody left to buzz';
     body = `<div class="meta">${esc(cat)} · ${c.dd ? 'Daily Double' + (c.wager ? ' · ' + money(c.wager) : '') : '$' + c.value}</div>
     <div class="clue hiddenclue">${c.revealed ? '' : '🔊 Listen…'}</div>
     ${c.revealed && c.clue ? `<div class="answer reveal">Correct response: ${esc(c.clue.a)}</div>` : ''}
     <div class="buzzline">${who}</div>
     ${c.locked.length ? `<p class="muted">Wrong / locked out: ${c.locked.map(name).map(esc).join(', ')}</p>` : ''}
+    ${c.buzzed && !c.peeked && !c.revealed ? `<div class="row"><button class="btn btn-gold" style="font-size:22px;padding:16px 28px" onclick="emit('host:reveal')">🔒 Reveal answer to ${esc(name(c.buzzed))}</button></div><p class="muted">Sends the answer to their phone only. This screen stays hidden.</p>` : ''}
     <div class="row">${!c.revealed ? `<button class="btn btn-ghost" onclick="repeatClue()">🔁 Repeat clue</button>` : ''}
     ${c.reading ? `<button class="btn btn-ghost" onclick="emit('host:readDone')">Open buzzers now</button>` : ''}
     <button class="btn ${c.revealed ? 'btn-gold' : 'btn-ghost'}" onclick="emit('host:close')">${c.revealed ? 'Continue →' : 'No one got it · Reveal'}</button></div>`;
@@ -90,6 +119,7 @@ function lobby() {
   const sel = S.board && S.board.id;
   $('view').innerHTML = `<div class="main"><div>
     ${hostModeToggle(S.hostMode, 'host:mode')}
+    ${voiceCard()}
     <h2 style="margin:0">Choose a difficulty</h2>
     <div class="tabs">${Object.keys(DN).map(d => `<button class="tab ${d === diff ? 'on' : ''}" onclick="diff='${d}';render()">${DN[d]}</button>`).join('')}</div>
     <div class="boards">${BOARDS.filter(b => b.difficulty === diff).map(b => `<button class="card bcard ${b.id === sel ? 'sel' : ''}" onclick="emit('host:selectBoard',{boardId:'${b.id}'})">

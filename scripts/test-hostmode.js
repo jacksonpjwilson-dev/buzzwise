@@ -31,16 +31,21 @@ server.listen(0, async () => {
     a.emit('player:buzz'); await wait(80);
     ok(host.state.current.buzzed === 'pAnn', 'Ann buzzes first');
     ok((await call(b, 'player:selfJudge', { correct: true })).error, 'other players cannot judge');
-    ok((await call(a, 'player:selfJudge', { correct: true })).error, 'must reveal before judging');
-    await call(a, 'player:reveal', {}); await wait(80);
-    ok(a.state.current.answer === ANS, 'Reveal shows the answer on the buzzing phone');
-    ok(!has(b, ANS) && !has(c, ANS) && !has(host, ANS), 'answer NOT on other phones or shared screen after reveal');
+    ok((await call(a, 'player:selfJudge', { correct: true })).error, 'must wait for host reveal before judging');
+    ok((await call(a, 'player:reveal', {})).error && !a.state.current.peeked, 'buzzing player cannot reveal the answer to themselves');
+    ok((await call(b, 'host:reveal', {})).error, 'a player socket cannot use the host Reveal');
+    await wait(40); ok(!has(a, ANS), 'no answer on buzzing phone before host Reveal');
+    ok(host.state.current.buzzed === 'pAnn' && !host.state.current.peeked, 'host screen shows Reveal pending for Ann');
+    await call(host, 'host:reveal', {}); await wait(80);
+    ok(a.state.current.answer === ANS, 'host Reveal sends the answer to the buzzing phone');
+    ok(!has(b, ANS) && !has(c, ANS) && !has(host, ANS), 'answer NOT on host screen or other phones after host Reveal');
     await call(a, 'player:selfJudge', { correct: false }); await wait(80);
     ok(a.state.me.score === -600, 'Wrong deducts the value');
     ok(b.state.current.buzzOpen && a.state.current.lockedOut && !a.state.current.answer, 'Wrong reopens buzzers for others; Ann locked out');
     ok(!has(b, ANS) && !has(c, ANS) && !has(host, ANS), 'answer still hidden from everyone else after Wrong');
-    b.emit('player:buzz'); await wait(60); await call(b, 'player:reveal', {}); await wait(40);
+    b.emit('player:buzz'); await wait(60); await call(host, 'host:reveal', {}); await wait(40);
     ok(!has(c, ANS) && !has(host, ANS), 'still hidden before Correct');
+    ok(!has(host, ANS) && !host.all.some(x => JSON.parse(x).current && JSON.parse(x).current.clue && JSON.parse(x).current.clue.a), 'host screen never received the answer in any message before Correct');
     await call(b, 'player:selfJudge', { correct: true }); await wait(80);
     ok(b.state.me.score === 600 && host.state.controller === 'pBen', 'Correct awards points and control');
     ok(host.state.current.revealed && host.state.current.clue.a === ANS && c.state.current.answer === ANS, 'Correct reveals answer on shared screen + phones');
@@ -56,14 +61,14 @@ server.listen(0, async () => {
     // nobody: everyone wrong
     let nc = oc, nr = 4; if (ddc === nc && ddr === nr) nc = oc + 1; const A3 = room.board.rounds[0][nc].clues[nr].a;
     host.emit('host:open', { c: nc, r: nr }); await wait(40); host.emit('host:readDone'); await wait(40);
-    for (const s of [a, b, c]) { s.emit('player:buzz'); await wait(40); await call(s, 'player:reveal', {}); await call(s, 'player:selfJudge', { correct: false }); await wait(40); }
+    for (const s of [a, b, c]) { s.emit('player:buzz'); await wait(40); await call(host, 'host:reveal', {}); await call(s, 'player:selfJudge', { correct: false }); await wait(40); }
     ok(host.state.current.revealed && host.state.current.clue.a === A3, 'all players wrong -> answer revealed on shared screen');
     host.emit('host:close'); await wait(50);
     // Daily Double in player mode
     room.controller = 'pCat'; host.emit('host:open', { c: ddc, r: ddr }); await wait(50);
     await call(c, 'player:ddWager', { amount: 500 }); await wait(50);
     ok(host.state.current.reading && host.state.current.buzzed === 'pCat', 'Daily Double: wager then clue read aloud');
-    host.emit('host:readDone'); await wait(40); await call(c, 'player:reveal', {}); await wait(40);
+    host.emit('host:readDone'); await wait(40); await call(host, 'host:reveal', {}); await wait(40);
     const cs = c.state.me.score; await call(c, 'player:selfJudge', { correct: true }); await wait(50);
     ok(c.state.me.score === cs + 500 && host.state.current.revealed, 'Daily Double self-judged correct: +wager, revealed');
     host.emit('host:close'); await wait(40);

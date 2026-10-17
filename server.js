@@ -160,6 +160,12 @@ io.on('connection', socket => {
     if (!Object.keys(room.players).length) return fail('Wait for at least one player');
     room.round = 0; room.phase = 'board'; room.dd = pickDD(1); room.used = new Set(); broadcast(room);
   });
+  socket.on('host:reveal', (_, cb) => { // player-host mode: the host (a contestant) sends the answer ONLY to the buzzed player's phone
+    const room = hostRoom(); const cur = room && room.current;
+    if (!cur || room.hostMode !== 'player' || !cur.buzzed || cur.revealed) return cb && cb({ error: 'Nothing to reveal' });
+    cur.peeked = true; cb && cb({ ok: true }); broadcast(room);
+  });
+  socket.on('player:reveal', (_, cb) => cb && cb({ error: 'Only the host screen can reveal the answer' }));
   socket.on('host:open', ({ c, r }) => {
     const room = hostRoom(); if (!room || room.phase !== 'board') return fail('Cannot open a clue now');
     const key = `${room.round}-${c}-${r}`;
@@ -263,14 +269,9 @@ io.on('connection', socket => {
     io.to(room.hostSocket).emit('buzz', { pid, name: room.players[pid].name });
     broadcast(room);
   });
-  socket.on('player:reveal', (_, cb) => { // player-host mode: the buzzed player peeks at the answer on their own phone
-    const room = myRoom(); const cur = room && room.current;
-    if (!cur || room.hostMode !== 'player' || cur.buzzed !== socket.data.pid || cur.revealed) return cb && cb({ error: 'Nothing to reveal' });
-    cur.peeked = true; cb && cb({ ok: true }); broadcast(room);
-  });
   socket.on('player:selfJudge', ({ correct } = {}, cb) => {
     const room = myRoom(); const cur = room && room.current;
-    if (!cur || room.hostMode !== 'player' || cur.buzzed !== socket.data.pid || !cur.peeked || cur.revealed) return cb && cb({ error: 'Reveal the answer first' });
+    if (!cur || room.hostMode !== 'player' || cur.buzzed !== socket.data.pid || !cur.peeked || cur.revealed) return cb && cb({ error: 'Wait for the host to reveal the answer' });
     judge(room, !!correct); cb && cb({ ok: true }); broadcast(room);
   });
   socket.on('player:ddWager', ({ amount }, cb) => {
