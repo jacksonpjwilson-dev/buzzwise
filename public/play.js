@@ -69,7 +69,7 @@ function render() {
       if ($('sjw')) $('sjw').onclick = () => socket.emit('player:selfJudge', { correct: false });
       return;
     }
-    if (c.reading) { v.innerHTML = `${head}<button class="buzzer bz-wait" disabled>🔊</button><p class="status">Listen — the clue is being read aloud…</p>`; return; }
+    if (c.reading && !c.buzzOpen) { v.innerHTML = `${head}<button class="buzzer bz-wait" disabled>🔊</button><p class="status">Listen — the clue is being read aloud…</p>`; return; }
   }
   let cls = 'bz-wait', label = 'WAIT', note = 'Listen to the host…', dis = true;
   if (c.buzzed === me) { cls = 'bz-me'; label = 'YOU!'; note = 'You buzzed first — answer out loud!'; }

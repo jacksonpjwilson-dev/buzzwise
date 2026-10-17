@@ -44,8 +44,8 @@ function voicePicker() {
 }
 function voiceCard() { return `<div class="card" style="margin:10px 0"><b>🔊 Read-aloud voice</b> <span class="muted">(player-host mode)</span><div class="row" style="margin-top:8px">${voicePicker()}<button class="btn btn-ghost btn-sm" onclick="testVoice()">Test voice</button></div></div>`; }
 function speakClue(c) {
-  const key = [S.round, c.c, c.r, c.wager].join('-'); if (spokenKey === key) return; spokenKey = key;
-  const done = () => emit('host:readDone');
+  const key = [S.round, c.c, c.r, c.wager, c.readSeq].join('-'); if (spokenKey === key) return; spokenKey = key;
+  const seq = c.readSeq, done = () => { if (S.current && S.current.readSeq === seq && S.current.reading) emit('host:readDone', { seq }); };
   if (!('speechSynthesis' in window)) return setTimeout(done, 1500);
   speechSynthesis.cancel();
   const u = utter(c.speak); u.onend = done; u.onerror = done;
@@ -90,18 +90,18 @@ function clueOverlay() {
       <div class="row"><input id="ddw" type="number" placeholder="or type wager" style="width:180px"><button class="btn btn-ghost" onclick="emit('host:ddWager',{amount:+$('ddw').value})">Set wager</button></div>`
       : `<p class="buzzline">Who gets the Daily Double?</p><div class="row">${S.players.map(p => `<button class="btn btn-ghost" onclick="emit('host:ddPlayer',{pid:'${p.id}'})">${esc(p.name)}</button>`).join('')}</div>`}`;
   } else if (S.hostMode === 'player') {
-    if (c.speak && c.reading) speakClue(c);
+    if (c.speak && c.reading) speakClue(c); else if (c.buzzed && 'speechSynthesis' in window && speechSynthesis.speaking) speechSynthesis.cancel();
     const who = c.revealed ? (c.result && c.result.correct ? `<span class="gold">✅ ${esc(name(c.result.pid))} got it!</span>` : c.result && c.result.why === 'timeout' ? "⏰ Time's up!" : 'Nobody got it') :
-      c.reading ? '🔊 Reading the clue aloud… listen!' : c.buzzed ? (c.peeked ? `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span> is checking the answer on their phone…` : `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span> — say your answer out loud, then press Reveal`) :
+      c.reading ? '🔊 Reading the clue aloud… buzz any time!' : c.buzzed ? (c.peeked ? `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span> is checking the answer on their phone…` : `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span> — say your answer out loud, then press Reveal`) :
       c.buzzOpen ? 'Buzzers are live!' : 'Nobody left to buzz';
     body = `<div class="meta">${esc(cat)} · ${c.dd ? 'Daily Double' + (c.wager ? ' · ' + money(c.wager) : '') : '$' + c.value}</div>
-    <div class="clue hiddenclue">${c.revealed ? '' : '🔊 Listen…'}</div>
+    <div class="clue ${c.clue && c.clue.q ? '' : 'hiddenclue'}">${c.clue && c.clue.q ? esc(c.clue.q) : '🔊 Listen…'}</div>
     ${c.revealed && c.clue ? `<div class="answer reveal">Correct response: ${esc(c.clue.a)}</div>` : ''}
     <div class="buzzline">${who}</div>
     ${c.locked.length ? `<p class="muted">Wrong / locked out: ${c.locked.map(name).map(esc).join(', ')}</p>` : ''}
     ${c.buzzed && !c.peeked && !c.revealed ? `<div class="row"><button class="btn btn-gold" style="font-size:22px;padding:16px 28px" onclick="emit('host:reveal')">🔒 Reveal answer to ${esc(name(c.buzzed))}</button></div><p class="muted">Sends the answer to their phone only. This screen stays hidden.</p>` : ''}
     <div class="row">${!c.revealed ? `<button class="btn btn-ghost" onclick="repeatClue()">🔁 Repeat clue</button>` : ''}
-    ${c.reading ? `<button class="btn btn-ghost" onclick="emit('host:readDone')">Open buzzers now</button>` : ''}
+    ${c.reading ? `<button class="btn btn-ghost" onclick="emit('host:readDone')">Finish reading</button>` : ''}
     <button class="btn ${c.revealed ? 'btn-gold' : 'btn-ghost'}" onclick="emit('host:close')">${c.revealed ? 'Continue →' : 'No one got it · Reveal'}</button></div>`;
   } else {
     const who = c.buzzed ? `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span>${c.dd ? ` wagered ${money(c.wager)}` : ''}` :

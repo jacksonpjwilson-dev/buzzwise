@@ -66,7 +66,7 @@ function hostCurrent(room) {
   const { timer, ...rest } = cur;
   const v = { ...rest, locked: [...cur.locked] };
   if (room.hostMode !== 'player') v.clue = cl;
-  else { v.speak = cur.wager === null && cur.dd ? null : cl.q; v.clue = cur.revealed ? { a: cl.a } : null; }
+  else { v.speak = cur.wager === null && cur.dd ? null : cl.q; v.clue = cur.revealed || cur.fullyRead ? { q: cur.fullyRead || cur.revealed ? cl.q : undefined, a: cur.revealed ? cl.a : undefined } : null; }
   return v;
 }
 function playerView(room, pid) {
@@ -105,10 +105,19 @@ function openBuzzers(room) {
   if (room.hostMode === 'player') cur.timer = setTimeout(() => { if (room.current === cur && cur.buzzOpen && !cur.buzzed) { revealAll(room, 'timeout'); broadcast(room); } }, BUZZ_WINDOW());
 }
 function revealAll(room, why) { const cur = room.current; clearT(cur); cur.buzzOpen = false; cur.buzzed = null; cur.revealed = true; cur.result = cur.result || { why }; }
+// Player mode: buzzers are OPEN while the clue is read. A buzz interrupts the reading; a Wrong restarts it from the start.
+// The clue text appears on the shared screen only after one complete, uninterrupted reading (then stays).
 function startReading(room) {
-  const cur = room.current; cur.reading = true; cur.buzzOpen = false; clearT(cur);
-  const q = room.board.rounds[cur.round][cur.c].clues[cur.r].q;
-  cur.timer = setTimeout(() => { if (room.current === cur && cur.reading) { if (cur.dd) { cur.reading = false; } else openBuzzers(room); broadcast(room); } }, +(process.env.JP_READ_MS || READ_FALLBACK(q)));
+  const cur = room.current; clearT(cur); cur.reading = true; cur.readSeq = (cur.readSeq || 0) + 1;
+  const remaining = Object.values(room.players).filter(x => x.connected && !cur.locked.has(x.id));
+  cur.buzzOpen = !cur.dd && remaining.length > 0;
+  const q = room.board.rounds[cur.round][cur.c].clues[cur.r].q, seq = cur.readSeq;
+  cur.timer = setTimeout(() => { if (room.current === cur && cur.reading && cur.readSeq === seq) { finishReading(room); broadcast(room); } }, +(process.env.JP_READ_MS || READ_FALLBACK(q)));
+}
+function finishReading(room) {
+  const cur = room.current; clearT(cur); cur.reading = false; cur.fullyRead = true;
+  if (cur.dd) return;
+  openBuzzers(room);
 }
 function judge(room, correct) {
   const cur = room.current, p = room.players[cur.buzzed], amt = cur.dd ? cur.wager : cur.value;
@@ -117,7 +126,8 @@ function judge(room, correct) {
     if (room.hostMode === 'player') { clearT(cur); cur.revealed = true; cur.buzzOpen = false; } else { cur.revealed = true; closeClue(room); } }
   else if (cur.dd) { if (room.hostMode === 'player') revealAll(room, 'wrong'); else { cur.revealed = true; closeClue(room); } }
   else { cur.locked.add(cur.buzzed); cur.buzzed = null; cur.peeked = false;
-    if (room.hostMode === 'player') openBuzzers(room);
+    if (room.hostMode === 'player') { const left = Object.values(room.players).some(x => x.connected && !cur.locked.has(x.id));
+      if (left) startReading(room); else revealAll(room, 'nobody'); }
     else { const remaining = Object.values(room.players).filter(x => x.connected && !cur.locked.has(x.id)); cur.buzzOpen = remaining.length > 0; } }
 }
 function closeClue(room) {
@@ -199,10 +209,10 @@ io.on('connection', socket => {
     if (!cur || !cur.buzzed || cur.revealed) return fail('Nobody to judge');
     judge(room, !!correct); broadcast(room);
   });
-  socket.on('host:readDone', () => { // host browser finished speaking the clue
+  socket.on('host:readDone', ({ seq } = {}) => { // host browser finished speaking the clue
     const room = hostRoom(); const cur = room && room.current;
-    if (!cur || !cur.reading) return;
-    if (cur.dd) { clearT(cur); cur.reading = false; } else openBuzzers(room);
+    if (!cur || !cur.reading || (seq && seq !== cur.readSeq)) return;
+    finishReading(room);
     broadcast(room);
   });
   socket.on('host:close', () => { // nobody got it / skip. Player mode: first press reveals the answer, second continues
@@ -265,7 +275,7 @@ io.on('connection', socket => {
   socket.on('player:buzz', () => {
     const room = myRoom(); const cur = room && room.current; const pid = socket.data.pid;
     if (!cur || !cur.buzzOpen || cur.buzzed || cur.locked.has(pid)) return;
-    cur.buzzed = pid; cur.buzzOpen = false; clearT(cur);
+    cur.buzzed = pid; cur.buzzOpen = false; cur.reading = false; clearT(cur); // a mid-read buzz interrupts the reading
     io.to(room.hostSocket).emit('buzz', { pid, name: room.players[pid].name });
     broadcast(room);
   });
