@@ -1,12 +1,12 @@
 {
   "name": "jeopardy-pro",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Buzzwise - multiplayer Jeopardy-style trivia night for phones",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "check": "node scripts/build-data.js && node scripts/check-duplicates.js && node scripts/check-party.js",
-    "test": "node scripts/test-flow.js && node scripts/test-wof.js && node scripts/test-ff.js && node scripts/test-pir.js && node scripts/test-hostmode.js && node scripts/test-misc.js && node scripts/test-ff-buzzer.js && node scripts/test-party.js && node scripts/test-getready.js",
+    "test": "node scripts/test-flow.js && node scripts/test-wof.js && node scripts/test-ff.js && node scripts/test-pir.js && node scripts/test-hostmode.js && node scripts/test-misc.js && node scripts/test-ff-buzzer.js && node scripts/test-party.js && node scripts/test-getready.js && node scripts/test-tts.js",
     "check:ff": "node scripts/check-ff.js",
     "check:wof": "node scripts/check-wof.js",
     "check:pir": "node scripts/check-pir.js",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "express": "^4.19.2",
+    "msedge-tts": "^2.1.0",
     "socket.io": "^4.7.5"
   },
   "devDependencies": {

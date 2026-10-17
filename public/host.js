@@ -18,12 +18,12 @@ let spokenKey = null;
 function speakClue(c) {
   const key = [S.round, c.c, c.r, c.wager, c.readSeq].join('-'); if (spokenKey === key) return; spokenKey = key;
   const seq = c.readSeq, done = () => { if (S.current && S.current.readSeq === seq && S.current.reading) emit('host:readDone', { seq }); };
-  if (!('speechSynthesis' in window)) return setTimeout(done, 1500);
-  speechSynthesis.cancel();
-  const u = utter(c.speak); u.onend = done; u.onerror = done;
-  speechSynthesis.speak(u);
+  readAloud(ttsParams(), c.speak, done);
 }
-function repeatClue() { spokenKey = null; if (S.current && S.current.speak) { speechSynthesis.cancel(); speechSynthesis.speak(utter(S.current.speak)); } }
+const ttsParams = clue => host && { game: 'jp', room: host.code, key: host.hostKey, ...(clue ? { clue } : {}) };
+function repeatClue() { spokenKey = null; if (S.current && S.current.speak) readAloud(ttsParams(), S.current.speak); }
+// pre-fetch: when the host points at a square in player-host mode, start generating that clue's audio
+document.addEventListener('pointerover', e => { const b = e.target.closest && e.target.closest('[data-clue]'); if (b && S && S.hostMode === 'player') prefetchRead(ttsParams(b.dataset.clue)); });
 
 function scoreboard() {
   const ps = [...S.players].sort((a, b) => b.score - a.score);
@@ -49,7 +49,7 @@ function render() {
     ${S.phase === 'roundEnd' ? `<button class="btn btn-gold" onclick="emit('host:nextRound')">${S.round === 0 ? 'Start Double Jeopardy →' : 'Go to Final Jeopardy →'}</button>` :
       `<button class="btn btn-ghost btn-sm" onclick="if(confirm('Skip the rest of this round?'))emit('host:nextRound')">Skip to next round</button>`}</div>
     <div class="grid">${S.grid.map(c => `<div class="cat">${esc(c.name)}</div>`).join('')}
-    ${[0, 1, 2, 3, 4].map(r => S.grid.map((c, ci) => `<button class="cell ${c.clues[r].used ? 'used' : ''}" ${c.clues[r].used ? 'disabled' : ''} onclick="emit('host:open',{c:${ci},r:${r}})">$${c.clues[r].value}</button>`).join('')).join('')}</div></div>
+    ${[0, 1, 2, 3, 4].map(r => S.grid.map((c, ci) => `<button class="cell ${c.clues[r].used ? 'used' : ''}" data-clue="${S.round}-${ci}-${r}" ${c.clues[r].used ? 'disabled' : ''} onclick="emit('host:open',{c:${ci},r:${r}})">$${c.clues[r].value}</button>`).join('')).join('')}</div></div>
     <div class="side">${scoreboard()}</div></div>`;
   if (S.current) clueOverlay();
 }
@@ -62,7 +62,7 @@ function clueOverlay() {
       <div class="row"><input id="ddw" type="number" placeholder="or type wager" style="width:180px"><button class="btn btn-ghost" onclick="emit('host:ddWager',{amount:+$('ddw').value})">Set wager</button></div>`
       : `<p class="buzzline">Who gets the Daily Double?</p><div class="row">${S.players.map(p => `<button class="btn btn-ghost" onclick="emit('host:ddPlayer',{pid:'${p.id}'})">${esc(p.name)}</button>`).join('')}</div>`}`;
   } else if (S.hostMode === 'player') {
-    if (c.speak && c.reading) speakClue(c); else if (c.buzzed && 'speechSynthesis' in window && speechSynthesis.speaking) speechSynthesis.cancel();
+    if (c.speak && c.reading) speakClue(c); else if (c.buzzed && isReading()) stopReading();
     const who = c.revealed ? (c.result && c.result.correct ? `<span class="gold">✅ ${esc(name(c.result.pid))} got it!</span>` : c.result && c.result.why === 'timeout' ? "⏰ Time's up!" : 'Nobody got it') :
       c.reading ? '🔊 Reading the clue aloud… buzz any time!' : c.buzzed ? (c.peeked ? `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span> is checking the answer on their phone…` : `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span> — say your answer out loud, then press Reveal`) :
       c.buzzOpen ? 'Buzzers are live!' : 'Nobody left to buzz';

@@ -48,7 +48,9 @@ const match = (guess, answers, exclude) => { const b = bestMatch(guess, answers,
 
 module.exports = function attachFF(io, makeCode) {
   const nsp = io.of('/ff'); const rooms = {}; const SURVEYS = loadSurveys();
-  const pick = room => { if (process.env.FF_FIRST_Q && !room.usedQ.size) { const i = SURVEYS.findIndex(x => x.q.includes(process.env.FF_FIRST_Q)); if (i >= 0) { room.usedQ.add(i); return SURVEYS[i]; } } const pool = SURVEYS.map((_, i) => i).filter(i => !room.usedQ.has(i)); const i = pool.length ? pool[Math.floor(Math.random() * pool.length)] : 0; room.usedQ.add(i); return SURVEYS[i]; };
+  const pick = room => { if (room.nextQ != null && !room.usedQ.has(room.nextQ)) { const i = room.nextQ; room.nextQ = null; room.usedQ.add(i); return SURVEYS[i]; } return pick0(room); };
+  const peekNext = room => { if (room.nextQ == null || room.usedQ.has(room.nextQ)) { const pool = SURVEYS.map((_, i) => i).filter(i => !room.usedQ.has(i)); room.nextQ = pool.length ? pool[Math.floor(Math.random() * pool.length)] : null; } return room.nextQ == null ? null : SURVEYS[room.nextQ]; };
+  const pick0 = room => { if (process.env.FF_FIRST_Q && !room.usedQ.size) { const i = SURVEYS.findIndex(x => x.q.includes(process.env.FF_FIRST_Q)); if (i >= 0) { room.usedQ.add(i); return SURVEYS[i]; } } const pool = SURVEYS.map((_, i) => i).filter(i => !room.usedQ.has(i)); const i = pool.length ? pool[Math.floor(Math.random() * pool.length)] : 0; room.usedQ.add(i); return SURVEYS[i]; };
   const mult = n => n <= 2 ? 1 : n === 3 ? 2 : 3;
   const members = (room, t) => Object.values(room.players).filter(p => p.team === t);
   const other = t => 1 - t;
@@ -87,7 +89,7 @@ module.exports = function attachFF(io, makeCode) {
   };
   // Face-off read-aloud (same rules as Jeopardy player-host): buzzers open during the reading, a buzz cuts it off,
   // the question shows only after one full uninterrupted reading, and a pass to the opponent is NOT re-read.
-  const READ_MS = q => +(process.env.FF_READ_MS || Math.min(15000, 2000 + String(q).split(/\s+/).length * 450));
+  const READ_MS = q => +(process.env.FF_READ_MS || Math.min(20000, 3500 + String(q).split(/\s+/).length * 500));
   function startReading(room) { const r = room.round; clearTimeout(r.readTimer); r.reading = true; r.readSeq = (r.readSeq || 0) + 1; const seq = r.readSeq;
     r.readTimer = setTimeout(() => { if (room.round === r && r.reading && r.readSeq === seq) { finishReading(room); broadcast(room); } }, READ_MS(r.survey.q)); }
   function finishReading(room) { const r = room.round; clearTimeout(r.readTimer); r.reading = false; r.fullyRead = true; }
@@ -300,7 +302,11 @@ module.exports = function attachFF(io, makeCode) {
       if (p && p.socketId === socket.id) { if (room.phase === 'lobby') delete room.players[p.id]; /* left before the game: drop from the lobby list */ else { p.connected = false; p.socketId = null; } broadcast(room); } });
   });
   setInterval(() => { for (const c in rooms) if (Date.now() - rooms[c].created > 12 * 3600e3) { clearTimeout(rooms[c].fmTimer); delete rooms[c]; } }, 3600e3).unref();
-  return { rooms, SURVEYS };
+  // read-aloud text for the host screen: current face-off question, or the next one (pre-fetch) once a game is under way
+  const ttsText = q => { const room = rooms[String(q.room || '').toUpperCase()]; if (!room || room.hostKey !== q.key) return null;
+    if (q.next) { if (!room.round) return null; const s = peekNext(room); return s ? s.q : null; }
+    return room.round ? room.round.survey.q : null; };
+  return { rooms, SURVEYS, ttsText };
 };
 // Built-in synonym map: expand an alias by swapping any word/phrase for its synonyms
 const SYN = (() => { try { return JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'ff-synonyms.json'), 'utf8')).groups; } catch (e) { return []; } })();

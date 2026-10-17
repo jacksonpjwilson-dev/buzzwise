@@ -9,9 +9,9 @@ let spokenKey = null;
 function ffSpeak() { const r = S.round; if (!r) return;
   if (S.speak && r.reading) { const key = r.num + '-' + r.readSeq; if (spokenKey === key) return; spokenKey = key; const seq = r.readSeq;
     const done = () => { if (S.round && S.round.readSeq === seq && S.round.reading) emit('host:readDone', { seq }); };
-    if (!('speechSynthesis' in window)) return setTimeout(done, 1500);
-    speechSynthesis.cancel(); const u = utter(S.speak); u.onend = done; u.onerror = done; speechSynthesis.speak(u); }
-  else if (!r.reading && 'speechSynthesis' in window && speechSynthesis.speaking && spokenKey && r.buzzed) speechSynthesis.cancel(); }
+    const p = host && { game: 'ff', room: host.code, key: host.hostKey };
+    readAloud(p, S.speak, done); if (p) setTimeout(() => prefetchRead({ ...p, next: 1 }), 4000); } // warm the next face-off question too
+  else if (!r.reading && spokenKey && r.buzzed && isReading()) stopReading(); }
 function render() {
   const ae = document.activeElement, keep = ae && ae.tagName === 'INPUT' ? { id: ae.id, v: ae.value } : null;
   $('barinfo').innerHTML = `<span class="muted">Join at <b>${location.host}/ff/play</b></span><span class="code-chip">${S.code}</span>`;

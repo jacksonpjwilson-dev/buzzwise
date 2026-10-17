@@ -39,6 +39,14 @@ app.get('/api/find', (req, res) => { // home-page "Join with code": which game o
   const code = String(req.query.code || '').trim().toUpperCase(), all = { jp: rooms, wof: wof.rooms, ff: ff.rooms, pir: pir.rooms, pw: pw.rooms, cae: cae.rooms, pri: pri.rooms };
   const game = Object.keys(all).find(k => all[k] && all[k][code]) || null; res.json({ game });
 });
+// Neural read-aloud: the host screen asks for audio by room + hostKey (+ optional clue id); never arbitrary text.
+require('./lib/tts').mount(app, {
+  jp: q => { const room = rooms[String(q.room || '').toUpperCase()]; if (!room || room.hostKey !== q.key || !room.board) return null;
+    if (q.clue) { const [rd, c, r] = String(q.clue).split('-').map(Number); const cat = room.board.rounds[rd] && room.board.rounds[rd][c]; const cl = cat && cat.clues[r];
+      return cl && rd === room.round && !room.used.has(`${rd}-${c}-${r}`) || (cl && room.current && room.current.round === rd && room.current.c === c && room.current.r === r) ? cl.q : null; }
+    const cur = room.current; return cur ? room.board.rounds[cur.round][cur.c].clues[cur.r].q : null; },
+  ff: q => ff.ttsText(q),
+});
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: true }, pingInterval: 20000, pingTimeout: 25000 }); // works behind HTTPS proxies (Render/Railway/Fly) as wss://
 const rooms = {};
@@ -113,7 +121,7 @@ function broadcast(room) {
 function roundDone(room) {
   return [...Array(30).keys()].every(i => room.used.has(`${room.round}-${Math.floor(i / 5)}-${i % 5}`));
 }
-const READ_FALLBACK = q => Math.min(20000, 2500 + String(q).split(/\s+/).length * 450); // if the host's speech never reports back
+const READ_FALLBACK = q => Math.min(25000, 4000 + String(q).split(/\s+/).length * 500); // if the host's speech never reports back
 const BUZZ_WINDOW = () => +(process.env.JP_BUZZ_MS || 12000); // player mode: nobody buzzes in this long -> reveal
 function clearT(cur) { if (cur && cur.timer) { clearTimeout(cur.timer); cur.timer = null; } }
 function openBuzzers(room) {
