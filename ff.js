@@ -56,7 +56,7 @@ module.exports = function attachFF(io, makeCode) {
     const r = room.round, f = room.fm;
     return {
       code: room.code, phase: room.phase, teams: room.teams, maxRounds: room.maxRounds, message: room.message,
-      players: Object.values(room.players).map(p => ({ id: p.id, name: p.name, team: p.team, connected: p.connected })),
+      players: Object.values(room.players).map(p => ({ id: p.id, name: p.name, team: p.team, connected: p.connected, isHost: !!p.isHost })),
       round: r && {
         num: r.num, mult: r.mult, question: r.survey.q, pot: r.pot, strikes: r.strikes, control: r.control, faceoff: r.faceoff, buzzed: r.buzzed,
         faceoffAnswers: r.faceoffAnswers, canOverride: !!r.lastMiss, winner: r.winner,
@@ -196,14 +196,17 @@ module.exports = function attachFF(io, makeCode) {
     socket.on('host:create', (opts, cb) => {
       if (typeof opts === 'function') { cb = opts; opts = {}; }
       const prev = opts && rooms[opts.code];
-      if (prev && prev.hostKey === opts.hostKey) { prev.hostSocket = socket.id; socket.data.hostCode = prev.code; socket.join(prev.code); cb && cb({ code: prev.code, hostKey: prev.hostKey }); return broadcast(prev); }
+      if (prev && prev.hostKey === opts.hostKey) { prev.hostSocket = socket.id; socket.data.hostCode = prev.code; { const hp = prev.players['host-' + prev.code]; if (hp) { hp.socketId = socket.id; hp.connected = true; } } socket.join(prev.code); cb && cb({ code: prev.code, hostKey: prev.hostKey }); return broadcast(prev); }
       const c = makeCode(x => rooms[x]);
       const room = rooms[c] = { code: c, hostKey: Math.random().toString(36).slice(2), hostSocket: socket.id, players: {}, teams: [{ name: 'Team Red', score: 0 }, { name: 'Team Blue', score: 0 }],
         phase: 'lobby', round: null, fm: null, usedQ: new Set(), foIdx: [-1, -1], maxRounds: 5, message: 'Players: join and pick a team!', created: Date.now() };
       socket.data.hostCode = c; socket.join(c); cb && cb({ code: c, hostKey: room.hostKey }); broadcast(room);
     });
     socket.on('host:mode', ({ mode } = {}) => { const room = hostRoom(); if (!room) return;
-      room.hostMode = mode === 'dedicated' ? 'dedicated' : 'player'; broadcast(room); });
+      if (mode === 'dedicated' && room.phase !== 'lobby' && room.players['host-' + room.code]) return fail("You're playing on a team, so answers stay hidden until the game ends (New game to switch).");
+      room.hostMode = mode === 'dedicated' ? 'dedicated' : 'player';
+      if (room.hostMode === 'dedicated' && room.phase === 'lobby') delete room.players['host-' + room.code]; // a host who sees answers can't play
+      broadcast(room); });
     socket.on('host:settings', ({ teamNames, maxRounds } = {}) => { const room = hostRoom(); if (!room) return;
       if (Array.isArray(teamNames)) teamNames.forEach((n, i) => { if (n && room.teams[i]) room.teams[i].name = String(n).slice(0, 20); });
       if (maxRounds) room.maxRounds = Math.max(1, Math.min(10, +maxRounds)); broadcast(room); });
@@ -211,6 +214,16 @@ module.exports = function attachFF(io, makeCode) {
       if ([0, 1].some(t => !members(room, t).length)) return fail('Each team needs at least one player');
       if (!['lobby', 'roundEnd'].includes(room.phase)) return fail('Finish the current round first');
       newRound(room); broadcast(room); });
+    // Player-host mode: the host joins a team from the host screen and plays (face-offs, guesses, Fast Money) while running the board.
+    socket.on('host:joinTeam', ({ name, team } = {}, cb) => { const room = hostRoom(); if (!room) return;
+      if (room.hostMode === 'dedicated') return done(room, { error: 'A dedicated host cannot play. Switch to Player host first.' }, cb);
+      if (![0, 1].includes(+team)) return done(room, { error: 'Pick a team' }, cb);
+      const pid = 'host-' + room.code; let p = room.players[pid]; name = String(name || (p && p.name) || 'Host').trim().slice(0, 14) || 'Host';
+      if (Object.values(room.players).some(x => x.id !== pid && x.name.toLowerCase() === name.toLowerCase())) return done(room, { error: 'That name is taken' }, cb);
+      if (p && room.phase !== 'lobby' && p.team !== +team) return done(room, { error: 'Teams can only change in the lobby' }, cb);
+      if (!p) p = room.players[pid] = { id: pid, name, team: +team, isHost: true }; p.name = name; p.team = +team; p.socketId = socket.id; p.connected = true;
+      done(room, { ok: true, pid }, cb); });
+    socket.on('host:leaveTeam', () => { const room = hostRoom(); if (!room || room.phase !== 'lobby') return; delete room.players['host-' + room.code]; broadcast(room); });
     socket.on('host:guess', ({ text }, cb) => { const room = hostRoom(); if (!room) return; done(room, guess(room, text, null), cb); });
     socket.on('host:override', (_, cb) => { const room = hostRoom(); if (!room) return; done(room, override(room), cb); });
     socket.on('host:buzzFor', ({ pid }) => { const room = hostRoom(); const r = room && room.round; if (!r || room.phase !== 'faceoff' || r.buzzed || !r.faceoff.includes(pid)) return; r.buzzed = pid; room.message = `${room.players[pid].name} buzzed first!`; broadcast(room); });

@@ -115,6 +115,27 @@ server.listen(0, async () => {
     wh.emit('host:mode', { mode: 'player' }); wh.emit('host:next', { type: 'round' }); await wait(80);
     ok(wh.state.hostMode === 'player' && !wh.state.answer && !wp[0].state.answer, 'WoF player-host: puzzle answer hidden from host screen');
     wh.emit('host:mode', { mode: 'dedicated' }); await wait(60); ok(wh.errors.length === 1, 'WoF mode cannot change mid-puzzle');
+    console.log('Family Feud · host plays on a team');
+    { const H = client(base + '/ff'), X = client(base + '/ff'), Y = client(base + '/ff'); const hr = await call(H, 'host:create', {});
+      H.emit('host:mode', { mode: 'player' });
+      await call(X, 'player:join', { code: hr.code, name: 'Xia', pid: 'x1', team: 1 }); await call(Y, 'player:join', { code: hr.code, name: 'Yan', pid: 'y1', team: 1 });
+      const j = await call(H, 'host:joinTeam', { name: 'Hosty', team: 0 }); await wait(50);
+      const hp = H.state.players.find(p => p.isHost);
+      ok(j.ok && hp && hp.name === 'Hosty' && hp.team === 0, 'player-host joins Team 1 from the host screen');
+      H.emit('host:startRound'); await wait(60);
+      ok(H.state.phase === 'faceoff' && H.state.round.faceoff[0] === hp.id, 'host player is in the face-off for their team');
+      const room2 = require('../server.js').ff.rooms[hr.code], answers = room2.round.survey.answers;
+      ok(!JSON.stringify(H.all).includes(JSON.stringify(answers[answers.length - 1].text)) && !H.state.hostAnswers && H.state.round.board.every(b => !b.text), 'player-host screen still shows no survey answers');
+      H.emit('host:buzzFor', { pid: hp.id }); await wait(40); await call(H, 'host:guess', { text: answers[0].text }); await wait(60);
+      ok(H.state.round.faceoffAnswers[0].pid === hp.id && H.state.round.board[0].text === answers[0].text, 'host player buzzes and guesses in the face-off');
+      ok(H.state.phase === 'playpass' && H.state.round.control === 0, "host's team wins control from the host's #1 answer");
+      H.emit('host:playPass', { choice: 'play' }); await wait(40); room2.round.survey.answers.forEach((_, i) => room2.round.revealed.add(i)); H.emit('host:skipRound'); await wait(40);
+      ok(room2.players[hp.id].team === 0 && room2.teams.length === 2, 'host counts as a Team 1 member');
+      H.emit('host:mode', { mode: 'dedicated' }); await wait(40);
+      ok(H.state.players.some(p => p.isHost) && H.state.hostMode === 'player' && !H.state.hostAnswers, 'playing host cannot switch to Dedicated mid-game (answers stay hidden)');
+      H.emit('host:newGame'); await wait(40); H.emit('host:mode', { mode: 'dedicated' }); await wait(40);
+      ok(!H.state.players.some(p => p.isHost), 'switching to Dedicated host in the lobby removes the host from the teams');
+      ok((await call(H, 'host:joinTeam', { team: 0 })).error, 'dedicated host cannot join a team'); }
   } catch (e) { failN++; console.log('  ✗ crashed:', e); }
   console.log(`\nHost-mode tests: ${pass} passed, ${failN} failed`); process.exit(failN ? 1 : 0);
 });
