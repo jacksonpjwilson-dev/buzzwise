@@ -1,0 +1,181 @@
+# Buzzwise Price Is Right products.  Name | typical US retail price in dollars
+# NOTE: Prices are rough ESTIMATES of typical US retail prices (2026), for fun only.
+Gallon of whole milk | 4.29
+Dozen large eggs | 3.99
+Loaf of sliced white bread | 2.99
+Box of Cheerios (18 oz) | 5.49
+Jar of peanut butter (16 oz) | 3.49
+Bag of Doritos (party size) | 6.99
+2-liter bottle of Coca-Cola | 2.79
+Pound of bananas | 0.69
+Bag of baby carrots (1 lb) | 1.79
+Pint of Ben & Jerry's ice cream | 5.99
+Box of spaghetti (1 lb) | 1.69
+Jar of marinara sauce (24 oz) | 3.99
+Can of Campbell's tomato soup | 1.49
+Bag of ground coffee (12 oz) | 9.99
+Box of 100 tea bags | 6.49
+Pound of ground beef | 5.99
+Rotisserie chicken | 7.99
+Bag of shredded cheddar (8 oz) | 3.29
+Stick of butter (4-pack, 1 lb) | 4.99
+Bottle of ketchup (32 oz) | 3.99
+Box of mac and cheese | 1.29
+Frozen pepperoni pizza | 6.49
+Bag of frozen peas (12 oz) | 1.99
+Carton of orange juice (52 oz) | 4.49
+Box of granola bars (12 ct) | 4.79
+Bag of microwave popcorn (3 ct) | 3.79
+Jar of honey (12 oz) | 5.99
+Bottle of olive oil (17 oz) | 8.99
+Bag of white rice (5 lb) | 5.49
+Box of saltine crackers | 3.29
+Avocado | 1.50
+Bag of Oreo cookies (family size) | 5.29
+Can of Pringles | 2.49
+Pack of hot dogs (8 ct) | 4.49
+Pack of bacon (12 oz) | 6.99
+Bottle of maple syrup (12 oz) | 9.49
+Bag of tortilla chips | 4.29
+Jar of salsa (16 oz) | 3.99
+Box of Pop-Tarts (8 ct) | 3.79
+Bag of M&M's (sharing size) | 4.99
+Roll of paper towels (6-pack) | 13.99
+Toilet paper (12 mega rolls) | 15.99
+Bottle of dish soap (19 oz) | 3.99
+Box of laundry detergent pods (42 ct) | 13.99
+Box of trash bags (40 ct) | 11.99
+Pack of sponges (6 ct) | 5.49
+Bottle of glass cleaner | 4.29
+Clorox disinfecting wipes (75 ct) | 5.99
+Box of tissues (3-pack) | 6.49
+Roll of aluminum foil (75 sq ft) | 5.99
+Box of zip-top sandwich bags | 4.49
+Tube of toothpaste | 3.99
+Electric toothbrush | 49.99
+Bottle of shampoo (12 oz) | 7.99
+Stick of deodorant | 5.49
+Pack of disposable razors (4 ct) | 9.99
+Bottle of sunscreen SPF 50 | 10.99
+Box of adhesive bandages (100 ct) | 6.99
+Bottle of ibuprofen (100 ct) | 9.49
+Bottle of hand soap | 2.99
+Bath towel | 14.99
+Queen bed sheet set | 39.99
+Bed pillow | 24.99
+Throw blanket | 29.99
+Scented candle (large jar) | 27.99
+Shower curtain | 19.99
+Bath mat | 15.99
+Alarm clock | 19.99
+Table lamp | 34.99
+LED light bulbs (4-pack) | 9.99
+Smoke detector | 24.99
+AA batteries (20-pack) | 17.99
+Extension cord (6 ft) | 9.99
+Power strip with surge protector | 19.99
+Hammer | 14.99
+Cordless drill | 89.99
+Tape measure (25 ft) | 12.99
+Flashlight | 15.99
+Duct tape roll | 7.49
+Garden hose (50 ft) | 34.99
+Push lawn mower (gas) | 329.00
+Leaf rake | 19.99
+Bag of potting soil | 9.99
+Charcoal grill (22 inch) | 179.00
+Bag of charcoal (16 lb) | 15.99
+Folding camp chair | 24.99
+Camping tent (4-person) | 129.99
+Sleeping bag | 49.99
+Cooler (48 quart) | 39.99
+Beach umbrella | 34.99
+Basketball | 29.99
+Soccer ball | 24.99
+Yoga mat | 24.99
+Pair of dumbbells (10 lb) | 34.99
+Bicycle helmet | 39.99
+Kids' bicycle (20 inch) | 149.99
+Skateboard | 59.99
+Pair of running shoes | 119.99
+Baseball glove | 49.99
+Football | 24.99
+Jump rope | 9.99
+Board game: Monopoly | 21.99
+Board game: Scrabble | 19.99
+Deck of playing cards | 3.99
+1000-piece jigsaw puzzle | 16.99
+LEGO Classic box (790 pieces) | 59.99
+Box of crayons (64 ct) | 5.49
+Pack of pencils (24 ct) | 4.99
+Spiral notebook | 2.49
+Backpack | 39.99
+Stapler | 9.99
+Ream of printer paper | 9.99
+Scientific calculator | 18.99
+Ballpoint pens (10-pack) | 6.99
+Wall calendar | 14.99
+Smartphone charger cable | 14.99
+Wireless earbuds (mid-range) | 79.99
+Bluetooth speaker | 49.99
+Computer mouse (wireless) | 24.99
+Video game (new release) | 69.99
+Video game controller | 64.99
+HDMI cable (6 ft) | 12.99
+Smart speaker (small) | 49.99
+55-inch 4K TV | 449.99
+Laptop (mid-range) | 699.99
+Tablet (entry level) | 329.00
+Smartwatch | 249.00
+Digital kitchen scale | 19.99
+Toaster (2-slice) | 29.99
+Drip coffee maker | 49.99
+Microwave oven | 129.99
+Blender | 59.99
+Air fryer | 89.99
+Slow cooker | 49.99
+Stand mixer | 449.99
+Electric kettle | 34.99
+Waffle maker | 34.99
+Nonstick frying pan (12 inch) | 39.99
+Chef's knife | 49.99
+Cutting board | 19.99
+Set of 4 dinner plates | 29.99
+Set of 4 drinking glasses | 19.99
+Stainless steel water bottle | 29.99
+Travel coffee mug | 24.99
+Robot vacuum | 249.99
+Upright vacuum cleaner | 179.99
+Clothes iron | 34.99
+Hair dryer | 39.99
+Box fan | 29.99
+Space heater | 49.99
+Window air conditioner | 279.00
+Ceiling fan | 129.99
+Pair of jeans | 59.99
+Plain white T-shirt (3-pack) | 19.99
+Winter coat | 149.99
+Pair of sunglasses | 24.99
+Baseball cap | 24.99
+Umbrella | 19.99
+Pack of socks (6 pairs) | 14.99
+Wristwatch (basic) | 49.99
+Leather wallet | 39.99
+Bouquet of roses (dozen) | 34.99
+Box of chocolates | 19.99
+Birthday card | 5.99
+Bag of dog food (30 lb) | 54.99
+Cat litter (20 lb) | 14.99
+Dog leash | 14.99
+Cat scratching post | 34.99
+Fish tank (10 gallon) | 49.99
+Movie ticket (adult, evening) | 14.99
+Large movie popcorn | 9.49
+Large pizza (delivery) | 18.99
+Big Mac | 5.99
+Starbucks grande latte | 5.25
+Car wash (basic) | 12.00
+Gallon of gasoline | 3.39
+Quart of motor oil | 8.99
+Windshield wiper blades (pair) | 34.99
+Car phone mount | 19.99

@@ -1,0 +1,80 @@
+NAME: Time Traveler
+DIFFICULTY: medium
+TAGLINE: A tour through history
+== R1
+# Ancient Egypt
+Which boy king's tomb was found by Howard Carter in 1922? | Tutankhamun
+What stone helped decode hieroglyphics? | Rosetta Stone
+What is the name of the limestone statue with a lion's body near the pyramids? | Great Sphinx of Giza
+Which queen of Egypt allied with Mark Antony? | Cleopatra
+What Egyptian god had the head of a jackal? | Anubis
+# Ancient Rome
+Who was Rome's first emperor? | Augustus
+Which volcano buried Pompeii in 79 AD? | Mount Vesuvius
+What was the Roman arena for gladiator fights in Rome called? | Colosseum
+Which general crossed the Alps with elephants to attack Rome? | Hannibal
+What river did Caesar cross in 49 BC? | Rubicon
+# Medieval Times
+In what year was the Battle of Hastings? | 1066
+What 1215 charter limited the power of King John? | Magna Carta
+What pandemic killed a third of Europe in the 1340s? | Black Death
+Which French teenager led armies in the Hundred Years' War? | Joan of Arc
+What were the series of religious wars to the Holy Land called? | Crusades
+# Revolutions
+In what year did the French Revolution begin? | 1789
+What Paris fortress was stormed on July 14, 1789? | Bastille
+Who led the Russian Bolsheviks in 1917? | Vladimir Lenin
+What 1773 protest dumped tea into a harbor? | Boston Tea Party
+Who led Cuba's 1959 revolution? | Fidel Castro
+# World War II
+In what year did World War II end? | 1945
+What was the code name for the D-Day invasion? | Operation Overlord
+Which U.S. naval base was attacked on December 7, 1941? | Pearl Harbor
+Who was British Prime Minister for most of WWII? | Winston Churchill
+What German code machine was cracked at Bletchley Park? | Enigma
+# Explorers
+Whose expedition was first to circumnavigate the globe? | Ferdinand Magellan
+Who reached the South Pole first in 1911? | Roald Amundsen
+Which Venetian traveled to Kublai Khan's court? | Marco Polo
+Which Portuguese explorer reached India by sea in 1498? | Vasco da Gama
+Who were the first two people to summit Everest in 1953? | Edmund Hillary and Tenzing Norgay
+== R2
+# Cold War
+What wall fell in 1989? | Berlin Wall
+What was the first artificial satellite? | Sputnik 1
+What 1962 standoff involved missiles in Cuba? | Cuban Missile Crisis
+Which Soviet leader introduced glasnost and perestroika? | Mikhail Gorbachev
+What alliance was formed in 1949 by Western nations? | NATO
+# American History
+Who was the first U.S. president? | George Washington
+In what year was the Declaration of Independence signed? | 1776
+Who wrote most of the Declaration of Independence? | Thomas Jefferson
+What 1803 deal doubled U.S. size? | Louisiana Purchase
+What 1848 discovery sparked a rush to California? | Gold
+# Empires
+Which empire was ruled by Genghis Khan? | Mongol Empire
+What was the capital of the Byzantine Empire? | Constantinople
+Which South American empire built Machu Picchu? | Inca Empire
+Which empire was ruled by sultans from Istanbul until 1922? | Ottoman Empire
+Who founded the Persian Achaemenid Empire? | Cyrus the Great
+# Inventors
+Who invented the telephone (patent 1876)? | Alexander Graham Bell
+Who is credited with the first practical incandescent bulb in the U.S.? | Thomas Edison
+Which brothers made the first powered flight in 1903? | Wright brothers
+Who invented the World Wide Web? | Tim Berners-Lee
+Who discovered penicillin in 1928? | Alexander Fleming
+# Royals
+Which English king had six wives? | Henry VIII
+Which French queen supposedly said "Let them eat cake"? | Marie Antoinette
+Which Russian dynasty ended in 1917? | Romanov
+Which "Sun King" built Versailles? | Louis XIV
+Which "Virgin Queen" ruled England from 1558? | Elizabeth I
+# Famous Pairs
+1930s outlaw couple killed in a Louisiana ambush in 1934 | Bonnie and Clyde
+Bowler-hatted comedy duo: Stan and Ollie | Laurel and Hardy
+"I Got You Babe" husband-and-wife duo | Sonny and Cher
+Folk duo behind "The Sound of Silence" | Simon & Garfunkel
+Las Vegas magicians famous for white tigers | Siegfried & Roy
+== FINAL
+# Documents
+This 1863 Lincoln executive order declared enslaved people in rebelling states free. | Emancipation Proclamation

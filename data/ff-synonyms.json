@@ -1,0 +1,1038 @@
+{
+ "_note": "Built-in synonym groups for Family Feud judging. Words in a group are treated as the same word (first = canonical). Keep groups to true synonyms so different board answers don't merge.",
+ "groups": [
+  [
+   "television",
+   "tv",
+   "telly",
+   "tele"
+  ],
+  [
+   "telephone",
+   "phone",
+   "cellphone",
+   "cell",
+   "mobile",
+   "smartphone",
+   "iphone"
+  ],
+  [
+   "refrigerator",
+   "fridge",
+   "icebox"
+  ],
+  [
+   "automobile",
+   "car",
+   "auto",
+   "vehicle",
+   "sedan"
+  ],
+  [
+   "bicycle",
+   "bike",
+   "cycle"
+  ],
+  [
+   "photograph",
+   "photo",
+   "picture",
+   "pic",
+   "snapshot",
+   "selfie"
+  ],
+  [
+   "children",
+   "kid",
+   "child",
+   "kiddo",
+   "toddler"
+  ],
+  [
+   "sneaker",
+   "trainer",
+   "tennis shoe",
+   "running shoe",
+   "kicks"
+  ],
+  [
+   "sofa",
+   "couch",
+   "settee"
+  ],
+  [
+   "soda",
+   "pop",
+   "soft drink",
+   "coke"
+  ],
+  [
+   "restroom",
+   "bathroom",
+   "toilet",
+   "loo",
+   "potty",
+   "washroom",
+   "lavatory"
+  ],
+  [
+   "sick",
+   "ill",
+   "illness",
+   "flu",
+   "cold",
+   "unwell"
+  ],
+  [
+   "doctor",
+   "doc",
+   "physician"
+  ],
+  [
+   "policeman",
+   "police officer",
+   "cop",
+   "officer",
+   "police"
+  ],
+  [
+   "firefighter",
+   "fireman"
+  ],
+  [
+   "mail carrier",
+   "mailman",
+   "postman",
+   "mail man",
+   "postal worker"
+  ],
+  [
+   "airplane",
+   "plane",
+   "jet",
+   "aeroplane",
+   "aircraft"
+  ],
+  [
+   "movie",
+   "film",
+   "flick",
+   "cinema"
+  ],
+  [
+   "present",
+   "gift"
+  ],
+  [
+   "sweetener",
+   "splenda",
+   "stevia",
+   "equal"
+  ],
+  [
+   "pant",
+   "trouser",
+   "jean"
+  ],
+  [
+   "glasses",
+   "spectacles",
+   "specs",
+   "eyeglasses"
+  ],
+  [
+   "sunglasses",
+   "shades"
+  ],
+  [
+   "rabbit",
+   "bunny"
+  ],
+  [
+   "hamburger",
+   "burger"
+  ],
+  [
+   "garbage",
+   "trash",
+   "rubbish",
+   "refuse"
+  ],
+  [
+   "sleep",
+   "nap",
+   "snooze",
+   "rest"
+  ],
+  [
+   "vacation",
+   "holiday",
+   "trip"
+  ],
+  [
+   "money",
+   "cash",
+   "dough",
+   "bucks"
+  ],
+  [
+   "drink",
+   "beverage"
+  ],
+  [
+   "candy",
+   "sweets",
+   "chocolates"
+  ],
+  [
+   "cookie",
+   "biscuit"
+  ],
+  [
+   "fries",
+   "french fries",
+   "chips"
+  ],
+  [
+   "vomit",
+   "throw up",
+   "puke"
+  ],
+  [
+   "laundry",
+   "wash clothes",
+   "washing"
+  ],
+  [
+   "remote",
+   "remote control",
+   "clicker",
+   "controller"
+  ],
+  [
+   "computer",
+   "laptop",
+   "pc",
+   "desktop"
+  ],
+  [
+   "purse",
+   "handbag"
+  ],
+  [
+   "wallet",
+   "billfold"
+  ],
+  [
+   "luggage",
+   "suitcase",
+   "bag"
+  ],
+  [
+   "auto accident",
+   "car accident",
+   "car crash",
+   "wreck",
+   "crash",
+   "collision"
+  ],
+  [
+   "robbery",
+   "burglary",
+   "theft",
+   "break in",
+   "stealing",
+   "robbed"
+  ],
+  [
+   "heart attack",
+   "cardiac arrest"
+  ],
+  [
+   "barbecue",
+   "bbq",
+   "cookout",
+   "grill"
+  ],
+  [
+   "swimming",
+   "swim",
+   "pool"
+  ],
+  [
+   "teacher",
+   "instructor",
+   "professor"
+  ],
+  [
+   "student",
+   "pupil",
+   "classmate"
+  ],
+  [
+   "chalkboard",
+   "blackboard",
+   "whiteboard",
+   "board"
+  ],
+  [
+   "pencil",
+   "pen"
+  ],
+  [
+   "mustard",
+   "dijon"
+  ],
+  [
+   "ketchup",
+   "catsup"
+  ],
+  [
+   "umbrella",
+   "parasol"
+  ],
+  [
+   "oven",
+   "stove",
+   "range"
+  ],
+  [
+   "microwave",
+   "nuke"
+  ],
+  [
+   "coffee maker",
+   "coffee machine",
+   "coffeemaker",
+   "keurig"
+  ],
+  [
+   "exercise",
+   "workout",
+   "work out",
+   "train"
+  ],
+  [
+   "run",
+   "jog",
+   "jogging",
+   "running"
+  ],
+  [
+   "lift weights",
+   "weights",
+   "weightlifting",
+   "pump iron"
+  ],
+  [
+   "sweat",
+   "perspire"
+  ],
+  [
+   "infant",
+   "baby",
+   "newborn"
+  ],
+  [
+   "diaper",
+   "nappy"
+  ],
+  [
+   "tired",
+   "sleepy",
+   "exhausted"
+  ],
+  [
+   "hungry",
+   "starving",
+   "feed",
+   "food"
+  ],
+  [
+   "shot",
+   "vaccine",
+   "vaccination",
+   "injection",
+   "flu shot"
+  ],
+  [
+   "checkup",
+   "physical",
+   "check up",
+   "annual exam"
+  ],
+  [
+   "injury",
+   "hurt",
+   "injured",
+   "broken bone"
+  ],
+  [
+   "prescription",
+   "medicine",
+   "meds",
+   "medication",
+   "refill"
+  ],
+  [
+   "mom",
+   "mother",
+   "mommy",
+   "mum"
+  ],
+  [
+   "dad",
+   "father",
+   "daddy",
+   "papa"
+  ],
+  [
+   "grandma",
+   "grandmother",
+   "granny",
+   "nana"
+  ],
+  [
+   "big",
+   "large",
+   "huge",
+   "giant"
+  ],
+  [
+   "small",
+   "little",
+   "tiny"
+  ],
+  [
+   "happy",
+   "glad"
+  ],
+  [
+   "angry",
+   "mad"
+  ],
+  [
+   "fast",
+   "quick"
+  ],
+  [
+   "shower",
+   "showering"
+  ],
+  [
+   "bath",
+   "bathe",
+   "bubble bath"
+  ],
+  [
+   "teeth",
+   "tooth"
+  ],
+  [
+   "shoe",
+   "footwear"
+  ],
+  [
+   "spider",
+   "tarantula",
+   "arachnid"
+  ],
+  [
+   "snake",
+   "serpent"
+  ],
+  [
+   "height",
+   "high place",
+   "falling"
+  ],
+  [
+   "dark",
+   "darkness"
+  ],
+  [
+   "clown",
+   "clowns"
+  ],
+  [
+   "public speaking",
+   "speech",
+   "speaking in public",
+   "presentation"
+  ],
+  [
+   "death",
+   "dying"
+  ],
+  [
+   "kiss",
+   "smooch",
+   "make out"
+  ],
+  [
+   "cry",
+   "weep",
+   "tear"
+  ],
+  [
+   "dance",
+   "dancing",
+   "boogie"
+  ],
+  [
+   "eat",
+   "dine",
+   "meal"
+  ],
+  [
+   "toast",
+   "toasted bread"
+  ],
+  [
+   "cereal",
+   "cornflake",
+   "cheerio"
+  ],
+  [
+   "oatmeal",
+   "porridge",
+   "oat"
+  ],
+  [
+   "truck",
+   "pickup",
+   "lorry"
+  ],
+  [
+   "fourth of july",
+   "july 4th",
+   "independence day",
+   "4th of july",
+   "july fourth"
+  ],
+  [
+   "valentine day",
+   "valentine",
+   "valentines"
+  ],
+  [
+   "christmas",
+   "xmas"
+  ],
+  [
+   "thanksgiving",
+   "turkey day"
+  ],
+  [
+   "key",
+   "keys",
+   "car key"
+  ],
+  [
+   "socks",
+   "sock"
+  ],
+  [
+   "slipper",
+   "house shoe"
+  ],
+  [
+   "sandal",
+   "flip flop",
+   "thong"
+  ],
+  [
+   "read",
+   "reading",
+   "book"
+  ],
+  [
+   "play game",
+   "game",
+   "board game",
+   "video game",
+   "gaming"
+  ],
+  [
+   "clean",
+   "cleaning",
+   "tidy"
+  ],
+  [
+   "lollipop",
+   "sucker"
+  ],
+  [
+   "grandpa",
+   "grandfather",
+   "gramps"
+  ],
+  [
+   "coffee shop",
+   "cafe",
+   "starbucks",
+   "coffeehouse"
+  ],
+  [
+   "bar",
+   "pub",
+   "tavern",
+   "saloon"
+  ],
+  [
+   "restaurant",
+   "diner",
+   "eatery",
+   "dinner"
+  ],
+  [
+   "bowling",
+   "bowling alley"
+  ],
+  [
+   "park",
+   "playground"
+  ],
+  [
+   "hair dryer",
+   "blow dryer",
+   "hairdryer"
+  ],
+  [
+   "vacuum",
+   "vacuum cleaner",
+   "hoover"
+  ],
+  [
+   "phone charger",
+   "charger",
+   "cord"
+  ],
+  [
+   "lamp",
+   "light"
+  ],
+  [
+   "tent",
+   "shelter"
+  ],
+  [
+   "flashlight",
+   "torch",
+   "lantern"
+  ],
+  [
+   "bug spray",
+   "insect repellent",
+   "repellent",
+   "deet"
+  ],
+  [
+   "matches",
+   "lighter",
+   "match"
+  ],
+  [
+   "sleeping bag",
+   "bedroll"
+  ],
+  [
+   "teething",
+   "teeth coming in",
+   "new teeth"
+  ],
+  [
+   "wants attention",
+   "attention",
+   "lonely",
+   "want to be held",
+   "hold me"
+  ],
+  [
+   "gas",
+   "gassy",
+   "burp",
+   "colic"
+  ],
+  [
+   "wet diaper",
+   "dirty diaper",
+   "poop",
+   "poopy diaper"
+  ],
+  [
+   "ice cream",
+   "gelato",
+   "frozen yogurt",
+   "froyo"
+  ],
+  [
+   "party hat",
+   "hat"
+  ],
+  [
+   "balloon",
+   "balloons"
+  ],
+  [
+   "candle",
+   "candles"
+  ],
+  [
+   "soldier",
+   "army",
+   "military",
+   "marine"
+  ],
+  [
+   "pilot",
+   "aviator"
+  ],
+  [
+   "chef",
+   "cook"
+  ],
+  [
+   "nurse",
+   "rn"
+  ],
+  [
+   "take picture",
+   "photo",
+   "photography",
+   "camera"
+  ],
+  [
+   "throw rice",
+   "rice",
+   "confetti"
+  ],
+  [
+   "soccer",
+   "futbol"
+  ],
+  [
+   "football",
+   "nfl"
+  ],
+  [
+   "basketball",
+   "hoop",
+   "nba"
+  ],
+  [
+   "baseball",
+   "mlb"
+  ],
+  [
+   "donut",
+   "doughnut"
+  ],
+  [
+   "jello",
+   "gelatin",
+   "jell o"
+  ],
+  [
+   "pajama",
+   "pjs",
+   "pyjama",
+   "sleepwear"
+  ],
+  [
+   "swimsuit",
+   "bathing suit",
+   "swimwear",
+   "bikini",
+   "trunks"
+  ],
+  [
+   "underwear",
+   "undies",
+   "boxers",
+   "briefs",
+   "panties"
+  ],
+  [
+   "toilet paper",
+   "tp",
+   "bathroom tissue"
+  ],
+  [
+   "mirror",
+   "looking glass"
+  ],
+  [
+   "ambulance",
+   "paramedic",
+   "ems"
+  ],
+  [
+   "fire truck",
+   "fire engine"
+  ],
+  [
+   "police car",
+   "cop car",
+   "squad car",
+   "patrol car"
+  ],
+  [
+   "helicopter",
+   "chopper"
+  ],
+  [
+   "tow truck",
+   "wrecker"
+  ],
+  [
+   "shave",
+   "shaving"
+  ],
+  [
+   "sing",
+   "singing"
+  ],
+  [
+   "think",
+   "thinking"
+  ],
+  [
+   "nervous",
+   "anxious",
+   "jitters"
+  ],
+  [
+   "resume",
+   "cv"
+  ],
+  [
+   "dress up",
+   "suit",
+   "nice clothes",
+   "dress nice"
+  ],
+  [
+   "research",
+   "study",
+   "look up",
+   "google"
+  ],
+  [
+   "practice",
+   "rehearse",
+   "prepare"
+  ],
+  [
+   "twin",
+   "twins"
+  ],
+  [
+   "glue",
+   "adhesive"
+  ],
+  [
+   "tape",
+   "duct tape",
+   "scotch tape"
+  ],
+  [
+   "gum",
+   "chewing gum",
+   "bubble gum"
+  ],
+  [
+   "syrup",
+   "maple syrup"
+  ],
+  [
+   "bill",
+   "bills",
+   "utilities"
+  ],
+  [
+   "tax",
+   "taxes",
+   "irs"
+  ],
+  [
+   "rent",
+   "mortgage"
+  ],
+  [
+   "cost",
+   "price",
+   "expensive"
+  ],
+  [
+   "marriage",
+   "married",
+   "wedding",
+   "get married"
+  ],
+  [
+   "new job",
+   "job",
+   "work",
+   "promotion"
+  ],
+  [
+   "bigger house",
+   "more space",
+   "space"
+  ],
+  [
+   "nap",
+   "siesta"
+  ],
+  [
+   "run errand",
+   "errand",
+   "errands",
+   "shopping"
+  ],
+  [
+   "take a walk",
+   "walk",
+   "stroll"
+  ],
+  [
+   "lava",
+   "magma",
+   "volcano"
+  ],
+  [
+   "summer",
+   "summertime"
+  ],
+  [
+   "growl",
+   "snarl"
+  ],
+  [
+   "whine",
+   "whimper"
+  ],
+  [
+   "howl",
+   "bay"
+  ],
+  [
+   "yelp",
+   "yip"
+  ],
+  [
+   "bark",
+   "woof"
+  ],
+  [
+   "stay up late",
+   "stay up",
+   "all nighter",
+   "no sleep"
+  ],
+  [
+   "pillow fight",
+   "pillows"
+  ],
+  [
+   "tell story",
+   "ghost story",
+   "story",
+   "stories"
+  ],
+  [
+   "snack",
+   "snacks",
+   "junk food"
+  ],
+  [
+   "watch movie",
+   "movie",
+   "movies"
+  ],
+  [
+   "window",
+   "windows"
+  ],
+  [
+   "jar",
+   "jars",
+   "lid"
+  ],
+  [
+   "mail",
+   "letter",
+   "envelope",
+   "package"
+  ],
+  [
+   "american",
+   "american cheese",
+   "kraft single"
+  ],
+  [
+   "parmesan",
+   "parmigiano"
+  ],
+  [
+   "change radio",
+   "radio",
+   "change the station",
+   "change station"
+  ],
+  [
+   "pick nose",
+   "nose picking"
+  ],
+  [
+   "blow out candle",
+   "blow candles",
+   "make a wish",
+   "wish"
+  ],
+  [
+   "open present",
+   "gifts",
+   "unwrap"
+  ],
+  [
+   "go out to dinner",
+   "dinner",
+   "eat out",
+   "restaurant"
+  ],
+  [
+   "medicine",
+   "medication",
+   "pills",
+   "vitamins"
+  ],
+  [
+   "eye patch",
+   "patch"
+  ],
+  [
+   "peg leg",
+   "wooden leg"
+  ],
+  [
+   "hook",
+   "hook hand"
+  ],
+  [
+   "sword",
+   "cutlass"
+  ],
+  [
+   "treasure",
+   "gold",
+   "loot",
+   "booty"
+  ],
+  [
+   "ship",
+   "boat"
+  ]
+ ]
+}

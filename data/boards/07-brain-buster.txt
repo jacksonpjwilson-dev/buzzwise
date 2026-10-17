@@ -1,0 +1,80 @@
+NAME: Brain Buster
+DIFFICULTY: medium
+TAGLINE: For the trivia regulars
+== R1
+# Word Origins
+The word "salary" is linked to which seasoning given to Roman soldiers? | Salt
+"Robot" comes from a 1920 play by which Czech writer? | Karel Čapek
+Which 26.2-mile race is named after a Greek town? | Marathon
+"Quarantine" comes from the Italian for how many days? | Forty
+What word for a sudden fear comes from a Greek god of the wild? | Panic
+# Mythology
+Who is the Greek goddess of wisdom? | Athena
+In Norse myth, what is the name of Thor's hammer? | Mjölnir
+Which Greek hero's only weak spot was his heel? | Achilles
+Who is the Greek god of the sea? | Poseidon
+What three-headed dog guards the Greek underworld? | Cerberus
+# Elements
+Which element has the symbol K? | Potassium
+What is the only metal that is liquid at room temperature? | Mercury
+Which noble gas glows in many classic signs? | Neon
+Which element has the highest melting point? | Tungsten
+What element's name comes from the Greek word for "sun"? | Helium
+# Oscars
+Which film won the first Academy Award for Best Picture? | Wings
+Which film won Best Picture for 2019, the first non-English-language winner? | Parasite
+Who has won the most acting Oscars, with four? | Katharine Hepburn
+Which 2003 fantasy film won all 11 Oscars it was nominated for? | The Lord of the Rings: The Return of the King
+Which director won Best Director for "The Shape of Water"? | Guillermo del Toro
+# World Leaders
+Who was the first woman Prime Minister of the U.K.? | Margaret Thatcher
+Who was South Africa's first Black president? | Nelson Mandela
+Who was the first Chancellor of Germany, unified in 1871? | Otto von Bismarck
+Who led India's nonviolent independence movement? | Mahatma Gandhi
+Who was the longest-reigning British monarch? | Elizabeth II
+# Who Said It?
+"I have a dream..." (1963, Washington, D.C.) | Martin Luther King Jr.
+"To infinity and beyond!" | Buzz Lightyear
+"I'm the king of the world!" (1997 film) | Jack Dawson
+"Here's Johnny!" (1980 horror film) | Jack Torrance
+"Elementary, my dear Watson" (popular attribution) | Sherlock Holmes
+== R2
+# Famous Firsts
+Who was the first person to walk on the moon? | Neil Armstrong
+Who was the first woman to win a Nobel Prize? | Marie Curie
+Who was the first person in space? | Yuri Gagarin
+Who was the first woman to fly solo across the Atlantic? | Amelia Earhart
+Which team won the first Super Bowl? | Green Bay Packers
+# Shakespeare
+In which play does a character say "Et tu, Brute?" | Julius Caesar
+Which Shakespeare play features three witches? | Macbeth
+Which play features Shylock? | The Merchant of Venice
+Which play's lovers are from Verona? | Romeo and Juliet
+What is the name of the fairy king in "A Midsummer Night's Dream"? | Oberon
+# Name the Year
+Apollo 11 lands on the Moon | 1969
+Facebook launches from a Harvard dorm room | 2004
+Barack Obama is first elected president | 2008
+Japan attacks Pearl Harbor | 1941
+The 9/11 attacks; Wikipedia launches | 2001
+# Architecture
+Who designed Fallingwater? | Frank Lloyd Wright
+In which city is the Sagrada Família? | Barcelona
+What Indian monument was built by Shah Jahan for his wife? | Taj Mahal
+In which city is the Burj Khalifa? | Dubai
+Which ancient wonder stood in Alexandria's harbor? | Lighthouse of Alexandria (Pharos)
+# Classical Music
+Which composer wrote "The Four Seasons"? | Antonio Vivaldi
+Which composer became deaf but still wrote the Ninth Symphony? | Ludwig van Beethoven
+Which composer wrote "The Nutcracker"? | Pyotr Ilyich Tchaikovsky
+Which child prodigy composed "The Magic Flute"? | Wolfgang Amadeus Mozart
+Who composed "Clair de lune"? | Claude Debussy
+# Astronomy
+What is the name of the galaxy we live in? | Milky Way
+Which planet spins on its side? | Uranus
+What is the hottest planet in our solar system? | Venus
+What is the largest moon in the solar system? | Ganymede
+What is the largest object in the asteroid belt? | Ceres
+== FINAL
+# Inventions
+This German goldsmith introduced movable-type printing to Europe around 1440. | Johannes Gutenberg

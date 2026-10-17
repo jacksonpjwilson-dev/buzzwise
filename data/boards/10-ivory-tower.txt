@@ -1,0 +1,80 @@
+NAME: Ivory Tower
+DIFFICULTY: medium
+TAGLINE: Academic trivia for know-it-alls
+== R1
+# Philosophy
+Which philosopher wrote "Critique of Pure Reason"? | Immanuel Kant
+Who wrote "Thus Spoke Zarathustra"? | Friedrich Nietzsche
+Who said "I think, therefore I am"? | René Descartes
+Which Greek philosopher tutored Alexander the Great? | Aristotle
+Who wrote "Leviathan" (1651)? | Thomas Hobbes
+# Linguistics
+What is the most widely spoken native language in the world? | Mandarin Chinese
+What is the official language of Brazil? | Portuguese
+What is a word that reads the same backward, like "racecar"? | Palindrome
+What language family includes Finnish and Hungarian? | Uralic
+What ancient script was used in Mesopotamia, pressed into clay? | Cuneiform
+# Art History
+Who painted "The Garden of Earthly Delights"? | Hieronymus Bosch
+What art movement was led by Monet and Renoir? | Impressionism
+Who painted "Girl with a Pearl Earring"? | Johannes Vermeer
+Who sculpted "The Thinker"? | Auguste Rodin
+Who painted "The Night Watch"? | Rembrandt
+# Opera
+Who composed "The Ring of the Nibelung"? | Richard Wagner
+Who composed "La Traviata"? | Giuseppe Verdi
+In which Puccini opera is the aria "Nessun dorma"? | Turandot
+Which Bizet opera features a Seville cigarette girl? | Carmen
+Who composed "Madama Butterfly"? | Giacomo Puccini
+# Literary Before & After
+Steinbeck novella + Will Smith alien-hunter film | Of Mice and Men in Black
+Huxley dystopia + Brad Pitt zombie movie | Brave New World War Z
+Orwell allegory + Willie Nelson's benefit concerts | Animal Farm Aid
+Salinger novel + dark sandwich loaf | The Catcher in the Rye bread
+Margaret Mitchell epic + Kenneth Grahame tale of Toad | Gone with the Wind in the Willows
+# Obscure Geography
+What is the capital of Kazakhstan? | Astana
+What is the world's largest landlocked country? | Kazakhstan
+What is the capital of Bhutan? | Thimphu
+What is the deepest lake in the world? | Lake Baikal
+Which strait separates Asia from North America? | Bering Strait
+== R2
+# Literary Classics
+Who wrote "One Hundred Years of Solitude"? | Gabriel García Márquez
+Who wrote "War and Peace"? | Leo Tolstoy
+Who wrote "The Divine Comedy"? | Dante Alighieri
+Which James Joyce novel takes place on June 16, 1904? | Ulysses
+Who wrote "Crime and Punishment"? | Fyodor Dostoevsky
+# Latin Phrases
+What Latin phrase means "seize the day"? | Carpe diem
+What does "et cetera" literally mean? | And the rest
+What Latin phrase means "for the time being" or "temporarily"? | Pro tempore
+What does "caveat emptor" mean? | Let the buyer beware
+What Latin phrase means "in good faith"? | Bona fide
+# Mathematics
+Who is credited with the "Last Theorem" proved by Andrew Wiles in 1994? | Pierre de Fermat
+What is the name of the sequence 0, 1, 1, 2, 3, 5, 8...? | Fibonacci sequence
+What is the number e approximately? | 2.718
+Which mathematician is known as the "Prince of Mathematicians"? | Carl Friedrich Gauss
+What is a number that equals the sum of its proper divisors, like 6 or 28? | Perfect number
+# Ancient Wonders
+Which is the only Ancient Wonder still largely standing? | Great Pyramid of Giza
+Which wonder was a giant statue of Helios? | Colossus of Rhodes
+Which Wonder was supposedly built by Nebuchadnezzar II? | Hanging Gardens of Babylon
+Which wonder was a temple to a goddess at Ephesus? | Temple of Artemis
+Which Wonder was a tomb at Halicarnassus? | Mausoleum at Halicarnassus
+# Economics Deep Cut
+Which economist wrote "The General Theory of Employment, Interest and Money"? | John Maynard Keynes
+What curve shows the relationship between tax rates and revenue? | Laffer curve
+What 1930 U.S. tariff act is blamed for worsening the Depression? | Smoot-Hawley Tariff Act
+Which economist wrote "Das Kapital"? | Karl Marx
+What law states that "bad money drives out good"? | Gresham's law
+# Political Theory
+Who wrote "The Prince"? | Niccolò Machiavelli
+Who wrote "The Social Contract" (1762)? | Jean-Jacques Rousseau
+Who wrote "Two Treatises of Government"? | John Locke
+Who wrote "The Republic"? | Plato
+Which French thinker wrote "The Spirit of the Laws"? | Montesquieu
+== FINAL
+# Universities
+Founded in 1088, this Italian city's university is considered the oldest in continuous operation in the Western world. | University of Bologna

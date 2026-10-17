@@ -1,0 +1,173 @@
+# CATEGORY | PUZZLE  (one per line; checked by scripts/check-wof.js)
+Phrase | Better late than never
+Phrase | Actions speak louder than words
+Phrase | The early bird catches the worm
+Phrase | Don't count your chickens before they hatch
+Phrase | A picture is worth a thousand words
+Phrase | Every cloud has a silver lining
+Phrase | Two heads are better than one
+Phrase | When in Rome do as the Romans do
+Phrase | Break a leg
+Phrase | Piece of cake
+Phrase | Hit the nail on the head
+Phrase | Once in a blue moon
+Phrase | Let the cat out of the bag
+Phrase | The ball is in your court
+Phrase | Bite off more than you can chew
+Phrase | Cross that bridge when you come to it
+Phrase | Back to the drawing board
+Phrase | Kill two birds with one stone
+Phrase | Barking up the wrong tree
+Phrase | Spill the beans
+Phrase | Under the weather
+Phrase | Cold feet
+Phrase | No pain no gain
+Phrase | Rome wasn't built in a day
+Thing | Grandfather clock
+Thing | Fire extinguisher
+Thing | Hot air balloon
+Thing | Roller skates
+Thing | Pair of binoculars
+Thing | Swiss army knife
+Thing | Treasure chest
+Thing | Crystal ball
+Thing | Compass and map
+Thing | Electric toothbrush
+Thing | Snow globe
+Thing | Rubber band ball
+Thing | Paper airplane
+Thing | Magnifying glass
+Place | Grand Canyon
+Place | Times Square
+Place | Yellowstone National Park
+Place | The Great Barrier Reef
+Place | Buckingham Palace
+Place | Niagara Falls
+Place | The Sahara Desert
+Place | Mount Kilimanjaro
+Place | Venice Italy
+Place | The Amazon Rainforest
+Place | Hollywood Boulevard
+Place | Central Park
+Place | The Eiffel Tower
+Place | Death Valley
+Person | Neighborhood mail carrier
+Person | Olympic gold medalist
+Person | Substitute teacher
+Person | Lifeguard on duty
+Person | Proud grandparents
+Person | Wedding photographer
+Person | Talk show host
+Person | Professional skateboarder
+Person | Head chef
+Person | Rodeo clown
+Before & After | Peanut butter and jelly bean
+Before & After | Apple pie in the sky
+Before & After | Fortune cookie monster
+Before & After | Basketball and chain
+Before & After | Birthday cake walk
+Before & After | Popcorn on the cob
+Before & After | Tooth fairy tale
+Before & After | Rocking chair lift
+Before & After | Spelling bee sting
+Before & After | Hot dog days of summer
+Before & After | Movie star fish
+Before & After | Couch potato salad
+Food & Drink | Spaghetti and meatballs
+Food & Drink | Chocolate chip cookies
+Food & Drink | Strawberry milkshake
+Food & Drink | Grilled cheese sandwich
+Food & Drink | French onion soup
+Food & Drink | Buffalo chicken wings
+Food & Drink | Blueberry pancakes
+Food & Drink | Fish and chips
+Food & Drink | Caesar salad
+Food & Drink | Iced caramel latte
+Food & Drink | Pepperoni pizza
+Food & Drink | Macaroni and cheese
+Food & Drink | Banana split
+Food & Drink | Pumpkin spice latte
+Event | Surprise birthday party
+Event | Family reunion
+Event | High school graduation
+Event | Fourth of July fireworks
+Event | Super Bowl Sunday
+Event | Thanksgiving dinner
+Event | County fair
+Event | New Year's Eve countdown
+Event | Bake sale
+Event | Opening night
+Event | Baby shower
+Event | Summer vacation
+Song Title | Don't Stop Believin'
+Song Title | Sweet Caroline
+Song Title | Bohemian Rhapsody
+Song Title | Dancing Queen
+Song Title | Hey Jude
+Song Title | Shake It Off
+Song Title | Respect
+Song Title | Hotel California
+Song Title | Livin' on a Prayer
+Song Title | Take Me Home Country Roads
+Song Title | Happy
+Song Title | I Will Always Love You
+Movie Title | The Wizard of Oz
+Movie Title | Back to the Future
+Movie Title | Raiders of the Lost Ark
+Movie Title | The Lion King
+Movie Title | Finding Nemo
+Movie Title | Jurassic Park
+Movie Title | The Sound of Music
+Movie Title | Home Alone
+Movie Title | Toy Story
+Movie Title | Ghostbusters
+Movie Title | Forrest Gump
+Movie Title | Mary Poppins
+Around the House | Kitchen table
+Around the House | Linen closet
+Around the House | Welcome mat
+Around the House | Laundry basket
+Around the House | Ceiling fan
+Around the House | Junk drawer
+Around the House | Smoke detector
+Around the House | Throw pillows
+Fun & Games | Hide and seek
+Fun & Games | Musical chairs
+Fun & Games | Tic-tac-toe
+Fun & Games | Connect the dots
+Fun & Games | Scavenger hunt
+Fun & Games | Jigsaw puzzle
+Fun & Games | Water balloon fight
+Fun & Games | Duck duck goose
+What Are You Doing? | Building a sandcastle
+What Are You Doing? | Walking the dog
+What Are You Doing? | Taking a selfie
+What Are You Doing? | Flipping pancakes
+What Are You Doing? | Watching the sunset
+What Are You Doing? | Folding laundry
+What Are You Doing? | Roasting marshmallows
+What Are You Doing? | Singing karaoke
+What Are You Doing? | Planting a garden
+What Are You Doing? | Shoveling snow
+Rhyme Time | Fender bender
+Rhyme Time | Wheeling and dealing
+Rhyme Time | Meet and greet
+Rhyme Time | Name of the game
+Rhyme Time | Double trouble
+Rhyme Time | Wear and tear
+Occupation | Air traffic controller
+Occupation | Veterinary assistant
+Occupation | Real estate agent
+Occupation | Marine biologist
+Occupation | Flight attendant
+Occupation | Zookeeper
+Landmark | Statue of Liberty
+Landmark | Golden Gate Bridge
+Landmark | Mount Rushmore
+Landmark | The Leaning Tower of Pisa
+Landmark | Stonehenge
+Landmark | The Colosseum
+Place | Fisherman's Wharf
+Place | The Swiss Alps
+Place | Las Vegas Strip
+Place | Route Sixty-Six

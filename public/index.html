@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buzzwise — Trivia night, on everyone's phone</title><link rel="stylesheet" href="/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛎️</text></svg>"></head>
+<body><div class="wrap">
+<nav class="top"><a class="logo" href="/"><span class="mark">B</span>Buzzwise</a>
+<div class="navlinks"><a href="#how">How it works</a><a href="#boards">Boards</a><a href="#features">Features</a></div>
+<a class="btn btn-ghost btn-sm" href="/play">Join a game</a></nav>
+<header class="hero"><div>
+<span class="pill">🛎️ Four game shows · <span id="stat">15 boards · 915 never-repeating clues</span></span>
+<h1>Host a <em>real</em> game show in your living room.</h1>
+<p class="lead">Buzzwise turns any TV or laptop into a game-show stage. Friends play from their phones while you run the show: buzz in for trivia, or spin the wheel, guess what the survey said, or bid without going over.</p>
+<div class="mode-cards"><div class="mode"><span class="tag t-medium">Trivia</span><h3>Jeopardy</h3><p>15 boards, Daily Doubles, Final round.</p><div class="row"><a class="btn btn-gold btn-sm" href="/host">Host</a><a class="btn btn-ghost btn-sm" href="/play">Join</a></div></div>
+<div class="mode"><span class="tag t-hard">Puzzles</span><h3>Wheel of Fortune</h3><p>Spin, buy vowels, Toss-Ups &amp; Bonus.</p><div class="row"><a class="btn btn-gold btn-sm" href="/wof">Host</a><a class="btn btn-ghost btn-sm" href="/wof/play">Join</a></div></div>
+<div class="mode"><span class="tag t-easy">Teams</span><h3>Family Feud</h3><p>Face-offs, strikes, steals &amp; Fast Money.</p><div class="row"><a class="btn btn-gold btn-sm" href="/ff">Host</a><a class="btn btn-ghost btn-sm" href="/ff/play">Join</a></div></div>
+<div class="mode"><span class="tag t-expert">Prices</span><h3>The Price Is Right</h3><p>Bid, play pricing games, spin the big wheel.</p><div class="row"><a class="btn btn-gold btn-sm" href="/pir">Host</a><a class="btn btn-ghost btn-sm" href="/pir/play">Join</a></div></div></div>
+
+</div>
+<div class="preview"><div class="mini-grid" id="mini"></div></div></header>
+<section id="how"><h2 class="section-title">Game night in three steps</h2><p class="section-sub">No accounts, no app downloads.</p>
+<div class="steps"><div class="card"><h3>Pick a board</h3><p>Choose Easy, Medium, Hard or Expert, then pick a themed board.</p></div>
+<div class="card"><h3>Share the code</h3><p>Players open the site on their phones and type the 5-letter room code.</p></div>
+<div class="card"><h3>Read, buzz, score</h3><p>Only the host sees the clue. Buzzers go live the moment a square opens.</p></div></div></section>
+<section id="boards"><h2 class="section-title">Four levels, fifteen boards</h2><p class="section-sub">Every board has two full rounds plus Final. No question repeats anywhere.</p><div class="diffs" id="diffs"></div></section>
+<section id="features"><h2 class="section-title">Everything a real show has</h2><p class="section-sub">&nbsp;</p>
+<div class="features">
+<div class="card"><div class="icon">⚡</div><h3>Instant buzzers</h3><p>First tap locks everyone else out. Wrong answer? Buzzers reopen for the rest.</p></div>
+<div class="card"><div class="icon">🎲</div><h3>Daily Doubles</h3><p>One hidden in round one, two in Double Jeopardy, with real wagers.</p></div>
+<div class="card"><div class="icon">🏆</div><h3>Final round</h3><p>Private wagers and written answers from every phone, judged by the host.</p></div>
+<div class="card"><div class="icon">🔒</div><h3>Host-only clues</h3><p>Players only see category and value, so you get to read it like a TV host.</p></div>
+<div class="card"><div class="icon">📱</div><h3>Phone-first</h3><p>Works on any phone browser. Rejoin automatically if someone's screen locks.</p></div>
+<div class="card"><div class="icon">🌍</div><h3>Play anywhere</h3><p>Same Wi-Fi works out of the box. Share a tunnel link for friends far away.</p></div>
+</div></section>
+<footer><span>© 2026 Buzzwise. A fan-made party game, not affiliated with Jeopardy!, Wheel of Fortune, Family Feud or The Price Is Right.</span><a href="/host">Host a game</a></footer>
+</div>
+<script>
+const v=[200,400,600,800,1000],m=document.getElementById('mini');
+['Space','Movies','Food','History','Music','Sports'].forEach(c=>m.innerHTML+=`<div class="h">${c}</div>`);
+for(const x of v)for(let i=0;i<6;i++)m.innerHTML+=`<div class="${Math.random()<.18?'u':''}">$${x}</div>`;
+fetch('/api/boards').then(r=>r.json()).then(bs=>{document.getElementById('stat').textContent=bs.length+' boards · '+bs.length*61+' never-repeating clues';const d={easy:'Easy',medium:'Medium',hard:'Hard',expert:'Expert'};
+document.getElementById('diffs').innerHTML=Object.keys(d).map(k=>`<div class="diff d-${k}"><span class="tag t-${k}">${d[k]}</span><ul>${bs.filter(b=>b.difficulty===k).map(b=>`<li>${b.name}</li>`).join('')}</ul></div>`).join('')});
+</script></body></html>

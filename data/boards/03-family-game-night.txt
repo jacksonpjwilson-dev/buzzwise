@@ -1,0 +1,80 @@
+NAME: Family Game Night
+DIFFICULTY: easy
+TAGLINE: Gentle questions for all ages
+== R1
+# Ocean Life
+What is the largest fish in the sea? | Whale shark
+Which ocean animal squirts ink and has eight arms? | Octopus
+What sea creature has five arms and can regrow them? | Starfish (sea star)
+What marine mammal is known for its intelligence and clicking sounds? | Dolphin
+What do you call a group of fish swimming together? | School
+# Dinosaurs
+Which dinosaur's name means "tyrant lizard king"? | Tyrannosaurus rex
+Which dinosaur had three horns on its face? | Triceratops
+Which plant-eater had plates along its back and spikes on its tail? | Stegosaurus
+What do scientists who study fossils call themselves? | Paleontologists
+What 1993 movie featured dinosaurs brought back to life on an island? | Jurassic Park
+# Food Around the World
+What Italian dish is a flat round dough topped with sauce and cheese? | Pizza
+Sushi comes from which country? | Japan
+What Mexican dish is a folded tortilla with fillings? | Taco
+What French bread is long and thin? | Baguette
+What Belgian breakfast treat has a grid pattern? | Waffle
+# Video Games
+What plumber is Nintendo's mascot? | Mario
+What is the name of Sonic's two-tailed fox sidekick? | Tails
+In Minecraft, what green creature explodes? | Creeper
+What falling-block puzzle game came from the Soviet Union? | Tetris
+What yellow character eats dots and avoids ghosts? | Pac-Man
+# Transportation
+What vehicle travels on rails? | Train
+What do you call a boat that travels underwater? | Submarine
+What two-wheeled vehicle do you pedal? | Bicycle
+What aircraft uses spinning rotors on top to fly? | Helicopter
+What vehicle has a siren and rushes people to the hospital? | Ambulance
+# Silly Rhymes
+Rhymes with "goat": a vehicle that floats | Boat
+Rhymes with "rain": something that runs on tracks and has a caboose | Choo-choo train
+Rhymes with "moon": a utensil for soup | Spoon
+Rhymes with "cake": a body of water smaller than a sea | Lake
+Rhymes with "bear": a fruit shaped like a light bulb | Pear
+== R2
+# Pets
+What pet is known as "man's best friend"? | Dog
+What small rodent pet stores food in its cheeks? | Hamster
+What pet purrs when happy? | Cat
+What is a baby dog called? | Puppy
+What pet lives in a bowl and is often orange? | Goldfish
+# Science Basics
+What gas do plants take in from the air? | Carbon dioxide
+At what temperature in Celsius does water freeze? | Zero degrees
+What force pulls objects toward Earth? | Gravity
+What do you call water in its gas form? | Steam (water vapor)
+What is the center of an atom called? | Nucleus
+# Kids' Books
+Which bear loves honey and lives in the Hundred Acre Wood? | Winnie the Pooh
+In "Charlotte's Web," what is the name of the pig? | Wilbur
+What hungry insect eats through many foods in Eric Carle's book? | The Very Hungry Caterpillar
+What is the name of the boy who never grows up? | Peter Pan
+Which girl falls down a rabbit hole into Wonderland? | Alice
+# Seasons
+In which season do leaves change color and fall? | Autumn
+In which season is the longest day of the year (Northern Hemisphere)? | Summer
+What do bears do through the winter? | Hibernate
+What month does spring officially begin in the Northern Hemisphere? | March
+What do you call frozen water falling as flakes? | Snow
+# Magic & Wizards
+What does a magician traditionally pull out of a hat? | Rabbit
+What word do magicians say along with "hocus pocus"? | Abracadabra
+What is the name of the wizard in The Lord of the Rings who says "You shall not pass"? | Gandalf
+What object does a witch fly on? | Broomstick
+Who is the wizard at the end of the Yellow Brick Road? | The Wizard of Oz
+# Around Town
+Where do you go to borrow books for free? | Library
+Where would you see a doctor in an emergency? | Hospital
+Where do firefighters work? | Fire station
+Where do you go to see animals from around the world? | Zoo
+Where would you go to buy stamps and mail packages? | Post office
+== FINAL
+# U.S. Presidents
+This president appears on the U.S. penny. | Abraham Lincoln

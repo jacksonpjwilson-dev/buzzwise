@@ -1,0 +1,834 @@
+# Family Feud-style surveys for Buzzwise.
+# NOTE: These are MADE-UP ESTIMATES written for fun, not results of real surveys.
+# Format:  Q: question   then   Answer = alias, alias | points
+Q: Name something people bring to the beach
+Towel = beach towel | 30
+Sunscreen = sunblock, suntan lotion, lotion, spf | 24
+Umbrella = beach umbrella, parasol | 14
+Cooler = drinks, ice chest | 10
+Chair = beach chair, lawn chair | 9
+Sunglasses = shades | 7
+Ball = beach ball, volleyball, frisbee | 4
+Q: Name a pet that lives in a cage
+Hamster | 32
+Bird = parrot, parakeet, budgie, canary | 28
+Guinea Pig | 14
+Rabbit = bunny | 10
+Mouse = mice | 7
+Gerbil | 5
+Ferret | 3
+Q: Name something you do right after waking up
+Brush Teeth = brush my teeth, toothbrush | 28
+Go to the Bathroom = bathroom, pee, toilet, restroom | 24
+Check Phone = phone, look at phone | 16
+Shower = take a shower, bathe | 12
+Make Coffee = coffee, drink coffee | 10
+Stretch | 6
+Q: Name a fruit that is yellow
+Banana | 52
+Lemon | 25
+Pineapple | 9
+Mango | 5
+Grapefruit | 4
+Starfruit = star fruit | 3
+Q: Name something you find in a wallet
+Money = cash, dollars, bills | 38
+Credit Card = card, debit card, cards, bank card | 26
+Driver's License = license, id, identification | 20
+Photos = pictures, picture, photo | 8
+Receipts = receipt | 5
+Q: Name a reason you might be late for work
+Traffic = traffic jam | 36
+Overslept = slept in, alarm didn't go off, alarm | 28
+Car Trouble = flat tire, car broke down, car won't start | 15
+Kids = children, getting kids ready | 9
+Weather = snow, rain, storm | 7
+Sick = illness, not feeling well | 3
+Q: Name a type of dance
+Ballet | 26
+Tap = tap dancing | 16
+Salsa | 15
+Hip Hop = hip-hop | 13
+Waltz | 10
+Tango | 9
+Ballroom | 6
+Square Dance = square dancing | 3
+Q: Name something people are afraid of
+Spiders = spider, arachnids | 30
+Heights | 24
+Snakes = snake | 17
+Death = dying | 10
+Clowns = clown | 7
+The Dark = darkness, dark | 6
+Public Speaking = speaking in public | 4
+Q: Name a pizza topping
+Pepperoni | 40
+Sausage | 17
+Mushrooms = mushroom | 14
+Extra Cheese = cheese | 10
+Onions = onion | 6
+Peppers = green peppers, bell peppers | 6
+Olives = olive, black olives | 4
+Pineapple = ham and pineapple | 3
+Q: Name something people do at a wedding
+Dance = dancing | 34
+Cry = crying, tears | 20
+Eat = eating, food, dinner | 16
+Drink = drinking, toast, champagne | 12
+Kiss = kissing | 8
+Take Pictures = photos, pictures | 6
+Throw Rice = rice, throw the bouquet, bouquet | 4
+Q: Name a sport played with a ball
+Football | 30
+Basketball | 25
+Baseball | 18
+Soccer | 14
+Tennis | 6
+Volleyball | 4
+Golf | 3
+Q: Name a kitchen appliance
+Refrigerator = fridge | 30
+Microwave | 24
+Stove = oven, range | 20
+Toaster | 10
+Dishwasher | 8
+Blender | 5
+Coffee Maker = coffee machine, coffee pot | 3
+Q: Name something you'd find in a classroom
+Desk = desks | 28
+Chalkboard = blackboard, whiteboard, board | 24
+Teacher | 15
+Books = textbooks, book | 12
+Pencils = pencil, pens, pen | 9
+Students = kids, children | 7
+Globe | 3
+Q: Name a famous superhero
+Superman | 36
+Batman | 28
+Spider-Man = spiderman | 18
+Wonder Woman | 7
+Iron Man | 6
+Captain America | 3
+Hulk = incredible hulk | 2
+Q: Name a common breakfast food
+Eggs = egg, scrambled eggs | 34
+Cereal | 20
+Pancakes = pancake, flapjacks | 15
+Bacon | 12
+Toast | 9
+Waffles = waffle | 5
+Oatmeal = porridge, oats | 4
+Q: Name something that has wheels
+Car = automobile | 40
+Bicycle = bike | 22
+Truck | 12
+Skateboard | 8
+Bus | 7
+Wagon | 5
+Wheelchair | 4
+Q: Name a holiday people decorate for
+Christmas = xmas | 52
+Halloween | 22
+Easter | 9
+Fourth of July = july 4th, independence day | 7
+Thanksgiving | 6
+Valentine's Day = valentines | 3
+Q: Name a place people go on a first date
+Restaurant = dinner | 38
+Movies = movie theater, cinema, movie | 30
+Coffee Shop = coffee, cafe | 12
+Bar = drinks | 8
+Park | 6
+Bowling = bowling alley | 3
+Q: Name something people lose all the time
+Keys = car keys, key | 42
+Phone = cell phone, mobile | 18
+Glasses = sunglasses, eyeglasses | 13
+Remote = remote control, tv remote | 11
+Wallet = purse | 8
+Socks = sock | 5
+Q: Name an animal you'd see at the zoo
+Lion | 26
+Elephant | 22
+Monkey = monkeys, ape, gorilla, chimp | 18
+Giraffe | 14
+Tiger | 9
+Zebra | 6
+Bear = polar bear, panda | 4
+Q: Name a reason people go to the doctor
+Sick = illness, cold, flu | 38
+Checkup = physical, check up, annual exam | 28
+Injury = hurt, broken bone, broke something | 14
+Prescription = medicine, refill | 8
+Shots = vaccine, flu shot, vaccination, shot | 6
+Pain = headache, back pain | 4
+Q: Name something you wear on your feet
+Shoes = shoe | 40
+Socks = sock | 30
+Boots = boot | 12
+Sandals = flip flops, flip-flops | 10
+Slippers = slipper | 5
+Sneakers = tennis shoes, trainers | 3
+Q: Name something people do on a rainy day
+Watch TV = tv, television, watch a movie, movies | 30
+Read = read a book | 22
+Sleep = nap, take a nap | 18
+Play Games = board games, video games, games | 12
+Stay Inside = stay home, stay in | 9
+Clean = clean the house | 5
+Q: Name a famous fairy tale
+Cinderella | 34
+Snow White | 22
+Little Red Riding Hood = red riding hood | 15
+Sleeping Beauty | 10
+Goldilocks = goldilocks and the three bears, three bears | 8
+Hansel and Gretel | 7
+Jack and the Beanstalk | 4
+Q: Name something you put on a hot dog
+Mustard | 38
+Ketchup = catsup | 30
+Relish | 12
+Onions = onion | 9
+Chili | 6
+Sauerkraut = kraut | 3
+Q: Name a color of the rainbow
+Red | 26
+Blue | 22
+Yellow | 16
+Green | 14
+Orange | 10
+Purple = violet | 7
+Indigo | 3
+Q: Name something people take on a camping trip
+Tent | 40
+Sleeping Bag | 22
+Flashlight = torch, lantern | 12
+Food = snacks, marshmallows | 10
+Matches = lighter, firewood | 7
+Bug Spray = insect repellent, repellent | 5
+Q: Name a job that requires a uniform
+Police Officer = police, cop, officer | 28
+Nurse | 18
+Firefighter = fireman, firemen | 16
+Soldier = military, army | 14
+Mail Carrier = mailman, postal worker | 9
+Pilot | 7
+Chef = cook | 4
+Q: Name a reason a baby cries
+Hungry = hunger, food, needs to eat | 42
+Wet Diaper = diaper, dirty diaper, needs changing | 24
+Tired = sleepy | 16
+Teething = teeth | 8
+Wants Attention = attention, wants to be held | 5
+Gas = colic | 3
+Q: Name a board game
+Monopoly | 38
+Scrabble | 18
+Chess | 14
+Checkers | 10
+Clue | 8
+Candy Land = candyland | 6
+Sorry | 4
+Q: Name something you'd find at a birthday party
+Cake = birthday cake | 42
+Balloons = balloon | 20
+Presents = gifts, gift, present | 18
+Candles = candle | 8
+Ice Cream | 6
+Party Hats = hats | 4
+Q: Name a musical instrument
+Piano = keyboard | 30
+Guitar | 28
+Drums = drum | 16
+Violin = fiddle | 11
+Trumpet | 6
+Flute | 5
+Saxophone = sax | 3
+Q: Name something that is cold
+Ice = ice cube, ice cubes | 32
+Snow | 20
+Ice Cream | 18
+Refrigerator = fridge, freezer | 12
+Winter | 8
+Antarctica = north pole, south pole | 5
+Q: Name something people do to relax
+Sleep = nap | 22
+Read = reading, read a book | 20
+Watch TV = tv, television | 18
+Take a Bath = bath, bubble bath | 14
+Listen to Music = music | 10
+Yoga = meditate, meditation | 8
+Massage | 5
+Q: Name a famous cartoon character
+Mickey Mouse = mickey | 34
+Bugs Bunny | 20
+SpongeBob = spongebob squarepants | 15
+Homer Simpson = homer, bart, simpsons | 12
+Scooby-Doo = scooby doo, scooby | 9
+Donald Duck | 6
+Q: Name a vegetable kids don't like
+Broccoli | 38
+Brussels Sprouts = brussel sprouts | 20
+Spinach | 14
+Peas = pea | 10
+Cauliflower | 7
+Asparagus | 5
+Carrots = carrot | 3
+Q: Name something you plug in
+Phone Charger = charger, phone | 30
+Lamp = light | 20
+TV = television | 18
+Computer = laptop | 14
+Toaster | 6
+Hair Dryer = blow dryer | 5
+Vacuum = vacuum cleaner | 4
+Q: Name something people do at the gym
+Lift Weights = weights, weightlifting, lift | 36
+Run = treadmill, running | 24
+Sweat = sweating | 12
+Swim = swimming | 8
+Yoga | 6
+Stretch = stretching | 6
+Bike = cycling, spin, spin class | 5
+Q: Name a city people visit in the USA
+New York = new york city, nyc | 30
+Las Vegas = vegas | 22
+Los Angeles = la, hollywood | 14
+Orlando = disney world | 12
+Chicago | 8
+Miami | 7
+San Francisco | 4
+Q: Name a type of tree
+Oak | 34
+Pine | 22
+Maple | 18
+Palm | 10
+Apple Tree = apple | 6
+Birch | 5
+Redwood = sequoia | 3
+Q: Name something you need to bake a cake
+Flour | 30
+Eggs = egg | 26
+Sugar | 20
+Butter = oil | 10
+Oven | 8
+Milk | 4
+Q: Name a famous ship
+Titanic | 62
+Mayflower | 12
+Noah's Ark = ark | 9
+Santa Maria | 6
+Queen Mary | 4
+Black Pearl | 3
+Q: Name something associated with Halloween
+Candy | 30
+Costumes = costume | 22
+Pumpkin = jack-o-lantern, jack o lantern, pumpkins | 18
+Ghosts = ghost | 10
+Witches = witch | 8
+Trick or Treat = trick-or-treating | 6
+Bats = bat | 3
+Q: Name a vehicle used in an emergency
+Ambulance | 40
+Fire Truck = fire engine | 30
+Police Car = cop car, squad car | 18
+Helicopter = medevac | 6
+Tow Truck = tow | 4
+Q: Name a word that comes after "fire"
+Fly = firefly | 22
+Place = fireplace | 20
+Man = fireman | 18
+Works = fireworks | 16
+Truck = fire truck | 10
+Alarm = fire alarm | 8
+Q: Name a place you need a ticket to enter
+Movie Theater = movies, cinema | 32
+Concert | 22
+Sporting Event = game, stadium, ballgame | 16
+Amusement Park = theme park, disney | 12
+Airplane = plane, airport, flight | 10
+Museum | 5
+Q: Name a chore kids hate
+Clean Their Room = clean room, cleaning room | 36
+Dishes = washing dishes, do the dishes | 24
+Take Out Trash = trash, garbage | 16
+Laundry | 9
+Make Bed = make the bed | 7
+Mow the Lawn = mow, mowing, yard work | 6
+Q: Name a famous magician
+Houdini = harry houdini | 46
+David Copperfield = copperfield | 30
+David Blaine = blaine | 10
+Penn and Teller = penn & teller | 6
+Criss Angel | 4
+Q: Name something people put in coffee
+Cream = creamer, half and half | 38
+Sugar | 34
+Milk | 14
+Sweetener = splenda, stevia | 6
+Whiskey = alcohol, baileys | 4
+Cinnamon | 3
+Q: Name a reason you'd call 911
+Fire | 32
+Heart Attack = medical emergency, someone hurt, injury | 26
+Robbery = break in, burglar, theft | 18
+Car Accident = accident, car crash | 15
+Assault = fight, attack | 5
+Q: Name something in the sky
+Sun | 30
+Clouds = cloud | 25
+Moon | 15
+Stars = star | 12
+Birds = bird | 8
+Airplane = plane | 7
+Q: Name something you'd find in a bathroom
+Toilet | 34
+Toothbrush = toothpaste | 18
+Sink | 16
+Shower = bathtub, tub | 14
+Towel = towels | 8
+Toilet Paper = tp | 6
+Mirror | 4
+Q: Name a type of shoe
+Sneakers = tennis shoes, running shoes | 32
+High Heels = heels, pumps | 22
+Boots = boot | 16
+Sandals = flip flops | 12
+Loafers = loafer | 8
+Slippers | 5
+Clogs | 3
+Q: Name a profession that involves cutting
+Barber = hairdresser, hair stylist, stylist | 36
+Surgeon = doctor | 28
+Butcher | 16
+Chef = cook | 10
+Tailor = seamstress | 6
+Lumberjack = logger | 3
+Q: Name a snack people eat at the movies
+Popcorn | 64
+Candy = m&ms, junior mints, skittles | 18
+Nachos | 8
+Soda = pop, drink | 5
+Hot Dog | 4
+Q: Name something people do on New Year's Eve
+Kiss = kissing | 26
+Party = go to a party | 24
+Drink = drinking, champagne, toast | 20
+Watch the Ball Drop = ball drop, countdown | 14
+Fireworks | 8
+Make Resolutions = resolution, resolutions | 5
+Q: Name a famous painter
+Picasso = pablo picasso | 32
+Van Gogh = vincent van gogh | 26
+Leonardo da Vinci = da vinci, leonardo | 20
+Michelangelo | 10
+Monet = claude monet | 7
+Bob Ross | 4
+Q: Name an animal with stripes
+Zebra | 52
+Tiger | 30
+Skunk | 8
+Raccoon = racoon | 4
+Bee = bumblebee | 3
+Chipmunk | 2
+Q: Name something people do when they can't sleep
+Count Sheep = counting sheep | 26
+Watch TV = tv | 22
+Read = read a book | 18
+Drink Warm Milk = warm milk, milk, tea | 12
+Take a Pill = sleeping pill, melatonin | 9
+Look at Phone = phone, scroll | 8
+Q: Name a famous wizard
+Harry Potter = harry | 36
+Merlin | 26
+Gandalf | 18
+Dumbledore = albus dumbledore | 12
+Wizard of Oz = oz | 4
+Q: Name something you put on a salad
+Dressing = ranch, salad dressing, vinaigrette | 42
+Croutons = crouton | 18
+Cheese | 12
+Tomatoes = tomato | 10
+Bacon Bits = bacon | 7
+Cucumbers = cucumber | 6
+Q: Name something associated with summer
+Swimming = pool, swim | 26
+Beach | 22
+Sun = sunshine | 16
+Vacation = holiday | 12
+Ice Cream | 10
+Barbecue = bbq, grill, cookout | 8
+Q: Name something people collect
+Stamps = stamp | 30
+Coins = coin | 26
+Baseball Cards = cards, trading cards | 18
+Dolls = doll | 8
+Comic Books = comics | 7
+Shells = seashells | 5
+Q: Name a body part people get tattooed
+Arm = arms, bicep, forearm | 34
+Back = lower back | 20
+Leg = legs, calf, ankle | 16
+Shoulder | 12
+Chest | 8
+Wrist | 6
+Q: Name a country in Europe
+France | 26
+Germany | 18
+Italy | 18
+Spain | 12
+England = uk, britain, united kingdom | 10
+Ireland | 6
+Greece | 5
+Q: Name a famous horror movie villain
+Freddy Krueger = freddy | 30
+Jason = jason voorhees | 26
+Michael Myers | 16
+Chucky | 12
+Dracula | 7
+Pennywise = it | 5
+Q: Name a flavor of ice cream
+Chocolate | 40
+Vanilla | 34
+Strawberry | 14
+Mint Chocolate Chip = mint chip, mint | 6
+Cookies and Cream = cookies n cream | 3
+Q: Name something people do before a job interview
+Practice = rehearse, prepare, practice answers | 26
+Dress Up = get dressed, iron clothes, suit | 24
+Research the Company = research | 18
+Shower = groom | 12
+Get Nervous = nervous, pray | 8
+Print Resume = resume | 7
+Q: Name something you shouldn't do in a library
+Talk Loudly = talk, yell, be loud, shout | 46
+Eat = eating, food | 18
+Use Phone = phone, talk on phone | 14
+Run = running | 10
+Sleep | 4
+Damage Books = rip pages, write in books | 3
+Q: Name something sold by the dozen
+Eggs = egg | 64
+Donuts = doughnuts | 20
+Roses = flowers | 8
+Bagels = bagel | 4
+Cookies | 2
+Q: Name something you see at a circus
+Clowns = clown | 38
+Elephants = elephant | 20
+Lion Tamer = lions | 12
+Acrobats = trapeze, tightrope | 12
+Ringmaster | 6
+Jugglers = juggling | 5
+Q: Name something people do in the shower
+Sing = singing | 38
+Wash Hair = shampoo | 24
+Shave = shaving | 14
+Think | 10
+Cry | 4
+Q: Name a famous Disney princess
+Cinderella | 28
+Snow White | 18
+Ariel = little mermaid | 16
+Belle | 14
+Jasmine | 8
+Elsa | 7
+Aurora = sleeping beauty | 4
+Q: Name something on a farm
+Cows = cow | 32
+Barn | 20
+Tractor | 16
+Pigs = pig | 12
+Horses = horse | 8
+Chickens = chicken, hens | 7
+Q: Name a car brand
+Ford | 32
+Toyota | 20
+Chevrolet = chevy | 18
+Honda | 12
+BMW | 6
+Tesla | 5
+Mercedes = mercedes-benz | 4
+Q: Name something that comes in a pair
+Shoes = shoe | 30
+Socks = sock | 24
+Earrings = earring | 14
+Gloves = glove | 10
+Pants = jeans | 6
+Twins | 6
+Dice | 3
+Q: Name a famous detective
+Sherlock Holmes = sherlock | 52
+Columbo | 12
+Scooby-Doo = scooby | 9
+Nancy Drew | 8
+Hercule Poirot = poirot | 7
+Inspector Gadget | 5
+Q: Name something that's sticky
+Glue | 32
+Tape | 24
+Honey | 18
+Gum = chewing gum, bubble gum | 12
+Syrup = maple syrup | 8
+Peanut Butter | 3
+Q: Name a reason people move
+New Job = job, work | 40
+Bigger House = more space, growing family | 18
+Marriage = got married | 12
+Cost = cheaper, money | 10
+School = college | 8
+Weather = climate | 5
+Q: Name something people are always late paying
+Rent | 30
+Bills = electric bill, utilities, utility bill | 26
+Credit Card = credit card bill | 16
+Phone Bill = phone | 10
+Taxes = tax | 8
+Car Payment = car | 5
+Q: Name a famous bear
+Winnie the Pooh = pooh | 40
+Yogi Bear = yogi | 20
+Smokey the Bear = smokey | 14
+Paddington | 10
+Teddy Bear = teddy | 6
+Baloo | 5
+Q: Name something you might do on your lunch break
+Eat = eat lunch | 46
+Take a Walk = walk | 14
+Nap = sleep | 12
+Run Errands = errands, shopping | 10
+Check Phone = phone, social media | 8
+Read | 4
+Q: Name something hot
+Sun | 34
+Fire | 26
+Stove = oven | 14
+Coffee = tea | 9
+Lava = volcano | 6
+Summer | 5
+Q: Name a sound a dog makes
+Bark = woof | 54
+Growl | 20
+Whine = whimper | 12
+Howl | 10
+Yelp | 3
+Q: Name a word that rhymes with "cat"
+Hat | 30
+Bat | 22
+Rat | 16
+Mat | 12
+Sat | 8
+Fat | 7
+Q: Name a famous inventor
+Thomas Edison = edison | 44
+Benjamin Franklin = franklin, ben franklin | 16
+Alexander Graham Bell = bell | 14
+Wright Brothers = wright | 8
+Henry Ford = ford | 7
+Nikola Tesla = tesla | 6
+Q: Name something people do at a sleepover
+Watch Movies = movies | 26
+Stay Up Late = stay up, don't sleep | 18
+Pillow Fight | 16
+Tell Stories = ghost stories, scary stories | 14
+Eat Snacks = eat, snacks, popcorn, pizza | 12
+Play Games = truth or dare, games | 9
+Q: Name a type of bird
+Robin | 22
+Eagle = bald eagle | 18
+Blue Jay = jay | 14
+Cardinal | 12
+Parrot | 10
+Crow | 8
+Hummingbird | 6
+Pigeon | 5
+Q: Name something you open
+Door | 38
+Window | 20
+Present = gift | 12
+Jar | 9
+Book | 8
+Mail = envelope, letter | 6
+Q: Name a famous comedian
+Jerry Seinfeld = seinfeld | 22
+Robin Williams | 20
+Kevin Hart | 16
+Adam Sandler | 12
+Eddie Murphy | 10
+Jim Carrey | 8
+Chris Rock | 6
+Q: Name a type of cheese
+Cheddar | 36
+Swiss | 18
+Mozzarella | 16
+American | 10
+Parmesan | 8
+Brie | 4
+Gouda | 3
+Q: Name something people do at a red light
+Check Phone = phone, text, texting | 32
+Wait = stop | 20
+Sing = sing along | 12
+Change the Radio = radio, music | 12
+Look in Mirror = mirror, fix hair, makeup | 10
+Pick Nose | 6
+Q: Name something people do on their birthday
+Eat Cake = cake | 32
+Party = have a party | 26
+Open Presents = presents, gifts | 16
+Blow Out Candles = candles, make a wish | 12
+Go Out to Dinner = dinner, restaurant | 9
+Q: Name a famous duo
+Batman and Robin | 26
+Peanut Butter and Jelly = pb&j, pb and j | 18
+Laurel and Hardy | 12
+Bonnie and Clyde | 12
+Tom and Jerry | 10
+Salt and Pepper | 8
+Romeo and Juliet | 6
+Q: Name something people forget to pack
+Toothbrush = toothpaste | 32
+Phone Charger = charger | 22
+Socks | 12
+Underwear | 10
+Medicine = meds, pills | 8
+Pajamas | 6
+Swimsuit = bathing suit | 5
+Q: Name a dessert you eat with a spoon
+Ice Cream | 46
+Pudding | 26
+Jello = jell-o, gelatin | 10
+Yogurt = frozen yogurt | 6
+Custard | 5
+Mousse | 3
+Q: Name something a pirate has
+Eye Patch = patch | 30
+Parrot | 22
+Peg Leg = wooden leg | 16
+Ship = boat | 12
+Hook = hook hand | 8
+Sword = cutlass | 5
+Treasure = treasure map, gold | 4
+Q: Name a famous athlete
+Michael Jordan = jordan | 34
+LeBron James = lebron | 18
+Tom Brady = brady | 14
+Babe Ruth | 10
+Serena Williams = serena | 8
+Tiger Woods = tiger | 7
+Muhammad Ali = ali | 6
+Q: Name a place where you have to be quiet
+Library | 50
+Church = temple, place of worship | 18
+Hospital | 10
+Movie Theater = movies | 8
+Funeral | 6
+Classroom = school, test | 5
+Q: Name something people do at a picnic
+Eat = eating | 40
+Play Games = frisbee, games | 18
+Lay on a Blanket = blanket | 12
+Swat Bugs = ants, bugs | 9
+Drink = lemonade | 8
+Grill = barbecue | 7
+Q: Name an animal that hops
+Kangaroo | 44
+Rabbit = bunny | 30
+Frog = toad | 18
+Grasshopper = cricket | 5
+Wallaby | 3
+Q: Name something that is round
+Ball | 38
+Earth = globe, world | 14
+Circle | 12
+Wheel = tire | 12
+Clock | 8
+Pizza | 6
+Coin | 5
+Q: Name something you find at a carnival
+Rides = roller coaster, ferris wheel | 36
+Cotton Candy | 22
+Games = carnival games | 16
+Funnel Cake | 10
+Clowns = clown | 6
+Prizes = stuffed animals | 5
+Q: Name a reason you'd stay home from school
+Sick = illness, flu, cold | 64
+Snow Day = snow, weather | 18
+Doctor's Appointment = appointment | 8
+Holiday = vacation | 5
+Family Emergency = funeral | 3
+Q: Name something people do in an elevator
+Push Buttons = press button, buttons | 30
+Look at Phone = phone | 22
+Stare at the Door = stare, look up, watch the numbers | 18
+Small Talk = talk | 12
+Stand Awkwardly = stand, wait | 8
+Listen to Music = music | 5
+Q: Name a type of pasta
+Spaghetti | 38
+Macaroni | 18
+Lasagna | 14
+Penne | 10
+Fettuccine = fettuccini | 8
+Ravioli | 6
+Linguine | 3
+Q: Name something people do when they're nervous
+Bite Nails = nail biting, chew nails | 32
+Sweat = sweating | 22
+Pace = pacing, walk around | 14
+Fidget = shake, tap feet | 12
+Talk Fast = ramble, talk too much | 8
+Eat = stress eat | 6
+Q: Name something you might see in space
+Stars = star | 28
+Planets = planet | 22
+Moon | 16
+Astronaut = astronauts | 12
+Satellite | 8
+Aliens = ufo, alien | 7
+Comet = asteroid, meteor | 5
+Q: Name a famous queen
+Queen Elizabeth = elizabeth | 46
+Cleopatra | 18
+Queen Latifah = latifah | 10
+Marie Antoinette | 8
+Queen Victoria = victoria | 8
+Beyonce = queen bey | 5
+Q: Name a drink people order at a bar
+Beer | 42
+Wine | 18
+Margarita | 10
+Martini | 8
+Whiskey = bourbon, scotch | 8
+Vodka | 6
+Soda = water, coke | 4
+Q: Name something people do after a big meal
+Nap = sleep | 34
+Unbutton Pants = loosen belt, pants | 18
+Watch TV = tv, football | 16
+Take a Walk = walk | 12
+Burp = belch | 8
+Dessert = eat dessert | 6
+Q: Name a famous TV doctor
+Dr. Phil = phil | 28
+Dr. House = house | 20
+Doogie Howser = doogie | 12
+Dr. Oz = oz | 12
+Grey = meredith grey, grey's anatomy | 10
+McDreamy = derek shepherd | 6
+Q: Name a sea creature
+Shark | 28
+Whale | 20
+Dolphin | 16
+Octopus | 12
+Fish | 8
+Jellyfish | 7
+Crab | 5
+Q: Name something that has keys
+Piano = keyboard | 32
+Computer = laptop, keyboard computer | 22
+Car | 18
+House = door, lock | 14
+Typewriter | 8
+Map = map key | 3
