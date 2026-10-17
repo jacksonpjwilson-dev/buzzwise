@@ -4,7 +4,9 @@ function render() {
   const t = S.turn, v = $('view'); const team = S.myTeam >= 0 ? S.teams[S.myTeam] : null;
   const head = team ? `<p class="status">${esc(team.name)} · <b>${team.score}</b> pts</p>` : '';
   if (S.phase === 'lobby') return v.innerHTML = `${head}<p class="big">You're in!</p><p class="status">Waiting for the host to pair teams and start.</p>`;
-  if (S.phase === 'gameOver') return v.innerHTML = `${head}<p class="big">Game over!</p>${scoreList()}`;
+  if (S.phase === 'gameOver') return v.innerHTML = `${head}<p class="big">Final standings</p>${scoreList()}`;
+  if (S.phase === 'lightningReady' && t && t.team !== S.myTeam) return v.innerHTML = `${head}<p class="big" style="font-size:22px">⚡ Get ready: ${esc(S.teams[t.team].name)}'s lightning round</p><p class="status">${esc(pname(t.giver))} gives, ${esc(pname(t.guesser))} guesses. Every team gets a turn.</p>${scoreList()}`;
+  if (S.phase === 'lightning' && t && t.team !== S.myTeam) return v.innerHTML = `${head}<div class="pw-value" id="lt" style="font-size:44px"></div><p class="big" style="font-size:22px">${esc(S.teams[t.team].name)}: ${t.got} so far</p><p class="status">Shh! Your lightning round is ${S.lightning && S.lightning.done.some(r => r.team === S.myTeam) ? 'done' : 'coming up'}.</p>`, countdown(t.endsAt, S.now, 'lt');
   if (!t) return v.innerHTML = head;
   const timer = S.phase === 'lightning' ? '<div class="pw-value" id="lt" style="font-size:44px"></div>' : '';
   if (S.phase === 'reveal') v.innerHTML = `${head}<p class="status">The word was</p><div class="pw-word">${esc(S.word || (S.last && S.last.word) || '')}</div><p class="big">${S.last && S.last.correct ? `${esc(S.teams[S.last.team].name)} +${S.last.points}` : 'Nobody scores'}</p><p class="status">Next word coming up…</p>`;

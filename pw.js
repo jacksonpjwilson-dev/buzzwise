@@ -45,10 +45,20 @@ module.exports = function attachPW(io, makeCode) {
     room.message = `Wrong! Over to ${room.teams[t.team].name}: ${room.players[t.giver].name}, one clue for ${value(room)}.`; return { ok: true };
   }
   function nextWord(room) { if (room.phase !== 'reveal') return { error: 'Finish this word first' }; room.turnIdx++; startTurn(room); return { ok: true }; }
+  // Lightning: EVERY team gets its own 60-second round, trailing team first; Get ready + host Start between teams.
   function startLightning(room) {
-    const best = room.teams.reduce((b, t, i) => t.score > room.teams[b].score ? i : b, 0), m = room.teams[best].members;
-    room.turn = { team: best, giver: m[0], guesser: m[1], word: draw(room), clue: 1, kind: 'lightning', got: 0, history: [], endsAt: null };
-    room.phase = 'lightningReady'; room.message = `Lightning round for ${room.teams[best].name}! ${room.players[m[0]].name} gives clues. +10 per word.`;
+    room.lq = room.teams.map((t, i) => i).sort((x, y) => room.teams[x].score - room.teams[y].score || y - x); room.lres = []; return nextLightning(room);
+  }
+  function nextLightning(room) {
+    const ti = room.lq.shift(), m = room.teams[ti].members, g = m[(room.turnIdx + 1) % m.length], q = m.find(id => id !== g);
+    room.turn = { team: ti, giver: g, guesser: q, word: draw(room), clue: 1, kind: 'lightning', got: 0, history: [], endsAt: null };
+    room.phase = 'lightningReady'; room.message = `Get ready! Lightning round ${room.lres.length + 1} of ${room.teams.length}: ${room.teams[ti].name}. ${room.players[g].name} gives clues, ${room.players[q].name} guesses. +10 per word.`;
+  }
+  function endLightning(room) {
+    const t = room.turn; room.lres.push({ team: t.team, got: t.got, history: t.history, giver: t.giver, guesser: t.guesser });
+    if (room.lq.length) { nextLightning(room); room.message = `Time! ${room.teams[t.team].name} got ${t.got}. ` + room.message; return; }
+    room.phase = 'gameOver'; const best = [...room.teams].sort((x, y) => y.score - x.score)[0];
+    room.message = `Final standings! ${best.name} win with ${best.score}.`;
   }
   let api;
   const game = {
@@ -59,6 +69,7 @@ module.exports = function attachPW(io, makeCode) {
       return { main: t && t.kind === 'main' ? { starter: t.starter, clues: t.clues, given: t.given, givers: t.givers, guessers: t.guessers, word: room.phase === 'reveal' ? t.word : undefined } : null, teams: room.teams, difficulty: room.difficulty, wordsPerTeam: room.wordsPerTeam, last: room.last, counts: { easy: WORDS.easy.length, medium: WORDS.medium.length, hard: WORDS.hard.length },
         turn: t && { team: t.team, giver: t.giver, guesser: t.guesser, clue: t.kind === 'main' ? t.clues : t.clue, value: t.kind === 'main' ? value(room) : 10, kind: t.kind, got: t.got, endsAt: t.endsAt,
           history: t.history && (room.phase === 'gameOver' ? t.history : t.history.map(h => ({ correct: h.correct }))) },
+        lightning: room.lres && { done: room.lres.map(r => ({ team: r.team, got: r.got, giver: r.giver, guesser: r.guesser, words: room.phase === 'gameOver' ? r.history : r.history.map(h => ({ correct: h.correct })) })), left: (room.lq || []).length, round: room.lres.length + 1 },
         turnNo: room.turnIdx + 1, totalTurns: totalWords(room) }; },
     playerView(room, pid) { const v = game.hostView(room); const t = room.turn;
       v.myTeam = teamOf(room, pid);
@@ -77,16 +88,16 @@ module.exports = function attachPW(io, makeCode) {
         room.teams = []; for (let i = 0; i < ids.length; i += 2) room.teams.push({ name: `Team ${room.players[ids[i]].name} & ${room.players[ids[i + 1]].name}`, members: [ids[i], ids[i + 1]], score: 0 }); },
       start(room) { if (room.phase !== 'lobby' && room.phase !== 'gameOver') return { error: 'Game already running' };
         if (!room.teams.length || room.teams.some(t => t.members.some(id => !room.players[id])) || room.teams.length * 2 !== Object.keys(room.players).length) { const r = game.host.makeTeams(room, {}); if (r && r.error) return r; }
-        room.teams.forEach(t => t.score = 0); Object.values(room.players).forEach(p => p.score = 0); room.turnIdx = 0; room.last = null; startTurn(room); },
+        room.teams.forEach(t => t.score = 0); Object.values(room.players).forEach(p => p.score = 0); room.turnIdx = 0; room.last = null; room.lres = null; room.lq = null; startTurn(room); },
       lightningGo(room) { const t = room.turn; if (room.phase !== 'lightningReady') return { error: 'Not ready' };
         room.phase = 'lightning'; t.endsAt = Date.now() + LIGHT_MS(); clearTimeout(room.lt);
-        room.lt = setTimeout(() => { if (room.turn === t) { room.phase = 'gameOver'; room.message = `Time! ${room.teams[t.team].name} got ${t.got} in the lightning round.`; api.broadcast(room); } }, LIGHT_MS()); },
+        room.lt = setTimeout(() => { if (room.turn === t && room.phase === 'lightning') { endLightning(room); api.broadcast(room); } }, LIGHT_MS()); },
       // dedicated host can referee from the big screen (it still never sees the word)
       clue(room) { if (room.hostMode !== 'dedicated') return { error: 'Only a dedicated host can judge from this screen' }; return giveClue(room); },
       next(room) { return nextWord(room); },
       judge(room, { correct }) { if (room.hostMode !== 'dedicated') return { error: 'Only a dedicated host can judge from this screen' }; return finishWord(room, !!correct); },
       skip(room) { if (!room.turn || room.phase !== 'turn') return { error: 'Nothing to skip' }; return reveal(room, null); },
-      newGame(room) { clearTimeout(room.lt); Object.assign(room, { phase: 'lobby', turn: null, last: null, turnIdx: 0 }); room.teams.forEach(t => t.score = 0); Object.values(room.players).forEach(p => p.score = 0); room.message = 'New game!'; },
+      newGame(room) { clearTimeout(room.lt); Object.assign(room, { phase: 'lobby', turn: null, last: null, turnIdx: 0, lres: null, lq: null }); room.teams.forEach(t => t.score = 0); Object.values(room.players).forEach(p => p.score = 0); room.message = 'New game!'; },
     },
     player: {
       clue(room, pid) { if (!room.turn || room.turn.giver !== pid) return { error: "Only the active team's clue-giver can do that" }; return giveClue(room); },

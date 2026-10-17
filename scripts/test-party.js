@@ -47,11 +47,20 @@ server.listen(0, async () => {
       ok((await call(H, 'host:judge', { correct: true })).error, 'player-host screen cannot judge');
       await call(H, 'host:next');
       while (room.phase === 'turn' || room.phase === 'getready' || room.phase === 'reveal') { if (room.getReady) await call(H, 'host:go'); else if (room.phase === 'reveal') await call(H, 'host:next'); else await call(H, 'host:skip'); }
-      await wait(40); ok(room.phase === 'lightningReady' && !P[room.turn.giver].state.word, 'lightning round: ready, word not sent until the clock starts');
-      await call(H, 'host:lightningGo'); await wait(20); const lw = room.turn.word; ok(P[room.turn.giver].state.word === lw && !seen(H, lw), 'lightning word only on giver phone');
-      const lt = room.turn.team, before = room.teams[lt].score; await call(P[room.turn.giver], 'player:judge', { correct: true }); await call(P[room.turn.giver], 'player:judge', { correct: true }); await wait(20);
-      ok(room.teams[lt].score === before + 20 && room.turn.got === 2, 'lightning: +10 per correct word');
-      await wait(450); ok(room.phase === 'gameOver', 'lightning clock ends the game');
+      await wait(40); const scores0 = room.teams.map(t => t.score), trailing = scores0[0] <= scores0[1] ? 0 : 1, words = [];
+      ok(room.phase === 'lightningReady' && room.turn.team === trailing && !P[room.turn.giver].state.word, 'lightning: trailing team goes first; word not sent until its clock starts');
+      for (let k = 0; k < 2; k++) {
+        const lt = room.turn.team, lg = room.turn.giver, lq = room.turn.guesser, mem = room.teams[lt].members;
+        ok(mem.includes(lg) && mem.includes(lq) && lg !== lq, `lightning ${k + 1}: giver + guesser from ${room.teams[lt].name}`);
+        await call(H, 'host:lightningGo'); await wait(20); const lw = room.turn.word; words.push(lw);
+        ok(P[lg].state.word === lw && !seen(H, lw) && !seen(P[lq], lw), `lightning ${k + 1}: word only on that team's giver phone`);
+        const before = room.teams[lt].score; await call(P[lg], 'player:judge', { correct: true }); words.push(room.turn.word); await call(P[lg], 'player:judge', { correct: true }); await wait(20);
+        ok(room.teams[lt].score === before + 20 && room.turn.got === 2, `lightning ${k + 1}: +10 per correct word`);
+        await wait(450);
+        if (k === 0) ok(room.phase === 'lightningReady' && room.turn.team !== lt && H.state.lightning.done.length === 1, 'after the clock, the NEXT team gets ready (host Start between teams)');
+      }
+      ok(new Set(words).size === words.length, 'each team gets different words');
+      ok(room.phase === 'gameOver' && H.state.lightning.done.length === 2 && H.state.lightning.done.every(r => r.got === 2 && r.words.length === 2 && r.words[0].word), 'every team played a lightning round; final standings reveal lists them');
       [H, ...Object.values(P)].forEach(s => s.disconnect()); }
     { const H = mk('/pw'), P = {}; const { code } = await call(H, 'host:create');
       await call(H, 'host:mode', { mode: 'dedicated' });

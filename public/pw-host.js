@@ -1,6 +1,6 @@
 // Password host screen: never receives the secret word until the word is solved (reveal).
 partyHost('/pw', render, '/pw/play');
-function teamsCard() { return S.teams.length ? `<div class="card" style="padding:14px">${S.teams.map((t, i) => `<div class="score-row ${S.turn && S.turn.team === i ? 'ctrl' : ''}"><span class="n">${esc(t.name)}</span><span class="s">${t.score}</span></div>`).join('')}</div>` : ''; }
+function teamsCard() { return S.teams.length ? `<div class="card" style="padding:14px">${S.teams.map((t, i) => `<div class="score-row ${S.phase !== 'gameOver' && S.turn && S.turn.team === i ? 'ctrl' : ''}"><span class="n">${esc(t.name)}</span><span class="s">${t.score}</span></div>`).join('')}</div>` : ''; }
 function render() {
   const t = S.turn; let st = '', c = hostModeToggle(S.hostMode, 'host:mode', { player: 'Everyone plays. The word appears only on the clue-givers\' phones; the active giver taps Gave clue, Correct or Wrong.', dedicated: 'A referee runs the show and can tap Gave clue / Correct / Wrong here. The word is still never shown on this screen until it is solved.' });
   if (S.phase === 'lobby') {
@@ -23,13 +23,18 @@ function render() {
       ${!reveal ? `<p class="status">🔒 The word is only on the clue-givers' phones</p>` : ''}`;
     c += `<div class="card"><b>Controls</b><div class="row" style="margin-top:8px">${reveal ? `<button class="btn btn-gold" onclick="emit('host:next')">Next word ▶</button>` : `${S.hostMode === 'dedicated' ? `<button class="btn btn-ghost" ${m.given ? 'disabled' : ''} onclick="emit('host:clue')">Gave clue</button><button class="btn btn-green" onclick="emit('host:judge',{correct:true})">✓ Correct</button><button class="btn btn-red" onclick="emit('host:judge',{correct:false})">✗ Wrong / Pass</button>` : ''}<button class="btn btn-ghost btn-sm" onclick="emit('host:skip')">Skip word</button>`}</div></div>`;
   } else if (S.phase === 'lightningReady') {
-    st = `<h1 style="text-align:center">⚡ Lightning round</h1><p class="big">${esc(S.teams[t.team].name)}</p><p class="status">${esc(pname(t.giver))} gives clues, ${esc(pname(t.guesser))} guesses. +10 per word in 60 seconds.</p>`;
-    c += `<button class="btn btn-gold" style="width:100%;font-size:22px" onclick="emit('host:lightningGo')">▶ Start the clock</button>`;
+    const L = S.lightning || { done: [], round: 1 }, prev = L.done[L.done.length - 1];
+    st = `<div class="gr-kicker" style="text-align:center">GET READY · LIGHTNING ROUND ${L.round} OF ${S.teams.length}</div><h1 style="text-align:center">⚡ ${esc(S.teams[t.team].name)}</h1>
+      ${prev ? `<p class="status">${esc(S.teams[prev.team].name)} got <b class="gold">${prev.got}</b> words (+${prev.got * 10})</p>` : `<p class="status">Every team gets 60 seconds. Trailing team goes first!</p>`}
+      <p class="big" style="font-size:24px">🗣️ ${esc(pname(t.giver))} gives clues · 🤔 ${esc(pname(t.guesser))} guesses</p><p class="status">+10 per word in 60 seconds. Fresh words for every team.</p>`;
+    c += `<button class="btn btn-gold" style="width:100%;font-size:22px" onclick="emit('host:lightningGo')">▶ Start ${esc(S.teams[t.team].name)}'s clock</button>`;
   } else if (S.phase === 'lightning') {
-    st = `<h1 style="text-align:center">⚡ Lightning</h1><div class="pw-value" id="lt"></div><p class="big">${t.got} correct</p><p class="status">${t.history.map(h => h.correct ? '✅' : '⏭️').join(' ')}</p>`;
+    st = `<div class="muted" style="text-align:center">⚡ LIGHTNING · ${esc(S.teams[t.team].name)}</div><div class="pw-value" id="lt"></div><p class="big">${t.got} correct (+${t.got * 10})</p><p class="status">${t.history.map(h => h.correct ? '✅' : '⏭️').join(' ')}</p>`;
   } else if (S.phase === 'gameOver') {
-    const best = [...S.teams].sort((a, b) => b.score - a.score)[0];
-    st = `<h1 style="text-align:center">🏆 ${esc(best ? best.name : '')} win!</h1>${t && t.history ? `<p class="status">Lightning words: ${t.history.map(h => `${h.correct ? '✅' : '⏭️'} ${esc(h.word)}`).join(' · ')}</p>` : ''}`;
+    const ranked = S.teams.map((tm, i) => ({ ...tm, i })).sort((a, b) => b.score - a.score), L = S.lightning;
+    st = `<div class="gr-kicker" style="text-align:center">FINAL STANDINGS</div><h1 style="text-align:center">🏆 ${esc(ranked[0] ? ranked[0].name : '')} win!</h1>
+      <div class="pw-standings">${ranked.map((tm, k) => { const r = L && L.done.find(x => x.team === tm.i); return `<div class="pw-stand ${k === 0 ? 'first' : ''}" style="animation-delay:${(ranked.length - k) * .35}s"><span class="rk">${k + 1}</span><b>${esc(tm.name)}</b><span class="muted">${r ? `⚡ ${r.got} lightning word${r.got === 1 ? '' : 's'}` : ''}</span><span class="s">${tm.score}</span></div>`; }).join('')}</div>
+      ${L ? `<p class="status" style="margin-top:14px">${L.done.map(r => `<b>${esc(S.teams[r.team].name)}:</b> ${r.words.map(h => `${h.correct ? '✅' : '⏭️'} ${esc(h.word)}`).join(' · ') || 'no words'}`).join('<br>')}</p>` : ''}`;
     c += `<button class="btn btn-gold" style="width:100%" onclick="emit('host:newGame')">New game</button>`;
   }
   $('stage').innerHTML = st + `<p class="wmsg">${esc(S.message)}</p>`;
