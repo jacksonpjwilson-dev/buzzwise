@@ -25,7 +25,20 @@ function repeatClue() { spokenKey = null; if (S.current && S.current.speak) read
 // pre-fetch: when the host points at a square in player-host mode, start generating that clue's audio
 document.addEventListener('pointerover', e => { const b = e.target.closest && e.target.closest('[data-clue]'); if (b && S && S.hostMode === 'player') prefetchRead(ttsParams(b.dataset.clue)); });
 
+const team = id => (S.teams || []).find(t => t.id === id);
+const teamOfP = pid => team((S.players.find(p => p.id === pid) || {}).team);
+const pwho = pid => { const t = S.teamMode && teamOfP(pid); return esc(name(pid)) + (t ? ` <span class="tdot" style="--tc:${t.color}">${esc(t.name)}</span>` : ''); };
+function teamBoard() {
+  const c = S.current, ts = [...S.teams].filter(t => t.members.length).sort((a, b) => b.score - a.score);
+  return `<div class="card"><div class="row" style="justify-content:space-between;margin-bottom:10px"><b>Team scores</b><span class="muted">${ts.length} teams</span></div>
+  ${ts.map(t => `<div class="team-card ${t.id === S.ctrlTeam ? 'ctrl' : ''}" style="--tc:${t.color}"><div class="team-head"><span class="n">${esc(t.name)}</span>
+    <span class="row" style="gap:6px"><span class="s ${t.score < 0 ? 'neg' : ''}">${money(t.score)}</span><button class="btn btn-ghost btn-sm" title="Adjust team score" onclick="adjT('${t.id}')">±</button></span></div>
+    <div class="members">${t.members.map(m => `<span class="mem ${m.connected ? '' : 'off'} ${c && c.buzzed === m.id ? 'buzzed' : ''} ${c && c.locked.includes(m.id) ? 'out' : ''}">${c && c.buzzed === m.id ? '🛎️ ' : ''}${esc(m.name)}</span>`).join('')}</div></div>`).join('')}
+  <p class="muted" style="font-size:13px;margin:10px 0 0">Glowing team = in control (any member picks from their phone). 🛎️ = buzzed in · struck out = locked out on this clue.</p></div>`;
+}
+function adjT(id) { const t = team(id), d = prompt(`Adjust ${t.name}'s score by (e.g. 400 or -400):`); if (d) emit('host:adjust', { team: id, delta: +d }); }
 function scoreboard() {
+  if (S.teamMode) return teamBoard();
   const ps = [...S.players].sort((a, b) => b.score - a.score);
   return `<div class="card"><div class="row" style="justify-content:space-between;margin-bottom:10px"><b>Scoreboard</b><span class="muted">${ps.length} players</span></div>
   ${ps.map(p => `<div class="score-row ${p.id === S.controller ? 'ctrl' : ''} ${p.connected ? '' : 'off'}"><span class="n">${esc(p.name)}</span>
@@ -58,13 +71,13 @@ function clueOverlay() {
   let body;
   if (c.dd && c.wager === null) {
     body = `<div class="dd">DAILY DOUBLE!</div><div class="meta" style="margin-top:12px">${esc(cat)}</div>
-    ${c.ddPlayer ? `<p class="buzzline">${esc(name(c.ddPlayer))} is entering a wager on their phone…</p>
+    ${c.ddPlayer ? `<p class="buzzline">${pwho(c.ddPlayer)}${S.teamMode ? ' (team score sets the limit)' : ''} is entering a wager on their phone…</p>
       <div class="row"><input id="ddw" type="number" placeholder="or type wager" style="width:180px"><button class="btn btn-ghost" onclick="emit('host:ddWager',{amount:+$('ddw').value})">Set wager</button></div>`
-      : `<p class="buzzline">Who gets the Daily Double?</p><div class="row">${S.players.map(p => `<button class="btn btn-ghost" onclick="emit('host:ddPlayer',{pid:'${p.id}'})">${esc(p.name)}</button>`).join('')}</div>`}`;
+      : `<p class="buzzline">Who gets the Daily Double?</p><div class="row">${S.players.filter(p => !S.teamMode || !S.ctrlTeam || p.team === S.ctrlTeam).map(p => `<button class="btn btn-ghost" onclick="emit('host:ddPlayer',{pid:'${p.id}'})">${esc(p.name)}</button>`).join('')}</div>`}`;
   } else if (S.hostMode === 'player') {
     if (c.speak && c.reading) speakClue(c); else if (c.buzzed && isReading()) stopReading();
-    const who = c.revealed ? (c.result && c.result.correct ? `<span class="gold">✅ ${esc(name(c.result.pid))} got it!</span>` : c.result && c.result.why === 'timeout' ? "⏰ Time's up!" : 'Nobody got it') :
-      c.reading ? '🔊 Reading the clue aloud… buzz any time!' : c.buzzed ? (c.peeked ? `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span> is checking the answer on their phone…` : `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span> — say your answer out loud, then press Reveal`) :
+    const who = c.revealed ? (c.result && c.result.correct ? `<span class="gold">✅ ${pwho(c.result.pid)} got it!</span>` : c.result && c.result.why === 'timeout' ? "⏰ Time's up!" : 'Nobody got it') :
+      c.reading ? '🔊 Reading the clue aloud… buzz any time!' : c.buzzed ? (c.peeked ? `<span class="gold">🛎️ ${pwho(c.buzzed)}</span> is checking the answer on their phone…` : `<span class="gold">🛎️ ${pwho(c.buzzed)}</span> — say your answer out loud, then press Reveal`) :
       c.buzzOpen ? 'Buzzers are live!' : 'Nobody left to buzz';
     body = `<div class="meta">${esc(cat)} · ${c.dd ? 'Daily Double' + (c.wager ? ' · ' + money(c.wager) : '') : '$' + c.value}</div>
     <div class="clue ${c.clue && c.clue.q ? '' : 'hiddenclue'}">${c.clue && c.clue.q ? esc(c.clue.q) : '🔊 Listen…'}</div>
@@ -76,7 +89,7 @@ function clueOverlay() {
     ${c.reading ? `<button class="btn btn-ghost" onclick="emit('host:readDone')">Finish reading</button>` : ''}
     <button class="btn ${c.revealed ? 'btn-gold' : 'btn-ghost'}" onclick="emit('host:close')">${c.revealed ? 'Continue →' : 'No one got it · Reveal'}</button></div>`;
   } else {
-    const who = c.buzzed ? `<span class="gold">🛎️ ${esc(name(c.buzzed))}</span>${c.dd ? ` wagered ${money(c.wager)}` : ''}` :
+    const who = c.buzzed ? `<span class="gold">🛎️ ${pwho(c.buzzed)}</span>${c.dd ? ` wagered ${money(c.wager)}` : ''}` :
       c.buzzOpen ? 'Buzzers are live…' : 'Nobody left to buzz';
     body = `<div class="meta">${esc(cat)} · ${c.dd ? 'Daily Double' : '$' + c.value}</div>
     <div class="clue">${esc(c.clue.q)}</div><div class="answer">Answer: ${esc(c.clue.a)}</div>
@@ -87,10 +100,30 @@ function clueOverlay() {
   }
   $('overlay').innerHTML = `<div class="overlay">${body}</div>`;
 }
+const COLORS = ['#ff4d6d', '#3da5ff', '#3ddc84', '#ffcc00', '#b26bff', '#ff8a3d', '#00e5d4', '#ff5fd2'];
+function teamsSetup() {
+  const T = S.teams || [];
+  return `<div class="card hosttoggle" id="teamsetup"><b>Play as</b><div class="tabs" style="margin:8px 0">
+    <button class="tab ${!S.teamMode ? 'on' : ''}" onclick="emit('host:teams',{mode:'individual'})">👤 Individual</button>
+    <button class="tab ${S.teamMode ? 'on' : ''}" onclick="emit('host:teams',{mode:'teams'})">👥 Teams</button></div>
+    ${S.teamMode ? `<div class="row" style="gap:8px;margin-bottom:10px"><span class="muted">Teams:</span>${[2, 3, 4].map(n => `<button class="tab ${T.length === n ? 'on' : ''}" onclick="emit('host:teams',{count:${n}})">${n}</button>`).join('')}</div>
+    <div class="teamcfg">${T.map((t, i) => `<div class="row tcfg" style="gap:8px;--tc:${t.color}"><input type="color" value="${t.color}" list="tcolors" onchange="setTeam(${i},{color:this.value})" title="Team colour">
+      <input value="${esc(t.name)}" maxlength="20" onchange="setTeam(${i},{name:this.value})" aria-label="Team name"></div>`).join('')}</div>
+    <datalist id="tcolors">${COLORS.map(c => `<option value="${c}">`).join('')}</datalist>
+    <p class="muted" style="font-size:13px;margin:8px 0 0">Players pick a team on their phone (or are auto-assigned). Everyone keeps their own buzzer; points go to the team. A wrong answer locks out only that player.</p>`
+    : '<p class="muted" style="font-size:13px;margin:0">Everyone plays for themselves.</p>'}</div>`;
+}
+function setTeam(i, patch) { const ts = S.teams.map(t => ({})); ts[i] = patch; emit('host:teams', { teams: ts }); }
+function lobbyPlayers() {
+  if (!S.teamMode) return `<div class="chips">${S.players.map(p => `<span class="chip">${esc(p.name)}</span>`).join('') || '<span class="muted">Waiting for players…</span>'}</div>`;
+  return `<div class="lobbyteams">${S.teams.map(t => `<div class="lteam" style="--tc:${t.color}"><b>${esc(t.name)}</b> <span class="muted">${t.members.length}</span>
+    <div class="chips" style="justify-content:flex-start">${t.members.map(m => `<span class="lchip">${esc(m.name)}<select class="mv" title="Move to team" onchange="emit('host:assign',{pid:'${m.id}',team:this.value})">${S.teams.map(o => `<option value="${o.id}" ${o.id === t.id ? 'selected' : ''}>${esc(o.name)}</option>`).join('')}</select></span>`).join('') || '<span class="muted">No players yet</span>'}</div></div>`).join('')}</div>`;
+}
 function lobby() {
   const sel = S.board && S.board.id;
   $('view').innerHTML = `<div class="main"><div>
     ${hostModeToggle(S.hostMode, 'host:mode')}
+    ${teamsSetup()}
     ${voiceCard()}
     <h2 style="margin:0">Choose a difficulty</h2>
     <div class="tabs">${Object.keys(DN).map(d => `<button class="tab ${d === diff ? 'on' : ''}" onclick="diff='${d}';render()">${DN[d]}</button>`).join('')}</div>
@@ -98,22 +131,23 @@ function lobby() {
       <span class="tag t-${b.difficulty}">${DN[b.difficulty]}</span><h3>${esc(b.name)}</h3><p>${esc(b.tagline)}</p>
       <div class="cats"><b>Round 1:</b> ${b.categories[0].map(esc).join(' · ')}<br><b>Round 2:</b> ${b.categories[1].map(esc).join(' · ')}</div></button>`).join('')}</div></div>
     <div class="side"><div class="card joinbox"><div class="muted">Players join at</div><b>${location.host}/play</b><div class="code">${S.code}</div>
-      <div class="chips">${S.players.map(p => `<span class="chip">${esc(p.name)}</span>`).join('') || '<span class="muted">Waiting for players…</span>'}</div>
+      ${lobbyPlayers()}
       <button class="btn btn-gold" style="width:100%;margin-top:18px" ${sel && S.players.length ? '' : 'disabled'} onclick="emit('host:start')">${sel ? 'Start game' : 'Pick a board to start'}</button></div></div></div>`;
 }
 function finalView() {
-  const f = S.final, ps = S.players;
+  const f = S.final, ps = S.teamMode ? S.teams.filter(t => t.members.length).map(t => ({ ...t, team: true })) : S.players;
+  const by = (t, k) => S.teamMode && f.by && f.by[t.id + ':' + k] ? ` <span class="muted">by ${esc(name(f.by[t.id + ':' + k]))}</span>` : '';
   let inner = `<div class="meta">Final Jeopardy · ${esc(f.category)}</div>`;
   if (f.stage === 'wager') inner += `<div class="clue" style="font-size:32px">Players are making wagers…</div>
-    <p class="buzzline">${Object.keys(f.wagers).length} / ${ps.length} wagers in</p><button class="btn btn-gold" onclick="emit('host:finalClue')">Reveal clue & open answers</button>
-    <p class="muted" style="margin-top:12px">Players with $0 or less wager $0 automatically.</p>`;
+    <p class="buzzline">${Object.keys(f.wagers).length} / ${ps.length} ${S.teamMode ? 'team ' : ''}wagers in</p><button class="btn btn-gold" onclick="emit('host:finalClue')">Reveal clue & open answers</button>
+    <p class="muted" style="margin-top:12px">${S.teamMode ? 'One wager per team: the first teammate to submit locks it. Teams' : 'Players'} with $0 or less wager $0 automatically.</p>`;
   else if (f.stage === 'answer') inner += `<div class="clue">${esc(f.clue)}</div>${f.answer ? `<div class="answer">Answer: ${esc(f.answer)}</div>` : ''}
     <p class="buzzline">Read the clue aloud. ${Object.keys(f.answers).length} / ${ps.length} answers in</p><button class="btn btn-gold" onclick="emit('host:finalLock')">Lock answers & judge</button>`;
   else {
     inner += `<div class="answer" style="margin:16px 0">Correct response: ${esc(f.answer)}</div><div class="card" style="width:min(720px,100%);text-align:left">
-    ${ps.map(p => `<div class="final-row"><div><b>${esc(p.name)}</b> <span class="muted">wagered ${money(f.wagers[p.id] || 0)}</span><br>“${esc(f.answers[p.id] || '(no answer)')}”</div>
-      ${f.judged[p.id] === undefined ? `<button class="btn btn-green btn-sm" onclick="emit('host:finalJudge',{pid:'${p.id}',correct:true})">✓</button><button class="btn btn-red btn-sm" onclick="emit('host:finalJudge',{pid:'${p.id}',correct:false})">✗</button>`
-        : `<span>${f.judged[p.id] ? '✅' : '❌'}</span><b>${money(p.score)}</b>`}</div>`).join('')}</div>`;
+    ${ps.map(p => { const arg = S.teamMode ? `team:'${p.id}'` : `pid:'${p.id}'`; return `<div class="final-row" ${S.teamMode ? `style="border-left:4px solid ${p.color};padding-left:10px"` : ''}><div><b>${esc(p.name)}</b> <span class="muted">wagered ${money(f.wagers[p.id] || 0)}</span>${by(p, 'w')}<br>“${esc(f.answers[p.id] || '(no answer)')}”${by(p, 'a')}</div>
+      ${f.judged[p.id] === undefined ? `<button class="btn btn-green btn-sm" onclick="emit('host:finalJudge',{${arg},correct:true})">✓</button><button class="btn btn-red btn-sm" onclick="emit('host:finalJudge',{${arg},correct:false})">✗</button>`
+        : `<span>${f.judged[p.id] ? '✅' : '❌'}</span><b>${money(p.score)}</b>`}</div>`; }).join('')}</div>`;
     if (S.phase === 'over') { const w = [...ps].sort((a, b) => b.score - a.score)[0];
       inner += `<div class="dd" style="font-size:56px;margin-top:20px">🏆 ${esc(w ? w.name : '')} wins!</div><button class="btn btn-gold" onclick="emit('host:newGame')">Play another board</button>`; }
   }

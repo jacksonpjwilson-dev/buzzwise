@@ -1,0 +1,106 @@
+// Jeopardy Teams mode: setup, lobby teams, team scoring, per-player lockout, team control/picking, DD + Final per team.
+require('./autogo');
+const { server, rooms } = require('../server.js');
+const { io } = require('socket.io-client');
+let pass = 0, failN = 0;
+const ok = (c, m) => { if (c) { pass++; console.log('  ✓ ' + m); } else { failN++; console.log('  ✗ ' + m); } };
+const wait = ms => new Promise(r => setTimeout(r, ms));
+function client(url) { const s = io(url, { transports: ['websocket'], forceNew: true }); s.state = null; s.errors = []; s.on('state', st => { s.state = st; }); s.on('errorMsg', e => s.errors.push(e)); return s; }
+const call = (s, ev, d) => new Promise(r => s.emit(ev, d, r));
+server.listen(0, async () => {
+  const url = `http://localhost:${server.address().port}`;
+  try {
+    const host = client(url), A = client(url), B = client(url), C = client(url), D = client(url);
+    const { code } = await call(host, 'host:create', {});
+    await call(A, 'player:join', { code, name: 'Ann', pid: 'pa' });
+    await wait(60);
+    ok(host.state.teamMode === false && A.state.me.team === null, 'individual mode by default');
+    ok((await call(A, 'player:team', { team: 't1' })).error, 'cannot pick a team in individual mode');
+    await call(host, 'host:teams', { mode: 'teams', count: 3 }); await wait(60);
+    ok(host.state.teamMode && host.state.teams.length === 3, 'host switches to Teams with 3 teams');
+    ok(A.state.me.team === 't1', 'existing player auto-assigned to a team');
+    await call(host, 'host:teams', { count: 5 }); await wait(40); ok(host.state.teams.length === 4, 'team count capped at 4');
+    await call(host, 'host:teams', { count: 1 }); await wait(40); ok(host.state.teams.length === 2, 'team count at least 2');
+    await call(host, 'host:teams', { teams: [{ name: 'Owls', color: '#112233' }, { name: 'Foxes', color: 'red' }] }); await wait(40);
+    ok(host.state.teams[0].name === 'Owls' && host.state.teams[0].color === '#112233' && host.state.teams[1].color !== 'red', 'teams renamed / recoloured (bad colour ignored)');
+    await call(B, 'player:join', { code, name: 'Ben', pid: 'pb' });
+    await call(C, 'player:join', { code, name: 'Cat', pid: 'pc' });
+    await call(D, 'player:join', { code, name: 'Dan', pid: 'pd' }); await wait(60);
+    ok(B.state.me.team === 't2', 'new player auto-assigned to the smallest team');
+    await call(C, 'player:team', { team: 't1' }); host.emit('host:assign', { pid: 'pd', team: 't2' }); await wait(60);
+    const t = id => host.state.teams.find(x => x.id === id);
+    ok(t('t1').members.map(m => m.name).sort().join() === 'Ann,Cat' && t('t2').members.map(m => m.name).sort().join() === 'Ben,Dan', 'player picks team, host assigns; lobby shows members');
+    ok(A.state.teams && A.state.teams.length === 2, 'players see the teams in the lobby');
+    host.emit('host:selectBoard', { boardId: 'pub-quiz-night' }); host.emit('host:start'); await wait(120);
+    ok(host.state.phase === 'board' && host.state.ctrlTeam === 't1', 'game starts, first team in control');
+    ok((await call(B, 'player:team', { team: 't1' })).error, 'cannot switch teams mid-game');
+    const room = rooms[code]; const [ddc, ddr] = [...room.dd][0].split('-').map(Number);
+    const norm = []; for (let c = 0; c < 6; c++) for (let r = 0; r < 5; r++) if (!(c === ddc && r === ddr)) norm.push([c, r]);
+    ok((await call(B, 'player:pick', { c: norm[0][0], r: norm[0][1] })).error, 'other team cannot pick');
+    let [c0, r0] = norm.shift(); ok((await call(C, 'player:pick', { c: c0, r: r0 })).ok, 'any member of the team in control can pick');
+    await wait(60); ok(host.state.current && host.state.current.c === c0, 'clue opened by teammate');
+    const v0 = host.state.current.value;
+    A.emit('player:buzz'); await wait(50);
+    ok(host.state.current.buzzed === 'pa', 'each player has their own buzzer (Ann buzzed)');
+    host.emit('host:judge', { correct: false }); await wait(60);
+    ok(t('t1').score === -v0 && host.state.players.find(p => p.id === 'pa').score === -v0, 'wrong answer deducts from the TEAM score');
+    ok(A.state.current.lockedOut && !C.state.current.lockedOut && C.state.current.buzzOpen, 'only that player is locked out, teammate can still buzz');
+    C.emit('player:buzz'); await wait(50); ok(host.state.current.buzzed === 'pc', 'teammate buzzes after a wrong answer');
+    host.emit('host:judge', { correct: false }); await wait(60);
+    B.emit('player:buzz'); await wait(50); host.emit('host:judge', { correct: true }); await wait(60);
+    ok(t('t2').score === v0 && t('t1').score === -2 * v0, 'correct answer adds to the team score');
+    ok(host.state.ctrlTeam === 't2', 'control passes to the team that answered');
+    [c0, r0] = norm.shift(); ok((await call(D, 'player:pick', { c: c0, r: r0 })).ok, "a different teammate (Dan) picks for the team");
+    await wait(40); host.emit('host:close'); await wait(40);
+    // Daily Double: picker answers, team score sets the limit
+    ok((await call(D, 'player:pick', { c: ddc, r: ddr })).ok, 'team picks the Daily Double'); await wait(60);
+    ok(host.state.current.dd && host.state.current.ddPlayer === 'pd', 'DD goes to the player who picked');
+    ok((await call(B, 'player:ddWager', { amount: 500 })).error, 'teammate who did not pick cannot wager');
+    ok((await call(D, 'player:ddWager', { amount: 1001 })).error, 'DD max is max(team score, 1000)');
+    await call(D, 'player:ddWager', { amount: 1000 }); await wait(50);
+    ok(host.state.current.buzzed === 'pd', 'picker answers the DD');
+    host.emit('host:judge', { correct: true }); await wait(60);
+    ok(t('t2').score === v0 + 1000, 'DD wager added to team score');
+    host.emit('host:adjust', { team: 't1', delta: 5000 }); await wait(50); ok(t('t1').score === 5000 - 2 * v0, 'host adjusts team score');
+    for (const [c, r] of norm) { if (host.state.grid[c].clues[r].used) continue; host.emit('host:open', { c, r }); await wait(10); host.emit('host:close'); await wait(10); }
+    await wait(80); ok(host.state.phase === 'roundEnd', 'round 1 ends');
+    host.emit('host:nextRound'); await wait(100);
+    ok(host.state.round === 1 && host.state.ctrlTeam === 't2' && t('t2').score < t('t1').score, 'lowest-scoring team picks first in Double Jeopardy');
+    host.emit('host:nextRound'); await wait(80);
+    ok(host.state.phase === 'final', 'Final Jeopardy');
+    ok((await call(A, 'player:finalWager', { amount: 99999 })).error, 'final wager capped at team score');
+    ok((await call(A, 'player:finalWager', { amount: 1000 })).ok, 'one member submits the team wager');
+    const r2 = await call(C, 'player:finalWager', { amount: 2000 });
+    ok(r2.error && /Ann/.test(r2.error), 'first submission locks it for the team');
+    await wait(40); ok(C.state.final.myWager === 1000 && C.state.final.wageredBy === 'Ann', 'teammates see the locked team wager');
+    await call(B, 'player:finalWager', { amount: 100 });
+    host.emit('host:finalClue'); await wait(60);
+    ok((await call(C, 'player:finalAnswer', { answer: 'Cat says' })).ok && (await call(A, 'player:finalAnswer', { answer: 'Ann says' })).error, 'one team answer, first submission locks');
+    await call(D, 'player:finalAnswer', { answer: 'Dan says' });
+    host.emit('host:finalLock'); await wait(60);
+    ok(host.state.final.answers.t1 === 'Cat says' && host.state.final.wagers.t2 === 100, 'host sees one wager + answer per team');
+    const s1 = t('t1').score, s2 = t('t2').score;
+    host.emit('host:finalJudge', { team: 't1', correct: true }); await wait(40);
+    ok(host.state.phase !== 'over', 'not over until every team is judged');
+    host.emit('host:finalJudge', { team: 't2', correct: false }); await wait(60);
+    ok(t('t1').score === s1 + 1000 && t('t2').score === s2 - 100 && host.state.phase === 'over', 'Final judged per team; game over');
+    // Individual mode still unchanged after a team game is reset
+    host.emit('host:newGame'); await call(host, 'host:teams', { mode: 'individual' }); await wait(60);
+    ok(!host.state.teamMode && host.state.teams === null && host.state.players.every(p => p.score === 0), 'back to individual mode, scores reset');
+    // Player-host mode with teams: the self-judge path scores the team
+    const host2 = client(url), E = client(url), F = client(url);
+    const { code: c2 } = await call(host2, 'host:create', {});
+    host2.emit('host:mode', { mode: 'player' }); await wait(30); await call(host2, 'host:teams', { mode: 'teams' });
+    await call(E, 'player:join', { code: c2, name: 'Eve', pid: 'pe' }); await call(F, 'player:join', { code: c2, name: 'Fay', pid: 'pf' }); await wait(60);
+    ok(E.state.me.team !== F.state.me.team, 'host player and friend split across teams');
+    host2.emit('host:selectBoard', { boardId: 'pub-quiz-night' }); host2.emit('host:start'); await wait(100);
+    const rm2 = rooms[c2]; let oc = 0; while (rm2.dd.has(`${oc}-0`)) oc++;
+    host2.emit('host:open', { c: oc, r: 0 }); await wait(60);
+    E.emit('player:buzz'); await wait(40); await call(host2, 'host:reveal', {}); await wait(40);
+    ok(E.state.current.answer, 'player-host reveal still sends the answer to the buzzer only');
+    await call(E, 'player:selfJudge', { correct: true }); await wait(50);
+    ok(host2.state.teams.find(x => x.id === E.state.me.team).score === 200 && host2.state.ctrlTeam === E.state.me.team, 'self-judged correct answer scores the team and gives it control');
+    [host, A, B, C, D, host2, E, F].forEach(s => s.close());
+  } catch (e) { failN++; console.error(e); }
+  console.log(`\nTeams tests: ${pass} passed, ${failN} failed`); server.close(); process.exit(failN ? 1 : 0);
+});

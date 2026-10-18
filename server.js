@@ -69,7 +69,18 @@ function pickDD(count) {
   while (s.size < count) s.add(`${Math.floor(Math.random() * 6)}-${1 + Math.floor(Math.random() * 4)}`); // never the cheapest row
   return s;
 }
-const playersList = room => Object.values(room.players).map(p => ({ id: p.id, name: p.name, score: p.score, connected: p.connected }));
+const playersList = room => Object.values(room.players).map(p => ({ id: p.id, name: p.name, score: room.teamMode ? teamOf(room, p.id).score || 0 : p.score, connected: p.connected, team: p.team || null }));
+// ---------- Teams mode ----------
+const TEAM_DEFAULTS = [['Red Team', '#ff4d6d'], ['Blue Team', '#3da5ff'], ['Green Team', '#3ddc84'], ['Gold Team', '#ffcc00']];
+const makeTeams = n => TEAM_DEFAULTS.slice(0, Math.min(4, Math.max(2, n | 0))).map(([name, color], i) => ({ id: 't' + (i + 1), name, color, score: 0 }));
+const teamOf = (room, pid) => { const p = room.players[pid]; return (p && room.teams.find(t => t.id === p.team)) || {}; };
+const teamMembers = (room, tid) => Object.values(room.players).filter(p => p.team === tid);
+const activeTeams = room => room.teams.filter(t => teamMembers(room, t.id).length);
+function smallestTeam(room) { return [...room.teams].sort((a, b) => teamMembers(room, a.id).length - teamMembers(room, b.id).length)[0]; }
+function award(room, pid, delta) { const p = room.players[pid]; if (!p) return; if (room.teamMode) { const t = teamOf(room, pid); if (t.id) t.score += delta; } else p.score += delta; }
+const scoreOf = (room, pid) => room.teamMode ? teamOf(room, pid).score || 0 : (room.players[pid] || {}).score || 0;
+const teamsView = room => room.teamMode ? room.teams.map(t => ({ ...t, members: teamMembers(room, t.id).map(p => ({ id: p.id, name: p.name, connected: p.connected })) })) : null;
+const standings = room => room.teamMode ? activeTeams(room).map(t => ({ name: t.name, score: t.score })) : Object.values(room.players).map(p => ({ name: p.name, score: p.score }));
 
 function hostView(room) {
   const b = room.board, rd = typeof room.round === 'number' ? room.round : null;
@@ -77,7 +88,7 @@ function hostView(room) {
     code: room.code, phase: room.phase, round: room.round, controller: room.controller,
     board: b ? { id: b.id, name: b.name, difficulty: b.difficulty } : null,
     grid: rd !== null ? b.rounds[rd].map((c, ci) => ({ name: c.name, clues: c.clues.map((_, ri) => ({ value: VALUES[rd][ri], used: room.used.has(`${rd}-${ci}-${ri}`) })) })) : null,
-    hostMode: room.hostMode,
+    hostMode: room.hostMode, teamMode: room.teamMode, teams: teamsView(room), ctrlTeam: room.ctrlTeam,
     current: room.current && hostCurrent(room),
     final: room.final && { ...room.final, category: b.final.category, clue: b.final.clue,
       answer: room.hostMode === 'player' && room.final.stage !== 'judge' && room.final.stage !== 'done' ? undefined : b.final.answer },
@@ -104,16 +115,19 @@ function playerView(room, pid) {
     current: cur && { category: room.board.rounds[cur.round][cur.c].name, value: cur.value, dd: cur.dd, ddPlayer: cur.ddPlayer, wager: cur.wager,
       buzzOpen: cur.buzzOpen, buzzed: cur.buzzed, lockedOut: cur.locked.has(pid), revealed: cur.revealed, reading: !!cur.reading, peeked: cur.peeked && cur.buzzed === pid, result: cur.result || null,
       answer: room.hostMode === 'player' && ((cur.peeked && cur.buzzed === pid) || cur.revealed) ? room.board.rounds[cur.round][cur.c].clues[cur.r].a : undefined },
-    hostMode: room.hostMode,
-    final: fin && { category: room.board.final.category, stage: fin.stage, myWager: fin.wagers[pid], myAnswer: fin.answers[pid],
+    hostMode: room.hostMode, teamMode: room.teamMode, teams: teamsView(room), ctrlTeam: room.ctrlTeam,
+    final: fin && { category: room.board.final.category, stage: fin.stage, myWager: fin.wagers[fkey(room, pid)], myAnswer: fin.answers[fkey(room, pid)],
+      wageredBy: room.teamMode ? nameOf(room, fin.by[fkey(room, pid) + ':w']) : undefined, answeredBy: room.teamMode ? nameOf(room, fin.by[fkey(room, pid) + ':a']) : undefined,
       wagered: Object.keys(fin.wagers).length, answered: Object.keys(fin.answers).length,
       revealed: null },
-    me: room.players[pid] ? { id: pid, name: room.players[pid].name, score: room.players[pid].score } : null,
+    me: room.players[pid] ? { id: pid, name: room.players[pid].name, score: scoreOf(room, pid), team: room.players[pid].team || null } : null,
     players: playersList(room),
   };
 }
+const fkey = (room, pid) => room.teamMode ? (room.players[pid] || {}).team : pid; // Final Jeopardy is keyed by team in Teams mode
+const nameOf = (room, pid) => pid && room.players[pid] ? room.players[pid].name : null;
 function broadcast(room) {
-  if (room.getReady) { const v = GR.view(room, Object.values(room.players).map(p => ({ name: p.name, score: p.score })).sort((a, b) => b.score - a.score));
+  if (room.getReady) { const v = GR.view(room, standings(room).sort((a, b) => b.score - a.score));
     if (room.hostSocket) io.to(room.hostSocket).emit('state', v); for (const p of Object.values(room.players)) if (p.socketId) io.to(p.socketId).emit('state', v); return; }
   if (room.hostSocket) io.to(room.hostSocket).emit('state', hostView(room));
   for (const p of Object.values(room.players)) if (p.socketId) io.to(p.socketId).emit('state', playerView(room, p.id));
@@ -148,8 +162,8 @@ function finishReading(room) {
 }
 function judge(room, correct) {
   const cur = room.current, p = room.players[cur.buzzed], amt = cur.dd ? cur.wager : cur.value;
-  if (p) p.score += correct ? amt : -amt;
-  if (correct) { room.controller = cur.buzzed; cur.result = { pid: cur.buzzed, correct: true };
+  if (p) award(room, cur.buzzed, correct ? amt : -amt);
+  if (correct) { room.controller = cur.buzzed; if (room.teamMode) room.ctrlTeam = p.team; cur.result = { pid: cur.buzzed, correct: true };
     if (room.hostMode === 'player') { clearT(cur); cur.revealed = true; cur.buzzOpen = false; } else { cur.revealed = true; closeClue(room); } }
   else if (cur.dd) { if (room.hostMode === 'player') revealAll(room, 'wrong'); else { cur.revealed = true; closeClue(room); } }
   else { cur.locked.add(cur.buzzed); cur.buzzed = null; cur.peeked = false;
@@ -162,6 +176,21 @@ function closeClue(room) {
   room.phase = roundDone(room) ? 'roundEnd' : 'board';
 }
 
+// picker: the player who chose the square from their phone (Teams mode); otherwise the host clicked it
+function openClue(room, c, r, picker) {
+  const key = `${room.round}-${c}-${r}`;
+  if (!(Number.isInteger(c) && Number.isInteger(r) && c >= 0 && c < 6 && r >= 0 && r < 5) || room.used.has(key)) return 'That clue is gone';
+  const dd = room.dd.has(`${c}-${r}`);
+  let ddPlayer = null;
+  if (dd) { if (picker) ddPlayer = picker;
+    else if (room.teamMode) { const ctl = room.players[room.controller]; ddPlayer = ctl && ctl.team === room.ctrlTeam ? ctl.id : null; } // host picks a teammate otherwise
+    else ddPlayer = room.players[room.controller] ? room.controller : null; }
+  room.current = { round: room.round, c, r, value: VALUES[room.round][r], dd, buzzOpen: !dd, buzzed: null, locked: new Set(), revealed: false,
+    ddPlayer, pickedBy: picker || null, wager: null, reading: false, peeked: false };
+  room.phase = 'clue';
+  if (room.hostMode === 'player' && !dd) startReading(room);
+  broadcast(room); return null;
+}
 io.on('connection', socket => {
   GR.guard(socket, ev => ev.startsWith('host:') ? rooms[socket.data.hostCode] : rooms[socket.data.code]);
 
@@ -178,7 +207,7 @@ io.on('connection', socket => {
     }
     const code = makeCode();
     const room = rooms[code] = { code, hostKey: Math.random().toString(36).slice(2), hostSocket: socket.id, players: {}, phase: 'lobby',
-      round: null, board: null, used: new Set(), dd: null, current: null, final: null, controller: null, hostMode: 'dedicated', created: Date.now() };
+      round: null, board: null, used: new Set(), dd: null, current: null, final: null, controller: null, hostMode: 'dedicated', teamMode: false, teams: makeTeams(2), ctrlTeam: null, created: Date.now() };
     socket.data.hostCode = code;
     cb && cb({ code, hostKey: room.hostKey }); broadcast(room);
   });
@@ -193,12 +222,35 @@ io.on('connection', socket => {
     if (room.phase !== 'lobby') return fail('Change host mode before the game starts');
     room.hostMode = mode === 'player' ? 'player' : 'dedicated'; broadcast(room);
   });
+  // Teams: host:teams { mode: 'individual'|'teams', count?: 2-4, teams?: [{ name, color }] } — lobby only
+  socket.on('host:teams', (opts = {}, cb) => {
+    const room = hostRoom(); const done = e => { if (e) fail(e); cb && cb(e ? { error: e } : { ok: true }); };
+    if (!room) return done('Not hosting a room');
+    if (room.phase !== 'lobby') return done('Set up teams before the game starts');
+    if (opts.mode) room.teamMode = opts.mode === 'teams';
+    if (opts.count) { const n = Math.min(4, Math.max(2, opts.count | 0)); if (n > room.teams.length) room.teams.push(...makeTeams(n).slice(room.teams.length)); else room.teams = room.teams.slice(0, n); }
+    if (Array.isArray(opts.teams)) opts.teams.slice(0, room.teams.length).forEach((t, i) => { if (!t) return;
+      const nm = String(t.name || '').trim().slice(0, 20); if (nm) room.teams[i].name = nm;
+      if (/^#[0-9a-f]{6}$/i.test(String(t.color || ''))) room.teams[i].color = t.color; });
+    const ids = new Set(room.teams.map(t => t.id));
+    if (room.teamMode) for (const p of Object.values(room.players)) if (!ids.has(p.team)) p.team = smallestTeam(room).id;
+    done(); broadcast(room);
+  });
+  socket.on('host:assign', ({ pid, team } = {}) => {
+    const room = hostRoom(); const p = room && room.players[pid];
+    if (!p || room.phase !== 'lobby' || !room.teams.some(t => t.id === team)) return fail('Cannot move that player');
+    p.team = team; broadcast(room);
+  });
   socket.on('host:start', () => {
     const room = hostRoom(); if (!room) return fail('Not hosting a room');
     if (!room.board) return fail('Pick a board first');
     if (!Object.keys(room.players).length) return fail('Wait for at least one player');
+    if (room.teamMode) { for (const p of Object.values(room.players)) if (!room.teams.some(t => t.id === p.team)) p.team = smallestTeam(room).id;
+      if (activeTeams(room).length < 2) return fail('Teams mode needs players on at least 2 teams');
+      room.teams.forEach(t => { t.score = 0; }); room.ctrlTeam = activeTeams(room)[0].id; room.controller = null; }
     room.round = 0; room.phase = 'board'; room.dd = pickDD(1); room.used = new Set();
-    GR.gate(room, `Jeopardy! · ${room.board.name}`, ['Round 1 is about to begin', room.players[room.controller] ? `${room.players[room.controller].name} picks first` : 'Host picks the first clue']); broadcast(room);
+    const ct = room.teamMode && room.teams.find(t => t.id === room.ctrlTeam);
+    GR.gate(room, `Jeopardy! · ${room.board.name}`, ['Round 1 is about to begin', ct ? `${ct.name} picks first` : room.players[room.controller] ? `${room.players[room.controller].name} picks first` : 'Host picks the first clue']); broadcast(room);
   });
   socket.on('host:reveal', (_, cb) => { // player-host mode: the host (a contestant) sends the answer ONLY to the buzzed player's phone
     const room = hostRoom(); const cur = room && room.current;
@@ -208,21 +260,15 @@ io.on('connection', socket => {
   socket.on('player:reveal', (_, cb) => cb && cb({ error: 'Only the host screen can reveal the answer' }));
   socket.on('host:open', ({ c, r }) => {
     const room = hostRoom(); if (!room || room.phase !== 'board') return fail('Cannot open a clue now');
-    const key = `${room.round}-${c}-${r}`;
-    if (!(c >= 0 && c < 6 && r >= 0 && r < 5) || room.used.has(key)) return fail('That clue is gone');
-    const dd = room.dd.has(`${c}-${r}`);
-    room.current = { round: room.round, c, r, value: VALUES[room.round][r], dd, buzzOpen: !dd, buzzed: null, locked: new Set(), revealed: false,
-      ddPlayer: dd ? (room.players[room.controller] ? room.controller : null) : null, wager: null, reading: false, peeked: false };
-    room.phase = 'clue';
-    if (room.hostMode === 'player' && !dd) startReading(room);
-    broadcast(room);
+    const e = openClue(room, c, r, null); if (e) fail(e);
   });
   socket.on('host:ddPlayer', ({ pid }) => { // host assigns DD if nobody has control yet
     const room = hostRoom(); const cur = room && room.current;
     if (!cur || !cur.dd || cur.wager !== null || !room.players[pid]) return fail('Cannot assign Daily Double');
+    if (room.teamMode && room.ctrlTeam && room.players[pid].team !== room.ctrlTeam) return fail('The Daily Double belongs to the team in control');
     cur.ddPlayer = pid; broadcast(room);
   });
-  const ddMax = (room, p) => Math.max(p.score, room.round === 0 ? 1000 : 2000);
+  const ddMax = (room, p) => Math.max(scoreOf(room, p.id), room.round === 0 ? 1000 : 2000); // Teams: the TEAM score sets the limit
   function setWager(room, amount) {
     const cur = room.current, p = room.players[cur.ddPlayer];
     amount = Math.floor(Number(amount));
@@ -255,26 +301,37 @@ io.on('connection', socket => {
     const room = hostRoom(); if (!room) return;
     if (room.current) return fail('Close the open clue first');
     if (room.round === 0) { room.round = 1; room.phase = 'board'; room.dd = pickDD(2);
+      if (room.teamMode) { const low = [...activeTeams(room)].sort((a, b) => a.score - b.score)[0]; room.ctrlTeam = low ? low.id : null; room.controller = null;
+        GR.gate(room, 'Double Jeopardy!', ['Values are doubled', low ? `${low.name} (lowest score) picks first` : '']);
+      } else {
       const sorted = Object.values(room.players).sort((a, b) => a.score - b.score); room.controller = sorted[0] ? sorted[0].id : null; // lowest score picks first
-      GR.gate(room, 'Double Jeopardy!', ['Values are doubled', sorted[0] ? `${sorted[0].name} (lowest score) picks first` : '']);
-    } else if (room.round === 1) { room.round = 'final'; room.phase = 'final'; room.final = { stage: 'wager', wagers: {}, answers: {}, judged: {} }; }
+      GR.gate(room, 'Double Jeopardy!', ['Values are doubled', sorted[0] ? `${sorted[0].name} (lowest score) picks first` : '']); }
+    } else if (room.round === 1) { room.round = 'final'; room.phase = 'final'; room.final = { stage: 'wager', wagers: {}, answers: {}, judged: {}, by: {} }; }
     broadcast(room);
   });
   socket.on('host:finalClue', () => {
     const room = hostRoom(); const f = room && room.final; if (!f || f.stage !== 'wager') return;
-    for (const p of Object.values(room.players)) if (f.wagers[p.id] === undefined && p.score <= 0) f.wagers[p.id] = 0;
+    if (room.teamMode) { for (const t of activeTeams(room)) if (f.wagers[t.id] === undefined && t.score <= 0) f.wagers[t.id] = 0; }
+    else for (const p of Object.values(room.players)) if (f.wagers[p.id] === undefined && p.score <= 0) f.wagers[p.id] = 0;
     f.stage = 'answer'; broadcast(room);
   });
   socket.on('host:finalLock', () => { const room = hostRoom(); const f = room && room.final; if (!f || f.stage !== 'answer') return; f.stage = 'judge'; broadcast(room); });
-  socket.on('host:finalJudge', ({ pid, correct }) => {
-    const room = hostRoom(); const f = room && room.final; const p = room && room.players[pid];
+  socket.on('host:finalJudge', ({ pid, team, correct }) => {
+    const room = hostRoom(); const f = room && room.final;
+    if (room && room.teamMode) { const t = room.teams.find(x => x.id === team);
+      if (!f || f.stage !== 'judge' || !t || f.judged[t.id] !== undefined) return fail('Cannot judge that');
+      const w = f.wagers[t.id] || 0; t.score += correct ? w : -w; f.judged[t.id] = !!correct;
+      if (activeTeams(room).every(x => f.judged[x.id] !== undefined)) { f.stage = 'done'; room.phase = 'over'; }
+      return broadcast(room); }
+    const p = room && room.players[pid];
     if (!f || f.stage !== 'judge' || !p || f.judged[pid] !== undefined) return fail('Cannot judge that');
     const w = f.wagers[pid] || 0; p.score += correct ? w : -w; f.judged[pid] = !!correct;
     if (Object.keys(room.players).every(id => f.judged[id] !== undefined)) { f.stage = 'done'; room.phase = 'over'; }
     broadcast(room);
   });
-  socket.on('host:adjust', ({ pid, delta }) => {
-    const room = hostRoom(); const p = room && room.players[pid]; if (!p) return;
+  socket.on('host:adjust', ({ pid, team, delta }) => {
+    const room = hostRoom(); if (room && room.teamMode) { const t = room.teams.find(x => x.id === (team || (room.players[pid] || {}).team)); if (!t) return; t.score += Math.round(Number(delta) || 0); return broadcast(room); }
+    const p = room && room.players[pid]; if (!p) return;
     p.score += Math.round(Number(delta) || 0); broadcast(room);
   });
   socket.on('host:kick', ({ pid }) => {
@@ -284,7 +341,8 @@ io.on('connection', socket => {
   socket.on('host:newGame', () => {
     const room = hostRoom(); if (!room) return;
     if (room.current) clearT(room.current);
-    Object.assign(room, { phase: 'lobby', round: null, board: null, used: new Set(), dd: null, current: null, final: null, controller: null });
+    Object.assign(room, { phase: 'lobby', round: null, board: null, used: new Set(), dd: null, current: null, final: null, controller: null, ctrlTeam: null });
+    room.teams.forEach(t => { t.score = 0; });
     for (const p of Object.values(room.players)) p.score = 0; broadcast(room);
   });
 
@@ -298,12 +356,24 @@ io.on('connection', socket => {
     if (!p) {
       if (Object.values(room.players).some(x => x.name.toLowerCase() === name.toLowerCase())) return cb && cb({ error: 'That name is taken' });
       if (Object.keys(room.players).length >= 12) return cb && cb({ error: 'Room is full' });
-      p = room.players[pid] = { id: pid, name, score: 0 };
+      p = room.players[pid] = { id: pid, name, score: 0, team: null };
+      if (room.teamMode) p.team = smallestTeam(room).id; // auto-assigned; the player can switch in the lobby
     }
     p.socketId = socket.id; p.connected = true; socket.data.code = code; socket.data.pid = pid;
     cb && cb({ ok: true, pid, code }); broadcast(room);
   });
   const myRoom = () => { const r = rooms[socket.data.code]; return r && r.players[socket.data.pid] ? r : null; };
+  socket.on('player:team', ({ team } = {}, cb) => {
+    const room = myRoom(); const p = room && room.players[socket.data.pid];
+    if (!p || !room.teamMode || room.phase !== 'lobby' || !room.teams.some(t => t.id === team)) return cb && cb({ error: 'You can only switch teams in the lobby' });
+    p.team = team; cb && cb({ ok: true }); broadcast(room);
+  });
+  socket.on('player:pick', ({ c, r } = {}, cb) => { // Teams mode: any member of the team in control picks the next clue
+    const room = myRoom(); const p = room && room.players[socket.data.pid];
+    if (!p || !room.teamMode || room.phase !== 'board' || room.current) return cb && cb({ error: 'Cannot pick now' });
+    if (!room.ctrlTeam || p.team !== room.ctrlTeam) return cb && cb({ error: "It's not your team's pick" });
+    const e = openClue(room, c, r, p.id); cb && cb(e ? { error: e } : { ok: true });
+  });
   socket.on('player:buzz', () => {
     const room = myRoom(); const cur = room && room.current; const pid = socket.data.pid;
     if (!cur || !cur.buzzOpen || cur.buzzed || cur.locked.has(pid)) return;
@@ -324,6 +394,11 @@ io.on('connection', socket => {
   socket.on('player:finalWager', ({ amount }, cb) => {
     const room = myRoom(); const f = room && room.final; const p = room && room.players[socket.data.pid];
     if (!f || f.stage !== 'wager') return cb && cb({ error: 'Wagers are closed' });
+    if (room.teamMode) { const t = teamOf(room, p.id); if (!t.id) return cb && cb({ error: 'You are not on a team' });
+      if (f.wagers[t.id] !== undefined) return cb && cb({ error: `${nameOf(room, f.by[t.id + ':w']) || 'Your team'} already locked the team wager` });
+      amount = Math.floor(Number(amount)); const tmax = Math.max(0, t.score);
+      if (!Number.isFinite(amount) || amount < 0 || amount > tmax) return cb && cb({ error: `Wager between $0 and $${tmax}` });
+      f.wagers[t.id] = amount; f.by[t.id + ':w'] = p.id; cb && cb({ ok: true }); return broadcast(room); }
     amount = Math.floor(Number(amount)); const max = Math.max(0, p.score);
     if (!Number.isFinite(amount) || amount < 0 || amount > max) return cb && cb({ error: `Wager between $0 and $${max}` });
     f.wagers[p.id] = amount; cb && cb({ ok: true }); broadcast(room);
@@ -331,6 +406,9 @@ io.on('connection', socket => {
   socket.on('player:finalAnswer', ({ answer }, cb) => {
     const room = myRoom(); const f = room && room.final;
     if (!f || f.stage !== 'answer') return cb && cb({ error: 'Answers are closed' });
+    if (room.teamMode) { const t = teamOf(room, socket.data.pid); if (!t.id) return cb && cb({ error: 'You are not on a team' });
+      if (f.answers[t.id] !== undefined) return cb && cb({ error: `${nameOf(room, f.by[t.id + ':a']) || 'Your team'} already locked the team answer` });
+      f.answers[t.id] = String(answer || '').slice(0, 120); f.by[t.id + ':a'] = socket.data.pid; cb && cb({ ok: true }); return broadcast(room); }
     f.answers[socket.data.pid] = String(answer || '').slice(0, 120); cb && cb({ ok: true }); broadcast(room);
   });
 

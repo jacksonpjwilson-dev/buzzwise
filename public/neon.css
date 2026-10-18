@@ -144,3 +144,24 @@ body.neon{background-color:#07020f;background-image:radial-gradient(1200px 700px
 .neon .pw-stand{display:grid;grid-template-columns:auto 1fr auto auto;gap:14px;align-items:center;background:#1d0b3d;border:2px solid #ffffff1a;border-radius:14px;padding:14px 18px;font-size:20px;opacity:0;animation:priIn .6s forwards}
 .neon .pw-stand .rk{font-family:var(--disp);color:var(--cyan);font-size:26px}.neon .pw-stand .s{font-family:var(--disp);color:var(--yel);font-size:30px;text-shadow:0 0 10px #ffb800}
 .neon .pw-stand.first{border-color:var(--yel);box-shadow:0 0 28px #ffcc0077}.neon .pw-stand .muted{font-size:15px}
+/* ---- Jeopardy Teams mode ---- */
+.tdot{display:inline-flex;align-items:center;gap:5px;font-size:.78em;font-weight:700;color:var(--tc)}
+.tdot::before{content:"";width:.7em;height:.7em;border-radius:50%;background:var(--tc);box-shadow:0 0 8px var(--tc)}
+.team-card{border-left:5px solid var(--tc);background:#1d0b3d;border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.team-card.ctrl{box-shadow:0 0 0 2px var(--tc),0 0 18px color-mix(in srgb,var(--tc) 60%,transparent)}
+.team-card.mine{background:color-mix(in srgb,var(--tc) 14%,#1d0b3d)}
+.team-head{display:flex;justify-content:space-between;align-items:center;font-size:18px}.team-head .n{font-weight:800;color:var(--tc)}
+.team-head .s{font-family:var(--disp,inherit);color:var(--yel,#ffcc00);font-size:1.15em}.team-head .s.neg{color:#ff6b84}
+.members{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.mem{font-size:13px;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.07)}
+.mem.off{opacity:.45}.mem.me{outline:1px solid var(--tc)}.mem.out{text-decoration:line-through;opacity:.55}
+.mem.buzzed{background:var(--yel,#ffcc00);color:#1a0633;font-weight:800;box-shadow:0 0 12px #ffcc00aa}
+.teamcfg{display:grid;gap:8px}.tcfg input[type=color]{width:46px;height:38px;padding:2px;border-radius:8px;border:2px solid var(--tc);background:none}
+.tcfg input:not([type]){flex:1;border-left:5px solid var(--tc)}
+.lobbyteams{display:grid;gap:10px;margin-top:12px;text-align:left}.lteam{border-left:5px solid var(--tc);padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.03)}.lteam>b{color:var(--tc)}
+.lchip{display:inline-flex;align-items:center;background:#1d0b3d;border:1px solid color-mix(in srgb,var(--tc) 60%,transparent);padding:5px 10px;border-radius:999px;font-weight:600;font-size:14px}
+.lchip .mv{margin-left:6px;background:transparent;color:inherit;border:0;font-size:12px;max-width:22px;cursor:pointer}
+.teampick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.tpick{border:2px solid var(--tc);color:#fff;background:transparent;font-weight:800}.tpick.on{background:var(--tc);color:#1a0633;box-shadow:0 0 16px var(--tc)}
+.pcell.pickable{cursor:pointer;outline:2px solid var(--yel,#ffcc00);animation:pk 1.4s ease-in-out infinite}@keyframes pk{50%{box-shadow:0 0 14px #ffcc00aa}}
+.neon.r-play #me .tdot{font-size:0;gap:0}.neon.r-play #me .tdot::before{width:12px;height:12px}
