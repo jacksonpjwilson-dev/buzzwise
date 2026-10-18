@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"><defs>
+  <radialGradient id="bg" cx="50%" cy="38%" r="75%"><stop offset="0" stop-color="#3a0d6b"/><stop offset=".55" stop-color="#16052e"/><stop offset="1" stop-color="#07020f"/></radialGradient>
+  <linearGradient id="tileg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff5ce0"/><stop offset="1" stop-color="#d4009f"/></linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="26"/></filter>
+  <filter id="bglow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5" result="b"/><feFlood flood-color="#ffd6f7"/><feComposite in2="b" operator="in" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="bulb" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="4" result="b"/><feFlood flood-color="#ffb800"/><feComposite in2="b" operator="in" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g transform="translate(256 256) scale(1.62) translate(-256 -256)">
+    <rect x="106" y="106" width="300" height="300" rx="72" fill="#ff2fd6" filter="url(#glow)" opacity=".9"/>
+    <rect x="106" y="106" width="300" height="300" rx="72" fill="url(#tileg)"/>
+    <rect x="114" y="114" width="284" height="284" rx="64" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="4"/>
+    <path d="M186 166H272A43 43 0 0 1 272 252H280A47 47 0 0 1 280 346H186Z M222 196H268A13 13 0 0 1 268 222H222Z M222 278H274A19 19 0 0 1 274 316H222Z" fill="#fff" fill-rule="evenodd" filter="url(#bglow)"/></g></svg>

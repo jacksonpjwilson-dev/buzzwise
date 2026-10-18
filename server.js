@@ -15,7 +15,9 @@ const COMMIT = (process.env.RENDER_GIT_COMMIT || (() => { try { return require('
 const VERSION = { version: PKG_VERSION, commit: COMMIT || 'dev', label: `v${PKG_VERSION} · ${COMMIT || 'dev'}` };
 app.get('/version', (req, res) => res.json(VERSION));
 app.get('/healthz', (req, res) => res.send('ok'));
-app.use(express.static(path.join(__dirname, 'public')));
+const ICON_TYPES = { '.webmanifest': 'application/manifest+json', '.ico': 'image/x-icon', '.svg': 'image/svg+xml', '.png': 'image/png' };
+app.use(express.static(path.join(__dirname, 'public'), { setHeaders: (res, file) => { const t = ICON_TYPES[path.extname(file)]; if (t) res.setHeader('Content-Type', t);
+  if (/(apple-touch-icon|favicon|icons[\\/])/.test(file)) res.setHeader('Cache-Control', 'public, max-age=86400'); } }));
 app.get('/api/boards', (req, res) => res.json(BOARDS.map(b => ({
   id: b.id, name: b.name, difficulty: b.difficulty, tagline: b.tagline,
   categories: b.rounds.map(r => r.map(c => c.name)),
