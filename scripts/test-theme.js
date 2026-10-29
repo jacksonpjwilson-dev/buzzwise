@@ -1,4 +1,4 @@
-// Theme: Halloween is the default; ?theme=neon (or BUZZWISE_THEME=neon) restores the Neon Game Show look.
+// Theme + MyGameShow branding: Halloween is the default; ?theme=neon (or BUZZWISE_THEME/MGS_THEME=neon) restores the Neon Game Show look.
 const { server } = require('../server.js');
 let pass = 0, failN = 0; const ok = (c, m) => { if (c) { pass++; console.log('  ✓ ' + m); } else { failN++; console.log('  ✗ ' + m); } };
 const PAGES = ['/', '/host', '/play', '/wof', '/wof/play', '/ff', '/ff/play', '/pir', '/pir/play'];
@@ -8,6 +8,7 @@ server.listen(0, async () => {
     for (const p of PAGES) {
       const h = await (await fetch(u + p)).text();
       ok(h.includes('href="/halloween.css"') && /<body[^>]*class="[^"]*\bhalloween\b/.test(h), `${p} is Halloween by default`);
+      ok(/<title>[^<]*MyGameShow[^<]*<\/title>/.test(h) && /<img class="n?mark mark-img" src="\/icons\/logo-96.png"/.test(h) && !/buzzwise/i.test(h.replace(/buzzwise\.onrender\.com/gi, '')), `${p} branded MyGameShow (title + artwork logo, no "Buzzwise")`);
       const n = await (await fetch(u + p + '?theme=neon')).text();
       ok(!n.includes('halloween.css') && !/<body[^>]*\bhalloween\b/.test(n) && n.includes('neon.css'), `${p}?theme=neon restores neon`);
     }

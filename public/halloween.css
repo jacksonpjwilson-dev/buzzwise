@@ -1,4 +1,4 @@
-/* Buzzwise v1.12 "Halloween Night" theme.
+/* MyGameShow v1.12 "Halloween Night" theme.
    Loaded after neon.css and only active when <body> carries the .halloween class.
    The server adds/removes that class and this stylesheet based on BUZZWISE_THEME
    (default "halloween"; set BUZZWISE_THEME=neon to restore the Neon Game Show look). */

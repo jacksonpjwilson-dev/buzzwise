@@ -1,45 +1,49 @@
-// Renders the Buzzwise app icons from SVG. One-off tool: `npm i --no-save sharp && node scripts/build-icons.js`
+// Renders the MyGameShow app icons from the artwork in assets/mgs-icon-source.jpg (v1.13; replaces the old letter-mark tiles).
+// One-off tool: `npm i --no-save sharp && node scripts/build-icons.js`. The same icon is used for both themes.
+// The source has white corners outside its own rounded square: we crop to that square, mask it with its rounded corners,
+// and fill the corners by bleeding the nearby artwork colours (so a square icon has no white corners; iOS/Android round it anyway).
 const fs = require('fs'), path = require('path');
 const sharp = require(process.env.SHARP_PATH || 'sharp');
-const OUT = path.join(__dirname, '..', 'public');
-// Font-independent 'B' (paths, evenodd) centred on 256,256 in a 512 box
-const B = 'M186 166H272A43 43 0 0 1 272 252H280A47 47 0 0 1 280 346H186Z M222 196H268A13 13 0 0 1 268 222H222Z M222 278H274A19 19 0 0 1 274 316H222Z';
-function tile(scale) { // pumpkin-orange rounded tile with candle glow (v1.12 Halloween; was magenta #ff2fd6), scaled around the centre
-  return `<g transform="translate(256 256) scale(${scale}) translate(-256 -256)">
-    <rect x="106" y="106" width="300" height="300" rx="72" fill="#ff7a18" filter="url(#glow)" opacity=".9"/>
-    <rect x="106" y="106" width="300" height="300" rx="72" fill="url(#tileg)"/>
-    <rect x="114" y="114" width="284" height="284" rx="64" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="4"/>
-    <path d="${B}" fill="#2a0d00" fill-rule="evenodd" filter="url(#bglow)"/></g>`;
-}
-function bulbs() { // marquee bulbs along a rounded square at inset 44
-  const pts = [], a = 44, b = 468, r = 70, step = 37;
-  for (let x = a + r; x <= b - r + 1; x += step) pts.push([x, a], [x, b]);
-  for (let y = a + r; y <= b - r + 1; y += step) pts.push([a, y], [b, y]);
-  for (const [cx, cy] of [[a + r, a + r], [b - r, a + r], [a + r, b - r], [b - r, b - r]]) for (const t of [0.35, 0.78, 1.2]) {
-    const dx = cx < 256 ? -1 : 1, dy = cy < 256 ? -1 : 1; pts.push([cx + dx * r * Math.sin(t), cy + dy * r * Math.cos(t)]); }
-  return pts.map(([x, y], i) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7" fill="${i % 2 ? '#ffe14d' : '#fff6c2'}" filter="url(#bulb)"/>`).join('');
-}
-const defs = `<defs>
-  <radialGradient id="bg" cx="50%" cy="38%" r="75%"><stop offset="0" stop-color="#3a0d6b"/><stop offset=".55" stop-color="#16052e"/><stop offset="1" stop-color="#07020f"/></radialGradient>
-  <linearGradient id="tileg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffa24d"/><stop offset="1" stop-color="#d9480f"/></linearGradient>
-  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="26"/></filter>
-  <filter id="bglow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5" result="b"/><feFlood flood-color="#ffe3c2"/><feComposite in2="b" operator="in" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-  <filter id="bulb" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="4" result="b"/><feFlood flood-color="#ffb800"/><feComposite in2="b" operator="in" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>`;
-const svg = (body, bg = true) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">${defs}${bg ? '<rect width="512" height="512" fill="url(#bg)"/>' : ''}${body}</svg>`;
-const full = svg(bulbs() + tile(1.08));                 // home-screen icon: full-bleed, bulbs
-const maskable = svg(tile(0.92));                       // tile fits inside the 80% safe circle (r=204)
-const fav = svg(tile(1.62), false);                     // favicon: just the tile, transparent corners
+const SRC = path.join(__dirname, '..', 'assets', 'mgs-icon-source.jpg');
+const OUT = process.env.ICON_OUT || path.join(__dirname, '..', 'public');
+const BG = '#003f5b';                       // deep teal of the artwork's background (manifest colours match)
+const CROP = { left: 5, top: 4, width: 1010, height: 1010 }, R = 216, INSET = 3; // inner rounded square in the 1024 source (corner radius ≈ 212px, measured)
+const rr = (s, r, i = 0) => Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}"><rect x="${i}" y="${i}" width="${s - 2 * i}" height="${s - 2 * i}" rx="${r}" fill="#fff"/></svg>`);
 (async () => {
-  fs.writeFileSync(path.join(OUT, 'icons', 'icon.svg'), full);
-  fs.writeFileSync(path.join(OUT, 'favicon.svg'), fav);
-  const png = (s, size, file, flat) => { let p = sharp(Buffer.from(s), { density: 72 * size / 512 * 2 }).resize(size, size); if (flat) p = p.flatten({ background: '#07020f' }); return p.png().toFile(path.join(OUT, file)); };
-  await png(full, 180, 'apple-touch-icon.png', true);
-  await png(full, 192, 'icons/icon-192.png', true);
-  await png(full, 512, 'icons/icon-512.png', true);
-  await png(maskable, 512, 'icons/icon-maskable-512.png', true);
-  await png(fav, 32, 'favicon-32.png');
+  const S = CROP.width;
+  const art = await sharp(SRC).extract(CROP).ensureAlpha().png().toBuffer();
+  const rounded = await sharp(art).composite([{ input: rr(S, R, INSET), blend: 'dest-in' }]).png().toBuffer();   // transparent corners
+  // bleed edge colours outward into the corners: premultiplied blur (colour*alpha and alpha blurred separately, then divided)
+  const { data: px } = await sharp(rounded).raw().toBuffer({ resolveWithObject: true });
+  const N = S * S, pre = Buffer.alloc(N * 3), al = Buffer.alloc(N * 3); // alpha kept as 3 identical channels (sharp promotes 1-channel raw to 3 anyway)
+  for (let i = 0; i < N; i++) { const a = px[i * 4 + 3] / 255; al.fill(px[i * 4 + 3], i * 3, i * 3 + 3); for (let k = 0; k < 3; k++) pre[i * 3 + k] = Math.round(px[i * 4 + k] * a); }
+  const blur = (buf, ch, sg) => sharp(buf, { raw: { width: S, height: S, channels: ch } }).blur(sg).raw().toBuffer();
+  const [p1, a1, p2, a2] = await Promise.all([blur(pre, 3, 28), blur(al, 3, 28), blur(pre, 3, 90), blur(al, 3, 90)]);
+  const bg = [parseInt(BG.slice(1, 3), 16), parseInt(BG.slice(3, 5), 16), parseInt(BG.slice(5, 7), 16)];
+  const sq = Buffer.alloc(N * 3);
+  for (let i = 0; i < N; i++) { const a = px[i * 4 + 3] / 255, b = a1[i * 3] / 255;
+    for (let k = 0; k < 3; k++) { const b2 = a2[i * 3] / 255;
+      const bled = b > 0.25 ? Math.min(255, p1[i * 3 + k] / b) : b2 > 0.05 ? Math.min(255, p2[i * 3 + k] / b2) : bg[k];
+      sq[i * 3 + k] = Math.round(px[i * 4 + k] * a + bled * (1 - a)); } }
+  const square = await sharp(sq, { raw: { width: S, height: S, channels: 3 } }).png().toBuffer(); // full-bleed square, no white corners
+  const at = (buf, size, flat = true) => { let p = sharp(buf).resize(size, size, { kernel: 'lanczos3' }); if (flat) p = p.flatten({ background: BG }); return p; };
+  const w = (p, f, rgb) => p.png(rgb ? { compressionLevel: 9 } : { compressionLevel: 9, palette: true, quality: 95, effort: 10 }).toFile(path.join(OUT, f)); // palette PNG keeps files small; apple-touch stays plain RGB
+  fs.mkdirSync(path.join(OUT, 'icons'), { recursive: true });
+  await w(at(square, 180), 'apple-touch-icon.png', true);
+  await w(at(square, 192), 'icons/icon-192.png');
+  await w(at(square, 512), 'icons/icon-512.png');
+  // maskable: artwork scaled to 80% on a full-bleed teal canvas so the TV + mic sit inside the 80% safe circle
+  const inner = await sharp(square).resize(410, 410).png().toBuffer();
+  await w(sharp({ create: { width: 512, height: 512, channels: 3, background: BG } }).composite([{ input: inner, left: 51, top: 51 }]), 'icons/icon-maskable-512.png');
+  // small rounded (transparent-corner) versions: favicon + header logo badge
+  await w(at(rounded, 32, false), 'favicon-32.png');
+  await w(at(rounded, 96, false), 'icons/logo-96.png');
+  const b64 = async (buf, s) => (await sharp(buf).resize(s, s).png().toBuffer()).toString('base64');
+  const svg = async (buf, s) => `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${s} ${s}" width="${s}" height="${s}"><image width="${s}" height="${s}" href="data:image/png;base64,${await b64(buf, s)}"/></svg>`;
+  fs.writeFileSync(path.join(OUT, 'favicon.svg'), await svg(rounded, 64));
+  fs.writeFileSync(path.join(OUT, 'icons', 'icon.svg'), await svg(square, 256));
   // favicon.ico with embedded PNGs (16, 32, 48)
-  const imgs = await Promise.all([16, 32, 48].map(s => sharp(Buffer.from(fav), { density: 72 }).resize(s, s).png().toBuffer()));
+  const imgs = await Promise.all([16, 32, 48].map(s => sharp(rounded).resize(s, s).png().toBuffer()));
   const head = Buffer.alloc(6 + 16 * imgs.length); head.writeUInt16LE(0, 0); head.writeUInt16LE(1, 2); head.writeUInt16LE(imgs.length, 4);
   let off = head.length; imgs.forEach((b, i) => { const s = [16, 32, 48][i], e = 6 + 16 * i;
     head.writeUInt8(s, e); head.writeUInt8(s, e + 1); head.writeUInt16LE(1, e + 4); head.writeUInt16LE(32, e + 6); head.writeUInt32LE(b.length, e + 8); head.writeUInt32LE(off, e + 12); off += b.length; });

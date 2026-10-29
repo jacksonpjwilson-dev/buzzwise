@@ -1,4 +1,4 @@
-// Buzzwise: Family Feud mode (socket.io namespace /ff)
+// MyGameShow: Family Feud mode (socket.io namespace /ff)
 // The host only CONTROLS the game: unrevealed survey answers are never sent to any client.
 const GR = require('./lib/getready');
 const fs = require('fs'), path = require('path');

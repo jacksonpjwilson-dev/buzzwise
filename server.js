@@ -436,7 +436,7 @@ if (require.main === module) {
   server.listen(PORT, process.env.HOST || '0.0.0.0', () => {
     const nets = require('os').networkInterfaces();
     const ips = Object.values(nets).flat().filter(n => n && n.family === 'IPv4' && !n.internal).map(n => n.address);
-    console.log(`\n  Buzzwise is live!\n  Host on this computer:  http://localhost:${PORT}`);
+    console.log(`\n  MyGameShow is live!\n  Host on this computer:  http://localhost:${PORT}`);
     ips.forEach(ip => console.log(`  Players on same Wi-Fi:  http://${ip}:${PORT}`));
     console.log(`  Friends elsewhere: run  npx --yes cloudflared tunnel --url http://localhost:${PORT}\n`);
   });

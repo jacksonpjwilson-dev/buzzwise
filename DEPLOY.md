@@ -1,4 +1,4 @@
-# Put Buzzwise online: one link for everyone
+# Put MyGameShow online: one link for everyone
 
 When you're done, you'll have a permanent address like **https://buzzwise.onrender.com** that anyone can open on a phone or laptop. Nobody has to keep a computer running.
 It's free and takes about 15 minutes. You don't need to know how to code.

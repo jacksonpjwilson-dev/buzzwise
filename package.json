@@ -1,7 +1,7 @@
 {
-  "name": "jeopardy-pro",
-  "version": "1.12.0",
-  "description": "Buzzwise - multiplayer Jeopardy-style trivia night for phones",
+  "name": "mygameshow",
+  "version": "1.13.0",
+  "description": "MyGameShow - multiplayer Jeopardy-style trivia night for phones",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

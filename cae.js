@@ -1,4 +1,4 @@
-// Buzzwise: Cards Against Everyone (namespace /cae). Original party card game.
+// MyGameShow: Cards Against Everyone (namespace /cae). Original party card game.
 // Hands are sent ONLY to their owner; who played which card stays hidden until the judge picks.
 const fs = require('fs'), path = require('path'); const makeParty = require('./lib/party'); const { shuffle } = makeParty;
 const DECKS = { family: { name: 'Family', rating: 'Kid-safe', main: true }, fun: { name: 'Fun', rating: 'PG-13', main: true }, afterdark: { name: 'After Dark', rating: '18+', main: true, adult: true },

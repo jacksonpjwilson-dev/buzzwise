@@ -1,4 +1,4 @@
-// Buzzwise: Priorities (namespace /pri). The subject's private ranking is sent ONLY to the subject
+// MyGameShow: Priorities (namespace /pri). The subject's private ranking is sent ONLY to the subject
 // (and a dedicated host) until the reveal; guesses stay private until the reveal too.
 const fs = require('fs'), path = require('path'); const makeParty = require('./lib/party'); const { shuffle } = makeParty;
 const loadItems = () => fs.readFileSync(path.join(__dirname, 'data', 'priorities-items.txt'), 'utf8').split(/\r?\n/).map(s => s.trim()).filter(s => s && !s.startsWith('#'));

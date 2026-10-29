@@ -195,3 +195,9 @@ footer{color:var(--muted);border-top:1px solid var(--line);padding:28px 0;font-s
 .pri-item.hit{border-color:var(--green);background:rgba(34,197,94,.15)}.pri-item.miss{opacity:.7}
 .pri-reveal .pri-item{opacity:0;transform:translateY(20px) scale(.96);animation:priIn .55s forwards}
 @keyframes priIn{to{opacity:1;transform:none}}
+
+/* v1.13 MyGameShow: artwork badge replaces the letter mark; wordmark keeps its exact "MyGameShow" casing
+   (the display fonts Bungee / Luckiest Guy / Creepster render everything in capitals). Same in both themes. */
+body .logo,body .nlogo{font-family:Inter,system-ui,sans-serif!important;font-weight:900!important;letter-spacing:-.01em!important;text-transform:none!important}
+body .logo img.mark-img,body img.nmark.mark-img{width:38px!important;height:38px!important;padding:0!important;border-radius:9px!important;background:none!important;object-fit:cover;flex:none;box-shadow:0 0 0 1px #ffffff22,0 4px 14px #0008!important;animation:none!important}
+body.r-play .logo img.mark-img{width:34px!important;height:34px!important}

@@ -1,4 +1,4 @@
-# Cards Against Everyone · Family deck (kid-safe). All card text is original to Buzzwise.
+# Cards Against Everyone · Family deck (kid-safe). All card text is original to MyGameShow.
 [prompts]
 Mom says I can't go to the park because of ____.
 The new playground ride is called ____.

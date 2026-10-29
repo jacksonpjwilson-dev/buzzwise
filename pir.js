@@ -1,4 +1,4 @@
-// Buzzwise: The Price Is Right mode (socket.io namespace /pir)
+// MyGameShow: The Price Is Right mode (socket.io namespace /pir)
 // Prices are NEVER sent to any client until revealed, so the host can play too.
 const fs = require('fs'), path = require('path'); const GR = require('./lib/getready');
 const EXACT_BONUS = 500, SHOWCASE_RANGE = 250;

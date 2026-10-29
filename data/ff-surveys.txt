@@ -1,4 +1,4 @@
-# Family Feud-style surveys for Buzzwise.
+# Family Feud-style surveys for MyGameShow.
 # NOTE: These are MADE-UP ESTIMATES written for fun, not results of real surveys.
 # Format:  Q: question   then   Answer = alias, alias | points
 Q: Name something people bring to the beach

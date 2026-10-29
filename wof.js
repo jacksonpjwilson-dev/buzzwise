@@ -1,5 +1,5 @@
 const GR = require('./lib/getready');
-// Buzzwise: Wheel of Fortune mode (socket.io namespace /wof)
+// MyGameShow: Wheel of Fortune mode (socket.io namespace /wof)
 const fs = require('fs'), path = require('path');
 
 const WHEEL = [2500, 600, 700, 600, 650, 500, 700, 'BANKRUPT', 600, 550, 500, 600, 300, 650, 'FREE PLAY', 700, 'LOSE A TURN', 800, 500, 650, 500, 900, 'BANKRUPT', 350];

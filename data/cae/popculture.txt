@@ -1,4 +1,4 @@
-# Cards Against Everyone · Pop Culture pack. All card text is original to Buzzwise.
+# Cards Against Everyone · Pop Culture pack. All card text is original to MyGameShow.
 [prompts]
 The new Marvel movie's villain is ____.
 Taylor Swift's next breakup song is about ____.

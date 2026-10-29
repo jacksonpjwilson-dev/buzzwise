@@ -1,4 +1,4 @@
-// Buzzwise: Password (namespace /pw). Classic head-to-head: every team's clue-giver gets the same secret word; teams alternate one clue at a time.
+// MyGameShow: Password (namespace /pw). Classic head-to-head: every team's clue-giver gets the same secret word; teams alternate one clue at a time.
 // The word never reaches the shared screen or any guesser until the word is solved (or runs out of clues).
 const fs = require('fs'), path = require('path'); const makeParty = require('./lib/party'); const { shuffle } = makeParty;
 function loadWords() { const out = { easy: [], medium: [], hard: [] }; let cur = null;

@@ -1,4 +1,4 @@
-# Buzzwise Price Is Right products.  Name | typical US retail price in dollars
+# MyGameShow Price Is Right products.  Name | typical US retail price in dollars
 # NOTE: Prices are rough ESTIMATES of typical US retail prices (2026), for fun only.
 Gallon of whole milk | 4.29
 Dozen large eggs | 3.99

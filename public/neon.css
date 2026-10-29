@@ -1,4 +1,4 @@
-/* Buzzwise v1.6 "Neon Game Show" theme. Loaded after styles.css on every page; each page's body carries .g-<game> for its accent. */
+/* MyGameShow v1.6 "Neon Game Show" theme. Loaded after styles.css on every page; each page's body carries .g-<game> for its accent. */
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@500;600;700;800;900&display=swap');
 body.neon{--pink:#ff2fd6;--cyan:#00f0ff;--yel:#ffe14d;--gold:#ffe14d;--gold2:#ffc21a;--bg:#07020f;--bg2:#12062a;--card:#12062a;--line:rgba(255,47,214,.22);--text:#fff;--muted:#cbbbef;--ac:var(--pink);--ac2:#a0008a;--disp:Bungee,Impact,"Arial Black",sans-serif}
 body.g-jp{--ac:#5b86ff;--ac2:#0a1a8f}body.g-wof{--ac:#ffb400;--ac2:#ff5a1f}body.g-ff{--ac:#ff4d6a;--ac2:#a8124a}body.g-pir{--ac:#1fd69c;--ac2:#06704f}

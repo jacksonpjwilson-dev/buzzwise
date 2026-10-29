@@ -1,4 +1,4 @@
-# Cards Against Everyone · Work & Office pack. All card text is original to Buzzwise.
+# Cards Against Everyone · Work & Office pack. All card text is original to MyGameShow.
 [prompts]
 The meeting could have been an email about ____.
 My performance review mentioned ____.

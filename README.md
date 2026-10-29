@@ -1,4 +1,4 @@
-# Buzzwise — party game shows on everyone's phone
+# MyGameShow — party game shows on everyone's phone
 
 Three modes in one app: **Jeopardy** (trivia), **Wheel of Fortune** (puzzles) and **Family Feud** (team surveys). Pick one on the home page.
 
@@ -71,14 +71,19 @@ At the top of each host screen pick:
 - Host tools: Skip round, ± team scores, team names, max rounds, New game.
 - Surveys live in `data/ff-surveys.txt` (114 questions). **The survey answers and point values are made-up estimates written for this game, not results of real surveys.** Run `npm run check:ff` after editing.
 
+## Name (v1.13.0)
+
+The app is now called **MyGameShow** (formerly Buzzwise). The GitHub repo, the Render service and the address https://buzzwise.onrender.com keep their old names, and saved sessions/voice settings (`bw-*` localStorage keys) keep working.
+
 ## Theme: Halloween (default) and Neon (v1.12.0)
 
 Every page is styled as **Halloween** by default: night background, pumpkin orange, toxic green and purple, Creepster titles, plus moon, bats, cobwebs, jack-o'-lanterns and fog. Animations switch off under `prefers-reduced-motion`, and phones get fewer decorations. The theme is CSS only (`public/halloween.css` layered over `public/neon.css`, applied by `lib/theme.js`). Game logic is unchanged.
 
 **To switch back to the Neon Game Show look:**
 - **Everyone:** set the environment variable `BUZZWISE_THEME=neon` (on Render: Service → Environment → add `BUZZWISE_THEME` = `neon`, then save and redeploy). Remove it, or set it to `halloween`, to return to Halloween.
+- `MGS_THEME` is accepted as an alias for `BUZZWISE_THEME` (same values; `MGS_THEME` wins if both are set).
 - **Preview one page:** add `?theme=neon` to the URL (or `?theme=halloween`).
-- The app icon and manifest colours are now pumpkin orange. To restore the pink icon, revert `scripts/build-icons.js` and the icon files from v1.11.0 (`git checkout 0e30c0b -- scripts/build-icons.js public/icons public/apple-touch-icon.png public/favicon* public/manifest.webmanifest`).
+- The app icon (v1.13) is the MyGameShow artwork (retro TV + golden mic) and is the same in both themes. Source: `assets/mgs-icon-source.jpg`; rebuild all icon sizes with `npm i --no-save sharp && node scripts/build-icons.js`.
 
 ## For developers
 - Questions live in `data/boards/*.txt` (easy to edit). After editing run `npm run check` — rebuilds `data/questions.json` and verifies no duplicate clues/answers across all boards.
@@ -100,7 +105,7 @@ Every page is styled as **Halloween** by default: night background, pumpkin oran
 
 ## v1.5.0: three new games, Get ready screens, Feud read-aloud
 - **Password** (`/pw`, phones `/pw/play`): two-person teams (paired in join order or shuffled). The secret word goes ONLY to the clue-giver's phone, never to the shared screen or the guesser. The giver taps "Gave another clue" (10 → 9 → 8…), then ✓ Correct or Pass. Roles swap each time around, and the leading team plays a 60-second ⚡ lightning round (+10 per word). 348 words: easy, medium and hard (`data/password-words.txt`).
-- **Cards Against Everyone** (`/cae`, phones `/cae/play`): an original fill-in-the-blank card game, with all card text written for Buzzwise. The host picks and combines decks: Family (kid-safe), Fun (PG-13), After Dark (18+, needs a host confirmation), plus Pop Culture and Work & Office packs. It has 7-card hands, pick-1 and pick-2 prompts, anonymous submissions on the shared screen, a rotating Card Czar who picks on their phone (in Dedicated mode the host judges instead), first to N points, and optional ✏️ blank write-in cards. Main decks have 120 prompts and 410 answers each (`data/cae/*.txt`).
+- **Cards Against Everyone** (`/cae`, phones `/cae/play`): an original fill-in-the-blank card game, with all card text written for MyGameShow. The host picks and combines decks: Family (kid-safe), Fun (PG-13), After Dark (18+, needs a host confirmation), plus Pop Culture and Work & Office packs. It has 7-card hands, pick-1 and pick-2 prompts, anonymous submissions on the shared screen, a rotating Card Czar who picks on their phone (in Dedicated mode the host judges instead), first to N points, and optional ✏️ blank write-in cards. Main decks have 120 prompts and 410 answers each (`data/cae/*.txt`).
 - **Priorities** (`/pri`, phones `/pri/play`): each round the subject secretly ranks 5 random items. The others guess individually or as a team (host's choice), scoring 2 points per correct spot plus 5 for a perfect order, then the shared screen plays an animated reveal from #5 up to #1. 508 items (`data/priorities-items.txt`).
 - **Get ready** screens in every mode: before each round, face-off, turn or pricing game (and at Jeopardy game start and Double Jeopardy), the shared screen and phones show who's up and the scores. No question, puzzle, item or speech is sent until the host presses ▶ Start.
 - **Family Feud read-aloud**: the face-off question is spoken with the chosen natural voice (shared `public/speech.js` and voice picker). The question is hidden until one full uninterrupted reading finishes. Buzzers are open during the reading and a buzz cuts the speech off. A pass to the opponent is not re-read (the host has a 🔁 Read again button while nobody is answering).
