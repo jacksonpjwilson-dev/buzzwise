@@ -31,7 +31,7 @@ server.listen(0, async () => {
     const t = id => host.state.teams.find(x => x.id === id);
     ok(t('t1').members.map(m => m.name).sort().join() === 'Ann,Cat' && t('t2').members.map(m => m.name).sort().join() === 'Ben,Dan', 'player picks team, host assigns; lobby shows members');
     ok(A.state.teams && A.state.teams.length === 2, 'players see the teams in the lobby');
-    host.emit('host:selectBoard', { boardId: 'pub-quiz-night' }); host.emit('host:start'); await wait(120);
+    host.emit('host:selectBoard', { boardId: 'jackpot' }); host.emit('host:start'); await wait(120);
     ok(host.state.phase === 'board' && host.state.ctrlTeam === 't1', 'game starts, first team in control');
     ok((await call(B, 'player:team', { team: 't1' })).error, 'cannot switch teams mid-game');
     const room = rooms[code]; const [ddc, ddr] = [...room.dd][0].split('-').map(Number);
@@ -93,7 +93,7 @@ server.listen(0, async () => {
     host2.emit('host:mode', { mode: 'player' }); await wait(30); await call(host2, 'host:teams', { mode: 'teams' });
     await call(E, 'player:join', { code: c2, name: 'Eve', pid: 'pe' }); await call(F, 'player:join', { code: c2, name: 'Fay', pid: 'pf' }); await wait(60);
     ok(E.state.me.team !== F.state.me.team, 'host player and friend split across teams');
-    host2.emit('host:selectBoard', { boardId: 'pub-quiz-night' }); host2.emit('host:start'); await wait(100);
+    host2.emit('host:selectBoard', { boardId: 'jackpot' }); host2.emit('host:start'); await wait(100);
     const rm2 = rooms[c2]; let oc = 0; while (rm2.dd.has(`${oc}-0`)) oc++;
     host2.emit('host:open', { c: oc, r: 0 }); await wait(60);
     E.emit('player:buzz'); await wait(40); await call(host2, 'host:reveal', {}); await wait(40);

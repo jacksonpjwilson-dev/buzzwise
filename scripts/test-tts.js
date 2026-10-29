@@ -24,7 +24,7 @@ server.listen(0, async () => {
     // Jeopardy
     const H = mk(), A = mk(); const { code, hostKey } = await call(H, 'host:create', {});
     await call(A, 'player:join', { code, name: 'Ann', pid: 'pAnn' });
-    H.emit('host:mode', { mode: 'player' }); H.emit('host:selectBoard', { boardId: 'pub-quiz-night' }); H.emit('host:start'); await wait(120);
+    H.emit('host:mode', { mode: 'player' }); H.emit('host:selectBoard', { boardId: 'jackpot' }); H.emit('host:start'); await wait(120);
     const room = rooms[code], q02 = room.board.rounds[0][1].clues[2].q;
     ok((await get({ game: 'jp', room: code, key: 'wrong' })).status === 404, 'wrong host key is refused');
     ok((await get({ game: 'jp', room: code, key: hostKey })).status === 404, 'nothing to read before a clue is open');

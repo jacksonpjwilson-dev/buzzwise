@@ -1,0 +1,80 @@
+NAME: Odd Lot
+DIFFICULTY: medium
+TAGLINE: A little of this, a little of that
+== R1
+# Eureka!
+Which brothers made the first powered airplane flight in 1903? | Wright brothers
+Which Scottish inventor gave the first public demonstration of television in 1926? | John Logie Baird
+Which German goldsmith introduced movable-type printing to Europe around 1440? | Johannes Gutenberg
+Which Canadian doctor co-discovered insulin in 1921? | Frederick Banting
+Which Italian inventor pioneered long-distance radio transmission? | Guglielmo Marconi
+# Pet Project
+Which small Australian parrot is one of the world's most popular pet birds? | Budgie
+Which long-bodied German breed is nicknamed the "wiener dog"? | Dachshund
+Which squeaky pet rodent is also called a cavy? | Guinea pig
+Which fluffy dog breed is known for its blue-black tongue? | Chow Chow
+Which cat breed is known for being hairless? | Sphynx
+# Rock Legends
+Which Irish band is fronted by Bono? | U2
+Who is the lead singer of the Rolling Stones? | Mick Jagger
+Which band recorded "Bohemian Rhapsody"? | Queen
+Which band released "Stairway to Heaven"? | Led Zeppelin
+Which Winnipeg band hit No. 1 in the US with "American Woman" in 1970? | The Guess Who
+# Fruit Stand
+Which curved yellow fruit is peeled before eating and loved by monkeys in cartoons? | Banana
+Which seed-packed red fruit features in the Greek myth of Persephone? | Pomegranate
+Which fruit is dried to make a prune? | Plum
+Sultanas are dried versions of which fruit? | Grape
+Which spiky Southeast Asian fruit is banned on some public transit because of its smell? | Durian
+# Math Class
+What do you call a triangle with three equal sides? | Equilateral
+What is the name for a polygon with eight sides? | Octagon
+What is an angle greater than 90 degrees but less than 180 called? | Obtuse
+What is the value of pi rounded to two decimal places? | 3.14
+What is the longest side of a right triangle called? | Hypotenuse
+# Masterpieces
+Who painted the "Mona Lisa"? | Leonardo da Vinci
+Which Spanish artist co-founded Cubism? | Pablo Picasso
+Which Dutch artist painted "Girl with a Pearl Earring"? | Johannes Vermeer
+Which Spanish surrealist painted the melting clocks of "The Persistence of Memory"? | Salvador Dalí
+Which French Impressionist painted water lilies in his garden at Giverny? | Claude Monet
+== R2
+# Mash-Up
+A sandwich spread made from legumes + a winged insect | Peanut butterfly
+A ballpark frankfurter + a backyard kennel | Hot doghouse
+"The Dark Side of the Moon" band + an unbeaten American boxing champion | Pink Floyd Mayweather
+"Rocket Man" singer + the Beatle who wrote "Imagine" | Elton John Lennon
+Melville's white whale + Chester Gould's square-jawed comic-strip detective | Moby-Dick Tracy
+# Group Names
+A group of lions is called a what? | Pride
+A group of whales or dolphins is called a what? | Pod
+A group of geese on the ground is called a what? | Gaggle
+A group of owls is called a what? | Parliament
+A group of flamingos is called a what? | Flamboyance
+# Out of Africa
+Which is Africa's most populous country? | Nigeria
+Which country is home to the Pyramids of Giza? | Egypt
+What is the capital of Kenya? | Nairobi
+Which is Africa's largest country by area? | Algeria
+Which island nation off Africa's southeast coast is the only native home of lemurs? | Madagascar
+# Physics Phun
+Which unit of power is named after a Scottish steam-engine pioneer? | Watt
+Which scientist developed the theory of relativity? | Albert Einstein
+What is the SI unit of force? | Newton
+Roughly how many kilometres per second does light travel in a vacuum? | 300,000
+What is the tendency of an object to resist changes to its motion called? | Inertia
+# Gridiron
+Which NFL team is nicknamed "America's Team"? | Dallas Cowboys
+Which CFL team is based in Regina? | Saskatchewan Roughriders
+Which football position takes the snap and throws most passes? | Quarterback
+Which quarterback won seven Super Bowls? | Tom Brady
+In Canadian football, what is the single point scored when a kick isn't returned out of the end zone? | Rouge
+# Reality Check
+On which reality show do players try to "outwit, outplay, outlast"? | Survivor
+Which singing competition has celebrity coaches in spinning red chairs? | The Voice
+Which competition show hosted by RuPaul crowns "America's Next Drag Superstar"? | RuPaul's Drag Race
+Which British baking competition takes place in a tent? | The Great British Bake Off
+On which reality show do teams travel the globe for a $1 million prize? | The Amazing Race
+== FINAL
+# Literature
+In this 1960 novel, Scout Finch's father, Atticus, defends Tom Robinson in a small Alabama town. | To Kill a Mockingbird

@@ -1,0 +1,80 @@
+NAME: Side Quest
+DIFFICULTY: medium
+TAGLINE: Detours worth taking
+== R1
+# Super Friends
+What is the name of Superman's home planet? | Krypton
+Diana Prince is the secret identity of which Amazon warrior? | Wonder Woman
+Which Marvel hero carries a vibranium shield and is named after his country? | Captain America
+What is the name of the scientist who turns into the Hulk? | Bruce Banner
+Which X-Men hero has adamantium claws? | Wolverine
+# Horsing Around
+What is an adult male horse kept for breeding called? | Stallion
+In what unit is a horse's height traditionally measured? | Hands
+Which striped African animal is a close relative of the horse? | Zebra
+Which horse race is nicknamed "the Run for the Roses"? | Kentucky Derby
+Which racehorse won the 1973 Triple Crown, taking the Belmont by 31 lengths? | Secretariat
+# Stage Names
+Which rapper's real name is Marshall Mathers? | Eminem
+Which U2 frontman was born Paul Hewson? | Bono
+Which "Rocket Man" singer was born Reginald Dwight? | Elton John
+Which Toronto singer behind "Blinding Lights" was born Abel Tesfaye? | The Weeknd
+Which Police frontman was born Gordon Sumner? | Sting
+# Soup's On
+Which Spanish tomato soup is served cold? | Gazpacho
+Which Japanese noodle soup comes in styles like tonkotsu and shoyu? | Ramen
+Which ruby-red beet soup is popular in Ukraine and Eastern Europe? | Borscht
+Which soup is topped with toasted bread and melted Gruyère? | French onion soup
+Which Louisiana stew is thickened with a dark roux and often okra? | Gumbo
+# Logged On
+Which video-sharing site was founded in 2005 and bought by Google in 2006? | YouTube
+Which South Korean company makes Galaxy smartphones? | Samsung
+What is the word for a photo you take of yourself, usually with a phone? | Selfie
+Which social network's logo was a blue bird before it was renamed X? | Twitter
+In tech, what does "AI" stand for? | Artificial intelligence
+# Finish the Proverb
+Don't count your chickens before they ___ | Hatch
+The early bird catches the ___ | Worm
+A picture is worth a thousand ___ | Words
+Don't put all your eggs in one ___ | Basket
+People who live in glass houses shouldn't throw ___ | Stones
+== R2
+# Link Up
+A stuffed toy for kids + a big squeeze | Teddy bear hug
+The Disney princess who lives with seven dwarfs + the US president's residence | Snow White House
+"Top Gun" star + a floating holiday resort | Tom Cruise ship
+Sherwood Forest's outlaw + a car's decorative front emblem | Robin Hood ornament
+J.M. Barrie's boy who never grows up + a breakfast flapjack | Peter Pancake
+# Palindromes
+A palindrome meaning flat and even | Level
+A palindromic paddle boat | Kayak
+A palindromic detection system using radio waves | Radar
+A palindromic polite form of address for a woman | Madam
+A palindromic spinning part of a helicopter | Rotor
+# Lakes & Seas
+Which is the largest of the Great Lakes? | Lake Superior
+In which very salty sea can swimmers float with ease? | Dead Sea
+Which Siberian lake is the deepest in the world? | Lake Baikal
+Which Great Lake lies entirely within the United States? | Lake Michigan
+Which lake, Africa's largest, is a source of the White Nile? | Lake Victoria
+# Home Sweet Home
+What is a bird's home called? | Nest
+What is a beaver's dome-shaped home called? | Lodge
+What is a network of rabbit burrows called? | Warren
+What is an eagle's nest perched up high called? | Eyrie
+What is a squirrel's nest of leaves and twigs called? | Drey
+# Winter Games
+In which sport do teammates sweep the ice ahead of a sliding stone? | Curling
+Which sport combines cross-country skiing and rifle shooting? | Biathlon
+Which figure-skating jump has a forward takeoff and an extra half rotation? | Axel
+In which sled sport do teams of two or four push off and jump in? | Bobsled
+Which Norwegian town hosted the 1994 Winter Olympics? | Lillehammer
+# Sci-Fi Screens
+Which golden protocol droid is R2-D2's companion in "Star Wars"? | C-3PO
+Who captains the starship Enterprise in the original "Star Trek"? | James T. Kirk
+Which 1982 Spielberg film features an alien who wants to "phone home"? | E.T. the Extra-Terrestrial
+Which 1979 Ridley Scott film warned "In space no one can hear you scream"? | Alien
+Which 1968 Stanley Kubrick film features the computer HAL 9000? | 2001: A Space Odyssey
+== FINAL
+# Science
+This English naturalist, who studied finches in the Galápagos, published "On the Origin of Species" in 1859. | Charles Darwin

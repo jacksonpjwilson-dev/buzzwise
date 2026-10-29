@@ -1,0 +1,80 @@
+NAME: Jackpot
+DIFFICULTY: medium
+TAGLINE: Something for everyone, nothing too wild
+== R1
+# Seats of Power
+What is the capital of Egypt? | Cairo
+What is the capital of Poland? | Warsaw
+What is the capital of Venezuela? | Caracas
+What is the capital of Finland? | Helsinki
+Which planned city, built in the 1960s, replaced Karachi as Pakistan's capital? | Islamabad
+# Tooth & Claw
+What is the largest living land animal? | African elephant
+A group of these big cats is called a "pride." | Lions
+Which black-and-white bear eats almost nothing but bamboo? | Giant panda
+Which snarling marsupial is today found in the wild only on the Australian island of Tasmania? | Tasmanian devil
+Which giant flightless bird of New Zealand was hunted to extinction within a few centuries of human arrival? | Moa
+# Spin the Record
+Which band sang "Yellow" and "Viva la Vida"? | Coldplay
+Which singer-songwriter released "Like a Rolling Stone" in 1965? | Bob Dylan
+Which ex-Beatle released the song "Imagine" in 1971? | John Lennon
+Which Canadian rock trio recorded "Tom Sawyer" and "The Spirit of Radio"? | Rush
+Which Icelandic singer fronted the Sugarcubes before solo albums like "Homogenic"? | Björk
+# Reel Talk
+In which 1990 film does Macaulay Culkin defend his house from two burglars? | Home Alone
+In which film does Tom Hanks's stranded character befriend a volleyball named Wilson? | Cast Away
+Which 1999 film offers Neo a choice between a red pill and a blue pill? | The Matrix
+Which 1982 Ridley Scott film follows Rick Deckard as he hunts replicants? | Blade Runner
+Which 1957 David Lean war film features prisoners whistling the "Colonel Bogey March"? | The Bridge on the River Kwai
+# Sweet & Savory
+Which Italian dish layers flat pasta sheets with sauce and cheese? | Lasagna
+Which Japanese dish pairs vinegared rice with fish or vegetables? | Sushi
+Which spicy fermented cabbage dish is a staple of Korean meals? | Kimchi
+Which saffron rice dish from Valencia is cooked in a wide, shallow pan? | Paella
+Which Swiss dish of melted cheese scraped onto potatoes shares its name with the cheese? | Raclette
+# Letter Perfect
+Which four-letter palindrome means midday? | Noon
+What is the most commonly used letter in English? | E
+Besides Q, which letter is worth 10 points in English-language Scrabble? | Z
+What is the name of the symbol "&"? | Ampersand
+The "interrobang" merges which two punctuation marks? | Question mark and exclamation mark
+== R2
+# Mash Notes
+Elsa's power ballad from "Frozen" + a card game where you ask "Got any sevens?" | Let It Go Fish
+A Beatles undersea vessel + a long sandwich on a roll | Yellow Submarine sandwich
+Stallone's 1976 boxing film + the range that's home to Banff and Jasper | Rocky Mountains
+Ian Fleming's agent 007 + a posh London shopping street | James Bond Street
+Spider-Man's alter ego + soft dinner rolls named for a Boston hotel | Peter Parker House rolls
+# Rhymes With Reason
+A dessert made for an antlered animal | Moose mousse
+A celestial body that's a long way away | Far star
+A feline's headwear | Cat hat
+A pony with a sore throat | Hoarse horse
+Fake elbow pasta | Phony macaroni
+# Where in the World?
+Which Scandinavian country is famous for fjords and the city of Bergen? | Norway
+Which South American country is named after Simón Bolívar? | Bolivia
+Which mountainous kingdom is completely surrounded by South Africa? | Lesotho
+Which African country was known as Zaire from 1971 to 1997? | Democratic Republic of the Congo
+Which West African country, west of Nigeria, was formerly called Dahomey? | Benin
+# Mad Science
+Which part of a plant absorbs water from the soil? | Roots
+Frogs and salamanders belong to which class of animals? | Amphibians
+What is the chemical symbol for lead? | Pb
+What is the name for the energy an object has because of its motion? | Kinetic energy
+Which SI unit of energy is named after an English brewer and physicist? | Joule
+# Locker Room
+In which sport might a bowler deliver a "googly"? | Cricket
+What does the "A" in NBA stand for? | Association
+In baseball, what is it called when a batter gets a single, double, triple and home run in one game? | Hitting for the cycle
+Which martial art's name means "the gentle way" in Japanese? | Judo
+Which Canadian city hosted the 1976 Summer Olympics? | Montreal
+# Channel Surfing
+Simon Cowell, Paula Abdul and Randy Jackson were the original judges of which singing show? | American Idol
+On "The Office," what is the name of Dwight's family beet farm? | Schrute Farms
+Which 1990s sitcom starred Will Smith as a Philadelphia teen sent to live with rich relatives? | The Fresh Prince of Bel-Air
+What was the name of the hospital at the start of "Grey's Anatomy"? | Seattle Grace Hospital
+On "M*A*S*H," Corporal Klinger wore dresses hoping to get what kind of discharge? | Section 8
+== FINAL
+# Explorers
+In 1497 this Italian navigator, sailing for England's Henry VII, reached the coast of North America, likely Newfoundland. | John Cabot

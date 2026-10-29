@@ -11,7 +11,7 @@ server.listen(0, async () => {
   try {
     console.log('Jeopardy');
     { const H = mk(''), A = mk(''); const { code } = await call(H, 'host:create', {}); await call(A, 'player:join', { code, name: 'Ann', pid: 'ja' });
-      H.emit('host:mode', { mode: 'player' }); H.emit('host:selectBoard', { boardId: 'pub-quiz-night' }); H.emit('host:start'); await wait(60);
+      H.emit('host:mode', { mode: 'player' }); H.emit('host:selectBoard', { boardId: 'jackpot' }); H.emit('host:start'); await wait(60);
       ok(H.state.phase === 'getready' && A.state.phase === 'getready' && !H.state.grid && !A.state.grid, 'game start: Get ready on shared screen + phones (no board yet)');
       ok(H.state.getReady.lines.length > 0 && H.state.scores.length === 1, 'shows who\'s up and the scores');
       H.emit('host:open', { c: 0, r: 0 }); await wait(40); ok(!rooms[code].current && !H.all.some(x => x.includes('"speak"')), 'cannot open a clue (no speech) before Start');

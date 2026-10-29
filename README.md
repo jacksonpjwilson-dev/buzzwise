@@ -3,7 +3,7 @@
 Three modes in one app: **Jeopardy** (trivia), **Wheel of Fortune** (puzzles) and **Family Feud** (team surveys). Pick one on the home page.
 
 
-Host on a laptop/TV, players buzz in from their phones. 15 boards (2 Easy, 9 Medium, 2 Hard, 2 Expert), each with two 6×5 rounds plus Final — 915 clues, none repeated.
+Host on a laptop/TV, players buzz in from their phones. 36 boards (2 Easy, 30 Medium incl. 5 Halloween, 2 Hard, 2 Expert), each with two 6×5 rounds plus Final — 2,196 clues, none repeated.
 
 ## Run it
 

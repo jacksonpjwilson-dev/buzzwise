@@ -16,6 +16,11 @@ const VERSION = { version: PKG_VERSION, commit: COMMIT || 'dev', label: `v${PKG_
 app.get('/version', (req, res) => res.json(VERSION));
 app.get('/healthz', (req, res) => res.send('ok'));
 const ICON_TYPES = { '.webmanifest': 'application/manifest+json', '.ico': 'image/x-icon', '.svg': 'image/svg+xml', '.png': 'image/png' };
+// Home page: inject the live Jeopardy board count so the tile never goes stale.
+const fs = require('fs');
+const HOME_HTML = fs.readFileSync(path.join(__dirname, 'public', 'index.html'), 'utf8')
+  .replace(/<span data-jp-boards>\d+<\/span>/, `<span data-jp-boards>${BOARDS.length}</span>`);
+app.get(['/', '/index.html'], (req, res) => res.type('html').send(HOME_HTML));
 app.use(express.static(path.join(__dirname, 'public'), { setHeaders: (res, file) => { const t = ICON_TYPES[path.extname(file)]; if (t) res.setHeader('Content-Type', t);
   if (/(apple-touch-icon|favicon|icons[\\/])/.test(file)) res.setHeader('Cache-Control', 'public, max-age=86400'); } }));
 app.get('/api/boards', (req, res) => res.json(BOARDS.map(b => ({

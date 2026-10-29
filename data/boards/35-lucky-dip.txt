@@ -1,0 +1,80 @@
+NAME: Lucky Dip
+DIFFICULTY: medium
+TAGLINE: Reach in and see what you pull out
+== R1
+# Pop Royalty
+Which singer is known as the "King of Pop"? | Michael Jackson
+Which "Queen of Pop" released "Like a Prayer" in 1989? | Madonna
+Which Barbadian singer topped the charts with "Umbrella"? | Rihanna
+Which Canadian singer was discovered on YouTube and released "Baby" in 2010? | Justin Bieber
+Which British singer's album "21" featured "Rolling in the Deep"? | Adele
+# Under the Sea
+In which fish does the male carry the eggs in a pouch and give birth? | Seahorse
+Which gentle marine mammal is nicknamed the "sea cow"? | Manatee
+Which tiny shrimp-like animals are the main food of blue whales? | Krill
+Which orange-and-white fish lives among the tentacles of sea anemones? | Clownfish
+Which stinging jellyfish relative is actually a colony of organisms with a sail-like float? | Portuguese man o' war
+# Drive-Thru
+Which fast-food chain is known for its golden arches? | McDonald's
+Which chain, founded in Hamilton, Ontario, sells Timbits? | Tim Hortons
+Which chain's founder and mascot is Colonel Sanders? | KFC
+Which chain sells the Whopper? | Burger King
+Which sandwich chain was originally called "Pete's Super Submarines"? | Subway
+# Planet Parade
+Which planet is nicknamed the Red Planet? | Mars
+Which planet is closest to the Sun? | Mercury
+Which planet has the hottest surface in the solar system? | Venus
+Which planet spins on its side with an axis tilted about 98 degrees? | Uranus
+Which moon of Jupiter is the most volcanically active body in the solar system? | Io
+# Word Origins
+From which language does English get the word "kindergarten"? | German
+The word "safari" comes from Swahili, meaning what? | Journey
+The word "robot" was coined in a 1920 play written in which language? | Czech
+The word "alphabet" comes from the first two letters of which alphabet? | Greek
+The word "muscle" comes from a Latin word meaning "little" what? | Mouse
+# Card Sharks
+How many cards are in a standard deck, not counting jokers? | 52
+In which casino card game do you try to reach 21 without going over? | Blackjack
+Which one-player card game is also known as Patience? | Solitaire
+What is the best possible hand in standard poker? | Royal flush
+Which card game is traditionally scored by moving pegs on a wooden board? | Cribbage
+== R2
+# Dynamic Duos
+Who is Mario's taller brother, dressed in green? | Luigi
+Who is Batman's sidekick, the Boy Wonder? | Robin
+Which Muppet frog is the object of Miss Piggy's affection? | Kermit
+Which outlaw partnered with Clyde Barrow in the 1930s? | Bonnie Parker
+Who partnered with Meriwether Lewis on the 1804 expedition to the Pacific? | William Clark
+# Initial Reaction
+What does "ASAP" stand for? | As soon as possible
+What does "DIY" stand for? | Do it yourself
+What does "NASA" stand for? | National Aeronautics and Space Administration
+What does "SCUBA" stand for? | Self-contained underwater breathing apparatus
+What does "LASER" stand for? | Light amplification by stimulated emission of radiation
+# Island Hopping
+Which Indonesian island is famous for its beaches and Hindu temples? | Bali
+Which Mediterranean island is home to the volcano Mount Etna? | Sicily
+On which large island is the city of St. John's, Canada? | Newfoundland
+Which Mediterranean island was the birthplace of Napoleon? | Corsica
+Which remote Pacific island is famous for its giant moai statues? | Easter Island
+# Animal Records
+What is the tallest living animal? | Giraffe
+What is the largest species of penguin? | Emperor penguin
+Which bird lays the largest eggs of any living bird? | Ostrich
+Which bird reaches the fastest speeds when diving on its prey? | Peregrine falcon
+Which land mammal has the longest pregnancy, nearly two years? | Elephant
+# Tee Time
+In golf, what is a score of one under par on a hole called? | Birdie
+In golf, what is a score of two under par on a hole called? | Eagle
+What is it called when a golfer sinks the ball with a single tee shot? | Hole in one
+What is Tiger Woods's real first name? | Eldrick
+Which Scottish town is known as "the home of golf"? | St Andrews
+# Toon Town
+What is the name of SpongeBob's starfish best friend? | Patrick Star
+Which Springfield family lives at 742 Evergreen Terrace? | The Simpsons
+Which "Scooby-Doo" character is known for saying "Jinkies!"? | Velma
+Which stuttering Looney Tunes pig says "That's all, folks!"? | Porky Pig
+In "The Flintstones," what is the name of Fred's wife? | Wilma
+== FINAL
+# Geography
+This landlocked European country has four national languages: German, French, Italian and Romansh. | Switzerland

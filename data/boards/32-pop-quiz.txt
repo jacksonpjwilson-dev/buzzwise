@@ -1,0 +1,80 @@
+NAME: Pop Quiz
+DIFFICULTY: medium
+TAGLINE: Pencils down, buzzers up
+== R1
+# Time Machine
+In what year did astronauts first land on the Moon? | 1969
+Which barrier dividing a German city was opened in November 1989? | Berlin Wall
+Which revolution began with the storming of the Bastille in 1789? | French Revolution
+Which royal dynasty ruled Russia until the revolution of 1917? | Romanov
+In which 1066 battle did William the Conqueror defeat King Harold II? | Battle of Hastings
+# Six Legs
+Which insect makes honey? | Honeybee
+What is the hard case a caterpillar forms before becoming a butterfly called? | Chrysalis
+Which orange-and-black butterfly migrates thousands of kilometres from Canada to Mexico? | Monarch butterfly
+Which glowing beetles are also called lightning bugs? | Fireflies
+Which colony-dwelling insects build towering mounds in Africa and Australia? | Termites
+# Name That Band
+Which Seattle band was fronted by Kurt Cobain? | Nirvana
+Which New Jersey band sang "Livin' on a Prayer"? | Bon Jovi
+Which Irish band had a 1994 hit with "Zombie"? | The Cranberries
+Which Las Vegas band released "Mr. Brightside"? | The Killers
+Which Montreal band released the acclaimed 2004 album "Funeral"? | Arcade Fire
+# Sweet Treats
+Which sandwich cookie has two chocolate wafers and a creme filling? | Oreo
+Which no-bake Canadian dessert bar is named after a city on Vancouver Island? | Nanaimo bar
+Which French custard dessert has a hard caramelized sugar top? | Crème brûlée
+In which city was the chocolate Sachertorte created? | Vienna
+Which meringue dessert topped with fruit is named after a Russian ballerina? | Pavlova
+# Tech Titans
+Which company makes the Windows operating system? | Microsoft
+Which company did Jeff Bezos found in 1994 as an online bookstore? | Amazon
+What was Google's original name? | BackRub
+Which Waterloo, Ontario, company made the BlackBerry? | Research In Motion
+Which two Steves co-founded Apple in 1976? | Steve Jobs and Steve Wozniak
+# Parts of Speech
+What part of speech names a person, place or thing? | Noun
+What punctuation mark ends a direct question? | Question mark
+Words like "and," "but" and "or" are which part of speech? | Conjunctions
+What is the simple past tense of "swim"? | Swam
+What is the term for a verb form ending in "-ing" that acts as a noun, as in "Swimming is fun"? | Gerund
+== R2
+# Fusion
+Toy Story's space ranger + a school annual full of photos | Buzz Lightyearbook
+The fast-food chain behind the Whopper + the giant ape of Skull Island | Burger King Kong
+Apple's smart timepiece + Alan Moore's graphic novel about masked heroes | Apple Watchmen
+"Back to the Future" inventor + a chewy chocolate square | Doc Brownie
+Tolstoy's enormous novel + JFK's volunteer program | War and Peace Corps
+# Same Sound
+A rodent's shirt | Mouse blouse
+A grizzly's fur | Bear hair
+A story told by an orca | Whale tale
+A drink for a Canadian antlered giant | Moose juice
+Letters delivered by a slow gastropod | Snail mail
+# Oceania
+What is the largest city in Australia? | Sydney
+Melbourne is the capital of which Australian state? | Victoria
+What is the Māori name for New Zealand? | Aotearoa
+Suva is the capital of which Pacific island country? | Fiji
+Which island nation's capital is Port Vila? | Vanuatu
+# Chem Lab
+What is the chemical formula for water? | H2O
+What is the chemical symbol for iron? | Fe
+Which noble gas glows red-orange in classic advertising signs? | Neon
+What is the chemical name for table salt? | Sodium chloride
+Which metal has the highest melting point of all metals? | Tungsten
+# Olympic Spirit
+In which country did the ancient Olympic Games begin? | Greece
+Which American swimmer won eight gold medals at the 2008 Beijing Games? | Michael Phelps
+Which Canadian city hosted the 2010 Winter Olympics? | Vancouver
+Which American sprinter won four gold medals at the 1936 Berlin Olympics? | Jesse Owens
+Which Romanian gymnast scored the first perfect 10 in Olympic history in 1976? | Nadia Comăneci
+# Comedy Club
+Which Mike Myers character is an "International Man of Mystery"? | Austin Powers
+In "Anchorman," Ron Burgundy is a news anchor in which city? | San Diego
+Which 2011 comedy stars Kristen Wiig as a maid of honour in crisis? | Bridesmaids
+Which 1980 disaster-movie spoof features the line "Surely you can't be serious"? | Airplane!
+Which 1975 comedy features the Knights Who Say "Ni!"? | Monty Python and the Holy Grail
+== FINAL
+# Canada
+Created in 1999 from part of the Northwest Territories, this territory's name means "our land" in Inuktitut. | Nunavut

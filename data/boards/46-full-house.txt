@@ -1,0 +1,80 @@
+NAME: Full House
+DIFFICULTY: medium
+TAGLINE: Every seat is taken
+== R1
+# Card Sharks
+Which children's card game has players asking "Do you have any sevens?" | Go Fish
+Which card game has players shouting its name when down to one card? | Uno
+In poker, what is a hand of five cards of the same suit called? | Flush
+Which trick-taking card game, hugely popular in Ontario, makes the jacks the top trumps? | Euchre
+Which casino card game, favoured by James Bond, pits "player" against "banker"? | Baccarat
+# Best in Show
+Which curly-coated breed, France's national dog, comes in toy, miniature and standard sizes? | Poodle
+Which small breed has a wrinkly, flat face and a tightly curled tail? | Pug
+Which giant Alpine rescue breed is often pictured with a little barrel at its neck? | Saint Bernard
+Which short-legged herding breed was Queen Elizabeth II's favourite? | Corgi
+Which sled-dog breed, often blue-eyed, was developed by the Chukchi people? | Siberian husky
+# Breakfast Club
+Which flat griddle cake is usually stacked and topped with maple syrup? | Pancake
+Which breakfast dish of egg-soaked fried bread is called "pain perdu" in French? | French toast
+Which dish puts ham, a poached egg and hollandaise on an English muffin? | Eggs Benedict
+Which crunchy baked mix of oats, nuts and honey is often eaten with yogurt? | Granola
+Which North African and Middle Eastern dish poaches eggs in a spiced tomato sauce? | Shakshuka
+# Inventors
+Which inventor ran a famous laboratory in Menlo Park, New Jersey? | Thomas Edison
+Which Swedish inventor of dynamite left his fortune to fund famous prizes? | Alfred Nobel
+Which Scottish engineer improved the steam engine and gave his name to a unit of power? | James Watt
+Which German engineer patented the first practical petrol-powered automobile in 1886? | Karl Benz
+Which American inventor's 1793 cotton gin transformed Southern agriculture? | Eli Whitney
+# Opera & Ballet
+Which Tchaikovsky ballet features the Sugar Plum Fairy? | The Nutcracker
+Which Tchaikovsky ballet tells of Odette, a princess turned into a bird? | Swan Lake
+Which Bizet opera is named after a fiery Spanish cigarette-factory worker? | Carmen
+Which Puccini opera follows Mimì and a group of poor artists in Paris? | La Bohème
+Which Italian composer wrote the operas "Aida" and "La Traviata"? | Giuseppe Verdi
+# Fifty States
+Which US state is nicknamed the Lone Star State? | Texas
+New Orleans and its Mardi Gras are in which US state? | Louisiana
+Which US state is nicknamed the Grand Canyon State? | Arizona
+Atlanta is the capital of which US state? | Georgia
+Which US state is famous for cheese and nicknamed the Badger State? | Wisconsin
+== R2
+# Say What?
+When it pours, it's "raining cats and ___." | Dogs
+Something very easy is "a piece of ___." | Cake
+Something very expensive costs "an arm and a ___." | Leg
+Someone pursuing the wrong idea is "barking up the wrong ___." | Tree
+To face something unpleasant bravely is to "bite the ___." | Bullet
+# Lab Coat
+What is the chemical formula H2O better known as? | Water
+Which element has the chemical symbol Au? | Gold
+Which negatively charged particle orbits an atom's nucleus? | Electron
+What is the pH of pure water at room temperature? | 7
+Which particle in an atom's nucleus has no electric charge? | Neutron
+# Famous Ships
+What is the name of Captain Hook's ship in "Peter Pan"? | Jolly Roger
+Which ship was commanded by the pirate Blackbeard? | Queen Anne's Revenge
+Which freighter sank in Lake Superior in 1975, inspiring a Gordon Lightfoot song? | Edmund Fitzgerald
+Which Cunard liner was sunk by a German U-boat in 1915? | Lusitania
+Which Tudor warship of Henry VIII sank in 1545 and was raised in 1982? | Mary Rose
+# Legendary Beasts
+Which Scottish lake monster is nicknamed "Nessie"? | Loch Ness Monster
+Which hairy giant is said to roam the forests of the Pacific Northwest? | Sasquatch
+Which fire-breathing Greek monster had a lion's head, a goat's body and a serpent's tail? | Chimera
+Which creature of Greek myth is half human, half horse? | Centaur
+Which many-headed serpent did Hercules slay as his second labour? | Hydra
+# Rhyme Time
+A rodent's home | Mouse house
+A timid winged insect | Shy fly
+A rubber reptile | Fake snake
+A drenched pooch | Soggy doggy
+An insect snuggled in a carpet | Bug in a rug
+# Canadian Geography
+Which is Canada's largest province by area? | Quebec
+Banff and Jasper National Parks are in which province? | Alberta
+Which huge bay in northern Canada is named after an English explorer? | Hudson Bay
+Which large island is home to BC's capital, Victoria? | Vancouver Island
+Which Manitoba town calls itself the "Polar Bear Capital of the World"? | Churchill
+== FINAL
+# Inventions
+Johannes Gutenberg's version of this 15th-century invention used movable metal type. | Printing press

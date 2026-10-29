@@ -1,0 +1,80 @@
+NAME: Hot Streak
+DIFFICULTY: medium
+TAGLINE: Keep the run going
+== R1
+# Grand Tour
+Which Italian city is famous for its leaning bell tower? | Pisa
+Which ancient temple sits atop the Acropolis in Athens? | Parthenon
+In which Moscow square does St. Basil's Cathedral stand? | Red Square
+Which city is home to the Charles Bridge across the Vltava? | Prague
+Which Bavarian castle inspired Disney's Sleeping Beauty Castle? | Neuschwanstein Castle
+# Primates
+Which red-haired great ape lives in the rainforests of Borneo and Sumatra? | Orangutan
+What is the largest living ape? | Gorilla
+Which British scientist famously studied chimpanzees in Gombe, Tanzania? | Jane Goodall
+Which ring-tailed primate is found in the wild only on Madagascar? | Lemur
+Which Borneo monkey is known for the male's huge, droopy nose? | Proboscis monkey
+# Hip-Hop
+Which rapper behind "Empire State of Mind" is married to Beyoncé? | Jay-Z
+Which group released the 1988 album "Straight Outta Compton"? | N.W.A
+Which rapper released the album "To Pimp a Butterfly" in 2015? | Kendrick Lamar
+Which 1979 Sugarhill Gang single was hip-hop's first big hit? | Rapper's Delight
+Which DJ is credited with launching hip-hop at a 1973 Bronx party? | DJ Kool Herc
+# Tokyo Menu
+What is thinly sliced raw fish served without rice called? | Sashimi
+Which fiery green paste is served with sushi? | Wasabi
+Which dried seaweed is used to wrap sushi rolls? | Nori
+Which Japanese dish is shrimp or vegetables in a light, crispy batter? | Tempura
+Which fermented soybean paste is the base of a popular Japanese soup? | Miso
+# Great Minds
+Who formulated the laws of motion and universal gravitation? | Isaac Newton
+Which Polish-French scientist won Nobel Prizes in both physics and chemistry? | Marie Curie
+Which Polish astronomer proposed that Earth orbits the Sun? | Nicolaus Copernicus
+Which British physicist wrote "A Brief History of Time"? | Stephen Hawking
+Which Serbian-American inventor championed alternating current? | Nikola Tesla
+# Show Me the Money
+What is the currency of Japan? | Yen
+What is the currency of the United Kingdom? | Pound sterling
+What is the currency of Mexico? | Peso
+What is the currency of India? | Rupee
+What is the currency of South Africa? | Rand
+== R2
+# Glued Together
+A smoke-sensing ceiling device + a bedside wake-up gadget | Fire alarm clock
+Pixar's tale of Woody and Buzz + a library's children's reading hour | Toy Story time
+A party held before a baby arrives + a bathroom drape | Baby shower curtain
+Holey Alpine cheese + a creamy dessert on a graham crust | Swiss cheesecake
+The hockey player who co-founded a coffee chain + a Dr. Seuss elephant story | Tim Horton Hears a Who!
+# Alphabet Agencies
+What does "FBI" stand for? | Federal Bureau of Investigation
+What does "UN" stand for? | United Nations
+What does "NATO" stand for? | North Atlantic Treaty Organization
+What does "RSVP" stand for? | Répondez s'il vous plaît
+What did "UNICEF" originally stand for? | United Nations International Children's Emergency Fund
+# Middle East
+In which country is the ancient rock-cut city of Petra? | Jordan
+Which city is home to the Burj Khalifa? | Dubai
+What is the capital of Saudi Arabia? | Riyadh
+What is the capital of Iran? | Tehran
+Muscat is the capital of which country? | Oman
+# Deep Blue
+Which is the smallest and shallowest of the world's five oceans? | Arctic Ocean
+What are the extra-high tides that come with new and full moons called? | Spring tide
+What is the name of the deepest ocean trench, in the western Pacific? | Mariana Trench
+Which warm Atlantic current helps keep Western Europe mild? | Gulf Stream
+Which bay between New Brunswick and Nova Scotia has the world's highest tides? | Bay of Fundy
+# Track & Field
+Which Jamaican sprinter set the 100-metre world record of 9.58 seconds in 2009? | Usain Bolt
+Which race is 42.195 kilometres long? | Marathon
+Which track races require athletes to leap over barriers? | Hurdles
+In which event do athletes push a heavy metal ball from the shoulder? | Shot put
+Which Canadian won 100-metre gold at the 1996 Atlanta Olympics? | Donovan Bailey
+# Whodunit
+Which Agatha Christie detective is a fastidious Belgian? | Hercule Poirot
+Which elderly Agatha Christie sleuth lives in St. Mary Mead? | Miss Marple
+In which series did Angela Lansbury play mystery writer Jessica Fletcher? | Murder, She Wrote
+Which Peter Falk detective wore a rumpled raincoat? | Columbo
+Which Canadian series follows a detective in 1890s Toronto? | Murdoch Mysteries
+== FINAL
+# Canadian History
+This Métis leader headed the Red River and North-West resistances and was executed in 1885. | Louis Riel

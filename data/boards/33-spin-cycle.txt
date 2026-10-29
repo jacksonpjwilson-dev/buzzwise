@@ -1,0 +1,80 @@
+NAME: Spin Cycle
+DIFFICULTY: medium
+TAGLINE: Round and round the categories go
+== R1
+# Crown Jewels
+Which London palace is the British monarch's official residence? | Buckingham Palace
+Which English king had six wives? | Henry VIII
+Which French queen was guillotined in 1793 during the Revolution? | Marie Antoinette
+Which Russian tsar founded St. Petersburg in 1703? | Peter the Great
+Who was the first English king of the House of Tudor? | Henry VII
+# Wild Cats
+What is the largest species of wild cat? | Tiger
+Which big cat of the Americas has a name from an Indigenous South American word? | Jaguar
+What is a leopard or jaguar with a black coat commonly called? | Black panther
+Which tufted-eared wild cat of the boreal forest depends heavily on snowshoe hares? | Canada lynx
+Which elusive cat of Central Asia's mountains wraps its long, thick tail around itself for warmth? | Snow leopard
+# Showstoppers
+Which Andrew Lloyd Webber musical features "Memory" and a cast of felines? | Cats
+Which Lin-Manuel Miranda musical tells the story of the first US Treasury secretary? | Hamilton
+Which musical tells the untold story of the witches of Oz? | Wicked
+In "The Sound of Music," what is the family's surname? | von Trapp
+Which musical features the songs "Seasons of Love" and "La Vie Bohème"? | Rent
+# Say Cheese
+Which stretchy cheese is the classic topping on pizza? | Mozzarella
+Which Dutch cheese, often sold in red wax, is named after a town north of Amsterdam? | Edam
+Which English cheese is named after a village in Somerset? | Cheddar
+Which French sheep's-milk blue cheese must be aged in the caves of one southern village? | Roquefort
+Which Italian blue cheese is named after a town near Milan? | Gorgonzola
+# Computer Lingo
+What does the "e" in "email" stand for? | Electronic
+What does "USB" stand for? | Universal Serial Bus
+What is the slang term for unwanted junk email? | Spam
+What does "CPU" stand for? | Central processing unit
+What does "HTTP" stand for? | Hypertext Transfer Protocol
+# Famous Authors
+Who wrote the "Harry Potter" series? | J.K. Rowling
+Who wrote "Romeo and Juliet"? | William Shakespeare
+Which Prince Edward Island author wrote "Anne of Green Gables"? | L.M. Montgomery
+Who wrote "Pride and Prejudice"? | Jane Austen
+Who wrote "One Hundred Years of Solitude"? | Gabriel García Márquez
+== R2
+# Joined at the Hip
+A Toronto NHL player + a noisy yard tool for autumn | Toronto Maple Leaf blower
+George Lucas's space saga + England's 15th-century civil wars | Star Wars of the Roses
+The Gothic cathedral on Paris's Île de la Cité + the actress who played M in the Bond films | Notre-Dame Judi Dench
+"Pretty Woman" star + the classic manual for running meetings | Julia Roberts Rules of Order
+"Sweet Caroline" singer + the volcanic crater overlooking Waikiki | Neil Diamond Head
+# Echo Chamber
+An off-road vehicle for a woolly animal | Sheep jeep
+A crate for a sly canine | Fox box
+A parrot's vocabulary term | Bird word
+A taxi for a crustacean | Crab cab
+Cash that makes you laugh | Funny money
+# River Run
+Which river flows through London? | Thames
+Which river flows through Paris? | Seine
+Which river flows through Baghdad? | Tigris
+Which river carved the Grand Canyon? | Colorado River
+Which is Canada's longest river, flowing into the Beaufort Sea? | Mackenzie River
+# Space Race
+Who was the first person to walk on the Moon? | Neil Armstrong
+Who became the first human in space in 1961? | Yuri Gagarin
+What was the name of the first artificial satellite, launched in 1957? | Sputnik 1
+Who was the first Canadian to command the International Space Station? | Chris Hadfield
+Which 1970 Apollo mission was aborted after an oxygen tank exploded on the way to the Moon? | Apollo 13
+# Puck Drop
+In hockey, what is it called when one player scores three goals in a game? | Hat trick
+What is the name of Montreal's NHL team? | Montreal Canadiens
+Which Edmonton Oilers legend is nicknamed "The Great One"? | Wayne Gretzky
+Which country did Canada face in the 1972 Summit Series? | Soviet Union
+Who scored the overtime "Golden Goal" for Canada's men at the 2010 Vancouver Olympics? | Sidney Crosby
+# Prime Time
+Which HBO fantasy series is set in Westeros? | Game of Thrones
+In which series does chemistry teacher Walter White become a meth kingpin? | Breaking Bad
+Which series follows ad man Don Draper on Madison Avenue? | Mad Men
+Which HBO mob drama starred James Gandolfini as Tony? | The Sopranos
+Which HBO drama examined police and drug dealers in Baltimore? | The Wire
+== FINAL
+# Art
+This Dutch painter created "The Starry Night" in 1889 while staying at an asylum in Saint-Rémy-de-Provence. | Vincent van Gogh

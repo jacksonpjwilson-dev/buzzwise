@@ -1,0 +1,80 @@
+NAME: Scattershot
+DIFFICULTY: medium
+TAGLINE: Aim anywhere, you'll hit something
+== R1
+# City Nicknames
+Which US city is nicknamed "the Big Apple"? | New York City
+Which US city is known as "the Windy City"? | Chicago
+Which US city is nicknamed "the Big Easy"? | New Orleans
+Which Canadian city, home of the Stampede, is nicknamed "Cowtown"? | Calgary
+Which Indian city was formerly known as Bombay? | Mumbai
+# Dino Days
+Which small, clever predator hunts the kids in the kitchen in "Jurassic Park"? | Velociraptor
+Which towering long-necked plant-eater is the first dinosaur seen up close in "Jurassic Park"? | Brachiosaurus
+What does the word "dinosaur" mean? | Terrible lizard
+The non-bird dinosaurs died out at the end of which geologic period? | Cretaceous
+Which Alberta park is a UNESCO World Heritage Site famous for its dinosaur fossils? | Dinosaur Provincial Park
+# Groove Thing
+Which Village People song is famous for its letter-spelling dance? | Y.M.C.A.
+Which Gloria Gaynor song became an anthem of survival? | I Will Survive
+Which group sang "Do you remember the 21st night of September?" | Earth, Wind & Fire
+Which "Queen of Disco" sang "Hot Stuff" and "Last Dance"? | Donna Summer
+Which disco band led by Nile Rodgers had a hit with "Le Freak"? | Chic
+# Bread Winners
+Which Indian flatbread is traditionally baked in a tandoor? | Naan
+Which Italian flatbread is often topped with olive oil and rosemary? | Focaccia
+Which braided bread is traditionally eaten on the Jewish Sabbath? | Challah
+Which tangy bread, famous in San Francisco, rises with a fermented starter? | Sourdough
+Which Irish bread is leavened with baking soda instead of yeast? | Soda bread
+# Doctor's Orders
+Which vitamin does your skin make when exposed to sunlight? | Vitamin D
+Which disease was declared eradicated worldwide in 1980? | Smallpox
+Which American researcher developed the first widely used polio vaccine? | Jonas Salk
+Which blood type is known as the universal donor for red cells? | O negative
+Which English doctor pioneered smallpox vaccination using cowpox? | Edward Jenner
+# Shakespeare Shorts
+Which Shakespeare play features star-crossed lovers in Verona? | Romeo and Juliet
+Which Danish prince asks "To be, or not to be"? | Hamlet
+Which play features three witches and an ambitious Scottish thane? | Macbeth
+Who is the scheming villain of "Othello"? | Iago
+Which play features the magician Prospero and the creature Caliban? | The Tempest
+== R2
+# Patchwork
+Peter Parker's web-slinging hero + Superman's nickname | Spider-Man of Steel
+Chewy stuff you can blow bubbles with + a sugary dome-shaped candy | Bubble gumdrop
+The top-hatted symbol of America + Dr. Seuss's green-eggs promoter | Uncle Sam-I-Am
+Spielberg's 1993 dinosaur film + a posh Manhattan street | Jurassic Park Avenue
+The Founding Father with a kite + a beloved Canadian children's turtle | Benjamin Franklin the Turtle
+# Sound Check
+A plate made for a goldfish | Fish dish
+An enclosure for chickens | Hen pen
+A superhero cloak for a gorilla | Ape cape
+A bath accessory for a hooting bird | Owl towel
+Soup made for a slow tree-dwelling mammal | Sloth broth
+# Peak Performance
+Which mountain range is home to Mount Everest? | Himalayas
+What is the highest mountain in Africa? | Kilimanjaro
+What is the highest mountain in North America? | Denali
+What is the highest peak in the Alps? | Mont Blanc
+What is Canada's highest mountain, located in Yukon? | Mount Logan
+# Rock On
+What is molten rock beneath Earth's surface called? | Magma
+What type of rock forms when lava or magma cools? | Igneous rock
+Which mineral is the softest on the Mohs scale? | Talc
+What was the name of the supercontinent that broke apart about 200 million years ago? | Pangaea
+What type of rock forms through heat and pressure, as marble does from limestone? | Metamorphic rock
+# Racket Club
+In tennis, what is a 40-40 score called? | Deuce
+Which racket sport is played in a four-walled court with a small hollow rubber ball? | Squash
+Which Grand Slam tennis tournament is played on clay courts? | French Open
+Which Swiss player won eight Wimbledon men's singles titles? | Roger Federer
+Which Grand Slam tournament is played on hard courts in Melbourne each January? | Australian Open
+# Movie Magic
+Which school of witchcraft and wizardry does Harry Potter attend? | Hogwarts
+In which 1984 film does Arnold Schwarzenegger first say "I'll be back"? | The Terminator
+Which 2010 Christopher Nolan film is about stealing secrets inside dreams? | Inception
+Which 1994 Best Picture winner follows a kind-hearted Alabama man through decades of history? | Forrest Gump
+Which 1972 film begins with the line "I believe in America"? | The Godfather
+== FINAL
+# Animals
+Along with the echidnas, this duck-billed Australian animal is one of the only mammals that lay eggs. | Platypus

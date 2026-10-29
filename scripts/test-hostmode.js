@@ -18,7 +18,7 @@ server.listen(0, async () => {
     const host = client(base), a = client(base), b = client(base), c = client(base);
     const { code } = await call(host, 'host:create', {});
     for (const [s, n] of [[a, 'Ann'], [b, 'Ben'], [c, 'Cat']]) await call(s, 'player:join', { code, name: n, pid: 'p' + n });
-    host.emit('host:mode', { mode: 'player' }); host.emit('host:selectBoard', { boardId: 'pub-quiz-night' }); host.emit('host:start'); await wait(120);
+    host.emit('host:mode', { mode: 'player' }); host.emit('host:selectBoard', { boardId: 'jackpot' }); host.emit('host:start'); await wait(120);
     ok(host.state.hostMode === 'player', 'host toggle switched to player-host mode');
     const room = rooms[code]; let [ddc, ddr] = [...room.dd][0].split('-').map(Number); let oc = ddc === 0 && ddr === 2 ? 1 : 0;
     const clue = room.board.rounds[0][oc].clues[2], ANS = clue.a;
@@ -84,7 +84,7 @@ server.listen(0, async () => {
 
     console.log('Jeopardy · dedicated host (unchanged)');
     const h2 = client(base), d = client(base); const r2 = await call(h2, 'host:create', {}); await call(d, 'player:join', { code: r2.code, name: 'Dee', pid: 'pDee' });
-    h2.emit('host:selectBoard', { boardId: 'pub-quiz-night' }); h2.emit('host:start'); await wait(80);
+    h2.emit('host:selectBoard', { boardId: 'jackpot' }); h2.emit('host:start'); await wait(80);
     const rm2 = rooms[r2.code]; const [d2c, d2r] = [...rm2.dd][0].split('-').map(Number); const c2 = d2c === 0 && d2r === 0 ? 1 : 0;
     h2.emit('host:open', { c: c2, r: 0 }); await wait(60);
     ok(h2.state.hostMode === 'dedicated' && h2.state.current.clue.a && d.state.current.buzzOpen && !d.state.current.answer, 'dedicated: host sees clue+answer, buzzers instant, phone gets nothing');

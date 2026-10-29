@@ -21,7 +21,7 @@ server.listen(0, async () => {
     await wait(100);
     ok(host.state.players.length === 2, 'host sees 2 players');
     host.emit('host:start'); await wait(80); ok(host.errors.includes('Pick a board first'), 'cannot start without board');
-    host.emit('host:selectBoard', { boardId: 'pub-quiz-night' }); host.emit('host:start'); await wait(100);
+    host.emit('host:selectBoard', { boardId: 'jackpot' }); host.emit('host:start'); await wait(100);
     ok(host.state.phase === 'board' && host.state.round === 0 && host.state.grid[0].clues[4].value === 1000, 'round 1 started, values 200-1000');
     const room = rooms[code]; ok(room.dd.size === 1, 'exactly 1 Daily Double in round 1');
     const [ddc, ddr] = [...room.dd][0].split('-').map(Number);
@@ -57,7 +57,7 @@ server.listen(0, async () => {
     ok(room.dd.size === 2, '2 Daily Doubles in Double Jeopardy');
     ok(b.state.grid[0].clues[0].value === 400 && b.state.grid.every(c => c.clues.every(x => !x.used)), 'players get fresh Double Jeopardy board');
     ok(host.state.controller === 'pa', 'lowest scorer (Alice) picks first in DJ');
-    ok(host.state.grid[0].name !== require('../data/questions.json').find(x => x.id === 'pub-quiz-night').rounds[0][0].name, 'new categories in round 2');
+    ok(host.state.grid[0].name !== require('../data/questions.json').find(x => x.id === 'jackpot').rounds[0][0].name, 'new categories in round 2');
     const dds = [...room.dd].map(k => k.split('-').map(Number));
     host.emit('host:open', { c: dds[0][0], r: dds[0][1] }); await wait(80);
     await call(a, 'player:ddWager', { amount: 500 }); await wait(50); host.emit('host:judge', { correct: false }); await wait(80);
@@ -81,7 +81,7 @@ server.listen(0, async () => {
     host.emit('host:finalJudge', { pid: 'pb', correct: true }); host.emit('host:finalJudge', { pid: 'pa', correct: false }); await wait(100);
     ok(b.state.me.score === bobScore + 1000 && host.state.phase === 'over', `final judged, game over (Bob ${b.state.me.score}, Alice ${a.state.me.score})`);
     // leak audit across EVERY state message ever sent to players
-    const B = require('../data/questions.json').find(x => x.id === 'pub-quiz-night');
+    const B = require('../data/questions.json').find(x => x.id === 'jackpot');
     const secrets = [B.final.clue, B.final.answer, ...B.rounds.flat().flatMap(c => c.clues.flatMap(x => [x.q, x.a]))].filter(t => t.length >= 6);
     const msgs = [...a.all, ...b.all];
     const leaks = msgs.filter(m => /"(clue|answer|q|a)":/.test(m) || secrets.some(t => m.includes(JSON.stringify(t).slice(1, -1))));
