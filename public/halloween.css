@@ -1,0 +1,173 @@
+/* Buzzwise v1.12 "Halloween Night" theme.
+   Loaded after neon.css and only active when <body> carries the .halloween class.
+   The server adds/removes that class and this stylesheet based on BUZZWISE_THEME
+   (default "halloween"; set BUZZWISE_THEME=neon to restore the Neon Game Show look). */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Luckiest+Guy&family=Inter:wght@500;600;700;800;900&display=swap');
+
+body.halloween{
+  --pumpkin:#ff7a18;--pumpkin2:#c2410c;--toxic:#8dff3a;--violet:#b583ff;--candle:#ffc04d;--blood:#ff5470;
+  --pink:var(--pumpkin);--cyan:var(--toxic);--yel:var(--candle);--gold:var(--candle);--gold2:#ff9f1a;
+  --bg:#09050f;--bg2:#1a0b2e;--card:#160a26;--line:rgba(255,122,24,.25);--text:#fff7ec;--muted:#d4c6e8;
+  --ac:var(--pumpkin);--ac2:var(--pumpkin2);
+  --disp:"Luckiest Guy","Arial Black",Impact,sans-serif;      /* numbers, buttons, codes: heavy and legible */
+  --title:Creepster,"Luckiest Guy",Impact,fantasy;              /* spooky font, titles only */
+  --panel:#1b0d30;--panel2:#120822;
+  isolation:isolate;
+}
+/* per-game Halloween accents */
+body.halloween.g-jp{--ac:#9d7bff;--ac2:#3a1a8f}
+body.halloween.g-wof{--ac:#ffb000;--ac2:#c2410c}
+body.halloween.g-ff{--ac:#ff5470;--ac2:#7a0d1e}
+body.halloween.g-pir{--ac:#6be86b;--ac2:#14532d}
+body.halloween.g-pw{--ac:#c99bff;--ac2:#581c87}
+body.halloween.g-cae{--ac:#efe6d6;--ac2:#5b5046}
+body.halloween.g-pri{--ac:#4fe3c1;--ac2:#0f5e55}
+html:has(body.halloween){background:#09050f}
+body.halloween{background-color:#09050f;background-image:
+  radial-gradient(1100px 650px at 50% -18%,color-mix(in srgb,var(--ac) 22%,#2a0b4d) 0,transparent 62%),
+  radial-gradient(900px 500px at -10% 110%,#3b0f5c55,transparent 70%),
+  linear-gradient(#09050f,#120623);background-repeat:no-repeat;background-attachment:fixed;color:var(--text)}
+
+/* ---------- decorations: moon, bats, cobwebs, jack-o'-lanterns, fog ---------- */
+body.halloween::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 120'%3E%3Cg fill='%231c0e30' stroke='%23c7a6ff' stroke-opacity='.55' stroke-width='.7'%3E%3Cpath transform='translate(20 40) scale(1.6)' d='M0 10C4 4 9 3 12 6C13 3 15 2 16 4L18 1L20 4C21 2 23 3 24 6C27 3 32 4 36 10C32 8 29 9 27 12C25 10 22 10 20 13C18 10 15 10 13 12C11 9 8 8 0 10Z'/%3E%3Cpath transform='translate(120 10) scale(1.1)' d='M0 10C4 4 9 3 12 6C13 3 15 2 16 4L18 1L20 4C21 2 23 3 24 6C27 3 32 4 36 10C32 8 29 9 27 12C25 10 22 10 20 13C18 10 15 10 13 12C11 9 8 8 0 10Z'/%3E%3Cpath transform='translate(175 70) scale(.8)' d='M0 10C4 4 9 3 12 6C13 3 15 2 16 4L18 1L20 4C21 2 23 3 24 6C27 3 32 4 36 10C32 8 29 9 27 12C25 10 22 10 20 13C18 10 15 10 13 12C11 9 8 8 0 10Z'/%3E%3Cpath transform='translate(90 85) scale(.6)' d='M0 10C4 4 9 3 12 6C13 3 15 2 16 4L18 1L20 4C21 2 23 3 24 6C27 3 32 4 36 10C32 8 29 9 27 12C25 10 22 10 20 13C18 10 15 10 13 12C11 9 8 8 0 10Z'/%3E%3C/g%3E%3C/svg%3E") right 30px top 150px/230px auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23e9ddff' stroke-opacity='.30' stroke-width='1.3'%3E%3Cpath d='M0 0L200 0'/%3E%3Cpath d='M0 0L190 60'/%3E%3Cpath d='M0 0L160 120'/%3E%3Cpath d='M0 0L120 160'/%3E%3Cpath d='M0 0L60 190'/%3E%3Cpath d='M0 0L0 200'/%3E%3Cpath d='M40 0Q34 5 38 12Q30 15 32 24Q24 24 24 32Q15 30 12 38Q5 34 0 40'/%3E%3Cpath d='M75 0Q63 10 71 23Q57 29 61 44Q45 45 44 61Q29 57 23 71Q10 63 0 75'/%3E%3Cpath d='M110 0Q92 15 105 34Q83 42 89 65Q66 66 65 89Q42 83 34 105Q15 92 0 110'/%3E%3Cpath d='M145 0Q122 19 138 45Q110 56 117 85Q87 87 85 117Q56 110 45 138Q19 122 0 145'/%3E%3Cpath d='M180 0Q151 24 171 56Q136 69 146 106Q108 108 106 146Q69 136 56 171Q24 151 0 180'/%3E%3C/g%3E%3C/svg%3E") left top/210px auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg transform='translate(200 0) scale(-1 1)' fill='none' stroke='%23e9ddff' stroke-opacity='.30' stroke-width='1.3'%3E%3Cpath d='M0 0L200 0'/%3E%3Cpath d='M0 0L190 60'/%3E%3Cpath d='M0 0L160 120'/%3E%3Cpath d='M0 0L120 160'/%3E%3Cpath d='M0 0L60 190'/%3E%3Cpath d='M0 0L0 200'/%3E%3Cpath d='M40 0Q34 5 38 12Q30 15 32 24Q24 24 24 32Q15 30 12 38Q5 34 0 40'/%3E%3Cpath d='M75 0Q63 10 71 23Q57 29 61 44Q45 45 44 61Q29 57 23 71Q10 63 0 75'/%3E%3Cpath d='M110 0Q92 15 105 34Q83 42 89 65Q66 66 65 89Q42 83 34 105Q15 92 0 110'/%3E%3Cpath d='M145 0Q122 19 138 45Q110 56 117 85Q87 87 85 117Q56 110 45 138Q19 122 0 145'/%3E%3Cpath d='M180 0Q151 24 171 56Q136 69 146 106Q108 108 106 146Q69 136 56 171Q24 151 0 180'/%3E%3C/g%3E%3C/svg%3E") right top/170px auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cpath d='M48 14C47 8 50 3 55 1L58 4C54 6 53 10 54 14Z' fill='%233f7d1f'/%3E%3Cg fill='%23ff7a18'%3E%3Cellipse cx='30' cy='52' rx='22' ry='32'/%3E%3Cellipse cx='70' cy='52' rx='22' ry='32'/%3E%3Cellipse cx='50' cy='52' rx='24' ry='35' fill='%23ff8c2e'/%3E%3C/g%3E%3Cg fill='%23ffd84d'%3E%3Cpath d='M28 42L40 42L34 31Z'/%3E%3Cpath d='M60 42L72 42L66 31Z'/%3E%3Cpath d='M46 50L54 50L50 43Z'/%3E%3Cpath d='M24 60Q50 82 76 60L69 63L65 58L58 66L50 60L42 66L35 58L31 63Z'/%3E%3C/g%3E%3C/svg%3E") left 18px bottom 14px/92px auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cpath d='M48 14C47 8 50 3 55 1L58 4C54 6 53 10 54 14Z' fill='%233f7d1f'/%3E%3Cg fill='%23ff7a18'%3E%3Cellipse cx='30' cy='52' rx='22' ry='32'/%3E%3Cellipse cx='70' cy='52' rx='22' ry='32'/%3E%3Cellipse cx='50' cy='52' rx='24' ry='35' fill='%23ff8c2e'/%3E%3C/g%3E%3Cg fill='%23ffd84d'%3E%3Cpath d='M28 42L40 42L34 31Z'/%3E%3Cpath d='M60 42L72 42L66 31Z'/%3E%3Cpath d='M46 50L54 50L50 43Z'/%3E%3Cpath d='M24 60Q50 82 76 60L69 63L65 58L58 66L50 60L42 66L35 58L31 63Z'/%3E%3C/g%3E%3C/svg%3E") right 26px bottom 14px/64px auto no-repeat,
+    radial-gradient(circle 140px at calc(100% - 90px) 150px,#fff6d6 0 40px,#f2dc96 44px,rgba(255,214,120,.2) 48px,rgba(255,170,60,.05) 100px,transparent 140px)}
+body.halloween::after{content:"";position:fixed;left:-10%;right:-10%;bottom:0;height:34vh;z-index:-1;pointer-events:none;
+  background:radial-gradient(60% 70% at 25% 100%,rgba(190,170,255,.10),transparent 70%),radial-gradient(50% 60% at 75% 100%,rgba(141,255,58,.05),transparent 70%),radial-gradient(70% 80% at 50% 110%,rgba(220,210,255,.09),transparent 70%);
+  animation:hfog 28s ease-in-out infinite alternate}
+@keyframes hfog{to{transform:translateX(6%)}}
+@keyframes hflicker{0%,100%{opacity:1}42%{opacity:.86}44%{opacity:1}71%{opacity:.92}73%{opacity:1}}
+/* phones: keep it light. One cobweb and the moon, no fog, no bats */
+body.halloween.r-play::before{background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg transform='translate(200 0) scale(-1 1)' fill='none' stroke='%23e9ddff' stroke-opacity='.30' stroke-width='1.3'%3E%3Cpath d='M0 0L200 0'/%3E%3Cpath d='M0 0L190 60'/%3E%3Cpath d='M0 0L160 120'/%3E%3Cpath d='M0 0L120 160'/%3E%3Cpath d='M0 0L60 190'/%3E%3Cpath d='M0 0L0 200'/%3E%3Cpath d='M40 0Q34 5 38 12Q30 15 32 24Q24 24 24 32Q15 30 12 38Q5 34 0 40'/%3E%3Cpath d='M75 0Q63 10 71 23Q57 29 61 44Q45 45 44 61Q29 57 23 71Q10 63 0 75'/%3E%3Cpath d='M110 0Q92 15 105 34Q83 42 89 65Q66 66 65 89Q42 83 34 105Q15 92 0 110'/%3E%3Cpath d='M145 0Q122 19 138 45Q110 56 117 85Q87 87 85 117Q56 110 45 138Q19 122 0 145'/%3E%3Cpath d='M180 0Q151 24 171 56Q136 69 146 106Q108 108 106 146Q69 136 56 171Q24 151 0 180'/%3E%3C/g%3E%3C/svg%3E") right top/120px auto no-repeat,
+    radial-gradient(circle 90px at calc(100% - 52px) 64px,#fff6d6 0 22px,#f2dc96 25px,rgba(255,214,120,.16) 28px,transparent 80px)}
+body.halloween.r-play::after{display:none}
+@media (max-width:640px){
+  body.halloween::before{background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23e9ddff' stroke-opacity='.30' stroke-width='1.3'%3E%3Cpath d='M0 0L200 0'/%3E%3Cpath d='M0 0L190 60'/%3E%3Cpath d='M0 0L160 120'/%3E%3Cpath d='M0 0L120 160'/%3E%3Cpath d='M0 0L60 190'/%3E%3Cpath d='M0 0L0 200'/%3E%3Cpath d='M40 0Q34 5 38 12Q30 15 32 24Q24 24 24 32Q15 30 12 38Q5 34 0 40'/%3E%3Cpath d='M75 0Q63 10 71 23Q57 29 61 44Q45 45 44 61Q29 57 23 71Q10 63 0 75'/%3E%3Cpath d='M110 0Q92 15 105 34Q83 42 89 65Q66 66 65 89Q42 83 34 105Q15 92 0 110'/%3E%3Cpath d='M145 0Q122 19 138 45Q110 56 117 85Q87 87 85 117Q56 110 45 138Q19 122 0 145'/%3E%3Cpath d='M180 0Q151 24 171 56Q136 69 146 106Q108 108 106 146Q69 136 56 171Q24 151 0 180'/%3E%3C/g%3E%3C/svg%3E") left top/120px auto no-repeat,
+    radial-gradient(circle 90px at calc(100% - 52px) 64px,#fff6d6 0 22px,#f2dc96 25px,rgba(255,214,120,.16) 28px,transparent 80px)}
+  body.halloween::after{display:none}}
+/* host screens: decorations stay at the edges, below content */
+body.halloween .app{position:relative;z-index:0}
+
+/* ---------- titles (spooky font) ---------- */
+body.halloween .logo,body.halloween .nlogo{font-family:var(--title);font-size:26px;letter-spacing:.04em;color:var(--pumpkin);text-shadow:0 0 10px #ff7a1899,0 2px 0 #000}
+body.halloween .logo .muted{font-family:Inter,sans-serif;color:var(--ac)!important;text-shadow:none;font-size:13px!important}
+body.halloween .logo .mark,body.halloween .nmark{position:relative;width:38px;height:36px;border-radius:48% 48% 44% 44%/55% 55% 45% 45%;background:radial-gradient(circle at 50% 40%,#ffa24d,#ff7a18 55%,#c2410c);color:#2a0d00;font-family:var(--disp);text-shadow:none;box-shadow:0 0 16px #ff7a1899;animation:hflicker 5s infinite}
+body.halloween .logo .mark::after,body.halloween .nmark::after{content:"";position:absolute;top:-6px;left:50%;width:6px;height:9px;margin-left:-2px;border-radius:2px 4px 0 0;background:#4c9a26;transform:rotate(12deg)}
+body.halloween h1,body.halloween h2,body.halloween .section-title,body.halloween .gr-title,body.halloween .card h3,body.halloween .h-tile h3{font-family:var(--title);font-weight:400;letter-spacing:.04em}
+body.halloween .card h3{color:var(--toxic);text-shadow:0 0 8px #8dff3a55;font-size:22px}
+body.halloween .bar{background:rgba(12,5,22,.86);border-bottom:2px solid color-mix(in srgb,var(--ac) 45%,transparent);box-shadow:0 2px 26px #00000088}
+
+/* ---------- surfaces & controls ---------- */
+body.halloween .card{background:linear-gradient(160deg,#1c0d33,#0f0719);border:2px solid color-mix(in srgb,var(--ac) 38%,transparent);box-shadow:0 10px 30px #0008,inset 0 0 26px color-mix(in srgb,var(--ac) 8%,transparent)}
+body.halloween .gold{color:var(--candle);text-shadow:0 0 8px #ff9f1a66}
+body.halloween .btn-gold{background:var(--pumpkin);color:#1f0900;box-shadow:0 0 0 2px #ffffff26,0 0 20px #ff7a1888}
+body.halloween .btn-gold:hover{box-shadow:0 0 0 2px #fff5,0 0 30px #ff7a18}
+body.halloween .btn-ghost{background:rgba(141,255,58,.06);color:#d6ffbf;border:2px solid #8dff3aaa;box-shadow:0 0 10px #8dff3a33}
+body.halloween .btn-ghost:hover{background:rgba(141,255,58,.13)}
+body.halloween .btn-green{background:var(--toxic);color:#0d2600;box-shadow:0 0 16px #8dff3a66}
+body.halloween .btn-red{background:#e11d48;color:#fff;box-shadow:0 0 16px #e11d4866}
+body.halloween input,body.halloween select,body.halloween textarea{background:var(--panel2);border:2px solid color-mix(in srgb,var(--ac) 50%,transparent);color:#fff}
+body.halloween :focus-visible{outline:3px solid var(--toxic)}
+body.halloween .code-chip,body.halloween .joinbox .code{color:var(--candle);text-shadow:0 0 10px #ff7a18aa;background:var(--panel2);border:2px solid var(--pumpkin);box-shadow:0 0 16px #ff7a1855;letter-spacing:.08em}
+body.halloween .chip{background:var(--panel)}
+body.halloween .tab{background:var(--panel)}body.halloween .tab.on{background:var(--pumpkin);border-color:var(--pumpkin);color:#1f0900;box-shadow:0 0 12px #ff7a1888}
+body.halloween .pill{background:#ff7a181a;border-color:#ff7a1866;color:#ffd2ad}
+body.halloween .toast{background:var(--panel);border-color:var(--pumpkin);box-shadow:0 0 22px #ff7a1866}
+body.halloween .score-row{background:var(--panel)}body.halloween .score-row .s{color:var(--candle)}
+body.halloween .score-row.ctrl{box-shadow:0 0 0 2px var(--pumpkin),0 0 16px #ff7a1877}
+body.halloween .neg,body.halloween .score-row .s.neg{color:#ff8a9e}
+
+/* ---------- Jeopardy: haunted midnight board ---------- */
+body.halloween .grid{background:#0d0620;box-shadow:0 0 0 4px var(--pumpkin),0 0 40px #ff7a1844}
+body.halloween .cat,body.halloween .pcat{background:#2a1259;font-family:Inter,sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:.02em;color:#fff7ec}
+body.halloween .cell,body.halloween .pcell{background:#1e0e45;color:var(--candle);text-shadow:0 0 8px #ff7a1888}
+body.halloween .cell:hover{background:#34186e;box-shadow:0 0 18px #9d7bff}
+body.halloween .cell.used,body.halloween .pcell.used{background:#0e0722;box-shadow:none}
+body.halloween .overlay{background:radial-gradient(circle at 50% 30%,#2f1466,#0a0414 78%)}
+body.halloween .overlay .meta{color:var(--toxic);text-shadow:0 0 8px #8dff3a88}
+body.halloween .answer{border-color:var(--pumpkin);color:var(--candle);text-shadow:none}
+body.halloween .dd{color:var(--pumpkin);text-shadow:0 0 12px #ff7a18,0 0 40px #c2410c;font-family:var(--title)}
+body.halloween .pcell.pickable{outline-color:var(--pumpkin)}
+
+/* ---------- buzzers ---------- */
+body.halloween .bz-wait{background:#1f1233;color:#b9a8d6;border-color:#ffffff2a}
+body.halloween .bz-live{color:#1f0900;background:radial-gradient(circle at 35% 30%,#ffb56b,#ff7a18 45%,#9a3412);border-color:#ffd2ad;box-shadow:0 0 0 10px #ff7a1833,0 0 60px #ff7a18,inset 0 -12px 0 #0004;animation:hpulse 1.2s infinite}
+body.halloween .bz-me{background:radial-gradient(circle at 35% 30%,#d4ff9e,#7ee82f 45%,#2f6b0c);color:#0d2600;border-color:#eaffd6;box-shadow:0 0 0 10px #8dff3a33,0 0 60px #8dff3a}
+body.halloween .bz-out{background:#260b16;color:#e0a0ae;border-color:#ff547066}
+@keyframes hpulse{50%{box-shadow:0 0 0 20px #ff7a1822,0 0 90px #ff7a18,inset 0 -12px 0 #0004}}
+
+/* ---------- Get ready / start gate ---------- */
+body.halloween #gr{background:radial-gradient(circle at 50% 30%,color-mix(in srgb,var(--ac) 28%,#24093f),#09050f 72%)}
+body.halloween .gr-kicker{color:var(--toxic);text-shadow:0 0 10px #8dff3a88}
+body.halloween .gr-title{color:var(--pumpkin);text-shadow:0 0 18px #ff7a1899,0 3px 0 #000;animation:hflicker 6s infinite}
+body.halloween .gr-line{color:#f4ecff}
+
+/* ---------- Wheel / Feud / Price / party modes ---------- */
+body.halloween .wboard{border-color:var(--pumpkin);box-shadow:0 0 0 6px #1a0b2e,0 0 40px #ff7a1855}
+body.halloween .wcat{background:var(--panel2);color:var(--candle);text-shadow:none}
+body.halloween .wmsg{color:var(--candle);text-shadow:none}
+body.halloween .wp{background:var(--panel)!important}
+body.halloween .ff-board{border-color:var(--pumpkin);box-shadow:0 0 0 6px #2a0a18,0 0 50px #ff7a1844}
+body.halloween .ff-board{background:radial-gradient(circle at 50% 0,#4a1238,#1a0618)}
+body.halloween .ff-slot.hidden{background:linear-gradient(180deg,#7a1a3a,#5a0f2a)}
+body.halloween .ff-slot.shown{background:linear-gradient(180deg,#3a0d2a,#22071a)}
+body.halloween .ff-slot.empty{background:#22071a66}
+body.halloween .wboard{background:#0f2a12;border-color:var(--pumpkin)}
+body.halloween .pir-sign{background:linear-gradient(135deg,#ff7a18,#b583ff 50%,#8dff3a)}
+body.halloween .ff-pot{background:var(--panel2);border-color:var(--pumpkin)}body.halloween .ff-pot .sc{color:var(--candle);text-shadow:0 0 10px #ff7a1888}
+body.halloween .ff-team.ctl{box-shadow:0 0 0 3px var(--pumpkin),0 0 24px #ff7a1888}
+body.halloween .pir-sign{box-shadow:0 0 40px #8dff3a44}
+body.halloween .pir-price{box-shadow:0 0 22px #8dff3a77;text-shadow:none}
+body.halloween .bidcard{background:var(--panel)}
+body.halloween .timer{color:var(--candle);text-shadow:0 0 10px #ff7a1888}
+body.halloween .pw-word,body.halloween .pw-value{color:var(--candle);text-shadow:0 0 12px #ff7a18aa}
+body.halloween .pw-turn{text-shadow:0 0 18px var(--ac)}
+body.halloween .pw-team,body.halloween .pw-stand,body.halloween .pri-item,body.halloween .team-card,body.halloween .lchip{background:var(--panel)}
+body.halloween .pw-stand .rk{color:var(--toxic)}body.halloween .pw-stand .s{color:var(--candle);text-shadow:none}
+body.halloween .pw-stand.first{border-color:var(--pumpkin);box-shadow:0 0 26px #ff7a1866}
+body.halloween .pw-team.won,body.halloween .pri-item.hit{border-color:var(--toxic);box-shadow:0 0 18px #8dff3a55}
+body.halloween .pri-item.hit{background:#11240a}
+body.halloween .cae-prompt{background:#050208;border-color:#efe6d6;box-shadow:0 0 26px #b583ff44}
+body.halloween .cae-card.sel{border-color:var(--pumpkin);box-shadow:0 0 22px #ff7a18}
+body.halloween .cae-sub.win{outline-color:var(--pumpkin);box-shadow:0 0 30px #ff7a18aa}
+body.halloween .team-card.mine{background:color-mix(in srgb,var(--tc) 14%,var(--panel))}
+body.halloween .mem.buzzed{background:var(--pumpkin);color:#1f0900;box-shadow:0 0 12px #ff7a18aa}
+
+/* ---------- Home page ---------- */
+body.halloween .h-nav{border-bottom:2px solid #ff7a1833;box-shadow:0 2px 26px #0008}
+body.halloween .h-nav nav{color:#e6dcf5}
+body.halloween .nbtn{background:var(--pumpkin);color:#1f0900;box-shadow:0 0 0 3px #ffffff22,0 0 22px #ff7a1888}
+body.halloween .nbtn:hover{box-shadow:0 0 0 3px #fff5,0 0 32px #ff7a18}
+body.halloween .nbtn.ghost{background:transparent;color:var(--toxic);box-shadow:inset 0 0 0 2px var(--toxic),0 0 14px #8dff3a44}
+body.halloween .h-kicker{color:var(--toxic);text-shadow:0 0 10px #8dff3a77}
+body.halloween.home h1{color:var(--pumpkin);text-shadow:0 0 22px #ff7a1877,0 4px 0 #000;letter-spacing:.03em;animation:hflicker 7s infinite}
+body.halloween .h-lead{color:#ece2fb}
+body.halloween .h-join input{background:var(--panel2);border-color:var(--pumpkin)!important;box-shadow:0 0 16px #ff7a1844 inset}
+body.halloween .h-join input::placeholder{color:#a593c4}
+body.halloween .h-sub{color:#cbbde3}
+body.halloween .tv{background:linear-gradient(#2a1250,#120624);box-shadow:0 0 0 6px var(--pumpkin),0 0 60px #ff7a1877}
+body.halloween .bulbs{background:radial-gradient(circle,#ffc04d 0 4px,transparent 5px) 0 0/28px 28px;filter:drop-shadow(0 0 6px #ff7a18)}
+body.halloween .tv-screen{background:#0d0620}
+body.halloween .tv-screen div{background:#2a1259;color:var(--candle);text-shadow:0 0 6px #ff7a18}
+body.halloween .h-games h2{color:var(--pumpkin);text-shadow:0 0 16px #ff7a1866,0 3px 0 #000;font-size:42px}
+body.halloween .h-tile{background:linear-gradient(160deg,#1c0d33,#0e0618)}
+body.halloween .h-tile h3{font-size:28px}
+body.halloween .h-tile p{color:#d8cbeb}
+body.halloween .t-jp{--c1:#9d7bff!important}body.halloween .t-wof{--c1:#ffb000!important}body.halloween .t-ff{--c1:#ff5470!important}
+body.halloween .t-pir{--c1:#6be86b!important}body.halloween .t-pw{--c1:#c99bff!important}body.halloween .t-cae{--c1:#efe6d6!important}body.halloween .t-pri{--c1:#4fe3c1!important}
+body.halloween .h-steps div{border-color:#ff7a1855;background:#0e061899}
+body.halloween .h-steps b{color:var(--pumpkin);text-shadow:0 0 10px #ff7a1877;font-family:var(--title);font-size:38px}
+body.halloween .h-steps p{color:#cbbde3}
+body.halloween .h-foot{color:#a998c6}
+
+/* reduced motion: no fog drift, flicker or pulsing */
+@media (prefers-reduced-motion:reduce){
+  body.halloween::after{animation:none}
+  body.halloween *,body.halloween *::before,body.halloween *::after{animation:none!important;transition-duration:.001ms!important}}

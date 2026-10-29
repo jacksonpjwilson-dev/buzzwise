@@ -1,12 +1,12 @@
 {
   "name": "jeopardy-pro",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "Buzzwise - multiplayer Jeopardy-style trivia night for phones",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "check": "node scripts/build-data.js && node scripts/check-duplicates.js && node scripts/check-party.js",
-    "test": "node scripts/test-flow.js && node scripts/test-wof.js && node scripts/test-ff.js && node scripts/test-pir.js && node scripts/test-hostmode.js && node scripts/test-misc.js && node scripts/test-ff-buzzer.js && node scripts/test-party.js && node scripts/test-getready.js && node scripts/test-tts.js && node scripts/test-teams.js && node scripts/test-icons.js",
+    "test": "node scripts/test-flow.js && node scripts/test-wof.js && node scripts/test-ff.js && node scripts/test-pir.js && node scripts/test-hostmode.js && node scripts/test-misc.js && node scripts/test-ff-buzzer.js && node scripts/test-party.js && node scripts/test-getready.js && node scripts/test-tts.js && node scripts/test-teams.js && node scripts/test-icons.js && node scripts/test-theme.js",
     "check:ff": "node scripts/check-ff.js",
     "check:wof": "node scripts/check-wof.js",
     "check:pir": "node scripts/check-pir.js",

@@ -16,27 +16,29 @@ const VERSION = { version: PKG_VERSION, commit: COMMIT || 'dev', label: `v${PKG_
 app.get('/version', (req, res) => res.json(VERSION));
 app.get('/healthz', (req, res) => res.send('ok'));
 const ICON_TYPES = { '.webmanifest': 'application/manifest+json', '.ico': 'image/x-icon', '.svg': 'image/svg+xml', '.png': 'image/png' };
+// HTML pages go through lib/theme.js (Halloween by default; BUZZWISE_THEME=neon restores the neon look).
+const THEME = require('./lib/theme');
+const PUB = f => path.join(__dirname, 'public', f);
 // Home page: inject the live Jeopardy board count so the tile never goes stale.
-const fs = require('fs');
-const HOME_HTML = fs.readFileSync(path.join(__dirname, 'public', 'index.html'), 'utf8')
-  .replace(/<span data-jp-boards>\d+<\/span>/, `<span data-jp-boards>${BOARDS.length}</span>`);
-app.get(['/', '/index.html'], (req, res) => res.type('html').send(HOME_HTML));
+const homeCount = html => html.replace(/<span data-jp-boards>\d+<\/span>/, `<span data-jp-boards>${BOARDS.length}</span>`);
+app.get(['/', '/index.html'], THEME.page(PUB('index.html'), homeCount));
+app.get(/^\/([a-z-]+)\.html$/, (req, res, next) => { const f = req.params[0] + '.html'; if (f === 'index.html' || !require('fs').existsSync(PUB(f))) return next(); THEME.page(PUB(f))(req, res); });
 app.use(express.static(path.join(__dirname, 'public'), { setHeaders: (res, file) => { const t = ICON_TYPES[path.extname(file)]; if (t) res.setHeader('Content-Type', t);
   if (/(apple-touch-icon|favicon|icons[\\/])/.test(file)) res.setHeader('Cache-Control', 'public, max-age=86400'); } }));
 app.get('/api/boards', (req, res) => res.json(BOARDS.map(b => ({
   id: b.id, name: b.name, difficulty: b.difficulty, tagline: b.tagline,
   categories: b.rounds.map(r => r.map(c => c.name)),
 }))));
-app.get('/host', (req, res) => res.sendFile(path.join(__dirname, 'public', 'host.html')));
-app.get('/play', (req, res) => res.sendFile(path.join(__dirname, 'public', 'play.html')));
+app.get('/host', (req, res) => THEME.page(PUB('host.html'))(req, res));
+app.get('/play', (req, res) => THEME.page(PUB('play.html'))(req, res));
 
-app.get('/wof', (req, res) => res.sendFile(path.join(__dirname, 'public', 'wof-host.html')));
-app.get('/ff', (req, res) => res.sendFile(path.join(__dirname, 'public', 'ff-host.html')));
-app.get('/ff/play', (req, res) => res.sendFile(path.join(__dirname, 'public', 'ff-play.html')));
-app.get('/pir', (req, res) => res.sendFile(path.join(__dirname, 'public', 'pir-host.html')));
-app.get('/pir/play', (req, res) => res.sendFile(path.join(__dirname, 'public', 'pir-play.html')));
-for (const g of ['pw', 'cae', 'pri']) { app.get('/' + g, (req, res) => res.sendFile(path.join(__dirname, 'public', g + '-host.html'))); app.get(`/${g}/play`, (req, res) => res.sendFile(path.join(__dirname, 'public', g + '-play.html'))); }
-app.get('/wof/play', (req, res) => res.sendFile(path.join(__dirname, 'public', 'wof-play.html')));
+app.get('/wof', (req, res) => THEME.page(PUB('wof-host.html'))(req, res));
+app.get('/ff', (req, res) => THEME.page(PUB('ff-host.html'))(req, res));
+app.get('/ff/play', (req, res) => THEME.page(PUB('ff-play.html'))(req, res));
+app.get('/pir', (req, res) => THEME.page(PUB('pir-host.html'))(req, res));
+app.get('/pir/play', (req, res) => THEME.page(PUB('pir-play.html'))(req, res));
+for (const g of ['pw', 'cae', 'pri']) { app.get('/' + g, (req, res) => THEME.page(PUB(g + '-host.html'))(req, res)); app.get(`/${g}/play`, (req, res) => THEME.page(PUB(g + '-play.html'))(req, res)); }
+app.get('/wof/play', (req, res) => THEME.page(PUB('wof-play.html'))(req, res));
 
 app.get('/api/exists', (req, res) => { // lets /play pages drop stale saved sessions
   const code = String(req.query.code || '').trim().toUpperCase(), g = { jp: rooms, ff: ff.rooms, wof: wof.rooms, pir: pir.rooms, pw: pw.rooms, cae: cae.rooms, pri: pri.rooms }[req.query.game];

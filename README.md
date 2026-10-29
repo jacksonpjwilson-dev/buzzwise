@@ -71,6 +71,15 @@ At the top of each host screen pick:
 - Host tools: Skip round, ± team scores, team names, max rounds, New game.
 - Surveys live in `data/ff-surveys.txt` (114 questions). **The survey answers and point values are made-up estimates written for this game, not results of real surveys.** Run `npm run check:ff` after editing.
 
+## Theme: Halloween (default) and Neon (v1.12.0)
+
+Every page is styled as **Halloween** by default: night background, pumpkin orange, toxic green and purple, Creepster titles, plus moon, bats, cobwebs, jack-o'-lanterns and fog. Animations switch off under `prefers-reduced-motion`, and phones get fewer decorations. The theme is CSS only (`public/halloween.css` layered over `public/neon.css`, applied by `lib/theme.js`). Game logic is unchanged.
+
+**To switch back to the Neon Game Show look:**
+- **Everyone:** set the environment variable `BUZZWISE_THEME=neon` (on Render: Service → Environment → add `BUZZWISE_THEME` = `neon`, then save and redeploy). Remove it, or set it to `halloween`, to return to Halloween.
+- **Preview one page:** add `?theme=neon` to the URL (or `?theme=halloween`).
+- The app icon and manifest colours are now pumpkin orange. To restore the pink icon, revert `scripts/build-icons.js` and the icon files from v1.11.0 (`git checkout 0e30c0b -- scripts/build-icons.js public/icons public/apple-touch-icon.png public/favicon* public/manifest.webmanifest`).
+
 ## For developers
 - Questions live in `data/boards/*.txt` (easy to edit). After editing run `npm run check` — rebuilds `data/questions.json` and verifies no duplicate clues/answers across all boards.
 - `npm test` runs automated full-game tests for both modes (needs `npm install` incl. dev deps).
